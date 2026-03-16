@@ -1370,15 +1370,15 @@
                         </div>
 
                         <!-- Investor Portal -->
-                        <div class="bg-slate-800 rounded-lg border border-sky-600/30 overflow-hidden hover:shadow-sky-500/30 transition-shadow duration-300">
-                            <div class="p-6 border-b border-slate-700">
-                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500 to-emerald-400 flex items-center justify-center mb-4">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
+                            <div class="p-6" style="border-bottom:1px solid var(--border-subtle);">
+                                <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);">
+                                    <svg class="w-5 h-5" style="color:#4ade80;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                                     </svg>
                                 </div>
-                                <h4 class="text-xl font-semibold text-slate-50">Investors & Financial Partners</h4>
-                                <p class="mt-2 text-slate-400">Financial models, investment materials, and due diligence documents.</p>
+                                <h4 class="text-xl font-semibold" style="color:var(--text-primary);">Investors &amp; Financial Partners</h4>
+                                <p class="mt-2" style="color:var(--text-secondary);">Financial models, investment materials, and due diligence documents.</p>
                             </div>
                             <div class="p-6 space-y-3">
                                 <button onclick="downloadInvestorDeck()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
@@ -1409,15 +1409,15 @@
                         </div>
 
                         <!-- Technology Portal -->
-                        <div class="bg-slate-800 rounded-lg border border-sky-600/30 overflow-hidden hover:shadow-sky-500/30 transition-shadow duration-300">
-                            <div class="p-6 border-b border-slate-700">
-                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-violet-400 flex items-center justify-center mb-4">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
+                            <div class="p-6" style="border-bottom:1px solid var(--border-subtle);">
+                                <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background:var(--accent-dim);border:1px solid var(--border);">
+                                    <svg class="w-5 h-5" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                                     </svg>
                                 </div>
-                                <h4 class="text-xl font-semibold text-slate-50">Technology Partners</h4>
-                                <p class="mt-2 text-slate-400">Technical specifications, integration requirements, and partnership opportunities.</p>
+                                <h4 class="text-xl font-semibold" style="color:var(--text-primary);">Technology Partners</h4>
+                                <p class="mt-2" style="color:var(--text-secondary);">Technical specifications, integration requirements, and partnership opportunities.</p>
                             </div>
                             <div class="p-6 space-y-3">
                                 <button onclick="downloadTechSpecs()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
@@ -1451,21 +1451,21 @@
 
                 <!-- Core Project Documents -->
                 <div class="mb-16">
-                    <h3 class="text-2xl font-bold text-slate-50 mb-8 text-center">Core Project Documents</h3>
+                    <h3 class="text-2xl font-bold mb-8 text-center" style="color:var(--text-primary);">Core Project Documents</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="bg-slate-800 rounded-lg border border-sky-600/30 p-6 hover:shadow-sky-500/30 transition-shadow duration-300">
+                        <div class="futuristic-card p-6">
                             <div class="flex items-center mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mr-3">
-                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <div class="w-10 h-10 rounded flex items-center justify-center mr-3" style="background:var(--accent-dim);border:1px solid var(--border);">
+                                    <svg class="w-5 h-5" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-slate-50">Executive Summary</h4>
-                                    <p class="text-sm text-slate-400">1-page project overview</p>
+                                    <h4 class="font-semibold" style="color:var(--text-primary);">Executive Summary</h4>
+                                    <p class="text-sm" style="color:var(--text-secondary);">1-page project overview</p>
                                 </div>
                             </div>
-                            <button onclick="downloadExecutiveSummary()" class="w-full bg-slate-700 hover:bg-slate-600 text-slate-300 hover:text-cyan-400 px-4 py-2 rounded-lg transition-colors flex items-center justify-center">
+                            <button onclick="downloadExecutiveSummary()" class="w-full px-4 py-2 rounded transition-colors flex items-center justify-center" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"
                                 <span>Download</span>
                                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path>
@@ -1473,19 +1473,19 @@
                             </button>
                         </div>
 
-                        <div class="bg-slate-800 rounded-lg border border-sky-600/30 p-6 hover:shadow-sky-500/30 transition-shadow duration-300">
+                        <div class="futuristic-card p-6">
                             <div class="flex items-center mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center mr-3">
-                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <div class="w-10 h-10 rounded flex items-center justify-center mr-3" style="background:var(--accent-dim);border:1px solid var(--border);">
+                                    <svg class="w-5 h-5" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-slate-50">VR Experience Plan</h4>
-                                    <p class="text-sm text-slate-400">Demo materials strategy</p>
+                                    <h4 class="font-semibold" style="color:var(--text-primary);">VR Experience Plan</h4>
+                                    <p class="text-sm" style="color:var(--text-secondary);">Demo materials strategy</p>
                                 </div>
                             </div>
-                            <button onclick="downloadVRPlan()" class="w-full bg-slate-700 hover:bg-slate-600 text-slate-300 hover:text-cyan-400 px-4 py-2 rounded-lg transition-colors flex items-center justify-center">
+                            <button onclick="downloadVRPlan()" class="w-full px-4 py-2 rounded transition-colors flex items-center justify-center" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"
                                 <span>Download</span>
                                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path>
@@ -1493,19 +1493,19 @@
                             </button>
                         </div>
 
-                        <div class="bg-slate-800 rounded-lg border border-sky-600/30 p-6 hover:shadow-sky-500/30 transition-shadow duration-300">
+                        <div class="futuristic-card p-6" style="border-color:var(--border);">
                             <div class="flex items-center mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mr-3">
-                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <div class="w-10 h-10 rounded flex items-center justify-center mr-3" style="background:var(--accent-dim);border:1px solid var(--border);">
+                                    <svg class="w-5 h-5" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-slate-50">Complete Document Package</h4>
-                                    <p class="text-sm text-slate-400">All project documents</p>
+                                    <h4 class="font-semibold" style="color:var(--text-primary);">Complete Document Package</h4>
+                                    <p class="text-sm" style="color:var(--text-secondary);">All project documents</p>
                                 </div>
                             </div>
-                            <button onclick="downloadAllDocuments()" class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-4 py-2 rounded-lg transition-colors flex items-center justify-center font-semibold">
+                            <button onclick="downloadAllDocuments()" class="cta-button w-full flex items-center justify-center font-semibold">
                                 <span>Download All</span>
                                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path>
@@ -1516,14 +1516,14 @@
                 </div>
 
                 <!-- Document Access Notice -->
-                <div class="bg-slate-800/50 border border-cyan-400/30 rounded-lg p-6 text-center">
+                <div class="p-6 text-center" style="border:1px solid var(--border);border-radius:8px;background:var(--surface);">
                     <div class="flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-semibold text-slate-50 mb-2">Confidential Materials Access</h4>
-                    <p class="text-slate-400 mb-4 max-w-2xl mx-auto">
+                    <h4 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Confidential Materials Access</h4>
+                    <p class="mb-4 max-w-2xl mx-auto" style="color:var(--text-secondary);">
                         Some documents may require authorized access for viewing or downloading. Please contact us for access credentials or to request specific materials for due diligence purposes.
                     </p>
                     <button onclick="requestAccess()" class="cta-button">Request Access</button>
@@ -1533,103 +1533,96 @@
     </main>
 
         <!-- Stakeholder Contact Section -->
-        <section id="contact" class="py-20 sm:py-28 relative overflow-hidden" style="background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);">
-            <div class="absolute inset-0 overflow-hidden">
-                <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-br from-cyan-400/10 to-purple-500/10 blur-3xl floating-animation"></div>
-                <div class="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-gradient-to-br from-purple-500/10 to-pink-500/10 blur-3xl floating-animation" style="animation-delay: -1s;"></div>
-            </div>
-            
+        <section id="contact" class="py-20 sm:py-28 relative overflow-hidden" style="background:var(--surface);">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <div class="inline-flex items-center px-6 py-3 rounded-full border border-cyan-400/30 bg-cyan-400/5 mb-8">
-                    <span class="w-3 h-3 bg-cyan-400 rounded-full mr-3 pulse-animation"></span>
-                    <span class="text-base font-semibold text-cyan-400 tracking-wide uppercase">Ready to Transform the Future?</span>
+                <div class="inline-flex items-center px-6 py-3 mb-8" style="border-radius:999px;border:1px solid var(--border);background:var(--accent-dim);">
+                    <span class="w-3 h-3 rounded-full mr-3" style="background:var(--accent);"></span>
+                    <span style="font-size:0.7rem;font-weight:600;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;">Ready to Build the Future?</span>
                 </div>
-                
-                <h2 class="text-4xl font-bold text-slate-50 sm:text-5xl glow-text mb-6">
+
+                <h2 class="text-4xl font-bold sm:text-5xl mb-6" style="color:var(--text-primary);">
                     <span class="stat-number">Partner</span> with Us
                 </h2>
-                
-                <p class="max-w-3xl mx-auto text-xl text-slate-300 leading-relaxed mb-12">
-                    Join us in creating the world's first fully integrated mobility hub. Whether you're an investor, technology partner, or stakeholder, we're ready to build the future together.
+
+                <p class="max-w-3xl mx-auto text-xl leading-relaxed mb-12" style="color:var(--text-secondary);">
+                    Join us in creating Fort Worth's first fully integrated air mobility hub. Whether you're an investor, technology partner, or stakeholder, we're ready to build the future together.
                 </p>
-                
+
                 <div class="grid gap-6 md:grid-cols-3 max-w-4xl mx-auto mb-12">
                     <div class="futuristic-card p-6 text-center">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);">
+                            <svg class="w-7 h-7" style="color:#4ade80;" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm2 6a2 2 0 114 0 2 2 0 01-4 0zm6 0a2 2 0 114 0 2 2 0 01-4 0z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-50 mb-2">Investment Partners</h3>
-                        <p class="text-slate-400 text-sm">Unique opportunity to lead the mobility revolution</p>
+                        <h3 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Investment Partners</h3>
+                        <p class="text-sm" style="color:var(--text-secondary);">Unique opportunity to lead the mobility revolution</p>
                     </div>
-                    
+
                     <div class="futuristic-card p-6 text-center">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:var(--accent-dim);border:1px solid var(--border);">
+                            <svg class="w-7 h-7" style="color:var(--accent);" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-50 mb-2">Technology Partners</h3>
-                        <p class="text-slate-400 text-sm">Collaborate on cutting-edge VTOL and AV integration</p>
+                        <h3 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Technology Partners</h3>
+                        <p class="text-sm" style="color:var(--text-secondary);">Collaborate on cutting-edge VTOL and AV integration</p>
                     </div>
-                    
+
                     <div class="futuristic-card p-6 text-center">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);">
+                            <svg class="w-7 h-7" style="color:#60a5fa;" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-50 mb-2">Government Partners</h3>
-                        <p class="text-slate-400 text-sm">Shape policy for next-generation transportation</p>
+                        <h3 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Government Partners</h3>
+                        <p class="text-sm" style="color:var(--text-secondary);">Shape policy for next-generation transportation</p>
                     </div>
                 </div>
-                
+
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <button onclick="initiatePartnership()" class="cta-button text-lg px-8 py-4">Start Partnership Discussion</button>
-                    <button onclick="schedulePresentation()" class="border-2 border-cyan-400/50 text-cyan-400 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-cyan-400/10 transition-all duration-300 hover:border-cyan-400">Schedule Presentation</button>
+                    <button onclick="schedulePresentation()" style="border:1px solid var(--border);color:var(--accent);padding:16px 32px;border-radius:6px;font-size:1.125rem;font-weight:600;background:transparent;transition:all 0.2s ease;" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='transparent'">Schedule Presentation</button>
                 </div>
             </div>
         </section>
     
-    <footer class="py-12 relative" style="background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%); border-top: 1px solid var(--border-primary);">
+    <footer class="py-12 relative" style="background:#000000; border-top: 1px solid var(--border);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 p-0.5">
-                            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
-                                <span class="text-cyan-400 font-bold text-sm font-orbitron">T&P</span>
-                            </div>
+                        <div class="w-10 h-10 rounded-full border flex items-center justify-center" style="border-color:var(--border);background:var(--surface);">
+                            <span style="color:var(--accent);font-family:'Orbitron',sans-serif;font-weight:700;font-size:0.7rem;">TAL</span>
                         </div>
-                        <span class="font-bold text-lg text-cyan-400 font-orbitron">T&P NEXUS</span>
+                        <span style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:1rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">TRINITY AIR LINK</span>
                     </div>
-                    <p class="text-slate-400 text-sm">Pioneering the future of urban mobility through innovative VTOL-AV integration at the historic T&P Warehouse.</p>
+                    <p class="text-sm" style="color:var(--text-secondary);">Pioneering the future of urban air mobility through innovative VTOL-AV integration at the historic Texas &amp; Pacific Warehouse in Fort Worth.</p>
                 </div>
-                
+
                 <div>
-                    <h4 class="font-semibold text-slate-50 mb-4">Quick Access</h4>
+                    <h4 class="font-semibold mb-4" style="color:var(--text-primary);">Quick Access</h4>
                     <div class="space-y-2">
-                        <a href="#hub-vision" class="block text-slate-400 hover:text-cyan-400 transition-colors text-sm">Vision Overview</a>
-                        <a href="#opportunity" class="block text-slate-400 hover:text-cyan-400 transition-colors text-sm">Investment Opportunity</a>
-                        <a href="#phases" class="block text-slate-400 hover:text-cyan-400 transition-colors text-sm">Implementation Plan</a>
-                        <a href="#financials" class="block text-slate-400 hover:text-cyan-400 transition-colors text-sm">Financial Overview</a>
+                        <a href="#hub-vision" class="block text-sm transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Vision Overview</a>
+                        <a href="#opportunity" class="block text-sm transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Investment Opportunity</a>
+                        <a href="#phases" class="block text-sm transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Implementation Plan</a>
+                        <a href="#financials" class="block text-sm transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Financial Overview</a>
                     </div>
                 </div>
-                
+
                 <div>
-                    <h4 class="font-semibold text-slate-50 mb-4">Resources</h4>
+                    <h4 class="font-semibold mb-4" style="color:var(--text-primary);">Resources</h4>
                     <div class="space-y-2">
-                        <button onclick="downloadExecutiveSummary()" class="block text-slate-400 hover:text-cyan-400 transition-colors text-sm text-left">Executive Summary</button>
-                        <button onclick="downloadInvestorPackage()" class="block text-slate-400 hover:text-cyan-400 transition-colors text-sm text-left">Investor Package</button>
-                        <button onclick="downloadTechnicalSpecs()" class="block text-slate-400 hover:text-cyan-400 transition-colors text-sm text-left">Technical Specifications</button>
-                        <a href="#resources" class="block text-slate-400 hover:text-cyan-400 transition-colors text-sm">Due Diligence Resources</a>
+                        <button onclick="downloadExecutiveSummary()" class="block text-sm text-left transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Executive Summary</button>
+                        <button onclick="downloadInvestorPackage()" class="block text-sm text-left transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Investor Package</button>
+                        <button onclick="downloadTechnicalSpecs()" class="block text-sm text-left transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Technical Specifications</button>
+                        <a href="#resources" class="block text-sm transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Due Diligence Resources</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="border-t border-slate-700 pt-8 text-center">
-                <p class="text-slate-500 text-sm">&copy; 2026 T&P Nexus Hub. Transforming the future of mobility. All rights reserved.</p>
+
+            <div class="pt-8 text-center" style="border-top:1px solid var(--border-subtle);">
+                <p class="text-sm" style="color:var(--text-muted);">&copy; 2026 Trinity Air Link. Fort Worth's Future of Air Mobility. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1658,110 +1651,110 @@ function triggerDownload(url, filename) {
 }
 
 function downloadExecutiveSummary() {
-    triggerDownload('docs/HUB_Executive_Summary.md', 'HUB_Executive_Summary.md');
+    triggerDownload('docs/HUB_Executive_Summary.md', 'TAL_Executive_Summary.md');
 }
 
 function downloadInvestorPackage() {
-    triggerDownload('docs/Investor_Presentation_Deck.md', 'HUB_Investor_Package.md');
+    triggerDownload('docs/Investor_Presentation_Deck.md', 'TAL_Investor_Package.md');
 }
 
 function downloadTechnicalSpecs() {
-    triggerDownload('docs/Technical_Specifications.md', 'HUB_Technical_Specifications.md');
+    triggerDownload('docs/Technical_Specifications.md', 'TAL_Technical_Specifications.md');
 }
 
 function initiatePartnership() {
     // Placeholder for partnership initiation
-    const email = 'partnerships@tpnexus.com';
-    const subject = 'T&P Nexus Hub Partnership Inquiry';
-    const body = 'I am interested in learning more about partnership opportunities with the T&P Nexus Hub project. Please provide additional information about investment, technology collaboration, or strategic partnership options.';
-    
+    const email = 'partnerships@trinityairlink.com';
+    const subject = 'Trinity Air Link Partnership Inquiry';
+    const body = 'I am interested in learning more about partnership opportunities with the Trinity Air Link project. Please provide additional information about investment, technology collaboration, or strategic partnership options.';
+
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function schedulePresentation() {
-    const email = 'partnerships@tpnexus.com';
-    const subject = 'T&P Nexus Hub — Presentation Request';
-    const body = 'I would like to schedule a presentation/briefing on the T&P Nexus Hub project.\n\nOrganization: \nRole: \nPreferred dates: \nTopics of interest (investment, technology partnership, government, other): ';
+    const email = 'partnerships@trinityairlink.com';
+    const subject = 'Trinity Air Link — Presentation Request';
+    const body = 'I would like to schedule a presentation/briefing on the Trinity Air Link project.\n\nOrganization: \nRole: \nPreferred dates: \nTopics of interest (investment, technology partnership, government, other): ';
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 // Document Download Functions for New Documents Section
 function downloadGovernmentPresentation() {
-    triggerDownload('docs/Government_Presentation_Deck.md', 'HUB_Government_Presentation_Deck.md');
+    triggerDownload('docs/Government_Presentation_Deck.md', 'TAL_Government_Presentation_Deck.md');
 }
 
 function downloadEconomicImpact() {
-    triggerDownload('docs/HUB_Financial_Model.md', 'HUB_Economic_Impact_Financial_Model.md');
+    triggerDownload('docs/HUB_Financial_Model.md', 'TAL_Economic_Impact_Financial_Model.md');
 }
 
 function downloadRegulatoryPathway() {
-    triggerDownload('docs/Technical_Specifications.md', 'HUB_Regulatory_Pathway.md');
+    triggerDownload('docs/Technical_Specifications.md', 'TAL_Regulatory_Pathway.md');
 }
 
 function downloadCommunityBenefits() {
-    triggerDownload('docs/HUB_Executive_Summary.md', 'HUB_Community_Benefits_Overview.md');
+    triggerDownload('docs/HUB_Executive_Summary.md', 'TAL_Community_Benefits_Overview.md');
 }
 
 function downloadInvestorDeck() {
-    triggerDownload('docs/Investor_Presentation_Deck.md', 'HUB_Investor_Presentation_Deck.md');
+    triggerDownload('docs/Investor_Presentation_Deck.md', 'TAL_Investor_Presentation_Deck.md');
 }
 
 function downloadFinancialModel() {
-    triggerDownload('docs/HUB_Financial_Model.md', 'HUB_5Year_Financial_Model.md');
+    triggerDownload('docs/HUB_Financial_Model.md', 'TAL_5Year_Financial_Model.md');
 }
 
 function downloadRiskAssessment() {
-    triggerDownload('docs/Risk_Assessment_Matrix.md', 'HUB_Risk_Assessment_Matrix.md');
+    triggerDownload('docs/Risk_Assessment_Matrix.md', 'TAL_Risk_Assessment_Matrix.md');
 }
 
 function downloadFundingSources() {
-    triggerDownload('docs/Funding_Sources_Analysis.md', 'HUB_Funding_Sources_Analysis.md');
+    triggerDownload('docs/Funding_Sources_Analysis.md', 'TAL_Funding_Sources_Analysis.md');
 }
 
 function downloadTechSpecs() {
-    triggerDownload('docs/Technical_Specifications.md', 'HUB_Technical_Specifications.md');
+    triggerDownload('docs/Technical_Specifications.md', 'TAL_Technical_Specifications.md');
 }
 
 function downloadIntegrationReqs() {
-    triggerDownload('docs/Financial_Model_Spreadsheet.md', 'HUB_Integration_Requirements.md');
+    triggerDownload('docs/Financial_Model_Spreadsheet.md', 'TAL_Integration_Requirements.md');
 }
 
 function downloadPartnershipFramework() {
-    triggerDownload('docs/Detailed_Business_Case.txt', 'HUB_Partnership_Framework.txt');
+    triggerDownload('docs/Detailed_Business_Case.txt', 'TAL_Partnership_Framework.txt');
 }
 
 function downloadSafetyProtocols() {
-    triggerDownload('docs/Risk_Assessment_Matrix.md', 'HUB_Safety_Compliance_Protocols.md');
+    triggerDownload('docs/Risk_Assessment_Matrix.md', 'TAL_Safety_Compliance_Protocols.md');
 }
 
 function downloadProjectTracking() {
-    triggerDownload('docs/Project_Action_Items_Tracking.md', 'HUB_Project_Action_Items_Tracking.md');
+    triggerDownload('docs/Project_Action_Items_Tracking.md', 'TAL_Project_Action_Items_Tracking.md');
 }
 
 function downloadStakeholderDatabase() {
-    triggerDownload('docs/Stakeholder_Contact_Database.md', 'HUB_Stakeholder_Contact_Database.md');
+    triggerDownload('docs/Stakeholder_Contact_Database.md', 'TAL_Stakeholder_Contact_Database.md');
 }
 
 function downloadImageGuide() {
-    triggerDownload('docs/Image_Creation_Prompts.md', 'HUB_Image_Creation_Guide.md');
+    triggerDownload('docs/Image_Creation_Prompts.md', 'TAL_Image_Creation_Guide.md');
 }
 
 function downloadVRPlan() {
-    triggerDownload('docs/VR_Experience_Plan_Overview.md', 'HUB_VR_Experience_Plan.md');
+    triggerDownload('docs/VR_Experience_Plan_Overview.md', 'TAL_VR_Experience_Plan.md');
 }
 
 function downloadAllDocuments() {
     const docs = [
-        ['docs/HUB_Executive_Summary.md', 'HUB_Executive_Summary.md'],
-        ['docs/Investor_Presentation_Deck.md', 'HUB_Investor_Presentation_Deck.md'],
-        ['docs/Government_Presentation_Deck.md', 'HUB_Government_Presentation_Deck.md'],
-        ['docs/HUB_Financial_Model.md', 'HUB_Financial_Model.md'],
-        ['docs/Risk_Assessment_Matrix.md', 'HUB_Risk_Assessment_Matrix.md'],
-        ['docs/Funding_Sources_Analysis.md', 'HUB_Funding_Sources_Analysis.md'],
-        ['docs/Technical_Specifications.md', 'HUB_Technical_Specifications.md'],
-        ['docs/Project_Action_Items_Tracking.md', 'HUB_Project_Action_Items_Tracking.md'],
-        ['docs/Stakeholder_Contact_Database.md', 'HUB_Stakeholder_Contact_Database.md'],
-        ['docs/VR_Experience_Plan_Overview.md', 'HUB_VR_Experience_Plan.md'],
+        ['docs/HUB_Executive_Summary.md', 'TAL_Executive_Summary.md'],
+        ['docs/Investor_Presentation_Deck.md', 'TAL_Investor_Presentation_Deck.md'],
+        ['docs/Government_Presentation_Deck.md', 'TAL_Government_Presentation_Deck.md'],
+        ['docs/HUB_Financial_Model.md', 'TAL_Financial_Model.md'],
+        ['docs/Risk_Assessment_Matrix.md', 'TAL_Risk_Assessment_Matrix.md'],
+        ['docs/Funding_Sources_Analysis.md', 'TAL_Funding_Sources_Analysis.md'],
+        ['docs/Technical_Specifications.md', 'TAL_Technical_Specifications.md'],
+        ['docs/Project_Action_Items_Tracking.md', 'TAL_Project_Action_Items_Tracking.md'],
+        ['docs/Stakeholder_Contact_Database.md', 'TAL_Stakeholder_Contact_Database.md'],
+        ['docs/VR_Experience_Plan_Overview.md', 'TAL_VR_Experience_Plan.md'],
     ];
     docs.forEach(([url, filename], i) => {
         setTimeout(() => triggerDownload(url, filename), i * 300);
@@ -1770,9 +1763,9 @@ function downloadAllDocuments() {
 
 function requestAccess() {
     // Placeholder for access request functionality
-    const email = 'access@hubtransportation.com';
-    const subject = 'Document Access Request - HUB Transportation System';
-    const body = 'I am requesting access to confidential project materials for the HUB Transportation System. Please provide access credentials or additional information about the document review process.\n\nOrganization: \nRole: \nSpecific documents needed: \nPurpose: ';
+    const email = 'access@trinityairlink.com';
+    const subject = 'Document Access Request - Trinity Air Link';
+    const body = 'I am requesting access to confidential project materials for the Trinity Air Link project. Please provide access credentials or additional information about the document review process.\n\nOrganization: \nRole: \nSpecific documents needed: \nPurpose: ';
     
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
@@ -1848,7 +1841,7 @@ function initializeProgressBar() {
         left: 0;
         width: 0%;
         height: 3px;
-        background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        background: var(--accent);
         z-index: 1000;
         transition: width 0.1s ease;
     `;
@@ -1889,13 +1882,13 @@ function updateNavigationState() {
 function initializeCardEffects() {
     document.querySelectorAll('.futuristic-card').forEach(card => {
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px) scale(1.02)';
-            this.style.boxShadow = '0 20px 40px rgba(0, 245, 255, 0.2)';
+            this.style.transform = 'translateY(-3px)';
+            this.style.borderColor = 'var(--border)';
         });
-        
+
         card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 10px 30px rgba(0, 245, 255, 0.1)';
+            this.style.transform = 'translateY(0)';
+            this.style.borderColor = 'var(--border-subtle)';
         });
     });
 }
@@ -1924,9 +1917,7 @@ function addAnimationStyles() {
         }
         
         .nav-active {
-            background: rgba(0, 245, 255, 0.1) !important;
-            border-color: rgba(0, 245, 255, 0.3) !important;
-            color: #00F5FF !important;
+            color: var(--accent) !important;
         }
     `;
     document.head.appendChild(style);
@@ -1953,7 +1944,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { year: '2016', title: 'TIF Agreement Terminated', description: 'The City of Fort Worth terminates the TIF agreement, citing the owner\'s inability to provide a viable funding plan for the project.' },
         { year: '2017', title: 'Mandatory Compliance Work', description: 'The city requires the owner to perform temporary work, including sealing windows and pumping water from the basement, to protect the building from further decay.' },
         { year: '2023', title: 'City-Led Structural Inspection', description: 'Prompted by safety concerns, the city hires a contractor to perform a full structural inspection, signaling increasing pressure on the owner to address the building\'s dilapidated state.' },
-        { year: '2026', title: 'Area Redevelopment Begins (Forecast)', description: 'Construction is forecast to begin on the $182 million reconstruction of East Lancaster Avenue, a major public investment set to transform the surrounding corridor, further paving the way for the HUB vision.' }
+        { year: '2026', title: 'Area Redevelopment Begins (Forecast)', description: 'Construction is forecast to begin on the $182 million reconstruction of East Lancaster Avenue, a major public investment set to transform the surrounding corridor, further paving the way for the Trinity Air Link vision.' }
     ];
 
     const incentivesData = [
@@ -1968,7 +1959,7 @@ document.addEventListener('DOMContentLoaded', function() {
     timelineData.forEach(item => {
         const div = document.createElement('div');
         div.className = 'timeline-item relative pl-8 pr-4 py-6 cursor-pointer';
-        div.innerHTML = `<h3 class="text-lg font-semibold text-slate-50">${item.year} - ${item.title}</h3>`;
+        div.innerHTML = `<h3 class="text-lg font-semibold" style="color:#FFFFFF;font-family:'Orbitron',sans-serif;">${item.year} — ${item.title}</h3>`;
         div.addEventListener('click', () => openModal(item.title, item.description));
         timelineContainer.appendChild(div);
     });
@@ -1976,14 +1967,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const incentivesContainer = document.getElementById('incentives-container');
     incentivesData.forEach(item => {
         const div = document.createElement('div');
-        div.className = 'bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 cursor-pointer hover:shadow-sky-500/30 transition-shadow duration-300';
+        div.style.cssText = 'background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;cursor:pointer;';
         div.innerHTML = `
             <div class="incentive-header p-4 flex justify-between items-center">
-                <h4 class="font-semibold text-slate-50">${item.title}</h4>
-                <span class="transform transition-transform text-sky-400">&#9662;</span>
+                <h4 class="font-semibold" style="color:#FFFFFF;">${item.title}</h4>
+                <span class="transform transition-transform" style="color:var(--accent);">&#9662;</span>
             </div>
-            <div class="incentive-body hidden p-4 border-t border-slate-600">
-                <p class="text-slate-400">${item.description}</p>
+            <div class="incentive-body hidden p-4" style="border-top:1px solid var(--border-subtle);">
+                <p style="color:#8892A0;">${item.description}</p>
             </div>
         `;
         incentivesContainer.appendChild(div);
@@ -2023,8 +2014,8 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Value in Millions ($)',
                 data: [6.4, 1.2],
-                backgroundColor: ['rgba(55, 65, 81, 0.8)', 'rgba(56, 189, 248, 0.8)'], /* slate-700 / sky-400 */
-                borderColor: ['#374151', '#38BDF8'], /* slate-700 / sky-400 */
+                backgroundColor: ['rgba(10, 10, 15, 0.9)', 'rgba(0, 212, 255, 0.6)'],
+                borderColor: ['rgba(255,255,255,0.1)', '#00D4FF'],
                 borderWidth: 1
             }]
         },
@@ -2036,18 +2027,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     beginAtZero: true,
                     ticks: {
                         callback: function(value) { return '$' + value + 'M'; },
-                        color: '#94A3B8' /* slate-400 */
+                        color: '#8892A0'
                     },
                     grid: {
-                        color: 'rgba(71, 85, 105, 0.3)' /* slate-600 with transparency */
+                        color: 'rgba(255, 255, 255, 0.05)'
                     }
                 },
                 x: {
                     ticks: {
-                        color: '#94A3B8' /* slate-400 */
+                        color: '#8892A0'
                     },
                     grid: {
-                        color: 'rgba(71, 85, 105, 0.3)' /* slate-600 with transparency */
+                        color: 'rgba(255, 255, 255, 0.05)'
                     }
                 }
             },
@@ -2056,14 +2047,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 title: {
                     display: true,
                     text: 'Value Comparison: Acquisition vs. Current',
-                    color: '#E2E8F0', /* slate-200 */
+                    color: '#FFFFFF',
                     font: { size: 16, family: 'Orbitron' }
                 },
                 tooltip: {
-                    backgroundColor: 'rgba(30, 41, 59, 0.9)', /* slate-900 with transparency */
-                    titleColor: '#38BDF8', /* sky-400 */
-                    bodyColor: '#E2E8F0', /* slate-200 */
-                    borderColor: '#38BDF8', /* sky-400 */
+                    backgroundColor: 'rgba(10, 10, 15, 0.95)',
+                    titleColor: '#00D4FF',
+                    bodyColor: '#FFFFFF',
+                    borderColor: '#00D4FF',
                     borderWidth: 1
                 }
             }
