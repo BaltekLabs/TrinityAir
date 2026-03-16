@@ -3,301 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Property Report: T&P Warehouse</title>
+    <title>Trinity Air Link — Interactive Property Report: Texas &amp; Pacific Warehouse</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Cyber Noir (Dark Slate with Electric Blue/Magenta Accents) -->
-    <!-- Application Structure Plan: The application is designed as a single-page, scrolling dashboard to tell a compelling investment story. It starts with a high-level overview (The Asset), moves to the core conflict (The Challenge vs. The Opportunity), introduces the ambitious HUB Vision for the property, provides market context and key details about the HUB system, includes inspiring comparative case studies, outlines the phased implementation strategy, discusses stakeholder engagement, provides historical context through an interactive timeline, dives into key data with charts and filterable lists (Financials & Incentives), and ends with actionable next steps and a "Data Room" (Resource Hub). This comprehensive structure allows a potential developer to quickly grasp the high-risk/high-reward nature of the property and then drill down into specific areas of due diligence and strategic planning, guided by a sticky navigation bar for easy access. The flow is logical for an investment evaluation: What is it? What are the problems? What are the upsides? What's the new proposed future? What's the market context? How will it be built? Who needs to be involved? What's the history? What are the numbers? What are the immediate actions? Where can I find more info? -->
-    <!-- Visualization & Content Choices: 
-        - Property History (Report Narrative -> Timeline): An interactive HTML/CSS timeline is used to visualize the property's long history. Clicking an event reveals details, making the dense history more digestible than a long text block.
-        - Value Disparity (Report Text -> Bar Chart): A Chart.js bar chart starkly compares the $6.4M purchase price to the $1.2M current appraisal. This financial story is more impactful visually than textually.
-        - Development Challenges (Report Lists -> Tabs): The numerous challenges (vacancy, parking, code violations) are organized into a tabbed component. This prevents user overload and makes the negative information structured and accessible.
-        - Financial Incentives (Report List -> Interactive Cards): Available incentives are presented as a grid of interactive cards. Clicking a card reveals details. This is more engaging and user-driven than a static bulleted list.
-        - HUB Vision Key Elements (Text List -> Styled List): The core components of the HUB vision are presented as a clearly formatted list to highlight the breadth of the proposal.
-        - Phased Implementation (Text Outline -> Accordion/Expander): The detailed 4-phase implementation plan is presented in an accordion format, allowing users to expand only the phases they are interested in, providing clarity without overwhelming the user.
-        - Market Context (Text Summary -> Paragraphs with Callouts): Key market statistics and challenges are presented as concise paragraphs with bolded callouts for quick scanning.
-        - HUB System Details (Text List -> Accordion/Expander): Technical architecture and core elements are presented in an accordion to allow users to dive into details or skim high-level concepts.
-        - Comparative Case Studies (HTML structure -> Grid of Cards): Lessons from global precedents are summarized in an easy-to-digest card format, demonstrating feasibility and drawing parallels to the DFW context.
-        - Stakeholder Engagement (Table/Text -> Accordion/List): Key stakeholder groups and their engagement objectives are presented in an accordion to organize a large amount of information logically.
-        - Next Steps & Action Items (Ordered List -> Styled List): The immediate action items are presented as a clear, scannable list.
-        - Image Spot Integration: Placeholder image URLs are now integrated in the Overview, HUB Vision, and Case Studies sections to provide a stronger visual narrative and futuristic aesthetic.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: #E2E8F0; } /* Tailwind: bg-slate-900 text-slate-200 */
-        h1, h2, h3 { font-family: 'Orbitron', sans-serif; color: #E2E8F0; } /* Tailwind: text-slate-200 */
+        :root {
+            --bg: #000000;
+            --surface: #0a0a0f;
+            --surface-2: #111118;
+            --accent: #00D4FF;
+            --accent-dim: rgba(0, 212, 255, 0.12);
+            --text-primary: #FFFFFF;
+            --text-secondary: #8892A0;
+            --border: rgba(0, 212, 255, 0.15);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text-primary); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; letter-spacing: 0.02em; color: var(--text-primary); }
         .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
         @media (max-width: 640px) { .chart-container { height: 300px; max-height: 350px; } }
-        .tab-active { border-color: #38BDF8; color: #38BDF8; } /* Tailwind: border-sky-400 text-sky-400 */
-        .tab-inactive { border-color: transparent; color: #94A3B8; } /* Tailwind: text-slate-400 */
-        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; background-color: #0F172A; border: 4px solid #38BDF8; border-radius: 9999px; z-index: 10; box-shadow: 0 0 8px #38BDF8; } /* Tailwind: bg-slate-900 border-sky-400 shadow-sky-400 */
-        .timeline-item:hover::before { background-color: #38BDF8; } /* Tailwind: bg-sky-400 */
-        .nav-active { color: #38BDF8; } /* Tailwind: text-sky-400 */
-        .accordion-header span.arrow { transition: transform 0.2s ease-in-out; }
+        .tab-active { border-color: var(--accent); color: var(--accent); }
+        .tab-inactive { border-color: transparent; color: var(--text-secondary); }
+        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; background-color: var(--bg); border: 2px solid var(--accent); border-radius: 9999px; z-index: 10; box-shadow: 0 0 8px rgba(0, 212, 255, 0.4); }
+        .timeline-item:hover::before { background-color: var(--accent); }
+        .nav-active { color: var(--accent) !important; }
+        .accordion-header span.arrow { transition: transform 0.2s ease-in-out; color: var(--accent); }
         .accordion-header.expanded span.arrow { transform: rotate(90deg); }
         .case-study-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .case-study-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(56, 189, 248, 0.2); } /* Shadow with accent color */
-        .flag-icon { width: 24px; height: 24px; margin-right: 10px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: normal; color: white; background-color: #64748B; } /* Tailwind: bg-slate-500 */
+        .case-study-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0, 212, 255, 0.12); }
+        .flag-icon { width: 24px; height: 24px; margin-right: 10px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: var(--text-secondary); background-color: var(--surface-2); border: 1px solid var(--border-subtle); }
         .image-container {
             width: 100%;
-            height: 256px; /* h-64 */
-            max-height: 384px; /* lg:h-96 */
+            height: 256px;
+            max-height: 384px;
             margin: 0 auto;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 0;
             position: relative;
-            border: 2px solid #334155; /* slate-700 */
+            border: 1px solid var(--border-subtle);
         }
         .image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            filter: brightness(0.7) saturate(0.6);
         }
         .image-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0) 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
             padding: 1rem;
-            color: #E2E8F0;
-            font-size: 0.875rem; /* text-sm */
-            font-weight: 500;
+            color: var(--text-secondary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             text-align: center;
         }
-        @media (min-width: 1024px) { /* lg breakpoint */
-            .image-container {
-                height: 384px; /* lg:h-96 */
-            }
-        }
+        @media (min-width: 1024px) { .image-container { height: 384px; } }
+
+        /* Nav overrides */
+        #nav-header { background: rgba(0,0,0,0.88) !important; border-bottom: 1px solid var(--border); box-shadow: none !important; }
+        .nav-logo-text { font-family: 'Orbitron', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; }
+        .nav-link { color: var(--text-secondary) !important; font-size: 0.75rem !important; letter-spacing: 0.04em; }
+        .nav-link:hover { color: var(--accent) !important; }
+
+        /* Section backgrounds */
+        .section-dark { background-color: var(--bg) !important; }
+        .section-surface { background-color: var(--surface) !important; }
+
+        /* Cards */
+        .card { background-color: var(--surface); border: 1px solid var(--border-subtle); border-radius: 0; transition: border-color 0.2s, box-shadow 0.2s; }
+        .card:hover { border-color: var(--border); box-shadow: 0 0 20px var(--accent-dim); }
+        .card-dark { background-color: var(--bg); border: 1px solid var(--border-subtle); border-radius: 0; transition: border-color 0.2s, box-shadow 0.2s; }
+        .card-dark:hover { border-color: var(--border); box-shadow: 0 0 20px var(--accent-dim); }
+
+        /* Accent text */
+        .accent { color: var(--accent); }
+        .text-muted { color: var(--text-secondary); }
+
+        /* Mobile menu */
+        #mobile-menu { background-color: var(--surface) !important; border-top: 1px solid var(--border-subtle); }
+
+        /* Modal */
+        #timeline-modal .modal-box { background: var(--surface); border: 1px solid var(--border); border-radius: 0; }
+
+        /* Incentives */
+        .incentive-card { background-color: var(--surface); border: 1px solid var(--border-subtle); border-radius: 0; }
+        .incentive-card:hover { border-color: var(--border); }
+        .incentive-body { border-top: 1px solid var(--border-subtle) !important; }
+
+        /* Timeline line */
+        .timeline-line { border-left: 1px solid var(--border); }
+
+        /* Tab border on active */
+        .challenge-tab.tab-active { border-bottom: 2px solid var(--accent); }
+        .challenge-tab.tab-inactive { border-bottom: 2px solid transparent; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-200">
+<body class="scroll-smooth">
 
-    <header id="nav-header" class="bg-slate-900/80 backdrop-blur-lg sticky top-0 z-50 shadow-lg shadow-black/20">
+    <header id="nav-header" class="sticky top-0 z-50">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <span class="font-bold text-lg text-sky-400 font-orbitron">T&P NEXUS</span>
+                    <span class="nav-logo-text">TRINITY AIR LINK</span>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Overview</a>
-                        <a href="#challenge" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Challenges</a>
-                        <a href="#opportunity" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Opportunity</a>
-                        <a href="#hub-vision" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">HUB Vision</a>
-                        <a href="#market-context" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Market Context</a>
-                        <a href="#hub-system-details" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">HUB System</a>
-                        <a href="#case-studies" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Case Studies</a>
-                        <a href="#phases" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Implementation</a>
-                        <a href="#stakeholders" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Stakeholders</a>
-                        <a href="#timeline" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">History</a>
-                        <a href="#financials" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Financials</a>
-                        <a href="#next-steps" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Next Steps</a>
-                        <a href="#resources" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">Resources</a>
+                    <div class="ml-10 flex items-baseline space-x-1">
+                        <a href="#overview" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Overview</a>
+                        <a href="#challenge" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Challenges</a>
+                        <a href="#opportunity" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Opportunity</a>
+                        <a href="#hub-vision" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Vision</a>
+                        <a href="#market-context" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Market</a>
+                        <a href="#hub-system-details" class="nav-link px-3 py-2 text-sm font-medium transition-colors">System</a>
+                        <a href="#case-studies" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Case Studies</a>
+                        <a href="#phases" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Implementation</a>
+                        <a href="#stakeholders" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Stakeholders</a>
+                        <a href="#timeline" class="nav-link px-3 py-2 text-sm font-medium transition-colors">History</a>
+                        <a href="#financials" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Financials</a>
+                        <a href="#next-steps" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Next Steps</a>
+                        <a href="#resources" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Resources</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2" style="color: var(--text-secondary);">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                            <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
             </div>
         </nav>
-        <div id="mobile-menu" class="md:hidden hidden bg-slate-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#overview" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">Overview</a>
-                <a href="#challenge" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">Challenges</a>
-                <a href="#opportunity" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">Opportunity</a>
-                <a href="#hub-vision" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">HUB Vision</a>
-                <a href="#market-context" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">Market Context</a>
-                <a href="#hub-system-details" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">HUB System</a>
-                <a href="#case-studies" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">Case Studies</a>
-                <a href="#phases" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">Implementation</a>
-                <a href="#stakeholders" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">Stakeholders</a>
-                <a href="#timeline" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">History</a>
-                <a href="#financials" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">Financials</a>
-                <a href="#next-steps" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">Next Steps</a>
-                <a href="#resources" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-sky-400">Resources</a>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#overview" class="nav-link block px-3 py-2 text-sm font-medium">Overview</a>
+                <a href="#challenge" class="nav-link block px-3 py-2 text-sm font-medium">Challenges</a>
+                <a href="#opportunity" class="nav-link block px-3 py-2 text-sm font-medium">Opportunity</a>
+                <a href="#hub-vision" class="nav-link block px-3 py-2 text-sm font-medium">Vision</a>
+                <a href="#market-context" class="nav-link block px-3 py-2 text-sm font-medium">Market</a>
+                <a href="#hub-system-details" class="nav-link block px-3 py-2 text-sm font-medium">System</a>
+                <a href="#case-studies" class="nav-link block px-3 py-2 text-sm font-medium">Case Studies</a>
+                <a href="#phases" class="nav-link block px-3 py-2 text-sm font-medium">Implementation</a>
+                <a href="#stakeholders" class="nav-link block px-3 py-2 text-sm font-medium">Stakeholders</a>
+                <a href="#timeline" class="nav-link block px-3 py-2 text-sm font-medium">History</a>
+                <a href="#financials" class="nav-link block px-3 py-2 text-sm font-medium">Financials</a>
+                <a href="#next-steps" class="nav-link block px-3 py-2 text-sm font-medium">Next Steps</a>
+                <a href="#resources" class="nav-link block px-3 py-2 text-sm font-medium">Resources</a>
             </div>
         </div>
     </header>
 
     <main>
-        <section id="overview" class="py-16 sm:py-24 bg-slate-800">
+        <section id="overview" class="py-16 sm:py-24 section-surface">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p class="text-base font-semibold text-sky-400 tracking-wide uppercase">300 W Lancaster Ave, Fort Worth, TX</p>
-                <h1 class="mt-2 text-4xl font-bold text-slate-50 sm:text-5xl lg:text-6xl">The Future Begins at T&P</h1>
-                <p class="mt-4 max-w-3xl mx-auto text-xl text-slate-400">An iconic, 580,000 sq ft Art Deco warehouse representing one of Fort Worth's most significant redevelopment challenges and its greatest potential catalyst for urban revitalization as the central node for a next-generation mobility and technology HUB.</p>
-                
-                <div class="mt-12 image-container">
-                    <img src="https://placehold.co/1200x600/1E293B/38BDF8?text=T%26P%20Nexus%20Hub%20-%20Conceptual%20Render" alt="T&P Nexus Hub Conceptual Render" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/1E293B/64748B?text=Image%20Not%20Available';" class="rounded-lg">
-                    <div class="image-overlay font-orbitron">T&P Nexus Hub - Integrating past architecture with future mobility.</div>
+                <p class="text-xs font-semibold accent tracking-widest uppercase" style="letter-spacing: 0.2em;">300 W Lancaster Ave, Fort Worth, TX</p>
+                <h1 class="mt-4 text-4xl font-bold sm:text-5xl lg:text-6xl" style="color: var(--text-primary);">The Future Begins at<br>Texas &amp; Pacific</h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-muted font-light">An iconic, 580,000 sq ft Art Deco warehouse representing one of Fort Worth's most significant redevelopment challenges and its greatest potential catalyst for urban revitalization — the central node for Trinity Air Link's next-generation mobility and technology network.</p>
+
+                <div class="mt-12 image-container" style="max-width: 900px; margin: 3rem auto 0;">
+                    <img src="https://placehold.co/1200x600/0a0a0f/00D4FF?text=Trinity+Air+Link+%E2%80%94+Conceptual+Render" alt="Trinity Air Link Conceptual Render" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/0a0a0f/8892A0?text=Image+Not+Available';">
+                    <div class="image-overlay">Trinity Air Link — Integrating historic architecture with future mobility.</div>
                 </div>
 
-                <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                    <div class="bg-slate-700 p-6 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <p class="text-5xl font-bold text-sky-400 font-orbitron">580k</p>
-                        <p class="mt-2 text-lg font-medium text-slate-300">Square Feet</p>
+                <div class="mt-12 grid gap-px sm:grid-cols-2 lg:grid-cols-4" style="background: var(--border-subtle); border: 1px solid var(--border-subtle);">
+                    <div class="card p-8" style="border: none;">
+                        <p class="text-5xl font-bold accent" style="font-family: 'Orbitron', sans-serif;">580k</p>
+                        <p class="mt-2 text-sm font-medium text-muted uppercase tracking-wider">Square Feet</p>
                     </div>
-                    <div class="bg-slate-700 p-6 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <p class="text-5xl font-bold text-sky-400 font-orbitron">1931</p>
-                        <p class="mt-2 text-lg font-medium text-slate-300">Year Built</p>
+                    <div class="card p-8" style="border: none;">
+                        <p class="text-5xl font-bold accent" style="font-family: 'Orbitron', sans-serif;">1931</p>
+                        <p class="mt-2 text-sm font-medium text-muted uppercase tracking-wider">Year Built</p>
                     </div>
-                    <div class="bg-slate-700 p-6 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <p class="text-5xl font-bold text-sky-400 font-orbitron">$1.2M</p>
-                        <p class="mt-2 text-lg font-medium text-slate-300">Current Appraisal</p>
+                    <div class="card p-8" style="border: none;">
+                        <p class="text-5xl font-bold accent" style="font-family: 'Orbitron', sans-serif;">$1.2M</p>
+                        <p class="mt-2 text-sm font-medium text-muted uppercase tracking-wider">Current Appraisal</p>
                     </div>
-                    <div class="bg-slate-700 p-6 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <p class="text-5xl font-bold text-sky-400 font-orbitron">25+</p>
-                        <p class="mt-2 text-lg font-medium text-slate-300">Years Vacant</p>
+                    <div class="card p-8" style="border: none;">
+                        <p class="text-5xl font-bold accent" style="font-family: 'Orbitron', sans-serif;">25+</p>
+                        <p class="mt-2 text-sm font-medium text-muted uppercase tracking-wider">Years Vacant</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="challenge" class="py-16 sm:py-24 bg-slate-900">
+        <section id="challenge" class="py-16 sm:py-24 section-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">The Challenge: Risks & Realities</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">The property's potential is tempered by significant, long-standing issues. Understanding these risks is the first step in evaluating the development opportunity.</p>
+                    <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Due Diligence</p>
+                    <h2 class="text-3xl font-bold sm:text-4xl">The Challenge: Risks &amp; Realities</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">The property's potential is tempered by significant, long-standing issues. Understanding these risks is the first step in evaluating the development opportunity.</p>
                 </div>
 
-                <div class="mt-12 max-w-4xl mx-auto bg-slate-800 rounded-lg shadow-lg border border-slate-700">
-                    <div class="mb-4 border-b border-slate-700">
-                        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="challenge-tabs">
-                            <li class="mr-2"><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-active text-sky-400 hover:text-sky-300 transition-colors" data-tab="vacancy">Stalled Projects</button></li>
-                            <li class="mr-2"><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-inactive text-slate-400 hover:text-sky-300 transition-colors" data-tab="parking">Infrastructure Gaps</button></li>
-                            <li><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-inactive text-slate-400 hover:text-sky-300 transition-colors" data-tab="compliance">Code Violations</button></li>
+                <div class="mt-12 max-w-4xl mx-auto" style="border: 1px solid var(--border-subtle);">
+                    <div style="border-bottom: 1px solid var(--border-subtle);">
+                        <ul class="flex flex-wrap text-sm font-medium text-center" id="challenge-tabs">
+                            <li class="mr-0"><button class="challenge-tab inline-block p-4 tab-active transition-colors" data-tab="vacancy">Stalled Projects</button></li>
+                            <li class="mr-0"><button class="challenge-tab inline-block p-4 tab-inactive transition-colors" data-tab="parking">Infrastructure Gaps</button></li>
+                            <li><button class="challenge-tab inline-block p-4 tab-inactive transition-colors" data-tab="compliance">Code Violations</button></li>
                         </ul>
                     </div>
-                    <div id="challenge-content">
-                        <div id="vacancy-content" class="p-4 bg-slate-800 rounded-b-lg text-slate-300">
-                            <h3 class="text-xl font-semibold text-slate-50">Decades of Inaction</h3>
-                            <p class="mt-2 text-slate-400">The T&P Warehouse has remained vacant since its acquisition in 1998. The property has a documented history of "years of announcements, false starts, multiple extended deadlines," and terminated city incentives. The current owner attributes delays to outside influences, but the city terminated an $11M+ TIF agreement in 2016 due to an "inability to provide a funding plan."</p>
+                    <div id="challenge-content" style="background: var(--surface);">
+                        <div id="vacancy-content" class="p-6">
+                            <h3 class="text-lg font-semibold" style="font-family: 'Orbitron', sans-serif; font-size: 1rem; letter-spacing: 0.05em;">Decades of Inaction</h3>
+                            <p class="mt-3 text-muted font-light">The Texas &amp; Pacific Warehouse has remained vacant since its acquisition in 1998. The property has a documented history of "years of announcements, false starts, multiple extended deadlines," and terminated city incentives. The current owner attributes delays to outside influences, but the city terminated an $11M+ TIF agreement in 2016 due to an "inability to provide a funding plan."</p>
                         </div>
-                        <div id="parking-content" class="hidden p-4 bg-slate-800 rounded-b-lg text-slate-300">
-                            <h3 class="text-xl font-semibold text-slate-50">Critical Parking Deficit</h3>
-                            <p class="mt-2 text-slate-400">A primary development hurdle is the complete lack of adjacent parking. Any redevelopment plan must include the costly construction of new parking structures to serve all potential users, especially for retail or hotel components. This has been a consistent barrier for previous development attempts and represents a major capital expenditure for any new project.</p>
+                        <div id="parking-content" class="hidden p-6">
+                            <h3 class="text-lg font-semibold" style="font-family: 'Orbitron', sans-serif; font-size: 1rem; letter-spacing: 0.05em;">Critical Parking Deficit</h3>
+                            <p class="mt-3 text-muted font-light">A primary development hurdle is the complete lack of adjacent parking. Any redevelopment plan must include the costly construction of new parking structures to serve all potential users, especially for retail or hotel components. This has been a consistent barrier for previous development attempts and represents a major capital expenditure for any new project.</p>
                         </div>
-                        <div id="compliance-content" class="hidden p-4 bg-slate-800 rounded-b-lg text-slate-300">
-                            <h3 class="text-xl font-semibold text-slate-50">Severe Compliance & Condition Issues</h3>
-                            <p class="mt-2 text-slate-400">The building suffers from "years of code compliance violations" and has been described by city officials as a "case of demolition by neglect." Issues include standing water in the basement for over a decade, creating a public health hazard. The city has performed mandatory temporary work and conducted a structural inspection in 2023, signaling the urgent need for stabilization and remediation.</p>
+                        <div id="compliance-content" class="hidden p-6">
+                            <h3 class="text-lg font-semibold" style="font-family: 'Orbitron', sans-serif; font-size: 1rem; letter-spacing: 0.05em;">Severe Compliance &amp; Condition Issues</h3>
+                            <p class="mt-3 text-muted font-light">The building suffers from "years of code compliance violations" and has been described by city officials as a "case of demolition by neglect." Issues include standing water in the basement for over a decade, creating a public health hazard. The city has performed mandatory temporary work and conducted a structural inspection in 2023, signaling the urgent need for stabilization and remediation.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="opportunity" class="py-16 sm:py-24 bg-slate-800">
+        <section id="opportunity" class="py-16 sm:py-24 section-surface">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">The Opportunity: A Favorable Environment</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">Despite the internal challenges, the external market and public sector support create a uniquely favorable context for redevelopment, laying the groundwork for the HUB vision.</p>
+                    <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Market Conditions</p>
+                    <h2 class="text-3xl font-bold sm:text-4xl">The Opportunity: A Favorable Environment</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">Despite the internal challenges, the external market and public sector support create a uniquely favorable context for redevelopment, laying the groundwork for the Trinity Air Link vision.</p>
                 </div>
-                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="text-xl font-semibold text-slate-50">Surrounding Development Boom</h3>
-                        <p class="mt-2 text-slate-400">The property sits in a district with a <span class="font-bold text-sky-400">$1 billion development pipeline</span>, including major Texas A&M expansion (<span class="font-bold">$320 million</span>), a convention center overhaul, and a new Omni hotel tower (<span class="font-bold">$217 million</span>). The T&P Warehouse is the last major "roadblock" in a rapidly appreciating area.</p>
+                <div class="mt-12 grid gap-px md:grid-cols-2 lg:grid-cols-3" style="background: var(--border-subtle);">
+                    <div class="card-dark p-8">
+                        <h3 class="text-base font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;">Surrounding Development Boom</h3>
+                        <p class="text-muted font-light text-sm">The property sits in a district with a <span class="font-semibold accent">$1 billion development pipeline</span>, including major Texas A&M expansion (<span class="font-medium" style="color: var(--text-primary);">$320 million</span>), a convention center overhaul, and a new Omni hotel tower (<span class="font-medium" style="color: var(--text-primary);">$217 million</span>). The Texas &amp; Pacific Warehouse is the last major "roadblock" in a rapidly appreciating area.</p>
                     </div>
-                    <div class="p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="text-xl font-semibold text-slate-50">Massive Public Investment</h3>
-                        <p class="mt-2 text-slate-400">The city and NCTCOG are investing <span class="font-bold text-sky-400">$182 million</span> to completely rebuild East Lancaster Avenue with modern infrastructure, improved transit, and pedestrian features. This public commitment de-risks private investment and enhances long-term value.</p>
+                    <div class="card-dark p-8">
+                        <h3 class="text-base font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;">Massive Public Investment</h3>
+                        <p class="text-muted font-light text-sm">The city and NCTCOG are investing <span class="font-semibold accent">$182 million</span> to completely rebuild East Lancaster Avenue with modern infrastructure, improved transit, and pedestrian features. This public commitment de-risks private investment and enhances long-term value.</p>
                     </div>
-                    <div class="p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="text-xl font-semibold text-slate-50">Targeted Financial Incentives</h3>
-                        <p class="mt-2 text-slate-400">As part of PID 20, the project is eligible for a suite of powerful incentives, including tax abatements (NEZ), façade grants, and catalytic development grants (Chapter 380), specifically including one for surface parking lot redevelopment. The city is highly motivated to partner with a capable developer.</p>
+                    <div class="card-dark p-8">
+                        <h3 class="text-base font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase;">Targeted Financial Incentives</h3>
+                        <p class="text-muted font-light text-sm">As part of PID 20, the project is eligible for a suite of powerful incentives, including tax abatements (NEZ), façade grants, and catalytic development grants (Chapter 380), specifically including one for surface parking lot redevelopment. The city is highly motivated to partner with a capable developer.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="hub-vision" class="py-16 sm:py-24 bg-slate-900">
+        <section id="hub-vision" class="py-16 sm:py-24 section-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">The HUB Vision: A New Era for T&P</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">Reimagining the T&P Warehouse as the epicenter of next-generation mobility and technology innovation for the DFW area, this project will fundamentally reshape how we move, work, and live.</p>
-                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left">
-                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <div class="image-container h-48 mb-4">
-                            <img src="https://placehold.co/400x300/1E293B/38BDF8?text=VTOL%20Ops%20Concept" alt="VTOL Operations Concept" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1E293B/64748B?text=Image%20Not%20Available';" class="rounded-md">
+                <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">The Vision</p>
+                <h2 class="text-3xl font-bold sm:text-4xl">Trinity Air Link: A New Era for Texas &amp; Pacific</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">Reimagining the Texas &amp; Pacific Warehouse as the epicenter of next-generation mobility and technology innovation for the DFW area — fundamentally reshaping how we move, work, and live.</p>
+                <div class="mt-12 grid gap-px md:grid-cols-2 lg:grid-cols-3 text-left" style="background: var(--border-subtle);">
+                    <div class="card p-6">
+                        <div class="image-container h-48 mb-5">
+                            <img src="https://placehold.co/400x300/0a0a0f/00D4FF?text=VTOL+Operations" alt="VTOL Operations Concept" onerror="this.onerror=null;this.src='https://placehold.co/400x300/0a0a0f/8892A0?text=Image+Not+Available';">
                             <div class="image-overlay">VTOL Operations</div>
                         </div>
-                        <h3 class="font-semibold text-xl text-slate-50">VTOL Operations</h3>
-                        <p class="mt-2 text-slate-400">Transforming the rooftop into a Vertical Takeoff and Landing (VTOL) aircraft port for urban air mobility, offering rapid city-to-city transport.</p>
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">VTOL Operations</h3>
+                        <p class="text-muted font-light text-sm">Transforming the rooftop into a Vertical Takeoff and Landing (VTOL) aircraft port for urban air mobility, offering rapid city-to-city transport.</p>
                     </div>
-                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <div class="image-container h-48 mb-4">
-                            <img src="https://placehold.co/400x300/1E293B/38BDF8?text=Autonomous%20EV%20Network" alt="Autonomous EV Network" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1E293B/64748B?text=Image%20Not%20Available';" class="rounded-md">
+                    <div class="card p-6">
+                        <div class="image-container h-48 mb-5">
+                            <img src="https://placehold.co/400x300/0a0a0f/00D4FF?text=Autonomous+EV+Network" alt="Autonomous EV Network" onerror="this.onerror=null;this.src='https://placehold.co/400x300/0a0a0f/8892A0?text=Image+Not+Available';">
                             <div class="image-overlay">Autonomous EV Networks</div>
                         </div>
-                        <h3 class="font-semibold text-xl text-slate-50">Autonomous Vehicle Networks</h3>
-                        <p class="mt-2 text-slate-400">Utilizing the ground floor for autonomous electric vehicle docking, charging, and seamless passenger transfers, optimizing ground transportation.</p>
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Autonomous Vehicle Networks</h3>
+                        <p class="text-muted font-light text-sm">Utilizing the ground floor for autonomous electric vehicle docking, charging, and seamless passenger transfers, optimizing ground transportation.</p>
                     </div>
-                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <div class="image-container h-48 mb-4">
-                            <img src="https://placehold.co/400x300/1E293B/38BDF8?text=AI%20%26%20Robotics%20Research" alt="AI & Robotics Research" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1E293B/64748B?text=Image%20Not%20Available';" class="rounded-md">
-                            <div class="image-overlay">AI & Robotics Research</div>
+                    <div class="card p-6">
+                        <div class="image-container h-48 mb-5">
+                            <img src="https://placehold.co/400x300/0a0a0f/00D4FF?text=AI+%26+Robotics+Research" alt="AI &amp; Robotics Research" onerror="this.onerror=null;this.src='https://placehold.co/400x300/0a0a0f/8892A0?text=Image+Not+Available';">
+                            <div class="image-overlay">AI &amp; Robotics Research</div>
                         </div>
-                        <h3 class="font-semibold text-xl text-slate-50">AI & Robotics Research</h3>
-                        <p class="mt-2 text-slate-400">Converting interior spaces into advanced research facilities for robotics, artificial intelligence, and urban mobility testing, fostering innovation.</p>
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">AI &amp; Robotics Research</h3>
+                        <p class="text-muted font-light text-sm">Converting interior spaces into advanced research facilities for robotics, artificial intelligence, and urban mobility testing, fostering innovation.</p>
                     </div>
-                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="font-semibold text-xl text-slate-50">Innovation Hub & Showcase</h3>
-                        <p class="mt-2 text-slate-400">Creating technology innovation spaces, public showcases, interactive exhibitions, and educational programs to engage the community.</p>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Innovation Hub &amp; Showcase</h3>
+                        <p class="text-muted font-light text-sm">Creating technology innovation spaces, public showcases, interactive exhibitions, and educational programs to engage the community.</p>
                     </div>
-                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="font-semibold text-xl text-slate-50">High-Performance Computing</h3>
-                        <p class="mt-2 text-slate-400">Establishing robust computing and telecommunications infrastructure to manage real-time transportation networks and data processing.</p>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">High-Performance Computing</h3>
+                        <p class="text-muted font-light text-sm">Establishing robust computing and telecommunications infrastructure to manage real-time transportation networks and data processing.</p>
                     </div>
-                    <div class="p-6 bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="font-semibold text-xl text-slate-50">Community Impact</h3>
-                        <ul class="mt-2 text-slate-400 list-disc list-inside space-y-1">
-                            <li>Thousands of high-tech jobs</li>
-                            <li>DFW as innovation leader</li>
-                            <li>Historic landmark preservation</li>
-                            <li>Reduced traffic & emissions</li>
-                            <li>Economic growth & investment</li>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Community Impact</h3>
+                        <ul class="text-muted font-light text-sm space-y-2">
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Thousands of high-tech jobs</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> DFW as innovation leader</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Historic landmark preservation</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Reduced traffic &amp; emissions</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Economic growth &amp; investment</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="market-context" class="py-16 sm:py-24 bg-slate-800">
+        <section id="market-context" class="py-16 sm:py-24 section-surface">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">DFW Market Context: Primed for Innovation</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">The Dallas-Fort Worth metroplex presents a unique environment for pioneering a transportation revolution, offering both challenges and unparalleled opportunities for the HUB system.</p>
-                <div class="mt-12 text-left">
-                    <h3 class="text-2xl font-bold text-slate-50">Regional Overview</h3>
-                    <p class="mt-4 text-slate-400">With a population of <span class="font-bold text-sky-400">7.4 million residents</span>, DFW is one of the fastest-growing metropolitan areas in the United States. This growth fuels demand for innovative mobility solutions, building upon a <span class="font-bold">diverse economy</span> strong in finance, insurance, transportation, and high-tech sectors. The region boasts a resilient job market and billions already invested in transportation development projects.</p>
-                    
-                    <h3 class="text-2xl font-bold text-slate-50 mt-12">Current Transportation Landscape</h3>
-                    <p class="mt-4 text-slate-400">DFW faces challenges including <span class="font-bold">traffic congestion</span> on major highways, limited last-mile connectivity, and low ridership in existing public transit due to low-density suburban development. Opportunities, however, include <span class="font-bold">billions invested in infrastructure</span>, an existing framework for public-private partnerships, and growing public interest in sustainable options.</p>
-
-                    <h3 class="text-2xl font-bold text-slate-50 mt-12">Market Opportunity for the HUB</h3>
-                    <p class="mt-4 text-slate-400">The HUB system directly addresses critical gaps and positions DFW as a leader in urban mobility: providing efficient <span class="font-bold">urban-suburban connectivity</span>, rapid transport for <span class="font-bold">business travel</span>, seamless <span class="font-bold">airport connections</span>, and support for <span class="font-bold">emergency services</span>. It also establishes a robust <span class="font-bold">technology innovation ecosystem</span>.</p>
+                <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Regional Analysis</p>
+                <h2 class="text-3xl font-bold sm:text-4xl">DFW Market Context: Primed for Innovation</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">The Dallas-Fort Worth metroplex presents a unique environment for pioneering a transportation revolution, offering both challenges and unparalleled opportunities for the Trinity Air Link system.</p>
+                <div class="mt-12 text-left max-w-4xl mx-auto space-y-10">
+                    <div>
+                        <h3 class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);">Regional Overview</h3>
+                        <p class="mt-4 text-muted font-light">With a population of <span class="font-semibold accent">7.4 million residents</span>, DFW is one of the fastest-growing metropolitan areas in the United States. This growth fuels demand for innovative mobility solutions, building upon a <span class="font-medium" style="color: var(--text-primary);">diverse economy</span> strong in finance, insurance, transportation, and high-tech sectors. The region boasts a resilient job market and billions already invested in transportation development projects.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);">Current Transportation Landscape</h3>
+                        <p class="mt-4 text-muted font-light">DFW faces challenges including <span class="font-medium" style="color: var(--text-primary);">traffic congestion</span> on major highways, limited last-mile connectivity, and low ridership in existing public transit due to low-density suburban development. Opportunities include <span class="font-medium" style="color: var(--text-primary);">billions invested in infrastructure</span>, an existing framework for public-private partnerships, and growing public interest in sustainable options.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold" style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);">Market Opportunity for Trinity Air Link</h3>
+                        <p class="mt-4 text-muted font-light">Trinity Air Link directly addresses critical gaps and positions DFW as a leader in urban mobility: providing efficient <span class="font-medium" style="color: var(--text-primary);">urban-suburban connectivity</span>, rapid transport for <span class="font-medium" style="color: var(--text-primary);">business travel</span>, seamless <span class="font-medium" style="color: var(--text-primary);">airport connections</span>, and support for <span class="font-medium" style="color: var(--text-primary);">emergency services</span>. It also establishes a robust <span class="font-medium" style="color: var(--text-primary);">technology innovation ecosystem</span>.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="hub-system-details" class="py-16 sm:py-24 bg-slate-900">
+        <section id="hub-system-details" class="py-16 sm:py-24 section-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">The HUB System: Core Elements & Technology</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">The HUB system reimagines urban mobility through a seamlessly integrated network of air and ground transportation, with the T&P Warehouse as its central node.</p>
-                <div class="mt-12 max-w-4xl mx-auto space-y-4 text-left">
-                    <div class="bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-700 transition-colors" data-target="hub-elements">
+                <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Technical Brief</p>
+                <h2 class="text-3xl font-bold sm:text-4xl">Trinity Air Link: Core Elements &amp; Technology</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">Trinity Air Link reimagines urban mobility through a seamlessly integrated network of air and ground transportation, with the Texas &amp; Pacific Warehouse as its central node.</p>
+                <div class="mt-12 max-w-4xl mx-auto space-y-px text-left" style="border: 1px solid var(--border-subtle);">
+                    <div style="background: var(--surface); border-bottom: 1px solid var(--border-subtle);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: transparent; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="hub-elements">
                             Core Elements
-                            <span class="arrow text-sky-400">&#9658;</span>
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="hub-elements" class="accordion-content hidden p-6 border-t border-slate-700 text-slate-400">
+                        <div id="hub-elements" class="accordion-content hidden p-6 text-muted font-light text-sm" style="border-top: 1px solid var(--border-subtle);">
+
                             <ul class="list-disc list-inside space-y-2">
                                 <li>**Strategic Hub Locations:** Network of hubs positioned at key points across DFW.</li>
                                 <li>**VTOL Aircraft:** Electric or hybrid-electric aircraft for short-haul flights between hubs.</li>
@@ -308,12 +354,13 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-700 transition-colors" data-target="technical-architecture">
+                    <div style="background: var(--surface); border-bottom: 1px solid var(--border-subtle);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: transparent; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="technical-architecture">
                             Technical Architecture
-                            <span class="arrow text-sky-400">&#9658;</span>
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="technical-architecture" class="accordion-content hidden p-6 border-t border-slate-700 text-slate-400">
+                        <div id="technical-architecture" class="accordion-content hidden p-6 text-muted font-light text-sm" style="border-top: 1px solid var(--border-subtle);">
+
                             <ul class="list-disc list-inside space-y-2">
                                 <li>**Autonomous VTOL Technology:** Electric/hybrid-electric propulsion, advanced navigation, collision avoidance, vertical takeoff/landing, intra-metropolitan range.</li>
                                 <li>**Autonomous Electric Vehicles:** Self-driving, electric powertrains, integration with VTOL scheduling, fast-charging infrastructure.</li>
@@ -323,12 +370,13 @@
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-700 transition-colors" data-target="tphub-transformation">
-                            T&P Warehouse as Central Hub Transformation
-                            <span class="arrow text-sky-400">&#9658;</span>
+                    <div style="background: var(--surface);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: transparent; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="tphub-transformation">
+                            Texas &amp; Pacific Warehouse: Central Hub Transformation
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="tphub-transformation" class="accordion-content hidden p-6 border-t border-slate-700 text-slate-400">
+                        <div id="tphub-transformation" class="accordion-content hidden p-6 text-muted font-light text-sm" style="border-top: 1px solid var(--border-subtle);">
+
                             <ul class="list-disc list-inside space-y-2">
                                 <li>**Rooftop:** VTOL landing pads and operations.</li>
                                 <li>**Ground floor:** Autonomous vehicle terminal and charging stations.</li>
@@ -341,137 +389,139 @@
             </div>
         </section>
 
-        <section id="case-studies" class="py-16 sm:py-24 bg-slate-800">
+        <section id="case-studies" class="py-16 sm:py-24 section-surface">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">Global Precedents: Lessons from Leading Cities</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">Insights from successful urban transportation initiatives worldwide demonstrate the feasibility and best practices for the HUB system in DFW.</p>
-                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="case-study-card p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30">
-                        <div class="image-container h-48 mb-4">
-                            <img src="https://placehold.co/400x300/1E293B/38BDF8?text=Singapore%20AV" alt="Singapore Autonomous Vehicles" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1E293B/64748B?text=Image%20Not%20Available';" class="rounded-md">
+                <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Global Precedents</p>
+                <h2 class="text-3xl font-bold sm:text-4xl">Lessons from Leading Cities</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">Insights from successful urban transportation initiatives worldwide demonstrate the feasibility and best practices for the Trinity Air Link system in DFW.</p>
+                <div class="mt-12 grid gap-px md:grid-cols-2 lg:grid-cols-3" style="background: var(--border-subtle);">
+                    <div class="case-study-card card-dark p-6 text-left">
+                        <div class="image-container h-44 mb-5">
+                            <img src="https://placehold.co/400x300/0a0a0f/00D4FF?text=Singapore+AV" alt="Singapore Autonomous Vehicles" onerror="this.onerror=null;this.src='https://placehold.co/400x300/0a0a0f/8892A0?text=Image+Not+Available';">
                             <div class="image-overlay">Singapore's AV Initiative</div>
                         </div>
-                        <h3 class="font-semibold text-xl text-slate-50 flex items-center"><span class="flag-icon bg-sky-600">SG</span> Singapore</h3>
-                        <p class="mt-2 text-slate-400">**Lesson:** Creating dedicated test zones with strong government support and phased regulatory development is crucial for autonomous vehicle integration. Singapore's approach offers a valuable blueprint for the Hub system.</p>
+                        <h3 class="font-semibold flex items-center mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="flag-icon">SG</span> Singapore</h3>
+                        <p class="text-muted font-light text-sm">Creating dedicated test zones with strong government support and phased regulatory development is crucial for autonomous vehicle integration. Singapore's approach offers a valuable blueprint for Trinity Air Link.</p>
                     </div>
-                    <div class="case-study-card p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30">
-                        <div class="image-container h-48 mb-4">
-                            <img src="https://placehold.co/400x300/1E293B/F472B6?text=Dubai%20UAM" alt="Dubai Urban Air Mobility" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1E293B/64748B?text=Image%20Not%20Available';" class="rounded-md">
+                    <div class="case-study-card card-dark p-6 text-left">
+                        <div class="image-container h-44 mb-5">
+                            <img src="https://placehold.co/400x300/0a0a0f/00D4FF?text=Dubai+UAM" alt="Dubai Urban Air Mobility" onerror="this.onerror=null;this.src='https://placehold.co/400x300/0a0a0f/8892A0?text=Image+Not+Available';">
                             <div class="image-overlay">Dubai's Urban Air Mobility</div>
                         </div>
-                        <h3 class="font-semibold text-xl text-slate-50 flex items-center"><span class="flag-icon bg-fuchsia-600">AE</span> Dubai</h3>
-                        <p class="mt-2 text-slate-400">**Lesson:** Urban air mobility integration is feasible in major metropolitan areas by focusing on vertiport infrastructure and dedicated airspace management systems, offering insights for the VTOL component of the Hub system.</p>
+                        <h3 class="font-semibold flex items-center mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="flag-icon">AE</span> Dubai</h3>
+                        <p class="text-muted font-light text-sm">Urban air mobility integration is feasible in major metropolitan areas by focusing on vertiport infrastructure and dedicated airspace management systems, offering insights for the VTOL component of Trinity Air Link.</p>
                     </div>
-                    <div class="case-study-card p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30">
-                        <div class="image-container h-48 mb-4">
-                            <img src="https://placehold.co/400x300/1E293B/84CC16?text=Seoul%20Smart%20Grid" alt="Seoul Smart Transport Grid" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1E293B/64748B?text=Image%20Not%20Available';" class="rounded-md">
+                    <div class="case-study-card card-dark p-6 text-left">
+                        <div class="image-container h-44 mb-5">
+                            <img src="https://placehold.co/400x300/0a0a0f/00D4FF?text=Seoul+Smart+Grid" alt="Seoul Smart Transport Grid" onerror="this.onerror=null;this.src='https://placehold.co/400x300/0a0a0f/8892A0?text=Image+Not+Available';">
                             <div class="image-overlay">Seoul's Smart Transport Grid</div>
                         </div>
-                        <h3 class="font-semibold text-xl text-slate-50 flex items-center"><span class="flag-icon bg-lime-600">KR</span> Seoul</h3>
-                        <p class="mt-2 text-slate-400">**Lesson:** Comprehensive data integration and AI-powered traffic management, including digital twins, can significantly reduce congestion and optimize transportation networks, informing the Hub system's management capabilities.</p>
+                        <h3 class="font-semibold flex items-center mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="flag-icon">KR</span> Seoul</h3>
+                        <p class="text-muted font-light text-sm">Comprehensive data integration and AI-powered traffic management, including digital twins, can significantly reduce congestion and optimize transportation networks, informing Trinity Air Link's management capabilities.</p>
                     </div>
-                    <div class="case-study-card p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30">
-                        <div class="image-container h-48 mb-4">
-                            <img src="https://placehold.co/400x300/1E293B/6366F1?text=London%20Multi-Modal" alt="London Multi-Modal Transport System" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1E293B/64748B?text=Image%20Not%20Available';" class="rounded-md">
+                    <div class="case-study-card card-dark p-6 text-left">
+                        <div class="image-container h-44 mb-5">
+                            <img src="https://placehold.co/400x300/0a0a0f/00D4FF?text=London+Multi-Modal" alt="London Multi-Modal Transport System" onerror="this.onerror=null;this.src='https://placehold.co/400x300/0a0a0f/8892A0?text=Image+Not+Available';">
                             <div class="image-overlay">London's Multi-Modal System</div>
                         </div>
-                        <h3 class="font-semibold text-xl text-slate-50 flex items-center"><span class="flag-icon bg-indigo-600">UK</span> London</h3>
-                        <p class="mt-2 text-slate-400">**Lesson:** Successful multi-modal integration and unified payment systems, alongside converting historic transport buildings into modern mobility hubs (like King's Cross), provide a direct template for the T&P Warehouse transformation.</p>
+                        <h3 class="font-semibold flex items-center mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="flag-icon">UK</span> London</h3>
+                        <p class="text-muted font-light text-sm">Successful multi-modal integration and unified payment systems, alongside converting historic transport buildings into modern mobility hubs (like King's Cross), provide a direct template for the Texas &amp; Pacific Warehouse transformation.</p>
                     </div>
-                    <div class="case-study-card p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30">
-                        <div class="image-container h-48 mb-4">
-                            <img src="https://placehold.co/400x300/1E293B/F97316?text=Zurich%20EV%20Infra" alt="Zurich Electric Mobility Network" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1E293B/64748B?text=Image%20Not%20Available';" class="rounded-md">
+                    <div class="case-study-card card-dark p-6 text-left">
+                        <div class="image-container h-44 mb-5">
+                            <img src="https://placehold.co/400x300/0a0a0f/00D4FF?text=Zurich+EV+Infra" alt="Zurich Electric Mobility Network" onerror="this.onerror=null;this.src='https://placehold.co/400x300/0a0a0f/8892A0?text=Image+Not+Available';">
                             <div class="image-overlay">Zurich's Electric Mobility</div>
                         </div>
-                        <h3 class="font-semibold text-xl text-slate-50 flex items-center"><span class="flag-icon bg-orange-600">CH</span> Zurich</h3>
-                        <p class="mt-2 text-slate-400">**Lesson:** Best practices for electric vehicle infrastructure and smart grid integration can be achieved through public-private partnerships, offering a blueprint for the Hub system's EV charging component.</p>
+                        <h3 class="font-semibold flex items-center mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="flag-icon">CH</span> Zurich</h3>
+                        <p class="text-muted font-light text-sm">Best practices for electric vehicle infrastructure and smart grid integration can be achieved through public-private partnerships, offering a blueprint for Trinity Air Link's EV charging component.</p>
                     </div>
-                    <div class="case-study-card p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30">
-                        <div class="image-container h-48 mb-4">
-                            <img src="https://placehold.co/400x300/1E293B/14B8A6?text=LA%20Union%20Station" alt="LA Union Station Mobility Hub" onerror="this.onerror=null;this.src='https://placehold.co/400x300/1E293B/64748B?text=Image%20Not%20Available';" class="rounded-md">
+                    <div class="case-study-card card-dark p-6 text-left">
+                        <div class="image-container h-44 mb-5">
+                            <img src="https://placehold.co/400x300/0a0a0f/00D4FF?text=LA+Union+Station" alt="LA Union Station Mobility Hub" onerror="this.onerror=null;this.src='https://placehold.co/400x300/0a0a0f/8892A0?text=Image+Not+Available';">
                             <div class="image-overlay">LA Union Station Hub</div>
                         </div>
-                        <h3 class="font-semibold text-xl text-slate-50 flex items-center"><span class="flag-icon bg-teal-600">US</span> Los Angeles</h3>
-                        <p class="mt-2 text-slate-400">**Lesson:** Transforming historic railway stations into multi-modal mobility hubs with integrated autonomous vehicle testing zones and mixed-use development provides a direct parallel and strong validation for the T&P Warehouse concept.</p>
+                        <h3 class="font-semibold flex items-center mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="flag-icon">US</span> Los Angeles</h3>
+                        <p class="text-muted font-light text-sm">Transforming historic railway stations into multi-modal mobility hubs with integrated autonomous vehicle testing zones and mixed-use development provides a direct parallel and strong validation for the Texas &amp; Pacific Warehouse concept.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="phases" class="py-16 sm:py-24 bg-slate-900">
+        <section id="phases" class="py-16 sm:py-24 section-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">Implementation Strategy: A Phased Approach</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">The transformation of the T&P Warehouse into the HUB will unfold through a strategic five-phase plan, ensuring methodical development, technology validation, and scalable expansion.</p>
-                <div class="mt-12 max-w-4xl mx-auto space-y-4 text-left">
-                    <div class="bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-700 transition-colors" data-target="phase1">
-                            Phase 1: Foundation (Months 0-12)
-                            <span class="arrow text-sky-400">&#9658;</span>
+                <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Roadmap</p>
+                <h2 class="text-3xl font-bold sm:text-4xl">Implementation Strategy: A Phased Approach</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">The transformation of the Texas &amp; Pacific Warehouse into the central Trinity Air Link node will unfold through a strategic five-phase plan, ensuring methodical development, technology validation, and scalable expansion.</p>
+                <div class="mt-12 max-w-4xl mx-auto text-left" style="border: 1px solid var(--border-subtle);">
+                    <div style="background: var(--surface); border-bottom: 1px solid var(--border-subtle);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: transparent; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="phase1">
+                            Phase 1: Foundation <span class="text-muted font-light ml-2" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: none; letter-spacing: 0;">(Months 0–12)</span>
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="phase1" class="accordion-content hidden p-6 border-t border-slate-700 text-slate-400">
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Secure T&P Warehouse property and conduct detailed assessment.</li>
-                                <li>Begin essential structural repairs ($2.15M initial estimate) and water infiltration remediation.</li>
-                                <li>Develop architectural and engineering plans; establish regulatory framework.</li>
-                                <li>Build key partnerships with technology providers and stakeholders; launch community engagement.</li>
+                        <div id="phase1" class="accordion-content hidden p-6 text-muted font-light text-sm" style="border-top: 1px solid var(--border-subtle);">
+                            <ul class="space-y-2">
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Secure Texas &amp; Pacific Warehouse property and conduct detailed assessment.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Begin essential structural repairs ($2.15M initial estimate) and water infiltration remediation.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Develop architectural and engineering plans; establish regulatory framework.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Build key partnerships with technology providers and stakeholders; launch community engagement.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-700 transition-colors" data-target="phase2">
-                            Phase 2: Infrastructure Development (Months 13-24)
-                            <span class="arrow text-sky-400">&#9658;</span>
+                    <div style="background: var(--surface); border-bottom: 1px solid var(--border-subtle);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: transparent; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="phase2">
+                            Phase 2: Infrastructure Development <span class="text-muted font-light ml-2" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: none; letter-spacing: 0;">(Months 13–24)</span>
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="phase2" class="accordion-content hidden p-6 border-t border-slate-700 text-slate-400">
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Complete T&P Warehouse rehabilitation.</li>
-                                <li>Develop rooftop VTOL infrastructure and ground transportation facilities.</li>
-                                <li>Install initial charging and support systems; begin integration of traffic management.</li>
-                                <li>Develop technology innovation spaces within the warehouse.</li>
+                        <div id="phase2" class="accordion-content hidden p-6 text-muted font-light text-sm" style="border-top: 1px solid var(--border-subtle);">
+                            <ul class="space-y-2">
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Complete Texas &amp; Pacific Warehouse rehabilitation.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Develop rooftop VTOL infrastructure and ground transportation facilities.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Install initial charging and support systems; begin integration of traffic management.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Develop technology innovation spaces within the warehouse.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-700 transition-colors" data-target="phase3">
-                            Phase 3: Pilot Operations (Months 25-36)
-                            <span class="arrow text-sky-400">&#9658;</span>
+                    <div style="background: var(--surface); border-bottom: 1px solid var(--border-subtle);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: transparent; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="phase3">
+                            Phase 3: Pilot Operations <span class="text-muted font-light ml-2" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: none; letter-spacing: 0;">(Months 25–36)</span>
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="phase3" class="accordion-content hidden p-6 border-t border-slate-700 text-slate-400">
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Launch pilot project with limited VTOL and EV operations from the T&P Hub.</li>
-                                <li>Test technical systems and operational protocols; gather user feedback and data.</li>
-                                <li>Refine service based on pilot results; expand partnerships.</li>
-                                <li>Begin development of secondary hubs across DFW.</li>
+                        <div id="phase3" class="accordion-content hidden p-6 text-muted font-light text-sm" style="border-top: 1px solid var(--border-subtle);">
+                            <ul class="space-y-2">
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Launch pilot project with limited VTOL and EV operations from the Trinity Air Link hub.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Test technical systems and operational protocols; gather user feedback and data.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Refine service based on pilot results; expand partnerships.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Begin development of secondary hubs across DFW.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-700 transition-colors" data-target="phase4">
-                            Phase 4: System Expansion (Months 37-60)
-                            <span class="arrow text-sky-400">&#9658;</span>
+                    <div style="background: var(--surface); border-bottom: 1px solid var(--border-subtle);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: transparent; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="phase4">
+                            Phase 4: System Expansion <span class="text-muted font-light ml-2" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: none; letter-spacing: 0;">(Months 37–60)</span>
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="phase4" class="accordion-content hidden p-6 border-t border-slate-700 text-slate-400">
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Scale VTOL and EV fleets; expand to additional hub locations.</li>
-                                <li>Increase route coverage across the metroplex and enhance service offerings.</li>
-                                <li>Develop additional technology capabilities and optimize operational efficiency.</li>
+                        <div id="phase4" class="accordion-content hidden p-6 text-muted font-light text-sm" style="border-top: 1px solid var(--border-subtle);">
+                            <ul class="space-y-2">
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Scale VTOL and EV fleets; expand to additional hub locations.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Increase route coverage across the metroplex and enhance service offerings.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Develop additional technology capabilities and optimize operational efficiency.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-700 transition-colors" data-target="phase5">
-                            Phase 5: Full Network Operations (Months 61+)
-                            <span class="arrow text-sky-400">&#9658;</span>
+                    <div style="background: var(--surface);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: transparent; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="phase5">
+                            Phase 5: Full Network Operations <span class="text-muted font-light ml-2" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; text-transform: none; letter-spacing: 0;">(Months 61+)</span>
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="phase5" class="accordion-content hidden p-6 border-t border-slate-700 text-slate-400">
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Operate comprehensive hub network across DFW.</li>
-                                <li>Continue technology innovation, enhancement, and integration with other transportation modes.</li>
-                                <li>Develop additional services and capabilities; export knowledge and technology to other regions.</li>
+                        <div id="phase5" class="accordion-content hidden p-6 text-muted font-light text-sm" style="border-top: 1px solid var(--border-subtle);">
+                            <ul class="space-y-2">
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Operate comprehensive Trinity Air Link network across DFW.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Continue technology innovation, enhancement, and integration with other transportation modes.</li>
+                                <li style="display: flex; gap: 0.75rem;"><span class="accent flex-shrink-0">—</span> Develop additional services and capabilities; export knowledge and technology to other regions.</li>
                             </ul>
                         </div>
                     </div>
@@ -479,93 +529,94 @@
             </div>
         </section>
 
-        <section id="stakeholders" class="py-16 sm:py-24 bg-slate-800">
+        <section id="stakeholders" class="py-16 sm:py-24 section-surface">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">Stakeholder Engagement: Building Partnerships</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">Successful implementation of the HUB system requires strategic engagement with a diverse range of stakeholders. Understanding their interests is key to fostering collaboration.</p>
-                <div class="mt-12 max-w-4xl mx-auto space-y-4 text-left">
-                    <div class="bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-600 transition-colors" data-target="gov-reg-stakeholders">
-                            Government and Regulatory
-                            <span class="arrow text-sky-400">&#9658;</span>
+                <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Partnerships</p>
+                <h2 class="text-3xl font-bold sm:text-4xl">Stakeholder Engagement: Building Partnerships</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">Successful implementation of Trinity Air Link requires strategic engagement with a diverse range of stakeholders. Understanding their interests is key to fostering collaboration.</p>
+                <div class="mt-12 max-w-4xl mx-auto text-left" style="border: 1px solid var(--border-subtle);">
+                    <div style="border-bottom: 1px solid var(--border-subtle);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: var(--bg); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="gov-reg-stakeholders">
+                            Government &amp; Regulatory
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="gov-reg-stakeholders" class="accordion-content hidden p-6 border-t border-slate-600 text-slate-400">
-                            <p class="font-semibold text-slate-300">Key Stakeholders:</p>
-                            <ul class="list-disc list-inside space-y-1">
+                        <div id="gov-reg-stakeholders" class="accordion-content hidden p-6 text-sm" style="border-top: 1px solid var(--border-subtle); background: var(--surface);">
+                            <p class="font-medium mb-2" style="color: var(--text-primary); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">Key Stakeholders</p>
+                            <ul class="text-muted font-light space-y-1 mb-5">
                                 <li>City of Fort Worth, City of Dallas, DFW Regional Transportation Council</li>
                                 <li>Texas Department of Transportation (TxDOT), Federal Aviation Administration (FAA)</li>
                                 <li>Texas Historic Commission, North Central Texas Council of Governments (NCTCOG)</li>
                             </ul>
-                            <p class="mt-4 font-semibold text-slate-300">Engagement Objectives:</p>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li>Secure necessary approvals and regulatory support.</li>
-                                <li>Establish collaborative relationships with regulatory bodies.</li>
-                                <li>Develop appropriate regulatory frameworks for new technology.</li>
-                                <li>Ensure alignment with city and regional planning initiatives.</li>
+                            <p class="font-medium mb-2" style="color: var(--text-primary); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">Engagement Objectives</p>
+                            <ul class="text-muted font-light space-y-1">
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Secure necessary approvals and regulatory support.</li>
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Establish collaborative relationships with regulatory bodies.</li>
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Develop appropriate regulatory frameworks for new technology.</li>
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Ensure alignment with city and regional planning initiatives.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-600 transition-colors" data-target="finance-investment-stakeholders">
-                            Financial and Investment
-                            <span class="arrow text-sky-400">&#9658;</span>
+                    <div style="border-bottom: 1px solid var(--border-subtle);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: var(--bg); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="finance-investment-stakeholders">
+                            Financial &amp; Investment
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="finance-investment-stakeholders" class="accordion-content hidden p-6 border-t border-slate-600 text-slate-400">
-                            <p class="font-semibold text-slate-300">Key Stakeholders:</p>
-                            <ul class="list-disc list-inside space-y-1">
+                        <div id="finance-investment-stakeholders" class="accordion-content hidden p-6 text-sm" style="border-top: 1px solid var(--border-subtle); background: var(--surface);">
+                            <p class="font-medium mb-2" style="color: var(--text-primary); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">Key Stakeholders</p>
+                            <ul class="text-muted font-light space-y-1 mb-5">
                                 <li>Potential Private Investors, Public-Private Partnership Entities</li>
                                 <li>Federal Grant Programs, State Economic Development Funds</li>
                                 <li>Local Development Corporations, Infrastructure Investment Firms</li>
                             </ul>
-                            <p class="mt-4 font-semibold text-slate-300">Engagement Objectives:</p>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li>Secure investment for initial phases and long-term funding.</li>
-                                <li>Develop robust public-private partnership structures.</li>
-                                <li>Identify and apply for applicable grants and incentives.</li>
-                                <li>Build confidence in project viability and financial returns.</li>
+                            <p class="font-medium mb-2" style="color: var(--text-primary); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">Engagement Objectives</p>
+                            <ul class="text-muted font-light space-y-1">
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Secure investment for initial phases and long-term funding.</li>
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Develop robust public-private partnership structures.</li>
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Identify and apply for applicable grants and incentives.</li>
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Build confidence in project viability and financial returns.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-600 transition-colors" data-target="tech-industry-stakeholders">
-                            Technology and Industry Partners
-                            <span class="arrow text-sky-400">&#9658;</span>
+                    <div style="border-bottom: 1px solid var(--border-subtle);">
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: var(--bg); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="tech-industry-stakeholders">
+                            Technology &amp; Industry Partners
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="tech-industry-stakeholders" class="accordion-content hidden p-6 border-t border-slate-600 text-slate-400">
-                            <p class="font-semibold text-slate-300">Key Stakeholders:</p>
-                            <ul class="list-disc list-inside space-y-1">
+                        <div id="tech-industry-stakeholders" class="accordion-content hidden p-6 text-sm" style="border-top: 1px solid var(--border-subtle); background: var(--surface);">
+                            <p class="font-medium mb-2" style="color: var(--text-primary); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">Key Stakeholders</p>
+                            <ul class="text-muted font-light space-y-1 mb-5">
                                 <li>VTOL Manufacturers, Autonomous Vehicle Companies</li>
                                 <li>Electric Charging Infrastructure Providers, Software/AI Development Partners</li>
                                 <li>Telecommunications Providers, Construction and Engineering Firms</li>
                             </ul>
-                            <p class="mt-4 font-semibold text-slate-300">Engagement Objectives:</p>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li>Secure technical partnerships for VTOL and AV components.</li>
-                                <li>Develop integration standards and collaborative testing environments.</li>
-                                <li>Establish intellectual property agreements and R&D collaborations.</li>
+                            <p class="font-medium mb-2" style="color: var(--text-primary); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">Engagement Objectives</p>
+                            <ul class="text-muted font-light space-y-1">
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Secure technical partnerships for VTOL and AV components.</li>
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Develop integration standards and collaborative testing environments.</li>
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Establish intellectual property agreements and R&amp;D collaborations.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 overflow-hidden">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold text-slate-50 hover:bg-slate-600 transition-colors" data-target="community-public-stakeholders">
-                            Community and Public
-                            <span class="arrow text-sky-400">&#9658;</span>
+                    <div>
+                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center font-semibold hover:opacity-80 transition-opacity" style="background: var(--bg); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);" data-target="community-public-stakeholders">
+                            Community &amp; Public
+                            <span class="arrow">&#9658;</span>
                         </button>
-                        <div id="community-public-stakeholders" class="accordion-content hidden p-6 border-t border-slate-600 text-slate-400">
-                            <p class="font-semibold text-slate-300">Key Stakeholders:</p>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li>Local Residents (near T&P Warehouse), DFW Business Community</li>
+                        <div id="community-public-stakeholders" class="accordion-content hidden p-6 text-sm" style="border-top: 1px solid var(--border-subtle); background: var(--surface);">
+                            <p class="font-medium mb-2" style="color: var(--text-primary); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">Key Stakeholders</p>
+                            <ul class="text-muted font-light space-y-1 mb-5">
+                                <li>Local Residents (near Texas &amp; Pacific Warehouse), DFW Business Community</li>
                                 <li>Historic Preservation Groups, Environmental Organizations</li>
                                 <li>General Public/Potential Users, Community Organizations</li>
                             </ul>
-                            <p class="mt-4 font-semibold text-slate-300">Engagement Objectives:</p>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li>Build community support and understanding; address concerns proactively.</li>
-                                <li>Incorporate community feedback into design; foster a sense of shared ownership.</li>
-                                <li>Communicate project benefits (jobs, mobility, preservation).</li>
+                            <p class="font-medium mb-2" style="color: var(--text-primary); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">Engagement Objectives</p>
+                            <ul class="text-muted font-light space-y-1">
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Build community support and understanding; address concerns proactively.</li>
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Incorporate community feedback into design; foster a sense of shared ownership.</li>
+                                <li style="display: flex; gap: 0.5rem;"><span class="accent">—</span> Communicate project benefits (jobs, mobility, preservation).</li>
                             </ul>
                         </div>
                     </div>
@@ -574,29 +625,30 @@
         </section>
 
 
-        <section id="timeline" class="py-16 sm:py-24 bg-slate-900">
+        <section id="timeline" class="py-16 sm:py-24 section-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">A Storied History</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">From an icon of industry to a symbol of neglect, the warehouse's timeline reveals a complex past. Click on any event to learn more.</p>
+                    <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Heritage</p>
+                    <h2 class="text-3xl font-bold sm:text-4xl">A Storied History</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">From an icon of industry to a symbol of neglect, the warehouse's timeline reveals a complex past. Click on any event to learn more.</p>
                 </div>
                 <div class="mt-12 max-w-2xl mx-auto">
-                    <div class="relative border-l-2 border-sky-600/50">
+                    <div class="relative" style="border-left: 1px solid var(--border);">
                         <div id="timeline-container"></div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <div id="timeline-modal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-70 overflow-y-auto h-full w-full z-50">
-            <div class="relative top-20 mx-auto p-5 border border-sky-600/50 w-11/12 max-w-2xl shadow-lg shadow-sky-500/20 rounded-md bg-slate-800">
-                <div class="mt-3 text-center">
-                    <h3 id="modal-title" class="text-2xl leading-6 font-bold text-slate-50"></h3>
-                    <div class="mt-4 px-7 py-3">
-                        <p id="modal-description" class="text-md text-slate-300"></p>
+
+        <div id="timeline-modal" class="hidden fixed inset-0 overflow-y-auto h-full w-full z-50" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);">
+            <div class="modal-box relative top-20 mx-auto p-8 w-11/12 max-w-2xl" style="background: var(--surface); border: 1px solid var(--border);">
+                <div class="text-center">
+                    <h3 id="modal-title" class="text-xl leading-6 font-bold" style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase;"></h3>
+                    <div class="mt-5 px-4">
+                        <p id="modal-description" class="text-sm text-muted font-light leading-relaxed"></p>
                     </div>
-                    <div class="items-center px-4 py-3">
-                        <button id="close-modal-button" class="px-4 py-2 bg-sky-600 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                    <div class="mt-6">
+                        <button id="close-modal-button" class="px-8 py-2 text-xs font-medium transition-colors" style="background: transparent; border: 1px solid var(--accent); color: var(--accent); font-family: 'Orbitron', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;">
                             Close
                         </button>
                     </div>
@@ -604,152 +656,156 @@
             </div>
         </div>
 
-        <section id="financials" class="py-16 sm:py-24 bg-slate-800">
+        <section id="financials" class="py-16 sm:py-24 section-surface">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
                     <div>
-                        <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">The Financial Picture</h2>
-                        <p class="mt-4 text-lg text-slate-400">The property's financial history highlights the opportunity cost of its vacancy. The current low appraisal reflects its distressed state, not its potential market value upon redevelopment in line with the HUB vision.</p>
-                        <div class="mt-8 chart-container bg-slate-700 p-4 rounded-lg shadow-lg border border-sky-600/30">
+                        <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Data</p>
+                        <h2 class="text-3xl font-bold sm:text-4xl">The Financial Picture</h2>
+                        <p class="mt-4 text-muted font-light">The property's financial history highlights the opportunity cost of its vacancy. The current low appraisal reflects its distressed state, not its potential market value upon redevelopment aligned with the Trinity Air Link vision.</p>
+                        <div class="mt-8 chart-container p-4" style="background: var(--bg); border: 1px solid var(--border-subtle);">
                             <canvas id="valueChart"></canvas>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-slate-50">Available Redevelopment Incentives</h3>
-                        <p class="mt-2 text-lg text-slate-400">The city and PID 20 offer numerous programs to support a viable project. Click each card for details.</p>
-                        <div id="incentives-container" class="mt-6 space-y-4"></div>
+                        <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Incentives</p>
+                        <h3 class="text-2xl font-bold">Available Redevelopment Incentives</h3>
+                        <p class="mt-2 text-muted font-light">The city and PID 20 offer numerous programs to support a viable project. Click each card for details.</p>
+                        <div id="incentives-container" class="mt-6 space-y-px"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="next-steps" class="py-16 sm:py-24 bg-slate-900">
+        <section id="next-steps" class="py-16 sm:py-24 section-dark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">Logical Next Steps: Mobilizing the Vision</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">A clear pathway forward for realizing the HUB transportation system, beginning with foundational due diligence and strategic partnerships.</p>
-                <div class="mt-12 max-w-4xl mx-auto text-left space-y-6">
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg border border-sky-600/30">
-                        <h3 class="text-xl font-semibold text-slate-50">1. Refine the Business Case and Financial Model</h3>
-                        <ul class="mt-2 list-disc list-inside text-slate-400 space-y-1">
-                            <li>Detailed Cost Analysis: Develop precise cost estimates for acquisition, rehabilitation, technology, and operations.</li>
-                            <li>Revenue Projections: Create financial models with various scenarios (conservative, moderate, optimistic).</li>
-                            <li>Funding Strategy: Identify specific sources including grants, private investors, and public-private partnerships.</li>
+                <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Action Plan</p>
+                <h2 class="text-3xl font-bold sm:text-4xl">Logical Next Steps: Mobilizing the Vision</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">A clear pathway forward for realizing Trinity Air Link, beginning with foundational due diligence and strategic partnerships.</p>
+                <div class="mt-12 max-w-4xl mx-auto text-left space-y-px" style="border: 1px solid var(--border-subtle);">
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="accent mr-2">01</span> Refine the Business Case and Financial Model</h3>
+                        <ul class="text-muted font-light text-sm space-y-1">
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Detailed Cost Analysis: Develop precise cost estimates for acquisition, rehabilitation, technology, and operations.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Revenue Projections: Create financial models with various scenarios (conservative, moderate, optimistic).</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Funding Strategy: Identify specific sources including grants, private investors, and public-private partnerships.</li>
                         </ul>
                     </div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg border border-sky-600/30">
-                        <h3 class="text-xl font-semibold text-slate-50">2. Technical Feasibility Studies</h3>
-                        <ul class="mt-2 list-disc list-inside text-slate-400 space-y-1">
-                            <li>Engineering Assessment: Commission detailed structural and engineering assessments of the T&P Warehouse.</li>
-                            <li>VTOL Integration Study: Analyze technical requirements for rooftop VTOL operations and airspace management.</li>
-                            <li>EV Infrastructure Planning: Design charging infrastructure and autonomous vehicle operations systems.</li>
-                            <li>Traffic Flow Analysis: Model impact on existing transportation networks and identify optimization opportunities.</li>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="accent mr-2">02</span> Technical Feasibility Studies</h3>
+                        <ul class="text-muted font-light text-sm space-y-1">
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Engineering Assessment: Commission detailed structural and engineering assessments of the Texas &amp; Pacific Warehouse.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> VTOL Integration Study: Analyze technical requirements for rooftop VTOL operations and airspace management.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> EV Infrastructure Planning: Design charging infrastructure and autonomous vehicle operations systems.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Traffic Flow Analysis: Model impact on existing transportation networks and identify optimization opportunities.</li>
                         </ul>
                     </div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg border border-sky-600/30">
-                        <h3 class="text-xl font-semibold text-slate-50">3. Regulatory Navigation Plan</h3>
-                        <ul class="mt-2 list-disc list-inside text-slate-400 space-y-1">
-                            <li>Regulatory Framework Analysis: Identify all relevant regulations and approval processes required.</li>
-                            <li>Compliance Strategy: Develop a roadmap for obtaining necessary permits and approvals.</li>
-                            <li>Policy Advocacy Plan: Create a strategy for working with regulatory bodies to develop appropriate frameworks for this innovative system.</li>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="accent mr-2">03</span> Regulatory Navigation Plan</h3>
+                        <ul class="text-muted font-light text-sm space-y-1">
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Regulatory Framework Analysis: Identify all relevant regulations and approval processes required.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Compliance Strategy: Develop a roadmap for obtaining necessary permits and approvals.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Policy Advocacy Plan: Create a strategy for working with regulatory bodies to develop appropriate frameworks.</li>
                         </ul>
                     </div>
-                     <div class="bg-slate-800 p-6 rounded-lg shadow-lg border border-sky-600/30">
-                        <h3 class="text-xl font-semibold text-slate-50">4. Community Benefits Package</h3>
-                        <ul class="mt-2 list-disc list-inside text-slate-400 space-y-1">
-                            <li>Economic Impact Assessment: Commission a detailed study on job creation and economic benefits.</li>
-                            <li>Environmental Benefits Analysis: Quantify emissions reductions and other environmental improvements.</li>
-                            <li>Community Investment Plan: Develop specific proposals for community investment and benefits sharing.</li>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="accent mr-2">04</span> Community Benefits Package</h3>
+                        <ul class="text-muted font-light text-sm space-y-1">
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Economic Impact Assessment: Commission a detailed study on job creation and economic benefits.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Environmental Benefits Analysis: Quantify emissions reductions and other environmental improvements.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Community Investment Plan: Develop specific proposals for community investment and benefits sharing.</li>
                         </ul>
                     </div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg border border-sky-600/30">
-                        <h3 class="text-xl font-semibold text-slate-50">5. Pilot Project Design</h3>
-                        <ul class="mt-2 list-disc list-inside text-slate-400 space-y-1">
-                            <li>Minimum Viable Product: Define the smallest implementation that could demonstrate the concept effectively.</li>
-                            <li>Test Location Selection: Identify specific areas within DFW for initial implementation.</li>
-                            <li>Evaluation Framework: Design metrics and methods to assess the pilot's success.</li>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="accent mr-2">05</span> Pilot Project Design</h3>
+                        <ul class="text-muted font-light text-sm space-y-1">
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Minimum Viable Product: Define the smallest implementation that could demonstrate the concept effectively.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Test Location Selection: Identify specific areas within DFW for initial implementation.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Evaluation Framework: Design metrics and methods to assess the pilot's success.</li>
                         </ul>
                     </div>
-                     <div class="bg-slate-800 p-6 rounded-lg shadow-lg border border-sky-600/30">
-                        <h3 class="text-xl font-semibold text-slate-50">6. Risk Mitigation Strategy</h3>
-                        <ul class="mt-2 list-disc list-inside text-slate-400 space-y-1">
-                            <li>Comprehensive Risk Assessment: Identify all potential technical, financial, regulatory, and social risks.</li>
-                            <li>Mitigation Plans: Develop specific strategies to address each identified risk.</li>
-                            <li>Contingency Planning: Create alternative approaches if primary plans encounter obstacles.</li>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="accent mr-2">06</span> Risk Mitigation Strategy</h3>
+                        <ul class="text-muted font-light text-sm space-y-1">
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Comprehensive Risk Assessment: Identify all potential technical, financial, regulatory, and social risks.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Mitigation Plans: Develop specific strategies to address each identified risk.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Contingency Planning: Create alternative approaches if primary plans encounter obstacles.</li>
                         </ul>
                     </div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg border border-sky-600/30">
-                        <h3 class="text-xl font-semibold text-slate-50">7. Partnership Development</h3>
-                        <ul class="mt-2 list-disc list-inside text-slate-400 space-y-1">
-                            <li>Technology Partner Identification: Research and approach companies with relevant VTOL and autonomous vehicle technologies.</li>
-                            <li>Academic Research Partnerships: Establish relationships with local universities for R&D support.</li>
-                            <li>Industry Alliances: Form relationships with transportation, logistics, and technology industry groups.</li>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="accent mr-2">07</span> Partnership Development</h3>
+                        <ul class="text-muted font-light text-sm space-y-1">
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Technology Partner Identification: Research and approach companies with relevant VTOL and autonomous vehicle technologies.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Academic Research Partnerships: Establish relationships with local universities for R&amp;D support.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Industry Alliances: Form relationships with transportation, logistics, and technology industry groups.</li>
                         </ul>
                     </div>
-                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg border border-sky-600/30">
-                        <h3 class="text-xl font-semibold text-slate-50">8. Implementation Roadmap</h3>
-                        <ul class="mt-2 list-disc list-inside text-slate-400 space-y-1">
-                            <li>Detailed Project Plan: Break down the phased implementation into specific tasks, timelines, and responsibilities.</li>
-                            <li>Milestone Definition: Establish clear, measurable milestones to track progress.</li>
-                            <li>Resource Allocation Plan: Determine human, financial, and technological resources needed at each stage.</li>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="accent mr-2">08</span> Implementation Roadmap</h3>
+                        <ul class="text-muted font-light text-sm space-y-1">
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Detailed Project Plan: Break down the phased implementation into specific tasks, timelines, and responsibilities.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Milestone Definition: Establish clear, measurable milestones to track progress.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Resource Allocation Plan: Determine human, financial, and technological resources needed at each stage.</li>
                         </ul>
                     </div>
-                     <div class="bg-slate-800 p-6 rounded-lg shadow-lg border border-sky-600/30">
-                        <h3 class="text-xl font-semibold text-slate-50">9. Marketing and Communications Strategy</h3>
-                        <ul class="mt-2 list-disc list-inside text-slate-400 space-y-1">
-                            <li>Brand Development: Create a compelling brand identity for the Hub system.</li>
-                            <li>Public Education Campaign: Design materials to explain the concept to the general public.</li>
-                            <li>Digital Presence: Develop website and social media strategy to build public support and awareness.</li>
+                    <div class="card p-6">
+                        <h3 class="font-semibold mb-3" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;"><span class="accent mr-2">09</span> Marketing &amp; Communications Strategy</h3>
+                        <ul class="text-muted font-light text-sm space-y-1">
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Brand Development: Build on the Trinity Air Link identity with compelling outreach materials.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Public Education Campaign: Design materials to explain the concept to the general public.</li>
+                            <li style="display: flex; gap: 0.5rem;"><span class="accent flex-shrink-0">—</span> Digital Presence: Develop website and social media strategy to build public support and awareness.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="resources" class="py-16 sm:py-24 bg-slate-800">
+        <section id="resources" class="py-16 sm:py-24 section-surface">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-50 sm:text-4xl">Developer Resource Hub</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">Direct links to primary source data for your due diligence process.</p>
+                    <p class="text-xs accent tracking-widest uppercase mb-3" style="letter-spacing: 0.2em;">Data Room</p>
+                    <h2 class="text-3xl font-bold sm:text-4xl">Developer Resource Hub</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-muted font-light">Direct links to primary source data for your due diligence process.</p>
                 </div>
-                <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    <div class="p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="font-semibold text-lg text-slate-50">Zoning & Planning</h3>
-                        <p class="mt-2 text-sm text-slate-400">Access the official City of Fort Worth interactive zoning map and planning ordinances.</p>
-                        <a href="https://gisapps.fortworthtexas.gov/Html5Viewer/?viewer=Zoning" target="_blank" class="mt-4 inline-block text-sky-400 font-semibold hover:text-sky-300 transition-colors">View Zoning Map &rarr;</a>
+                <div class="mt-12 grid gap-px sm:grid-cols-2 lg:grid-cols-3" style="background: var(--border-subtle);">
+                    <div class="card-dark p-6">
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;">Zoning &amp; Planning</h3>
+                        <p class="text-sm text-muted font-light mb-4">Access the official City of Fort Worth interactive zoning map and planning ordinances.</p>
+                        <a href="https://gisapps.fortworthtexas.gov/Html5Viewer/?viewer=Zoning" target="_blank" class="text-xs font-medium transition-colors" style="color: var(--accent); letter-spacing: 0.05em;">View Zoning Map &rarr;</a>
                     </div>
-                    <div class="p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="font-semibold text-lg text-slate-50">County Appraisal (TCAD)</h3>
-                        <p class="mt-2 text-sm text-slate-400">Search the Tarrant Appraisal District database for property details and tax history.</p>
-                        <a href="https://www.tad.org/search-results" target="_blank" class="mt-4 inline-block text-sky-400 font-semibold hover:text-sky-300 transition-colors">Search TCAD &rarr;</a>
+                    <div class="card-dark p-6">
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;">County Appraisal (TCAD)</h3>
+                        <p class="text-sm text-muted font-light mb-4">Search the Tarrant Appraisal District database for property details and tax history.</p>
+                        <a href="https://www.tad.org/search-results" target="_blank" class="text-xs font-medium transition-colors" style="color: var(--accent); letter-spacing: 0.05em;">Search TCAD &rarr;</a>
                     </div>
-                    <div class="p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="font-semibold text-lg text-slate-50">County Clerk Records</h3>
-                        <p class="mt-2 text-sm text-slate-400">Find deeds, plats, and other official real estate records from the Tarrant County Clerk.</p>
-                        <a href="https://countyfusion.tarrantcounty.com/" target="_blank" class="mt-4 inline-block text-sky-400 font-semibold hover:text-sky-300 transition-colors">Access Records &rarr;</a>
+                    <div class="card-dark p-6">
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;">County Clerk Records</h3>
+                        <p class="text-sm text-muted font-light mb-4">Find deeds, plats, and other official real estate records from the Tarrant County Clerk.</p>
+                        <a href="https://countyfusion.tarrantcounty.com/" target="_blank" class="text-xs font-medium transition-colors" style="color: var(--accent); letter-spacing: 0.05em;">Access Records &rarr;</a>
                     </div>
-                    <div class="p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="font-semibold text-lg text-slate-50">Permits & Inspections</h3>
-                        <p class="mt-2 text-sm text-slate-400">Use the city's Accela portal to search for historical permits and code compliance cases.</p>
-                        <a href="https://accela.fortworthtexas.gov/citizenaccess/" target="_blank" class="mt-4 inline-block text-sky-400 font-semibold hover:text-sky-300 transition-colors">Search Permits &rarr;</a>
+                    <div class="card-dark p-6">
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;">Permits &amp; Inspections</h3>
+                        <p class="text-sm text-muted font-light mb-4">Use the city's Accela portal to search for historical permits and code compliance cases.</p>
+                        <a href="https://accela.fortworthtexas.gov/citizenaccess/" target="_blank" class="text-xs font-medium transition-colors" style="color: var(--accent); letter-spacing: 0.05em;">Search Permits &rarr;</a>
                     </div>
-                    <div class="p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="font-semibold text-lg text-slate-50">PID 20 Documents</h3>
-                        <p class="mt-2 text-sm text-slate-400">Review budgets, service plans, and official documents for the East Lancaster PID.</p>
-                        <a href="https://www.pid20.org/documents" target="_blank" class="mt-4 inline-block text-sky-400 font-semibold hover:text-sky-300 transition-colors">View PID Docs &rarr;</a>
+                    <div class="card-dark p-6">
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;">PID 20 Documents</h3>
+                        <p class="text-sm text-muted font-light mb-4">Review budgets, service plans, and official documents for the East Lancaster PID.</p>
+                        <a href="https://www.pid20.org/documents" target="_blank" class="text-xs font-medium transition-colors" style="color: var(--accent); letter-spacing: 0.05em;">View PID Docs &rarr;</a>
                     </div>
-                    <div class="p-6 bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 hover:shadow-sky-500/30 transition-shadow duration-300">
-                        <h3 class="font-semibold text-lg text-slate-50">State Environmental (TCEQ)</h3>
-                        <p class="mt-2 text-sm text-slate-400">Search the Texas Commission on Environmental Quality database for site records.</p>
-                        <a href="https://www.tceq.texas.gov/agency/data" target="_blank" class="mt-4 inline-block text-sky-400 font-semibold hover:text-sky-300 transition-colors">Search TCEQ Data &rarr;</a>
+                    <div class="card-dark p-6">
+                        <h3 class="font-semibold mb-2" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;">State Environmental (TCEQ)</h3>
+                        <p class="text-sm text-muted font-light mb-4">Search the Texas Commission on Environmental Quality database for site records.</p>
+                        <a href="https://www.tceq.texas.gov/agency/data" target="_blank" class="text-xs font-medium transition-colors" style="color: var(--accent); letter-spacing: 0.05em;">Search TCEQ Data &rarr;</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-slate-800">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-slate-500">&copy; 2024 T&P Nexus. All rights reserved.</p>
+    <footer style="background: var(--surface); border-top: 1px solid var(--border-subtle);">
+        <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 text-center">
+            <p style="font-family: 'Orbitron', sans-serif; font-size: 0.7rem; color: var(--text-secondary); letter-spacing: 0.1em;">&copy; 2024 <span style="color: var(--accent);">TRINITY AIR LINK</span>. All rights reserved.</p>
         </div>
     </footer>
 
@@ -764,7 +820,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { year: '2016', title: 'TIF Agreement Terminated', description: 'The City of Fort Worth terminates the TIF agreement, citing the owner\'s inability to provide a viable funding plan for the project.' },
         { year: '2017', title: 'Mandatory Compliance Work', description: 'The city requires the owner to perform temporary work, including sealing windows and pumping water from the basement, to protect the building from further decay.' },
         { year: '2023', title: 'City-Led Structural Inspection', description: 'Prompted by safety concerns, the city hires a contractor to perform a full structural inspection, signaling increasing pressure on the owner to address the building\'s dilapidated state.' },
-        { year: '2026', title: 'Area Redevelopment Begins (Forecast)', description: 'Construction is forecast to begin on the $182 million reconstruction of East Lancaster Avenue, a major public investment set to transform the surrounding corridor, further paving the way for the HUB vision.' }
+        { year: '2026', title: 'Area Redevelopment Begins (Forecast)', description: 'Construction is forecast to begin on the $182 million reconstruction of East Lancaster Avenue, a major public investment set to transform the surrounding corridor, further paving the way for the Trinity Air Link vision.' }
     ];
 
     const incentivesData = [
@@ -779,7 +835,11 @@ document.addEventListener('DOMContentLoaded', function() {
     timelineData.forEach(item => {
         const div = document.createElement('div');
         div.className = 'timeline-item relative pl-8 pr-4 py-6 cursor-pointer';
-        div.innerHTML = `<h3 class="text-lg font-semibold text-slate-50">${item.year} - ${item.title}</h3>`;
+        div.style.borderBottom = '1px solid rgba(255,255,255,0.04)';
+        div.innerHTML = `
+            <p style="font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.25rem; font-family: 'Orbitron', sans-serif;">${item.year}</p>
+            <h3 style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); font-family: 'Orbitron', sans-serif; letter-spacing: 0.04em;">${item.title}</h3>
+        `;
         div.addEventListener('click', () => openModal(item.title, item.description));
         timelineContainer.appendChild(div);
     });
@@ -787,14 +847,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const incentivesContainer = document.getElementById('incentives-container');
     incentivesData.forEach(item => {
         const div = document.createElement('div');
-        div.className = 'bg-slate-700 rounded-lg shadow-lg border border-sky-600/30 cursor-pointer hover:shadow-sky-500/30 transition-shadow duration-300';
+        div.className = 'incentive-card cursor-pointer';
+        div.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
         div.innerHTML = `
             <div class="incentive-header p-4 flex justify-between items-center">
-                <h4 class="font-semibold text-slate-50">${item.title}</h4>
-                <span class="transform transition-transform text-sky-400">&#9662;</span>
+                <h4 style="font-size: 0.8rem; font-weight: 600; color: var(--text-primary); font-family: 'Orbitron', sans-serif; letter-spacing: 0.04em;">${item.title}</h4>
+                <span style="color: var(--accent); font-size: 0.8rem; transition: transform 0.2s;">&#9662;</span>
             </div>
-            <div class="incentive-body hidden p-4 border-t border-slate-600">
-                <p class="text-slate-400">${item.description}</p>
+            <div class="incentive-body hidden p-4">
+                <p style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 300; line-height: 1.6;">${item.description}</p>
             </div>
         `;
         incentivesContainer.appendChild(div);
@@ -834,8 +895,8 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Value in Millions ($)',
                 data: [6.4, 1.2],
-                backgroundColor: ['rgba(55, 65, 81, 0.8)', 'rgba(56, 189, 248, 0.8)'], /* slate-700 / sky-400 */
-                borderColor: ['#374151', '#38BDF8'], /* slate-700 / sky-400 */
+                backgroundColor: ['rgba(255,255,255,0.06)', 'rgba(0, 212, 255, 0.15)'],
+                borderColor: ['rgba(255,255,255,0.12)', '#00D4FF'],
                 borderWidth: 1
             }]
         },
@@ -847,19 +908,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     beginAtZero: true,
                     ticks: {
                         callback: function(value) { return '$' + value + 'M'; },
-                        color: '#94A3B8' /* slate-400 */
+                        color: '#8892A0'
                     },
                     grid: {
-                        color: 'rgba(71, 85, 105, 0.3)' /* slate-600 with transparency */
-                    }
+                        color: 'rgba(255,255,255,0.04)'
+                    },
+                    border: { color: 'rgba(255,255,255,0.06)' }
                 },
                 x: {
                     ticks: {
-                        color: '#94A3B8' /* slate-400 */
+                        color: '#8892A0'
                     },
                     grid: {
-                        color: 'rgba(71, 85, 105, 0.3)' /* slate-600 with transparency */
-                    }
+                        color: 'rgba(255,255,255,0.04)'
+                    },
+                    border: { color: 'rgba(255,255,255,0.06)' }
                 }
             },
             plugins: {
@@ -867,14 +930,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 title: {
                     display: true,
                     text: 'Value Comparison: Acquisition vs. Current',
-                    color: '#E2E8F0', /* slate-200 */
-                    font: { size: 16, family: 'Orbitron' }
+                    color: '#FFFFFF',
+                    font: { size: 13, family: 'Orbitron', weight: '600' },
+                    padding: { bottom: 16 }
                 },
                 tooltip: {
-                    backgroundColor: 'rgba(30, 41, 59, 0.9)', /* slate-900 with transparency */
-                    titleColor: '#38BDF8', /* sky-400 */
-                    bodyColor: '#E2E8F0', /* slate-200 */
-                    borderColor: '#38BDF8', /* sky-400 */
+                    backgroundColor: 'rgba(10, 10, 15, 0.95)',
+                    titleColor: '#00D4FF',
+                    bodyColor: '#FFFFFF',
+                    borderColor: 'rgba(0, 212, 255, 0.3)',
                     borderWidth: 1
                 }
             }
