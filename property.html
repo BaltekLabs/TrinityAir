@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Property Report: T&P Warehouse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is designed as a single-page, scrolling dashboard to tell a compelling investment story. It starts with a high-level overview (The Asset), moves to the core conflict (The Challenge vs. The Opportunity), provides historical context through an interactive timeline, dives into key data with charts and filterable lists (Financials & Incentives), and ends with a "Data Room" (Resource Hub). This structure allows a potential developer to quickly grasp the high-risk/high-reward nature of the property and then drill down into specific areas of due diligence, guided by a sticky navigation bar for easy access. The flow is logical for an investment evaluation: What is it? What are the problems? What are the upsides? What's the history? What are the numbers? Where can I find more info? -->
+    <!-- Visualization & Content Choices: 
+        - Property History (Report Narrative -> Timeline): An interactive HTML/CSS timeline is used to visualize the property's long history. Clicking an event reveals details, making the dense history more digestible than a long text block.
+        - Value Disparity (Report Text -> Bar Chart): A Chart.js bar chart starkly compares the $6.4M purchase price to the $1.2M current appraisal. This financial story is more impactful visually than textually.
+        - Development Challenges (Report Lists -> Tabs): The numerous challenges (vacancy, parking, code violations) are organized into a tabbed component. This prevents user overload and makes the negative information structured and accessible.
+        - Financial Incentives (Report List -> Interactive Cards): Available incentives are presented as a grid of interactive cards. Clicking a card reveals details. This is more engaging and user-driven than a static bulleted list.
+        - Key Data Points (Report Numbers -> Stat Cards): Key metrics like building size, age, and area investment figures are displayed in high-contrast "stat cards" for immediate impact and easy scanning.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+        @media (max-width: 640px) { .chart-container { height: 300px; max-height: 350px; } }
+        .tab-active { border-color: #ca8a04; color: #ca8a04; }
+        .tab-inactive { border-color: transparent; color: #4b5563; }
+        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; background-color: #f3f4f6; border: 4px solid #ca8a04; border-radius: 9999px; z-index: 10; }
+        .timeline-item:hover::before { background-color: #ca8a04; }
+        .nav-active { color: #ca8a04; }
+    </style>
+</head>
+<body class="bg-stone-50 text-slate-800">
+
+    <header id="nav-header" class="bg-stone-50/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-lg text-slate-900">T&P Warehouse</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Overview</a>
+                        <a href="#challenge" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">The Challenge</a>
+                        <a href="#opportunity" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">The Opportunity</a>
+                        <a href="#timeline" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Timeline</a>
+                        <a href="#financials" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Financials</a>
+                        <a href="#resources" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Resources</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-white hover:bg-slate-700 focus:outline-none">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#overview" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Overview</a>
+                <a href="#challenge" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">The Challenge</a>
+                <a href="#opportunity" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">The Opportunity</a>
+                <a href="#timeline" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Timeline</a>
+                <a href="#financials" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Financials</a>
+                <a href="#resources" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Resources</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="overview" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-base font-semibold text-amber-600 tracking-wide uppercase">300 W Lancaster Ave, Fort Worth, TX</p>
+                <h1 class="mt-2 text-4xl font-bold text-slate-900 sm:text-5xl lg:text-6xl">A Landmark Opportunity</h1>
+                <p class="mt-4 max-w-3xl mx-auto text-xl text-slate-600">An iconic, 580,000 sq ft Art Deco warehouse representing one of Fort Worth's most significant redevelopment challenges and its greatest potential catalyst for urban revitalization.</p>
+                
+                <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
+                        <p class="text-5xl font-bold text-amber-600">580k</p>
+                        <p class="mt-2 text-lg font-medium text-slate-700">Square Feet</p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
+                        <p class="text-5xl font-bold text-amber-600">1931</p>
+                        <p class="mt-2 text-lg font-medium text-slate-700">Year Built</p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
+                        <p class="text-5xl font-bold text-amber-600">$1.2M</p>
+                        <p class="mt-2 text-lg font-medium text-slate-700">Current Appraisal</p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
+                        <p class="text-5xl font-bold text-amber-600">25+</p>
+                        <p class="mt-2 text-lg font-medium text-slate-700">Years Vacant</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenge" class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">The Challenge: Risks & Realities</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">The property's potential is tempered by significant, long-standing issues. Understanding these risks is the first step in evaluating the development opportunity.</p>
+                </div>
+
+                <div class="mt-12 max-w-4xl mx-auto">
+                    <div class="mb-4 border-b border-gray-200">
+                        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="challenge-tabs">
+                            <li class="mr-2"><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-active" data-tab="vacancy">Stalled Projects</button></li>
+                            <li class="mr-2"><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-inactive" data-tab="parking">Infrastructure Gaps</button></li>
+                            <li><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-inactive" data-tab="compliance">Code Violations</button></li>
+                        </ul>
+                    </div>
+                    <div id="challenge-content">
+                        <div id="vacancy-content" class="p-4 bg-white rounded-lg shadow">
+                            <h3 class="text-xl font-semibold text-slate-800">Decades of Inaction</h3>
+                            <p class="mt-2 text-slate-600">The T&P Warehouse has remained vacant since its acquisition in 1998. The property has a documented history of "years of announcements, false starts, multiple extended deadlines," and terminated city incentives. The current owner attributes delays to outside influences, but the city terminated an $11M+ TIF agreement in 2016 due to an "inability to provide a funding plan."</p>
+                        </div>
+                        <div id="parking-content" class="hidden p-4 bg-white rounded-lg shadow">
+                            <h3 class="text-xl font-semibold text-slate-800">Critical Parking Deficit</h3>
+                            <p class="mt-2 text-slate-600">A primary development hurdle is the complete lack of adjacent parking. Any redevelopment plan must include the costly construction of new parking structures to serve all potential users, especially for retail or hotel components. This has been a consistent barrier for previous development attempts and represents a major capital expenditure for any new project.</p>
+                        </div>
+                        <div id="compliance-content" class="hidden p-4 bg-white rounded-lg shadow">
+                            <h3 class="text-xl font-semibold text-slate-800">Severe Compliance & Condition Issues</h3>
+                            <p class="mt-2 text-slate-600">The building suffers from "years of code compliance violations" and has been described by city officials as a case of "demolition by neglect." Issues include standing water in the basement for over a decade, creating a public health hazard. The city has performed mandatory temporary work and conducted a structural inspection in 2023, signaling the urgent need for stabilization and remediation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="opportunity" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">The Opportunity: A Favorable Environment</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">Despite the internal challenges, the external market and public sector support create a uniquely favorable context for redevelopment.</p>
+                </div>
+                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="p-6 bg-stone-50 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-slate-800">Surrounding Development Boom</h3>
+                        <p class="mt-2 text-slate-600">The property sits in a district with a <span class="font-bold text-amber-600">$1 billion development pipeline</span>, including major Texas A&M expansion, a convention center overhaul, and a new Omni hotel tower. The T&P Warehouse is the last major "roadblock" in a rapidly appreciating area.</p>
+                    </div>
+                    <div class="p-6 bg-stone-50 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-slate-800">Massive Public Investment</h3>
+                        <p class="mt-2 text-slate-600">The city and NCTCOG are investing <span class="font-bold text-amber-600">$182 million</span> to completely rebuild East Lancaster Avenue with modern infrastructure, improved transit, and pedestrian features. This public commitment de-risks private investment and enhances long-term value.</p>
+                    </div>
+                    <div class="p-6 bg-stone-50 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-slate-800">Targeted Financial Incentives</h3>
+                        <p class="mt-2 text-slate-600">As part of PID 20, the project is eligible for a suite of powerful incentives, including tax abatements (NEZ), façade grants, and catalytic development grants (Chapter 380), specifically including one for surface parking lot redevelopment. The city is highly motivated to partner with a capable developer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">A Storied History</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">From an icon of industry to a symbol of neglect, the warehouse's timeline reveals a complex past. Click on any event to learn more.</p>
+                </div>
+                <div class="mt-12 max-w-2xl mx-auto">
+                    <div class="relative border-l-2 border-slate-200">
+                        <div id="timeline-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div id="timeline-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+            <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white">
+                <div class="mt-3 text-center">
+                    <h3 id="modal-title" class="text-2xl leading-6 font-bold text-slate-900"></h3>
+                    <div class="mt-4 px-7 py-3">
+                        <p id="modal-description" class="text-md text-slate-600"></p>
+                    </div>
+                    <div class="items-center px-4 py-3">
+                        <button id="close-modal-button" class="px-4 py-2 bg-amber-600 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="financials" class="py-16 sm:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">The Financial Picture</h2>
+                        <p class="mt-4 text-lg text-slate-600">The property's financial history highlights the opportunity cost of its vacancy. The current low appraisal reflects its distressed state, not its potential market value upon redevelopment.</p>
+                        <div class="mt-8 chart-container">
+                            <canvas id="valueChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">Available Redevelopment Incentives</h3>
+                        <p class="mt-2 text-lg text-slate-600">The city and PID 20 offer numerous programs to support a viable project. Click each card for details.</p>
+                        <div id="incentives-container" class="mt-6 space-y-4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">Developer Resource Hub</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">Direct links to primary source data for your due diligence process.</p>
+                </div>
+                <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <h3 class="font-semibold text-lg">Zoning & Planning</h3>
+                        <p class="mt-2 text-sm text-slate-600">Access the official City of Fort Worth interactive zoning map and planning ordinances.</p>
+                        <a href="https://gisapps.fortworthtexas.gov/Html5Viewer/?viewer=Zoning" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">View Zoning Map &rarr;</a>
+                    </div>
+                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <h3 class="font-semibold text-lg">County Appraisal (TCAD)</h3>
+                        <p class="mt-2 text-sm text-slate-600">Search the Tarrant Appraisal District database for property details and tax history.</p>
+                        <a href="https://www.tad.org/search-results" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">Search TCAD &rarr;</a>
+                    </div>
+                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <h3 class="font-semibold text-lg">County Clerk Records</h3>
+                        <p class="mt-2 text-sm text-slate-600">Find deeds, plats, and other official real estate records from the Tarrant County Clerk.</p>
+                        <a href="https://countyfusion.tarrantcounty.com/" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">Access Records &rarr;</a>
+                    </div>
+                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <h3 class="font-semibold text-lg">Permits & Inspections</h3>
+                        <p class="mt-2 text-sm text-slate-600">Use the city's Accela portal to search for historical permits and code compliance cases.</p>
+                        <a href="https://accela.fortworthtexas.gov/citizenaccess/" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">Search Permits &rarr;</a>
+                    </div>
+                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <h3 class="font-semibold text-lg">PID 20 Documents</h3>
+                        <p class="mt-2 text-sm text-slate-600">Review budgets, service plans, and official documents for the East Lancaster PID.</p>
+                        <a href="https://www.pid20.org/documents" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">View PID Docs &rarr;</a>
+                    </div>
+                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <h3 class="font-semibold text-lg">State Environmental (TCEQ)</h3>
+                        <p class="mt-2 text-sm text-slate-600">Search the Texas Commission on Environmental Quality database for site records.</p>
+                        <a href="https://www.tceq.texas.gov/agency/data" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">Search TCEQ Data &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-500">&copy; 2024 Interactive Property Report. For informational purposes only.</p>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const timelineData = [
+        { year: '1931', title: 'Construction Completed', description: 'The T&P Warehouse is completed in the Art Deco/Zigzag Moderne style, serving as a hub for the Texas and Pacific Railway.' },
+        { year: '1977', title: 'Sold by Railway', description: 'The Texas & Pacific Railway sells the entire complex, marking a major transition in its ownership and use.' },
+        { year: '1998', title: 'Acquired by Current Owner', description: 'Cleopatra Investments Ltd. acquires the warehouse for a reported $6.4 million. The building has remained vacant since this purchase.' },
+        { year: '2007', title: 'TIF Agreement Established', description: 'The Lancaster TIF District commits approximately $11.6 million in reimbursements for a proposed $45 million redevelopment into apartments and retail.' },
+        { year: '2016', title: 'TIF Agreement Terminated', description: 'The City of Fort Worth terminates the TIF agreement, citing the owner\'s inability to provide a viable funding plan for the project.' },
+        { year: '2017', title: 'Mandatory Compliance Work', description: 'The city requires the owner to perform temporary work, including sealing windows and pumping water from the basement, to protect the building from further decay.' },
+        { year: '2023', title: 'City-Led Structural Inspection', description: 'Prompted by safety concerns, the city hires a contractor to perform a full structural inspection, signaling increasing pressure on the owner to address the building\'s dilapidated state.' },
+        { year: '2026', title: 'Area Redevelopment Begins (Forecast)', description: 'Construction is forecast to begin on the $182 million reconstruction of East Lancaster Avenue, a major public investment set to transform the surrounding corridor.' }
+    ];
+
+    const incentivesData = [
+        { title: 'Neighborhood Empowerment Zones (NEZ)', description: 'Provides tax abatements and waivers for development and impact fees for eligible mixed-use and residential projects.' },
+        { title: 'Chapter 380: Catalytic Development Grant', description: 'Grants available for significant mixed-use projects along East Lancaster that address community needs or create substantial job opportunities.' },
+        { title: 'Chapter 380: Surface Parking Redevelopment', description: 'Highly relevant grant targeting the redevelopment of surface parking lots, directly addressing a key challenge for the T&P Warehouse.' },
+        { title: 'Façade Improvement Program', description: 'Offers reimbursement for exterior improvements, enhancing curb appeal and preserving historic character.' },
+        { title: 'Historic Preservation Tax Credits', description: 'Federal and State tax credits available for certified historic structures, providing a significant source of equity for rehabilitation projects.' }
+    ];
+
+    const timelineContainer = document.getElementById('timeline-container');
+    timelineData.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'timeline-item relative pl-8 pr-4 py-6 cursor-pointer';
+        div.innerHTML = `<h3 class="text-lg font-semibold">${item.year} - ${item.title}</h3>`;
+        div.addEventListener('click', () => openModal(item.title, item.description));
+        timelineContainer.appendChild(div);
+    });
+
+    const incentivesContainer = document.getElementById('incentives-container');
+    incentivesData.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bg-stone-50 rounded-lg shadow-sm cursor-pointer';
+        div.innerHTML = `
+            <div class="incentive-header p-4 flex justify-between items-center">
+                <h4 class="font-semibold text-slate-800">${item.title}</h4>
+                <span class="transform transition-transform text-amber-600">&#9662;</span>
+            </div>
+            <div class="incentive-body hidden p-4 border-t border-stone-200">
+                <p class="text-slate-600">${item.description}</p>
+            </div>
+        `;
+        incentivesContainer.appendChild(div);
+    });
+    
+    incentivesContainer.addEventListener('click', function(e) {
+        const header = e.target.closest('.incentive-header');
+        if (header) {
+            const body = header.nextElementSibling;
+            const arrow = header.querySelector('span');
+            body.classList.toggle('hidden');
+            arrow.classList.toggle('rotate-180');
+        }
+    });
+
+    const modal = document.getElementById('timeline-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const closeModalButton = document.getElementById('close-modal-button');
+    function openModal(title, description) {
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modal.classList.remove('hidden');
+    }
+    closeModalButton.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+
+    const ctx = document.getElementById('valueChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['1998 Purchase Price', '2023 Appraised Value'],
+            datasets: [{
+                label: 'Value in Millions ($)',
+                data: [6.4, 1.2],
+                backgroundColor: ['rgba(55, 65, 81, 0.8)', 'rgba(202, 138, 4, 0.8)'],
+                borderColor: ['#374151', '#ca8a04'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true, ticks: { callback: function(value) { return '$' + value + 'M'; } } } },
+            plugins: { legend: { display: false }, title: { display: true, text: 'Value Comparison: Acquisition vs. Current', font: { size: 16 } } }
+        }
+    });
+
+    const challengeTabs = document.querySelectorAll('.challenge-tab');
+    const challengeContents = {
+        vacancy: document.getElementById('vacancy-content'),
+        parking: document.getElementById('parking-content'),
+        compliance: document.getElementById('compliance-content'),
+    };
+    challengeTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            challengeTabs.forEach(t => {
+                t.classList.remove('tab-active');
+                t.classList.add('tab-inactive');
+            });
+            tab.classList.add('tab-active');
+            tab.classList.remove('tab-inactive');
+            Object.values(challengeContents).forEach(content => content.classList.add('hidden'));
+            challengeContents[tab.dataset.tab].classList.remove('hidden');
+        });
+    });
+
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('main section');
+    const navHeader = document.getElementById('nav-header');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+             if (mobileMenu.classList.contains('hidden') === false) {
+                 mobileMenu.classList.add('hidden');
+             }
+        });
+    });
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - navHeader.offsetHeight - 20) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('nav-active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('nav-active');
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

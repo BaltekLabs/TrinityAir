@@ -1,0 +1,485 @@
+/* ============================================================
+   T&P NEXUS HUB — Shared Print Stylesheet
+   Optimized for Letter (8.5×11) PDF output
+   ============================================================ */
+
+:root {
+  --navy:    #0f2444;
+  --blue:    #1a4a7a;
+  --cyan:    #0891b2;
+  --gold:    #b8860b;
+  --light:   #e8f4f8;
+  --border:  #c5d8e8;
+  --text:    #1a1a1a;
+  --muted:   #5a6a7a;
+  --white:   #ffffff;
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 11pt; }
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.6;
+}
+
+/* ---- Page Setup ---- */
+@page {
+  size: letter;
+  margin: 0.75in 0.85in 0.9in 0.85in;
+}
+
+@page :first { margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0; }
+
+/* ---- Cover Page ---- */
+.cover-page {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  page-break-after: always;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-hero {
+  width: 100%;
+  height: 42vh;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  opacity: 0.55;
+}
+
+.cover-body {
+  flex: 1;
+  padding: 2.5rem 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover-eyebrow {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1rem;
+}
+
+.cover-title {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 28pt;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.cover-subtitle {
+  font-size: 13pt;
+  color: #a0c4d8;
+  font-style: italic;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+
+.cover-divider {
+  width: 60px;
+  height: 3px;
+  background: var(--cyan);
+  margin-bottom: 1.5rem;
+}
+
+.cover-desc {
+  font-size: 10.5pt;
+  color: #c8dde8;
+  max-width: 540px;
+  line-height: 1.65;
+}
+
+.cover-footer {
+  background: rgba(0,0,0,0.35);
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 8.5pt;
+  color: #8aafc0;
+}
+
+.cover-footer .logo {
+  font-weight: 800;
+  font-size: 10pt;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+.cover-stat-bar {
+  display: flex;
+  gap: 2.5rem;
+  margin: 1.8rem 0 0;
+}
+
+.cover-stat { text-align: center; }
+.cover-stat .val {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18pt;
+  font-weight: 800;
+  color: var(--cyan);
+  display: block;
+}
+.cover-stat .lbl {
+  font-size: 7.5pt;
+  color: #8aafc0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---- Confidentiality Banner ---- */
+.confidential-banner {
+  background: var(--gold);
+  color: #fff;
+  text-align: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem;
+}
+
+/* ---- Running Header/Footer (non-cover pages) ---- */
+.doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--navy);
+  margin-bottom: 1.8rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 8pt;
+  color: var(--muted);
+}
+
+.doc-header .brand {
+  font-weight: 700;
+  font-size: 9pt;
+  color: var(--navy);
+  letter-spacing: 0.05em;
+}
+
+.doc-footer-bar {
+  margin-top: 2rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 7.5pt;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---- Typography ---- */
+h1, h2, h3, h4, h5 {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+h1 { font-size: 20pt; font-weight: 900; margin-bottom: 0.5rem; }
+h2 { font-size: 14pt; font-weight: 800; margin: 2rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--navy); }
+h3 { font-size: 11.5pt; font-weight: 700; margin: 1.4rem 0 0.5rem; color: var(--blue); }
+h4 { font-size: 10pt; font-weight: 700; margin: 1rem 0 0.3rem; color: var(--navy); }
+
+p { margin-bottom: 0.75rem; }
+
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ---- Section Numbers ---- */
+.section-num {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ---- Pull Quote / Callout ---- */
+.callout {
+  border-left: 4px solid var(--cyan);
+  background: var(--light);
+  padding: 1rem 1.2rem;
+  margin: 1.2rem 0;
+  font-size: 10.5pt;
+}
+
+.callout.alert {
+  border-left-color: #d97706;
+  background: #fffbeb;
+}
+
+.pull-quote {
+  border-left: 4px solid var(--navy);
+  padding: 0.8rem 1.5rem;
+  margin: 1.5rem 2rem;
+  font-size: 12pt;
+  font-style: italic;
+  color: var(--blue);
+  line-height: 1.5;
+}
+
+/* ---- Tables ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  font-size: 9.5pt;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  font-size: 8.5pt;
+  letter-spacing: 0.03em;
+}
+
+td {
+  padding: 0.4rem 0.7rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+tr:nth-child(even) td { background: #f4f8fb; }
+tr:last-child td { font-weight: 700; background: #e8f4f8; }
+
+/* ---- Stat Grid ---- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin: 1.2rem 0;
+}
+
+.stat-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.stat-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+.stat-box {
+  background: var(--navy);
+  color: #fff;
+  padding: 0.9rem 0.8rem;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.stat-box .val {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16pt;
+  font-weight: 900;
+  color: var(--cyan);
+  display: block;
+  line-height: 1.1;
+}
+
+.stat-box .lbl {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 7.5pt;
+  color: #a0c4d8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.stat-box .sub {
+  font-size: 7pt;
+  color: #6899b0;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+/* ---- Phase Timeline ---- */
+.phase-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.phase-box {
+  border: 1.5px solid var(--border);
+  border-top: 4px solid var(--cyan);
+  padding: 0.8rem 0.7rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.phase-box .ph-num {
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.phase-box .ph-name {
+  font-size: 9.5pt;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0.2rem 0;
+}
+
+.phase-box .ph-detail {
+  font-size: 7.5pt;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ---- Two-Column Layout ---- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.two-col.wide-left  { grid-template-columns: 3fr 2fr; }
+.two-col.wide-right { grid-template-columns: 2fr 3fr; }
+
+/* ---- Lists ---- */
+ul, ol {
+  padding-left: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+li { margin-bottom: 0.3rem; font-size: 10.5pt; }
+
+ul.checklist { list-style: none; padding-left: 0; }
+ul.checklist li::before { content: "✓ "; color: var(--cyan); font-weight: 700; }
+
+ul.bullets { list-style: disc; }
+ul.bullets li { color: var(--text); }
+
+/* ---- Image ---- */
+.doc-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 3px;
+  margin: 0.8rem 0;
+  display: block;
+}
+
+.doc-image.tall { height: 280px; }
+.doc-image.short { height: 130px; }
+
+.image-caption {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 7.5pt;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: -0.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ---- Risk Table Colors ---- */
+.risk-low  td:first-child { border-left: 4px solid #16a34a; }
+.risk-med  td:first-child { border-left: 4px solid #d97706; }
+.risk-high td:first-child { border-left: 4px solid #dc2626; }
+
+/* ---- Revenue Scenario Bar ---- */
+.scenario-bar {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  margin: 1rem 0;
+  height: 90px;
+}
+
+/* ---- Page Breaks ---- */
+.page-break { page-break-before: always; }
+.no-break   { page-break-inside: avoid; }
+.keep-with-next { page-break-after: avoid; }
+
+/* ---- TOC ---- */
+.toc { margin: 1rem 0 1.5rem; }
+.toc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.25rem 0;
+  border-bottom: 1px dotted var(--border);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 9.5pt;
+}
+.toc-item .toc-title { color: var(--text); }
+.toc-item .toc-pg { color: var(--muted); font-size: 8.5pt; }
+.toc-section {
+  font-weight: 700;
+  color: var(--navy);
+  margin-top: 0.5rem;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 0.5rem;
+}
+
+/* ---- Contact Block ---- */
+.contact-block {
+  background: var(--navy);
+  color: #fff;
+  padding: 1.2rem 1.5rem;
+  border-radius: 4px;
+  margin-top: 1.5rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 9pt;
+}
+
+.contact-block h4 { color: var(--cyan); margin-bottom: 0.5rem; font-size: 10pt; }
+.contact-block a  { color: #a0d8ef; text-decoration: none; }
+
+/* ---- Print overrides ---- */
+@media print {
+  body { font-size: 10.5pt; }
+  .cover-page { page-break-after: always; height: 100vh; }
+  .doc-header { position: running(header); }
+  a { text-decoration: none; color: inherit; }
+
+  h2 { page-break-before: auto; }
+  h3, h4 { page-break-after: avoid; }
+  table, .stat-grid, .phase-row, .two-col, .callout { page-break-inside: avoid; }
+  .no-break { page-break-inside: avoid; }
+}
+
+/* ---- Screen preview ---- */
+@media screen {
+  body { max-width: 8.5in; margin: 0 auto; padding: 0; background: #d0d8e0; }
+  .cover-page { min-height: 11in; }
+  .doc-page {
+    background: #fff;
+    padding: 0.75in 0.85in 0.9in;
+    margin: 0.5rem auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    min-height: 11in;
+  }
+}

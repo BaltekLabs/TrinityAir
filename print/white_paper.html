@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HUB White Paper — T&P Nexus Hub Transportation System</title>
+<link rel="stylesheet" href="print.css">
+<style>
+  @page { margin: 0.75in 0.85in 0.85in; }
+  @page :first { margin: 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER PAGE ===== -->
+<div class="cover-page">
+  <img src="../images/buildingcorner.png" class="cover-hero" alt="T&P Warehouse Fort Worth">
+  <div class="cover-body">
+    <p class="cover-eyebrow">White Paper &nbsp;|&nbsp; March 2026</p>
+    <h1 class="cover-title">T&P Nexus Hub<br>Transportation System</h1>
+    <p class="cover-subtitle">America's First Integrated eVTOL–Autonomous Vehicle Mobility Hub</p>
+    <div class="cover-divider"></div>
+    <p class="cover-desc">A comprehensive analysis of the market opportunity, technical architecture, financial projections, regulatory pathway, and investment case for transforming the historic Texas &amp; Pacific Warehouse in downtown Fort Worth, Texas into the nation's first multi-modal eVTOL and autonomous vehicle transportation hub.</p>
+    <div class="cover-stat-bar">
+      <div class="cover-stat"><span class="val">$129M</span><span class="lbl">Total Investment</span></div>
+      <div class="cover-stat"><span class="val">22.3%</span><span class="lbl">Projected IRR</span></div>
+      <div class="cover-stat"><span class="val">$133M</span><span class="lbl">Year 5 Revenue</span></div>
+      <div class="cover-stat"><span class="val">800+</span><span class="lbl">Permanent Jobs</span></div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="logo">T&P NEXUS &nbsp;|&nbsp; FORT WORTH, TEXAS</span>
+    <span>Confidential &nbsp;|&nbsp; For Authorized Recipients Only &nbsp;|&nbsp; March 2026</span>
+  </div>
+</div>
+
+<!-- ===== DOCUMENT PAGES ===== -->
+<div class="doc-page">
+
+  <!-- Running Header -->
+  <div class="doc-header">
+    <span class="brand">T&P NEXUS HUB &nbsp;|&nbsp; WHITE PAPER</span>
+    <span>CONFIDENTIAL &nbsp;|&nbsp; MARCH 2026</span>
+  </div>
+
+  <!-- ===== SECTION: CONTEXT ALERT ===== -->
+  <div class="callout alert no-break">
+    <strong>Policy Context — March 9, 2026:</strong> The U.S. Department of Transportation and FAA announced 8 selections for the White House eVTOL Integration Pilot Program (eIPP). Texas DOT, with Archer Aviation as its industry partner, is one of the 8. Named routes connect Dallas, Austin, San Antonio, and Houston. Archer Midnight air taxi operations begin in Texas <strong>H2 2026</strong>. Fort Worth — Texas's second million-plus city — is not yet on the route map. The T&P Nexus HUB is the infrastructure project that puts it there.
+  </div>
+
+  <!-- ===== SECTION 1: EXECUTIVE OVERVIEW ===== -->
+  <span class="section-num">Section 1</span>
+  <h2>Executive Overview</h2>
+
+  <p>The T&P Nexus HUB Transportation System proposes the adaptive reuse of the historic Texas &amp; Pacific Warehouse in downtown Fort Worth into the nation's first fully integrated multi-modal mobility hub — combining electric vertical takeoff and landing (eVTOL) aircraft, Level 4 autonomous electric vehicles, a 120,000 square foot technology innovation center, and AI-powered systems management into a single, seamlessly connected infrastructure platform.</p>
+
+  <p>This is not a speculative concept. The technologies that power the HUB are commercially operational today. Waymo delivers 450,000+ paid autonomous rides per week across five U.S. cities including Austin, Texas. Archer Aviation holds FAA Part 135 Air Carrier, Part 145 Repair Station, and Part 141 Pilot Training certificates and begins Texas air taxi operations under the federal eIPP program in H2 2026. Joby Aviation completed FAA Stage 4 of 5 type certification in November 2025.</p>
+
+  <div class="stat-grid no-break">
+    <div class="stat-box">
+      <span class="val">$129M</span>
+      <span class="lbl">Total Capital Required</span>
+      <span class="sub">Across 4 phases, 2026–2029</span>
+    </div>
+    <div class="stat-box">
+      <span class="val">22.3%</span>
+      <span class="lbl">Projected IRR</span>
+      <span class="sub">Moderate scenario</span>
+    </div>
+    <div class="stat-box">
+      <span class="val">$89M</span>
+      <span class="lbl">NPV</span>
+      <span class="sub">At 10% discount rate</span>
+    </div>
+    <div class="stat-box">
+      <span class="val">4.2 yrs</span>
+      <span class="lbl">Payback Period</span>
+      <span class="sub">Break-even Year 5</span>
+    </div>
+  </div>
+
+  <div class="two-col no-break">
+    <div>
+      <h4>Economic Impact</h4>
+      <ul class="bullets">
+        <li>2,500+ construction jobs</li>
+        <li>800+ permanent positions</li>
+        <li>$25M+ annual tax revenue (Year 5)</li>
+        <li>$500M+ regional economic multiplier</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Investment Returns</h4>
+      <ul class="bullets">
+        <li>$133.4M revenue by Year 5 (moderate)</li>
+        <li>34% EBITDA margin at full operations</li>
+        <li>Multiple exit pathways (M&amp;A, IPO, infrastructure recap)</li>
+        <li>First-mover in $23–41B+ UAM market</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== PAGE: SECTIONS 2 & 3 ===== -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">T&P NEXUS HUB &nbsp;|&nbsp; WHITE PAPER</span>
+    <span>CONFIDENTIAL &nbsp;|&nbsp; MARCH 2026</span>
+  </div>
+
+  <img src="../images/cityView.jpeg" class="doc-image short" alt="DFW Metroplex">
+  <p class="image-caption">The Dallas–Fort Worth Metroplex — 8.5 million residents, $710B+ economy, and the nation's fastest-growing major metro.</p>
+
+  <span class="section-num">Section 2</span>
+  <h2>The Problem: DFW's Transportation Crisis</h2>
+
+  <p>The Dallas-Fort Worth metroplex is simultaneously one of America's greatest economic success stories and one of its most acute transportation failures. It is the third-largest metro economy in the United States, generating more than $710 billion in annual GDP. It is also the 4th largest metro by population at 8.5 million residents, growing faster than any comparable U.S. city — approximately 487 people per day.</p>
+
+  <p>That growth is strangling itself.</p>
+
+  <div class="stat-grid no-break">
+    <div class="stat-box">
+      <span class="val">174M</span>
+      <span class="lbl">Delay Hours Annually</span>
+      <span class="sub">Up 8% year-over-year</span>
+    </div>
+    <div class="stat-box">
+      <span class="val">69 hrs</span>
+      <span class="lbl">Lost Per Commuter/Year</span>
+      <span class="sub">$1,618 cost per driver</span>
+    </div>
+    <div class="stat-box">
+      <span class="val">10th</span>
+      <span class="lbl">Worst U.S. Commute</span>
+      <span class="sub">Forbes ranking, 2025</span>
+    </div>
+    <div class="stat-box">
+      <span class="val">$36.4B</span>
+      <span class="lbl">Congestion Cost by 2050</span>
+      <span class="sub">Without intervention</span>
+    </div>
+  </div>
+
+  <p>44 of the 100 most congested roads in Texas are in the DFW metroplex. Less than 1% of workers use public transit; approximately 70% drive alone. Highway expansion has proven ineffective — new lane capacity induces new demand within five to seven years, restoring congestion to prior levels. The problem requires a new dimension: altitude.</p>
+
+  <span class="section-num">Section 3</span>
+  <h2>The Inflection Point: eVTOL and AV Arrive Simultaneously</h2>
+
+  <h3>Electric Vertical Takeoff and Landing Aircraft</h3>
+
+  <div class="two-col no-break">
+    <div>
+      <h4>Archer Aviation — Texas eIPP Partner</h4>
+      <ul class="bullets">
+        <li>FAA Part 135, 145, and 141 certificates held</li>
+        <li>Midnight aircraft: 4 pax + pilot, 150 mph, 60-mile range</li>
+        <li>Texas eIPP partner — commercial ops <strong>H2 2026</strong></li>
+        <li>Fare: ~$3–11/mile; turns 90-min drive into 15-min flight</li>
+        <li>Revenue operations allowed under eIPP before full type cert</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Joby Aviation — FAA Stage 4 of 5</h4>
+      <ul class="bullets">
+        <li>Stage 4 Type Inspection Authorization (Nov 2025)</li>
+        <li>S4: 4 pax + pilot, 200 mph, 100-mile range, 65 dB</li>
+        <li>Targeting first U.S. commercial passenger flights in 2026</li>
+        <li>Toyota invested $1B+; also Texas eIPP participant</li>
+        <li>FAA certification harmonization with 4 nations by Jan 2027</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout no-break">
+    <strong>Industry Note — Lilium declared insolvency November 2024</strong> after burning $1.8 billion. This validates the HUB's platform-agnostic design — infrastructure serves multiple operators, eliminating single-manufacturer dependency risk.
+  </div>
+
+  <h3>Autonomous Ground Vehicles — Level 4 Commercial Today</h3>
+
+  <table class="no-break">
+    <thead>
+      <tr><th>Company</th><th>Status</th><th>Texas Presence</th><th>Key Metric</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Waymo</strong></td><td>Commercial Level 4</td><td>Austin, TX (30 mi from FW)</td><td>450K+ paid rides/week</td></tr>
+      <tr><td>Beta Technologies</td><td>CX300 certified</td><td>Expanding</td><td>600+ unit backlog</td></tr>
+      <tr><td>Wisk Aero (Boeing)</td><td>Stage 2 complete</td><td>—</td><td>Autonomous (no pilot)</td></tr>
+      <tr><td>GM Cruise</td><td>Suspended ops</td><td>—</td><td>Pivoting strategy</td></tr>
+    </tbody>
+  </table>
+
+  <p>Waymo's safety record across 25.3 million autonomous miles: <strong>88% fewer property damage claims</strong> and <strong>92% fewer injury claims</strong> vs. human drivers (Swiss Re study). Its Austin, Texas deployment — 30 miles from the Fort Worth core — establishes a direct regional expansion pathway to DFW.</p>
+
+</div>
+
+<!-- ===== PAGE: SECTIONS 4 & 5 ===== -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">T&P NEXUS HUB &nbsp;|&nbsp; WHITE PAPER</span>
+    <span>CONFIDENTIAL &nbsp;|&nbsp; MARCH 2026</span>
+  </div>
+
+  <span class="section-num">Section 4</span>
+  <h2>The Solution: T&P Nexus HUB</h2>
+
+  <div class="two-col wide-right">
+    <div>
+      <img src="../images/roof_crop.png" class="doc-image tall" alt="HUB Concept">
+      <p class="image-caption">T&P Nexus HUB — integrating historic architecture with next-generation mobility.</p>
+    </div>
+    <div>
+      <p>The T&P Nexus HUB integrates four functional systems within the historic Texas &amp; Pacific Warehouse:</p>
+
+      <h4>1. eVTOL Air Mobility Terminal</h4>
+      <p>Rooftop vertiport with multiple simultaneous landing pads, rapid charging systems, passenger boarding facilities, and operations center. Initial 10–15 aircraft fleet scaling to 25–40 by Year 5.</p>
+
+      <h4>2. Autonomous Vehicle Ground Terminal</h4>
+      <p>Ground-level Level 4 AV fleet providing first- and last-mile connectivity across the Fort Worth urban core, connecting to neighborhoods, business districts, Texas A&amp;M campus, and TEXRail commuter rail.</p>
+
+      <h4>3. Technology Innovation Center</h4>
+      <p>120,000 sq ft of leasable R&amp;D space on floors 2–7 for transportation technology companies, academic partners, battery developers, and AI research programs at Fort Worth Class A rates of $29–$37/sq ft.</p>
+
+      <h4>4. AI-Powered Systems Integration</h4>
+      <p>Proprietary central command platform managing real-time scheduling, predictive maintenance, weather-adaptive routing, and seamless passenger handoff between VTOL and AV services — all via a single consumer app.</p>
+    </div>
+  </div>
+
+  <span class="section-num">Section 5</span>
+  <h2>The Asset: Texas &amp; Pacific Warehouse</h2>
+
+  <div class="two-col wide-left">
+    <div>
+      <img src="../images/buildingfront.png" class="doc-image" alt="T&P Warehouse">
+      <p class="image-caption">The Texas &amp; Pacific Warehouse — 8 stories, 600 ft × 100 ft, downtown Fort Worth.</p>
+
+      <p>Built in the 1920s for the Texas &amp; Pacific Railway, the T&P Warehouse is an 8-story, 600×100-foot masonry and concrete structure — approximately 480,000 total sq ft — located at the convergence of downtown Fort Worth, the Panther Island development, and TEXRail commuter rail.</p>
+
+      <p>Vacant since 1998. A structural assessment conducted in 2023 identified <strong>$2.15M in stabilization work</strong>. The structural core is sound; the stabilization scope is defined and budgeted. The HUB acquires this landmark without displacement or demolition costs.</p>
+    </div>
+    <div>
+      <h4>Strategic Advantages</h4>
+      <ul class="checklist">
+        <li>Rooftop large enough for simultaneous VTOL operations</li>
+        <li>Floor plates designed for heavy industrial loads</li>
+        <li>Basement and upper floors for computing infrastructure</li>
+        <li>Direct TEXRail commuter rail connection</li>
+        <li>Historic Tax Credit eligibility (20% of qualified expenses)</li>
+        <li>27-year vacancy = no displacement costs</li>
+        <li>City-motivated seller; structural scope defined</li>
+      </ul>
+
+      <div class="callout" style="margin-top: 1rem;">
+        <strong>Historic Significance:</strong> The T&P Warehouse was built to move people by rail. The HUB returns it to that purpose — at 150 mph, above the rooftops of a city growing faster than its roads can carry it.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== PAGE: SECTIONS 6 & 7 ===== -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">T&P NEXUS HUB &nbsp;|&nbsp; WHITE PAPER</span>
+    <span>CONFIDENTIAL &nbsp;|&nbsp; MARCH 2026</span>
+  </div>
+
+  <span class="section-num">Section 6</span>
+  <h2>Technical Architecture</h2>
+
+  <div class="two-col no-break">
+    <div>
+      <h3>Aircraft Operations</h3>
+      <ul class="bullets">
+        <li>Reinforced rooftop pads rated for eVTOL gross weights</li>
+        <li>350–500 kW DC rapid charging per pad</li>
+        <li>FAA UTM framework integration for low-altitude coordination</li>
+        <li>Dedicated elevator core to ground-level terminal</li>
+        <li>24/7 operations monitoring and emergency response</li>
+      </ul>
+
+      <h3>Ground Vehicle Operations</h3>
+      <ul class="bullets">
+        <li>Covered, dedicated curbside with real-time dispatch</li>
+        <li>Full overnight and rapid-charge fleet depot</li>
+        <li>Predictive dispatch and maintenance scheduling</li>
+        <li>Direct pedestrian connection to TEXRail platform</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Building Systems</h3>
+      <ul class="bullets">
+        <li>$2.15M stabilization: water remediation, code compliance, structural reinforcement</li>
+        <li>Dedicated electrical service for simultaneous aircraft charging + computing loads</li>
+        <li>Solar canopy potential on rooftop</li>
+        <li>Top-floor and basement data center for AI and partner hosting</li>
+        <li>Full safety, fire suppression, and crash/rescue equipment</li>
+      </ul>
+
+      <h3>Data &amp; Software Platform</h3>
+      <ul class="bullets">
+        <li>Single app: VTOL + AV booking, tracking, payment</li>
+        <li>AI engine: demand prediction, dynamic pricing, route optimization</li>
+        <li>API layer: airline systems, ride-share, corporate travel</li>
+        <li>Operational data flywheel improves accuracy over time</li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="section-num">Section 7</span>
+  <h2>Market Analysis</h2>
+
+  <h3>Total Addressable Market</h3>
+
+  <div class="stat-grid no-break">
+    <div class="stat-box">
+      <span class="val">$4.6B</span>
+      <span class="lbl">UAM Market (2024)</span>
+      <span class="sub">MarketsandMarkets</span>
+    </div>
+    <div class="stat-box">
+      <span class="val">$29B</span>
+      <span class="lbl">UAM Market (2030)</span>
+      <span class="sub">Grand View Research</span>
+    </div>
+    <div class="stat-box">
+      <span class="val">$41B+</span>
+      <span class="lbl">UAM Market (2035)</span>
+      <span class="sub">MarketsandMarkets</span>
+    </div>
+    <div class="stat-box">
+      <span class="val">31–34%</span>
+      <span class="lbl">Annual Growth Rate</span>
+      <span class="sub">Consensus 2024–2030</span>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3>DFW Serviceable Market</h3>
+      <ul class="bullets">
+        <li><strong>8.5M residents</strong> — 4th largest U.S. metroplex</li>
+        <li><strong>$710B+ GDP</strong> — 3rd largest U.S. metro economy</li>
+        <li><strong>487 people/day</strong> net population growth</li>
+        <li><strong>600,000 jobs</strong> created in DFW over the prior 5 years</li>
+        <li>American Airlines, AT&amp;T, Toyota NA, Southwest Airlines HQ</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Target Customer Segments</h3>
+      <ul class="bullets">
+        <li><strong>Business travelers:</strong> Primary revenue driver; $75–$150/trip</li>
+        <li><strong>Airport connectivity:</strong> DFW/Love Field to downtown &lt;12 min vs. 40–50 min by car</li>
+        <li><strong>Innovation center tenants:</strong> Stable real estate revenue independent of adoption curve</li>
+        <li><strong>Cargo &amp; delivery:</strong> Phase 4 expansion revenue stream</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== PAGE: SECTIONS 8 & 9 ===== -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">T&P NEXUS HUB &nbsp;|&nbsp; WHITE PAPER</span>
+    <span>CONFIDENTIAL &nbsp;|&nbsp; MARCH 2026</span>
+  </div>
+
+  <span class="section-num">Section 8</span>
+  <h2>Global Precedents</h2>
+
+  <div class="two-col no-break">
+    <div>
+      <h4>🇸🇬 Singapore — Regulatory-First AV</h4>
+      <p>Dedicated AV test zones with structured government support and phased regulatory development produced the fastest commercial AV deployment timeline of any major city. <em>Lesson: regulatory relationships built early determine deployment speed.</em></p>
+
+      <h4>🇦🇪 Dubai — UAM Infrastructure Before Operators</h4>
+      <p>Dubai's Roads and Transport Authority committed to vertiport investment before commercial eVTOL certification was complete — securing first-mover advantage in airspace management and passenger experience. <em>Lesson: infrastructure investment that precedes operators sets the partnership terms.</em></p>
+
+      <h4>🇰🇷 Seoul — AI Traffic Management at Scale</h4>
+      <p>Seoul's integrated digital twin and AI traffic management platform demonstrated a 20%+ reduction in urban congestion on managed corridors. The HUB's AI integration layer is modeled on this approach. <em>Lesson: data integration at the systems level compounds over time.</em></p>
+    </div>
+    <div>
+      <h4>🇬🇧 London — Historic Station as Mobility Hub</h4>
+      <p>King's Cross and Paddington conversions demonstrate that adaptive reuse of historic transportation buildings creates iconic civic anchors that increase both ridership and surrounding property values. <em>Lesson: historic character amplifies commercial appeal.</em></p>
+
+      <h4>🇺🇸 Los Angeles — Union Station AV Integration</h4>
+      <p>LA Metro's Union Station mobility hub — integrating rail, bus, AV testing, and adjacent mixed-use development — is the closest U.S. analog to the HUB concept. Its public-private partnership structure provides a direct template. <em>Lesson: PPP structures align municipal and private incentives across a decade-long horizon.</em></p>
+
+      <img src="../images/hubImagery2.jpeg" class="doc-image short" alt="Mobility Hub Concept" style="margin-top: 0.8rem;">
+    </div>
+  </div>
+
+  <span class="section-num">Section 9</span>
+  <h2>Implementation Roadmap</h2>
+
+  <div class="phase-row no-break">
+    <div class="phase-box">
+      <p class="ph-num">Phase 1 &nbsp;|&nbsp; 2026</p>
+      <p class="ph-name">Foundation</p>
+      <p class="ph-detail"><strong>$15–25M</strong><br>FAA eIPP enrollment · T&P Warehouse acquisition · $2.15M stabilization · eVTOL + AV partner MOUs · City partnership framework · Phase 1 funding close</p>
+    </div>
+    <div class="phase-box">
+      <p class="ph-num">Phase 2 &nbsp;|&nbsp; 2027</p>
+      <p class="ph-name">Infrastructure</p>
+      <p class="ph-detail"><strong>$40–60M</strong><br>Historic building rehabilitation · Rooftop vertiport construction · AV ground terminal · Computing infrastructure · Innovation center tenant build-out (40K–60K sq ft)</p>
+    </div>
+    <div class="phase-box">
+      <p class="ph-num">Phase 3 &nbsp;|&nbsp; 2028</p>
+      <p class="ph-name">Pilot Operations</p>
+      <p class="ph-detail"><strong>$25–40M</strong><br>10–15 aircraft fleet · 25–50 AV fleet · Full AI systems · FAA commercial approval · Consumer app launch · 1,000+ pilot participants</p>
+    </div>
+    <div class="phase-box">
+      <p class="ph-num">Phase 4 &nbsp;|&nbsp; 2029+</p>
+      <p class="ph-name">Full Operations</p>
+      <p class="ph-detail"><strong>$20–25M</strong><br>25–40 aircraft · 50–100 AVs · Airport routes · Cargo launch · 5+ secondary hubs · Tech licensing active · National replication planning</p>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top: 1rem;">
+    <div>
+      <h4>Phase 1 Milestone</h4>
+      <p>Property secured, funding closed, regulatory pathway established, technology partner MOUs signed.</p>
+      <h4>Phase 3 Milestone</h4>
+      <p>Pilot operations active, safety certification achieved, 1,000+ program participants, break-even model validated.</p>
+    </div>
+    <div>
+      <h4>Phase 4 Milestone</h4>
+      <p>10,000+ daily passengers, 5+ secondary hubs, technology licensing revenue active, national expansion planning complete.</p>
+      <h4>Success Metric</h4>
+      <p>Full commercial operations, DFW established as transportation innovation leader, replicable model deployed to 3+ metro markets.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== PAGE: SECTIONS 10 & 11 ===== -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">T&P NEXUS HUB &nbsp;|&nbsp; WHITE PAPER</span>
+    <span>CONFIDENTIAL &nbsp;|&nbsp; MARCH 2026</span>
+  </div>
+
+  <span class="section-num">Section 10</span>
+  <h2>Financial Model</h2>
+
+  <h3>Revenue Projections — Year 5 (2030)</h3>
+  <table class="no-break">
+    <thead>
+      <tr><th>Revenue Stream</th><th>Conservative</th><th>Moderate</th><th>Optimistic</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>eVTOL Operations</td><td>$21.9M</td><td>$54.8M</td><td>$131.4M</td></tr>
+      <tr><td>Autonomous Vehicle Services</td><td>$16.4M</td><td>$54.8M</td><td>$137.3M</td></tr>
+      <tr><td>Innovation Center / Real Estate</td><td>$2.4M</td><td>$3.8M</td><td>$5.1M</td></tr>
+      <tr><td>Technology Licensing &amp; IP</td><td>$4.0M</td><td>$10.0M</td><td>$16.0M</td></tr>
+      <tr><td>Ancillary (retail, cargo, parking)</td><td>$6.0M</td><td>$10.0M</td><td>$16.0M</td></tr>
+      <tr><td><strong>Total Revenue</strong></td><td><strong>$50.7M</strong></td><td><strong>$133.4M</strong></td><td><strong>$305.8M</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="two-col no-break">
+    <div>
+      <h3>5-Year Cash Flow (Moderate)</h3>
+      <table>
+        <thead><tr><th>Year</th><th>Investment</th><th>Revenue</th><th>Cumulative</th></tr></thead>
+        <tbody>
+          <tr><td>2026</td><td>($20M)</td><td>$0</td><td>($25M)</td></tr>
+          <tr><td>2027</td><td>($50M)</td><td>$5M</td><td>($80M)</td></tr>
+          <tr><td>2028</td><td>($32M)</td><td>$25M</td><td>($92M)</td></tr>
+          <tr><td>2029</td><td>($22M)</td><td>$65M</td><td>($29M)</td></tr>
+          <tr><td>2030</td><td>($5M)</td><td>$133M</td><td><strong style="color:#0891b2">+$11M</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3>Key Return Metrics</h3>
+      <table>
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Projected IRR</td><td><strong>22.3%</strong></td></tr>
+          <tr><td>NPV (10% discount)</td><td><strong>$89M</strong></td></tr>
+          <tr><td>Payback Period</td><td>4.2 years</td></tr>
+          <tr><td>Break-even</td><td>Year 5 (2030)</td></tr>
+          <tr><td>EBITDA Margin (Yr 5)</td><td>34%</td></tr>
+          <tr><td>Pre-money Valuation</td><td>$40M (Phase 1)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3>Sensitivity Analysis — IRR vs. Key Variables</h3>
+  <table class="no-break">
+    <thead><tr><th>Variable</th><th>−20%</th><th>−10%</th><th>Base Case</th><th>+10%</th><th>+20%</th></tr></thead>
+    <tbody>
+      <tr><td>Ridership</td><td>15.8%</td><td>19.1%</td><td><strong>22.3%</strong></td><td>25.4%</td><td>28.6%</td></tr>
+      <tr><td>Average Fare</td><td>18.7%</td><td>20.5%</td><td><strong>22.3%</strong></td><td>24.1%</td><td>25.9%</td></tr>
+      <tr><td>Operating Costs</td><td>26.1%</td><td>24.2%</td><td><strong>22.3%</strong></td><td>20.4%</td><td>18.5%</td></tr>
+      <tr><td>Capital Costs</td><td>24.8%</td><td>23.5%</td><td><strong>22.3%</strong></td><td>21.1%</td><td>19.9%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout no-break">
+    The project maintains double-digit IRR across all meaningful sensitivity scenarios, demonstrating structural financial resilience to technology, market, and construction risk factors.
+  </div>
+
+  <span class="section-num">Section 11</span>
+  <h2>Funding Strategy</h2>
+
+  <div class="two-col no-break">
+    <div>
+      <h3>Capital Structure</h3>
+      <table>
+        <thead><tr><th>Source</th><th>Amount</th><th>%</th></tr></thead>
+        <tbody>
+          <tr><td>Equity (angel, VC, PE, strategic)</td><td>$58M</td><td>45%</td></tr>
+          <tr><td>Debt (commercial, equipment, bonds)</td><td>$45M</td><td>35%</td></tr>
+          <tr><td>Grants (federal, state, local)</td><td>$20M</td><td>15%</td></tr>
+          <tr><td>Operating Revenue (later phases)</td><td>$6M</td><td>5%</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>$129M</strong></td><td>100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3>Grant Opportunities — eIPP Unlocks New Pathways</h3>
+      <ul class="bullets">
+        <li>USDOT ATTAIN program: $3M target</li>
+        <li>FAA Urban Air Mobility grants: $2M</li>
+        <li>DOE Vehicle Technology Program: $1.5M</li>
+        <li>Texas Economic Development Act: $2.5M</li>
+        <li>Texas Enterprise Fund: $2M</li>
+        <li>City of Fort Worth incentives: $2M</li>
+        <li><strong>Federal Historic Tax Credits: $10M+ potential</strong></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== PAGE: SECTIONS 12–15 ===== -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">T&P NEXUS HUB &nbsp;|&nbsp; WHITE PAPER</span>
+    <span>CONFIDENTIAL &nbsp;|&nbsp; MARCH 2026</span>
+  </div>
+
+  <span class="section-num">Section 12</span>
+  <h2>Risk Assessment</h2>
+
+  <table class="no-break">
+    <thead>
+      <tr><th>Risk</th><th>Impact</th><th>Probability</th><th>Score</th><th>Key Mitigation</th></tr>
+    </thead>
+    <tbody class="risk-med">
+      <tr class="risk-med"><td>FAA approval delays</td><td>Major</td><td>30%</td><td>12</td><td>eIPP enrollment; early FAA engagement; regulatory counsel</td></tr>
+      <tr class="risk-med"><td>VTOL technology maturity</td><td>Major</td><td>35%</td><td>12</td><td>Platform-agnostic; multi-operator design; lease flexibility</td></tr>
+      <tr class="risk-med"><td>Construction cost overruns</td><td>Moderate</td><td>60%</td><td>12</td><td>15–20% contingency; fixed-price contracts; historic specialists</td></tr>
+      <tr class="risk-med"><td>Market adoption rate</td><td>Major</td><td>40%</td><td>12</td><td>Conservative model; multi-stream revenue; eIPP de-risks</td></tr>
+      <tr class="risk-low"><td>AV integration challenges</td><td>Moderate</td><td>20%</td><td>6</td><td>Proven technology; Waymo Austin precedent</td></tr>
+      <tr class="risk-low"><td>Safety incident</td><td>Critical</td><td>&lt;5%</td><td>5</td><td>$200M+ insurance; comprehensive safety protocols</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout no-break">
+    <strong>No critical (score 21–25) or high (score 13–20) risk items identified.</strong> The eIPP designation materially reduces regulatory risk by providing a federal framework for pre-certification commercial operations and a government-sanctioned deployment pathway.
+  </div>
+
+  <span class="section-num">Section 13</span>
+  <h2>Regulatory Pathway</h2>
+
+  <div class="two-col no-break">
+    <div>
+      <h4>Federal — FAA</h4>
+      <ul class="bullets">
+        <li>eIPP participation — vertiport designation for T&P Warehouse site</li>
+        <li>Vertiport design per FAA Advisory Circular 150/5390-3</li>
+        <li>UTM integration for low-altitude airspace coordination</li>
+        <li>Section 106 review (gateway to 20% Historic Tax Credit)</li>
+      </ul>
+
+      <h4>State — TxDOT</h4>
+      <p>Primary contact: <strong>Emily Lambert</strong>, AAM Planning &amp; Integration — <em>emily.lambert@txdot.gov</em> | 512.921.2082</p>
+      <p>Director: <strong>Sergio Roman</strong> — <em>sergio.roman@txdot.gov</em> | 512.239.9284</p>
+      <ul class="bullets">
+        <li>TxDOT Emerging Aviation Technology Section — established April 2025</li>
+        <li>State-level eIPP program vertiport designation</li>
+        <li>Curb management and right-of-way for AV terminal</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Local — City of Fort Worth</h4>
+      <ul class="bullets">
+        <li>Zoning: MU-2 Mixed Use; VTOL-specific use authorization required</li>
+        <li>Building permits and historic preservation compliance</li>
+        <li>Historic and Cultural Landmarks Commission approval</li>
+        <li>Municipal partnership agreement and PPP framework</li>
+      </ul>
+
+      <h4>Regulatory Timeline</h4>
+      <ul class="bullets">
+        <li><strong>Q2 2026:</strong> TxDOT eIPP engagement; City MOU</li>
+        <li><strong>Q3 2026:</strong> FAA pre-application consultation; zoning filing</li>
+        <li><strong>Q1 2027:</strong> Section 106 review; construction permits</li>
+        <li><strong>Q3 2028:</strong> FAA commercial operations approval</li>
+        <li><strong>Q1 2029:</strong> Full commercial service authorization</li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="section-num">Section 14</span>
+  <h2>Stakeholder Value Framework</h2>
+
+  <div class="two-col no-break">
+    <div>
+      <h4>Government &amp; Public Sector</h4>
+      <ul class="checklist">
+        <li>$500M+ economic multiplier over 10 years</li>
+        <li>2,500 construction + 800 permanent jobs</li>
+        <li>$25M+ annual tax revenue (Year 5)</li>
+        <li>T&P Warehouse vacancy resolved after 27 years</li>
+        <li>Fort Worth on national eIPP map alongside Dallas</li>
+        <li>Zero direct municipal capital investment required</li>
+      </ul>
+
+      <h4>Community &amp; Public</h4>
+      <ul class="checklist">
+        <li>40–60% commute time reduction for HUB users</li>
+        <li>30% local traffic emissions reduction</li>
+        <li>T&P Warehouse preserved for future generations</li>
+        <li>800+ jobs with local hiring priority</li>
+        <li>Public innovation showcase and STEM programs</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Investors &amp; Financial Partners</h4>
+      <ul class="checklist">
+        <li>22.3% IRR with multiple exit pathways</li>
+        <li>First-mover in $23–41B+ UAM market</li>
+        <li>Scalable to 50+ U.S. metropolitan markets</li>
+        <li>Diversified revenue reduces adoption-curve risk</li>
+        <li>eIPP materially reduces regulatory risk premium</li>
+      </ul>
+
+      <h4>Technology Partners</h4>
+      <ul class="checklist">
+        <li>Real-world deployment at operational scale</li>
+        <li>Reference customer status for global marketing</li>
+        <li>Joint R&amp;D in a living transportation laboratory</li>
+        <li>Market access: 8.5M DFW residents, $710B+ economy</li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="section-num">Section 15</span>
+  <h2>Conclusion and Call to Action</h2>
+
+  <div class="pull-quote">
+    "The T&amp;P Warehouse has waited 27 years for a project worthy of it. It was built to move people, and it will move people again — at 150 miles per hour, silently, over the rooftops of a city growing faster than its roads can carry it."
+  </div>
+
+  <p>The window opened on March 9, 2026. The federal government has declared Texas a national priority for eVTOL integration and selected it as one of only 8 sites nationwide. Archer Aviation begins commercial Texas air taxi operations this summer. Waymo operates commercially in Austin today.</p>
+
+  <p>What is missing is the infrastructure that ties it together in Fort Worth. The HUB closes that gap.</p>
+
+  <div class="two-col no-break">
+    <div>
+      <h4>For Government Partners</h4>
+      <p>A City of Fort Worth municipal partnership agreement and letter of support for eIPP vertiport designation — the first step costs nothing and positions the city decisively.</p>
+
+      <h4>For Technology Partners</h4>
+      <p>MOUs with eVTOL operators and AV providers executing in Q2 2026. If your organization is deploying in Texas, the HUB is the Fort Worth anchor you need.</p>
+    </div>
+    <div>
+      <h4>For Investors</h4>
+      <p>Phase 1 financing of $20M is actively raising, targeting close by Q3 2026. The eIPP announcement has materially de-risked the regulatory and technology assumptions underlying the financial model.</p>
+
+      <h4>For the Community</h4>
+      <p>The T&amp;P Warehouse belongs to Fort Worth. This project is built to serve Fort Worth first — and to show the world what Fort Worth is capable of building.</p>
+    </div>
+  </div>
+
+  <div class="contact-block no-break">
+    <h4>Partnership &amp; Investment Inquiries</h4>
+    <p>partnerships@tpnexus.com &nbsp;|&nbsp; T&P Nexus Hub, Fort Worth, Texas &nbsp;|&nbsp; March 2026</p>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>T&P Nexus Hub Transportation System &nbsp;|&nbsp; Fort Worth, Texas</span>
+    <span>Confidential — For Authorized Recipients Only &nbsp;|&nbsp; March 2026</span>
+  </div>
+
+</div>
+</body>
+</html>

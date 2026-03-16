@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T&P Vector Hub — Transportation Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root {
+  --bg0: #060b1a;
+  --bg1: #0a1228;
+  --bg2: #0f1e3d;
+  --panel: rgba(15,30,61,0.85);
+  --cyan: #00e5ff;
+  --cyan2: #00b8d9;
+  --gold: #f5c518;
+  --violet: #7c3aed;
+  --green: #22c55e;
+  --red: #ef4444;
+  --border: rgba(0,229,255,0.18);
+  --text: #e8f4f8;
+  --muted: #7a9bb5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg0); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; overflow-x: hidden; }
+.orbitron { font-family: 'Orbitron', monospace; }
+
+/* Navbar */
+#navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(6,11,26,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); height: 60px; display: flex; align-items: center; padding: 0 24px; gap: 32px; }
+.nav-logo { font-family: 'Orbitron', monospace; font-size: 1.2rem; font-weight: 800; color: var(--cyan); letter-spacing: 2px; text-shadow: 0 0 20px rgba(0,229,255,0.5); white-space: nowrap; }
+.nav-items { display: flex; gap: 4px; margin-left: auto; }
+.nav-item { padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: all 0.2s; border: 1px solid transparent; white-space: nowrap; }
+.nav-item:hover { color: var(--text); background: rgba(0,229,255,0.08); }
+.nav-item.active { color: var(--cyan); border-color: var(--border); background: rgba(0,229,255,0.1); box-shadow: 0 0 12px rgba(0,229,255,0.15); }
+
+/* Views */
+.view { display: none; padding: 80px 24px 24px; max-width: 1400px; margin: 0 auto; }
+.view.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
+
+/* Panels */
+.panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; backdrop-filter: blur(8px); }
+.panel-title { font-family: 'Orbitron', monospace; font-size: 0.75rem; font-weight: 600; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+
+/* Stats */
+.stat-card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; }
+.stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
+.stat-value { font-family: 'Orbitron', monospace; font-size: 1.6rem; font-weight: 700; margin: 6px 0 2px; }
+.stat-sub { font-size: 0.75rem; color: var(--muted); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.875rem; cursor: pointer; transition: all 0.2s; border: none; outline: none; }
+.btn-primary { background: var(--cyan); color: #060b1a; }
+.btn-primary:hover { background: var(--cyan2); box-shadow: 0 0 20px rgba(0,229,255,0.4); transform: translateY(-1px); }
+.btn-secondary { background: rgba(0,229,255,0.1); color: var(--cyan); border: 1px solid var(--border); }
+.btn-secondary:hover { background: rgba(0,229,255,0.2); }
+.btn-gold { background: var(--gold); color: #060b1a; }
+.btn-gold:hover { background: #e0b014; box-shadow: 0 0 20px rgba(245,197,24,0.4); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+.btn-lg { padding: 14px 28px; font-size: 1rem; }
+.btn-sm { padding: 6px 14px; font-size: 0.8rem; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+
+/* Fleet status */
+.fleet-card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px; position: relative; overflow: hidden; }
+.fleet-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+.fleet-card.active-fleet::before { background: var(--green); }
+.fleet-card.standby-fleet::before { background: var(--gold); }
+.fleet-card.maintenance-fleet::before { background: var(--red); }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.status-dot.active { background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse-dot 2s infinite; }
+.status-dot.standby { background: var(--gold); }
+.status-dot.maintenance { background: var(--red); }
+@keyframes pulse-dot { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+/* Live feed */
+#live-feed { height: 280px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
+#live-feed::-webkit-scrollbar { width: 4px; }
+#live-feed::-webkit-scrollbar-track { background: transparent; }
+#live-feed::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.feed-item { font-size: 0.78rem; padding: 8px 10px; background: rgba(0,229,255,0.04); border-left: 2px solid var(--border); border-radius: 0 4px 4px 0; animation: slideIn 0.3s ease; }
+.feed-item.new { border-left-color: var(--cyan); }
+.feed-time { color: var(--cyan); font-family: monospace; margin-right: 8px; }
+@keyframes slideIn { from { opacity:0; transform: translateX(-10px); } to { opacity:1; transform: translateX(0); } }
+
+/* Quick book buttons */
+.quick-btn { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.25s; text-align: center; }
+.quick-btn:hover { border-color: var(--cyan); background: rgba(0,229,255,0.08); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.quick-btn svg { margin: 0 auto 10px; display: block; }
+
+/* Step wizard */
+.step-bar { display: flex; align-items: center; gap: 0; margin-bottom: 32px; }
+.step-item { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--muted); }
+.step-item.active { color: var(--cyan); }
+.step-item.done { color: var(--green); }
+.step-num { width: 28px; height: 28px; border-radius: 50%; border: 2px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+.step-item.done .step-num { background: var(--green); border-color: var(--green); color: #060b1a; }
+.step-item.active .step-num { background: var(--cyan); border-color: var(--cyan); color: #060b1a; }
+.step-line { flex: 1; height: 2px; background: var(--border); min-width: 20px; }
+.step-line.done { background: var(--green); }
+
+/* Mode cards */
+.mode-card { background: var(--panel); border: 2px solid var(--border); border-radius: 14px; padding: 28px 24px; cursor: pointer; transition: all 0.25s; text-align: center; }
+.mode-card:hover { border-color: rgba(0,229,255,0.4); transform: translateY(-2px); }
+.mode-card.selected { border-color: var(--cyan); background: rgba(0,229,255,0.08); box-shadow: 0 0 30px rgba(0,229,255,0.15); }
+.mode-card h3 { font-family: 'Orbitron', monospace; font-size: 1rem; font-weight: 700; margin: 12px 0 8px; color: var(--cyan); }
+.mode-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+/* Route cards */
+.route-card { background: var(--panel); border: 2px solid var(--border); border-radius: 10px; padding: 16px; cursor: pointer; transition: all 0.2s; }
+.route-card:hover { border-color: rgba(0,229,255,0.3); }
+.route-card.selected { border-color: var(--cyan); background: rgba(0,229,255,0.06); }
+.route-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; }
+.route-meta { display: flex; gap: 12px; flex-wrap: wrap; }
+.route-badge { font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; font-weight: 500; }
+.badge-cyan { background: rgba(0,229,255,0.15); color: var(--cyan); }
+.badge-gold { background: rgba(245,197,24,0.15); color: var(--gold); }
+.badge-green { background: rgba(34,197,94,0.15); color: var(--green); }
+
+/* Form inputs */
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.5px; }
+.form-input { background: rgba(0,229,255,0.04); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; color: var(--text); font-size: 0.9rem; outline: none; transition: border-color 0.2s; font-family: 'Inter', sans-serif; width: 100%; }
+.form-input:focus { border-color: var(--cyan2); box-shadow: 0 0 0 2px rgba(0,229,255,0.1); }
+.form-input.error { border-color: var(--red); animation: shake 0.3s ease; }
+select.form-input option { background: #0a1228; }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+
+/* Add-on checkboxes */
+.addon-item { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+.addon-item:hover { border-color: var(--cyan2); }
+.addon-item.checked { border-color: var(--cyan); background: rgba(0,229,255,0.06); }
+.addon-check { width: 18px; height: 18px; border: 2px solid var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
+.addon-item.checked .addon-check { background: var(--cyan); border-color: var(--cyan); }
+
+/* Payment */
+.pay-tab { padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.82rem; font-weight: 500; color: var(--muted); border: 1px solid transparent; transition: all 0.2s; }
+.pay-tab.active { color: var(--cyan); border-color: var(--border); background: rgba(0,229,255,0.08); }
+.card-preview { background: linear-gradient(135deg, #0f1e3d 0%, #1a3060 100%); border: 1px solid var(--border); border-radius: 12px; padding: 20px; position: relative; overflow: hidden; }
+.card-preview::before { content:''; position:absolute; top:-50%; right:-30%; width:200px; height:200px; background: radial-gradient(circle, rgba(0,229,255,0.15) 0%, transparent 70%); }
+
+/* Confirmation */
+.check-anim { width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--green); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; animation: checkPop 0.5s ease; }
+@keyframes checkPop { 0% { transform: scale(0); opacity:0; } 70% { transform: scale(1.1); } 100% { transform: scale(1); opacity:1; } }
+.qr-grid { display: grid; grid-template-columns: repeat(10,1fr); gap: 2px; width: 120px; margin: 16px auto; }
+.qr-cell { aspect-ratio: 1; border-radius: 1px; }
+
+/* Track view - SVG map */
+#track-map { width: 100%; border-radius: 10px; border: 1px solid var(--border); }
+.timeline-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; position: relative; }
+.timeline-item:not(:last-child)::after { content:''; position:absolute; left: 13px; top: 34px; bottom: -10px; width: 1px; background: var(--border); }
+.tl-dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; }
+.tl-dot.done { background: rgba(34,197,94,0.2); border: 2px solid var(--green); color: var(--green); }
+.tl-dot.active { background: rgba(0,229,255,0.15); border: 2px solid var(--cyan); color: var(--cyan); animation: pulse-dot 1.5s infinite; }
+.tl-dot.pending { background: rgba(255,255,255,0.05); border: 2px solid var(--border); color: var(--muted); }
+
+/* My Trips */
+.trip-row { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px; transition: border-color 0.2s; cursor: pointer; }
+.trip-row:hover { border-color: rgba(0,229,255,0.3); }
+.trip-row.expanded { border-color: var(--border); }
+.trip-detail { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.trip-row.expanded .trip-detail { display: block; }
+.stars { display: flex; gap: 4px; }
+.star { font-size: 1.1rem; cursor: pointer; color: var(--border); transition: color 0.15s; }
+.star.lit { color: var(--gold); }
+
+/* Tab bar */
+.tab-bar { display: flex; gap: 4px; background: rgba(0,0,0,0.3); padding: 4px; border-radius: 10px; margin-bottom: 20px; }
+.tab { flex: 1; padding: 8px; text-align: center; border-radius: 7px; cursor: pointer; font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: all 0.2s; }
+.tab.active { background: rgba(0,229,255,0.12); color: var(--cyan); }
+
+/* Toast */
+#toast-container { position: fixed; top: 72px; right: 20px; z-index: 200; display: flex; flex-direction: column; gap: 8px; }
+.toast { padding: 12px 18px; border-radius: 8px; font-size: 0.85rem; font-weight: 500; border: 1px solid; animation: toastIn 0.3s ease; min-width: 260px; display: flex; align-items: center; gap: 10px; }
+.toast.success { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.4); color: var(--green); }
+.toast.error { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.4); color: var(--red); }
+.toast.info { background: rgba(0,229,255,0.12); border-color: rgba(0,229,255,0.3); color: var(--cyan); }
+@keyframes toastIn { from { opacity:0; transform: translateX(20px); } to { opacity:1; transform: translateX(0); } }
+
+/* Skeleton shimmer */
+.skeleton { background: linear-gradient(90deg, rgba(0,229,255,0.04) 25%, rgba(0,229,255,0.1) 50%, rgba(0,229,255,0.04) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 6px; }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* Loyalty bar */
+.loyalty-bar { height: 8px; background: rgba(0,229,255,0.1); border-radius: 4px; overflow: hidden; }
+.loyalty-fill { height: 100%; background: linear-gradient(90deg, var(--cyan2), var(--cyan)); border-radius: 4px; transition: width 1s ease; }
+
+/* Price summary */
+.price-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(0,229,255,0.07); font-size: 0.875rem; }
+.price-row:last-child { border-bottom: none; }
+.price-row.total { font-weight: 700; font-size: 1rem; color: var(--cyan); padding-top: 12px; border-top: 1px solid var(--border); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-items { display: none; }
+  #mobile-nav { display: flex !important; }
+  .view { padding-bottom: 80px; }
+  .desktop-sidebar { display: none !important; }
+}
+#mobile-nav { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(6,11,26,0.97); border-top: 1px solid var(--border); z-index: 100; padding: 8px 0; }
+.mob-nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 4px; font-size: 0.65rem; color: var(--muted); cursor: pointer; }
+.mob-nav-item.active { color: var(--cyan); }
+
+/* Stepper */
+.stepper { display: flex; align-items: center; gap: 0; }
+.stepper-btn { width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--cyan); font-size: 1.1rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+.stepper-btn:hover { background: rgba(0,229,255,0.1); }
+.stepper-val { width: 40px; text-align: center; font-weight: 600; font-size: 0.95rem; }
+
+/* Spinner */
+.spinner { width: 20px; height: 20px; border: 2px solid rgba(6,11,26,0.3); border-top-color: #060b1a; border-radius: 50%; animation: spin 0.6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<!-- Toast container -->
+<div id="toast-container"></div>
+
+<!-- Mobile nav -->
+<div id="mobile-nav">
+  <div class="mob-nav-item active" onclick="showView('dashboard')">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    Dashboard
+  </div>
+  <div class="mob-nav-item" onclick="showView('book')">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+    Book
+  </div>
+  <div class="mob-nav-item" onclick="showView('track')">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+    Track
+  </div>
+  <div class="mob-nav-item" onclick="showView('trips')">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+    My Trips
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav id="navbar">
+  <div class="nav-logo">T&P VECTOR HUB</div>
+  <div class="nav-items">
+    <div class="nav-item active" id="nav-dashboard" onclick="showView('dashboard')">Dashboard</div>
+    <div class="nav-item" id="nav-book" onclick="showView('book')">Book</div>
+    <div class="nav-item" id="nav-track" onclick="showView('track')">Track</div>
+    <div class="nav-item" id="nav-trips" onclick="showView('trips')">My Trips</div>
+  </div>
+</nav>
+
+<!-- ============================================================ DASHBOARD ============================================================ -->
+<div id="view-dashboard" class="view active">
+  <div style="display:grid; grid-template-columns:1fr 300px; gap:20px;">
+    <div>
+      <!-- Header -->
+      <div style="margin-bottom:20px;">
+        <h1 class="orbitron" style="font-size:1.5rem; font-weight:800;" id="greeting">Good morning, Alex</h1>
+        <p style="color:var(--muted); font-size:0.85rem; margin-top:4px;" id="dash-date"></p>
+      </div>
+
+      <!-- Stats row -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:20px;">
+        <div class="stat-card">
+          <div class="stat-label">Next Departure</div>
+          <div class="stat-value" style="color:var(--cyan); font-size:1.3rem;" id="countdown">--:--</div>
+          <div class="stat-sub">VEC flight to DFW</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Miles Flown</div>
+          <div class="stat-value" style="color:var(--gold);">1,247</div>
+          <div class="stat-sub">this month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">CO₂ Saved</div>
+          <div class="stat-value" style="color:var(--green);">186<span style="font-size:0.9rem;">kg</span></div>
+          <div class="stat-sub">vs driving</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Trips</div>
+          <div class="stat-value">24</div>
+          <div class="stat-sub">all-time</div>
+        </div>
+      </div>
+
+      <!-- Quick Book -->
+      <div class="panel" style="margin-bottom:20px;">
+        <div class="panel-title">Quick Book</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+          <div class="quick-btn" onclick="showView('book'); selectMode('vtol')">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="var(--cyan)" stroke-width="1.5">
+              <path d="M5 22l8-8 4 2 10-10 3 3-10 10 2 4-8 8-2-5-5-2z"/>
+              <path d="M32 8l-3 3"/>
+            </svg>
+            <div style="font-family:'Orbitron',monospace; font-size:0.8rem; font-weight:700; color:var(--cyan);">eVTOL Flight</div>
+            <div style="font-size:0.72rem; color:var(--muted); margin-top:4px;">From $45</div>
+          </div>
+          <div class="quick-btn" onclick="showView('book'); selectMode('av')">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="var(--cyan)" stroke-width="1.5">
+              <rect x="6" y="16" width="28" height="12" rx="3"/>
+              <path d="M10 16l4-6h12l4 6"/>
+              <circle cx="13" cy="30" r="3"/><circle cx="27" cy="30" r="3"/>
+            </svg>
+            <div style="font-family:'Orbitron',monospace; font-size:0.8rem; font-weight:700; color:var(--cyan);">AV Ride</div>
+            <div style="font-size:0.72rem; color:var(--muted); margin-top:4px;">From $12</div>
+          </div>
+          <div class="quick-btn" onclick="showView('book'); selectMode('multi')">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="var(--gold)" stroke-width="1.5">
+              <circle cx="8" cy="28" r="4"/><circle cx="32" cy="28" r="4"/>
+              <path d="M12 28h8M24 28h8M20 8l6 8H14l6-8z"/>
+              <path d="M8 24v-8M32 24v-8"/>
+            </svg>
+            <div style="font-family:'Orbitron',monospace; font-size:0.8rem; font-weight:700; color:var(--gold);">Multimodal</div>
+            <div style="font-size:0.72rem; color:var(--muted); margin-top:4px;">Best value</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fleet status -->
+      <div class="panel">
+        <div class="panel-title">Fleet Status</div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+          <div class="fleet-card active-fleet">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-family:monospace; font-size:0.8rem; font-weight:600;">VEC-447</span>
+              <span class="status-dot active"></span>
+            </div>
+            <div style="font-size:0.72rem; color:var(--muted);">Joby S4</div>
+            <div style="font-size:0.72rem; color:var(--green); margin-top:4px;">● Active — Pad 3</div>
+          </div>
+          <div class="fleet-card active-fleet">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-family:monospace; font-size:0.8rem; font-weight:600;">VEC-312</span>
+              <span class="status-dot active"></span>
+            </div>
+            <div style="font-size:0.72rem; color:var(--muted);">Archer Midnight</div>
+            <div style="font-size:0.72rem; color:var(--green); margin-top:4px;">● En Route — DFW</div>
+          </div>
+          <div class="fleet-card standby-fleet">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-family:monospace; font-size:0.8rem; font-weight:600;">AV-023</span>
+              <span class="status-dot standby"></span>
+            </div>
+            <div style="font-size:0.72rem; color:var(--muted);">Waymo 5th Gen</div>
+            <div style="font-size:0.72rem; color:var(--gold); margin-top:4px;">◐ Charging — Bay 5</div>
+          </div>
+          <div class="fleet-card maintenance-fleet">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-family:monospace; font-size:0.8rem; font-weight:600;">VEC-118</span>
+              <span class="status-dot maintenance"></span>
+            </div>
+            <div style="font-size:0.72rem; color:var(--muted);">Wisk Aero Gen6</div>
+            <div style="font-size:0.72rem; color:var(--red); margin-top:4px;">✕ Maintenance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right sidebar: Live feed -->
+    <div class="desktop-sidebar">
+      <div class="panel" style="height:100%;">
+        <div class="panel-title" style="display:flex; align-items:center; gap:8px;">
+          <span class="status-dot active"></span>
+          Live System Feed
+        </div>
+        <div id="live-feed"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ BOOK VIEW ============================================================ -->
+<div id="view-book" class="view">
+  <div style="display:flex; gap:20px;">
+    <div style="flex:1; min-width:0;">
+      <!-- Step bar -->
+      <div class="step-bar" id="step-bar">
+        <div class="step-item active" id="step-ind-1"><div class="step-num">1</div><span>Journey Type</span></div>
+        <div class="step-line" id="step-line-1"></div>
+        <div class="step-item" id="step-ind-2"><div class="step-num">2</div><span>Route</span></div>
+        <div class="step-line" id="step-line-2"></div>
+        <div class="step-item" id="step-ind-3"><div class="step-num">3</div><span>Passengers</span></div>
+        <div class="step-line" id="step-line-3"></div>
+        <div class="step-item" id="step-ind-4"><div class="step-num">4</div><span>Payment</span></div>
+        <div class="step-line" id="step-line-4"></div>
+        <div class="step-item" id="step-ind-5"><div class="step-num">5</div><span>Confirmation</span></div>
+      </div>
+
+      <!-- STEP 1: Journey Type -->
+      <div id="step1" class="step-content">
+        <h2 class="orbitron" style="font-size:1.2rem; margin-bottom:8px;">Select Journey Type</h2>
+        <p style="color:var(--muted); font-size:0.85rem; margin-bottom:24px;">Choose how you'd like to travel with T&P Vector Hub</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="mode-card" id="card-vtol" onclick="selectMode('vtol')">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="var(--cyan)" stroke-width="1.5" style="margin:0 auto;">
+              <path d="M8 32l10-12 6 3 14-14 5 5-14 14 3 6-10 12-3-7-7-3z"/>
+              <path d="M44 12l-5 5"/><circle cx="28" cy="28" r="3" fill="rgba(0,229,255,0.2)"/>
+            </svg>
+            <h3>VTOL FLIGHT</h3>
+            <p>150–200 mph · Up to 100 miles<br>4 pax + pilot · $45–$150/trip</p>
+          </div>
+          <div class="mode-card" id="card-av" onclick="selectMode('av')">
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="var(--cyan)" stroke-width="1.5" style="margin:0 auto;">
+              <rect x="8" y="22" width="40" height="18" rx="4"/>
+              <path d="M14 22l6-9h16l6 9"/>
+              <circle cx="18" cy="44" r="4"/><circle cx="38" cy="44" r="4"/>
+              <rect x="22" y="14" width="6" height="4" rx="1" fill="rgba(0,229,255,0.2)"/>
+            </svg>
+            <h3>AV RIDE</h3>
+            <p>City routes · First/last mile<br>1–6 passengers · $10–$35/trip</p>
+          </div>
+        </div>
+        <div class="mode-card" id="card-multi" onclick="selectMode('multi')" style="text-align:left; display:flex; align-items:center; gap:20px;">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="var(--gold)" stroke-width="1.5" style="flex-shrink:0;">
+            <circle cx="8" cy="30" r="4"/><circle cx="36" cy="30" r="4"/>
+            <path d="M12 30h8M24 30h8M22 8l7 9H15l7-9z"/>
+          </svg>
+          <div>
+            <h3 style="color:var(--gold); text-align:left; margin:0 0 6px;">MULTIMODAL</h3>
+            <p style="text-align:left;">AV pickup → eVTOL flight → AV dropoff — Best value for longer journeys</p>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; margin-top:24px;">
+          <button class="btn btn-primary btn-lg" id="step1-next" onclick="nextStep()" disabled>Continue <span>→</span></button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Route Selection -->
+      <div id="step2" class="step-content" style="display:none;">
+        <h2 class="orbitron" style="font-size:1.2rem; margin-bottom:20px;">Select Your Route</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input type="date" class="form-input" id="trip-date">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Time</label>
+            <select class="form-input" id="trip-time"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Passengers</label>
+            <div class="stepper">
+              <button class="stepper-btn" onclick="changePax(-1)">−</button>
+              <span class="stepper-val" id="pax-val">1</span>
+              <button class="stepper-btn" onclick="changePax(1)">+</button>
+            </div>
+          </div>
+        </div>
+        <div id="routes-loading" style="display:none;">
+          <div class="skeleton" style="height:80px; margin-bottom:10px;"></div>
+          <div class="skeleton" style="height:80px; margin-bottom:10px;"></div>
+          <div class="skeleton" style="height:80px;"></div>
+        </div>
+        <div id="routes-list" style="display:flex; flex-direction:column; gap:10px;"></div>
+        <div style="display:flex; justify-content:space-between; margin-top:24px;">
+          <button class="btn btn-outline" onclick="prevStep()">← Back</button>
+          <button class="btn btn-primary btn-lg" id="step2-next" onclick="nextStep()" disabled>Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Passengers & Preferences -->
+      <div id="step3" class="step-content" style="display:none;">
+        <h2 class="orbitron" style="font-size:1.2rem; margin-bottom:20px;">Passenger Details</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px;">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" id="fname" placeholder="Alex" value="Alex">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" id="lname" placeholder="Johnson" value="Johnson">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" id="email" placeholder="alex@example.com" value="alex@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-input" id="phone" placeholder="+1 (817) 555-0100" value="+1 (817) 555-0100">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Seat Preference</label>
+            <select class="form-input" id="seat-pref" style="flex:1;"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Luggage</label>
+            <select class="form-input" id="luggage">
+              <option value="none">None</option>
+              <option value="personal">Personal item</option>
+              <option value="carryon">Carry-on (+$0)</option>
+            </select>
+          </div>
+        </div>
+        <div class="panel-title" style="margin-bottom:12px;">Add-ons</div>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:20px;">
+          <div class="addon-item" id="addon-priority" onclick="toggleAddon('priority',8)">
+            <div class="addon-check" id="check-priority">✓</div>
+            <div style="flex:1;">
+              <div style="font-weight:500; font-size:0.875rem;">Priority Boarding</div>
+              <div style="font-size:0.75rem; color:var(--muted);">Board first, guaranteed overhead space</div>
+            </div>
+            <div style="color:var(--cyan); font-weight:600; font-size:0.9rem;">+$8.00</div>
+          </div>
+          <div class="addon-item" id="addon-wifi" onclick="toggleAddon('wifi',5)">
+            <div class="addon-check" id="check-wifi"></div>
+            <div style="flex:1;">
+              <div style="font-weight:500; font-size:0.875rem;">In-Flight WiFi</div>
+              <div style="font-size:0.75rem; color:var(--muted);">High-speed satellite connectivity</div>
+            </div>
+            <div style="color:var(--cyan); font-weight:600; font-size:0.9rem;">+$5.00</div>
+          </div>
+          <div class="addon-item" id="addon-meetgreet" onclick="toggleAddon('meetgreet',15)">
+            <div class="addon-check" id="check-meetgreet"></div>
+            <div style="flex:1;">
+              <div style="font-weight:500; font-size:0.875rem;">Meet &amp; Greet Transfer</div>
+              <div style="font-size:0.75rem; color:var(--muted);">Personal ground escort at destination</div>
+            </div>
+            <div style="color:var(--cyan); font-weight:600; font-size:0.9rem;">+$15.00</div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-top:24px;">
+          <button class="btn btn-outline" onclick="prevStep()">← Back</button>
+          <button class="btn btn-primary btn-lg" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Payment -->
+      <div id="step4" class="step-content" style="display:none;">
+        <h2 class="orbitron" style="font-size:1.2rem; margin-bottom:20px;">Payment</h2>
+        <div style="display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;">
+          <div class="pay-tab active" id="tab-card" onclick="setPayTab('card')">Credit/Debit Card</div>
+          <div class="pay-tab" id="tab-apple" onclick="setPayTab('apple')">Apple Pay</div>
+          <div class="pay-tab" id="tab-google" onclick="setPayTab('google')">Google Pay</div>
+          <div class="pay-tab" id="tab-credits" onclick="setPayTab('credits')">HUB Credits</div>
+        </div>
+        <div id="pay-card">
+          <div class="card-preview" style="margin-bottom:16px;">
+            <div style="font-family:monospace; font-size:1.1rem; letter-spacing:4px; margin-bottom:16px;" id="card-display">•••• •••• •••• ••••</div>
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:var(--muted);">
+              <span id="card-name-display">CARDHOLDER NAME</span>
+              <span id="card-exp-display">MM/YY</span>
+            </div>
+            <div style="position:absolute; top:20px; right:20px; font-size:1.4rem; opacity:0.8;" id="card-type-icon"></div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr; gap:12px;">
+            <div class="form-group">
+              <label class="form-label">Card Number <span style="color:var(--muted); font-size:0.72rem;">(demo: 4242 4242 4242 4242)</span></label>
+              <input type="text" class="form-input" id="card-number" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)" style="font-family:monospace; letter-spacing:2px;">
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+              <div class="form-group" style="grid-column:span 1;">
+                <label class="form-label">Expiry (MM/YY)</label>
+                <input type="text" class="form-input" id="card-expiry" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)">
+              </div>
+              <div class="form-group">
+                <label class="form-label">CVV</label>
+                <input type="password" class="form-input" id="card-cvv" placeholder="•••" maxlength="4">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Cardholder Name</label>
+                <input type="text" class="form-input" id="card-holder" placeholder="Full name" value="Alex Johnson">
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:40px; height:22px; background:rgba(0,229,255,0.1); border:1px solid var(--border); border-radius:11px; cursor:pointer; position:relative; transition:all 0.2s;" id="save-toggle" onclick="toggleSave()">
+                <div style="width:16px; height:16px; background:var(--muted); border-radius:50%; position:absolute; top:2px; left:2px; transition:all 0.2s;" id="save-thumb"></div>
+              </div>
+              <span style="font-size:0.82rem; color:var(--muted);">Save card for future trips</span>
+            </div>
+          </div>
+        </div>
+        <div id="pay-alt" style="display:none; text-align:center; padding:40px;">
+          <div style="font-size:2rem; margin-bottom:12px;" id="pay-alt-icon">📱</div>
+          <div style="font-size:1rem; font-weight:500; margin-bottom:8px;" id="pay-alt-title">Apple Pay</div>
+          <div style="color:var(--muted); font-size:0.85rem; margin-bottom:20px;">Touch ID or Face ID to authenticate</div>
+          <button class="btn btn-primary" onclick="processPayment()">Authenticate &amp; Pay</button>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-top:24px; align-items:center;">
+          <button class="btn btn-outline" onclick="prevStep()">← Back</button>
+          <button class="btn btn-gold btn-lg" id="pay-btn" onclick="processPayment()">
+            <span id="pay-btn-text">Confirm &amp; Pay</span>
+            <div class="spinner" id="pay-spinner" style="display:none;"></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 5: Confirmation -->
+      <div id="step5" class="step-content" style="display:none; text-align:center; padding:20px 0;">
+        <div class="check-anim">
+          <svg width="36" height="36" fill="none" stroke="var(--green)" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2 class="orbitron" style="font-size:1.4rem; color:var(--green); margin-bottom:8px;">Booking Confirmed!</h2>
+        <p style="color:var(--muted); margin-bottom:24px;">Your trip is confirmed and your vehicle has been assigned.</p>
+        <div class="panel" style="max-width:480px; margin:0 auto 24px; text-align:left;">
+          <div style="text-align:center; margin-bottom:16px;">
+            <div style="font-family:'Orbitron',monospace; font-size:1.1rem; color:var(--cyan);" id="booking-ref">VEC-20260312-0000</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:4px;">Booking Reference</div>
+          </div>
+          <!-- QR code simulation -->
+          <div style="text-align:center; margin-bottom:16px;">
+            <div class="qr-grid" id="qr-grid"></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div class="price-row"><span style="color:var(--muted);">Route</span><span id="conf-route" style="font-weight:500;">—</span></div>
+            <div class="price-row"><span style="color:var(--muted);">Departure</span><span id="conf-depart" style="font-weight:500; color:var(--cyan);">—</span></div>
+            <div class="price-row"><span style="color:var(--muted);">Pad / Bay</span><span id="conf-pad" style="font-weight:500;">—</span></div>
+            <div class="price-row"><span style="color:var(--muted);">Vehicle ID</span><span id="conf-vehicle" style="font-family:monospace; color:var(--gold);">—</span></div>
+            <div class="price-row total"><span>Total Charged</span><span id="conf-total">—</span></div>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <button class="btn btn-primary btn-lg" onclick="showView('track')">Track My Trip →</button>
+          <button class="btn btn-outline btn-lg" onclick="showView('dashboard')">Back to Dashboard</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Price summary sidebar -->
+    <div id="price-sidebar" style="width:280px; flex-shrink:0;" class="desktop-sidebar">
+      <div class="panel" style="position:sticky; top:80px;">
+        <div class="panel-title">Price Summary</div>
+        <div id="price-summary-content">
+          <div style="color:var(--muted); font-size:0.85rem; text-align:center; padding:20px 0;">Select a route to see pricing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ TRACK VIEW ============================================================ -->
+<div id="view-track" class="view">
+  <h2 class="orbitron" style="font-size:1.2rem; margin-bottom:20px;">Live Trip Tracking</h2>
+  <div style="display:grid; grid-template-columns:1fr 300px; gap:20px;">
+    <div>
+      <!-- SVG Map -->
+      <div class="panel" style="padding:12px; margin-bottom:16px;">
+        <svg id="track-map" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect width="600" height="400" fill="#060b1a"/>
+          <!-- Grid -->
+          <defs>
+            <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+              <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(0,229,255,0.04)" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="600" height="400" fill="url(#grid)"/>
+          <!-- Fort Worth metro outline (faint polygon) -->
+          <polygon points="60,120 180,80 280,100 320,160 300,280 200,320 80,300 40,200" fill="rgba(0,229,255,0.03)" stroke="rgba(0,229,255,0.1)" stroke-width="1" stroke-dasharray="4,4"/>
+          <!-- Dallas metro outline -->
+          <polygon points="360,100 480,90 530,140 520,260 460,300 380,290 330,220 340,140" fill="rgba(124,58,237,0.03)" stroke="rgba(124,58,237,0.1)" stroke-width="1" stroke-dasharray="4,4"/>
+          <!-- Road connections -->
+          <line x1="160" y1="200" x2="320" y2="165" stroke="rgba(0,229,255,0.08)" stroke-width="2"/>
+          <line x1="160" y1="200" x2="430" y2="150" stroke="rgba(0,229,255,0.08)" stroke-width="2"/>
+          <line x1="160" y1="200" x2="430" y2="250" stroke="rgba(0,229,255,0.08)" stroke-width="2"/>
+          <line x1="160" y1="200" x2="180" y2="290" stroke="rgba(0,229,255,0.08)" stroke-width="2"/>
+          <line x1="160" y1="200" x2="90" y2="100" stroke="rgba(0,229,255,0.08)" stroke-width="2"/>
+          <line x1="160" y1="200" x2="120" y2="220" stroke="rgba(0,229,255,0.08)" stroke-width="2"/>
+          <line x1="160" y1="200" x2="150" y2="240" stroke="rgba(0,229,255,0.08)" stroke-width="2"/>
+          <line x1="160" y1="200" x2="200" y2="170" stroke="rgba(0,229,255,0.08)" stroke-width="2"/>
+          <line x1="160" y1="200" x2="240" y2="270" stroke="rgba(0,229,255,0.08)" stroke-width="2"/>
+          <!-- Route line (animated, shown when trip active) -->
+          <line id="route-line" x1="160" y1="200" x2="430" y2="150" stroke="var(--cyan)" stroke-width="2" stroke-dasharray="8,4" opacity="0">
+            <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="0.8s" repeatCount="indefinite"/>
+          </line>
+          <!-- Destination pulse ring -->
+          <circle id="dest-ring" cx="430" cy="150" r="14" fill="none" stroke="var(--gold)" stroke-width="2" opacity="0">
+            <animate attributeName="r" values="10;18;10" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Location nodes -->
+          <!-- T&P Vector Hub -->
+          <circle cx="160" cy="200" r="10" fill="var(--cyan)" opacity="0.9"/>
+          <circle cx="160" cy="200" r="16" fill="none" stroke="var(--cyan)" stroke-width="1.5" opacity="0.4"/>
+          <text x="160" y="228" text-anchor="middle" fill="var(--cyan)" font-size="9" font-family="Orbitron,monospace" font-weight="700">VECTOR HUB</text>
+          <!-- DFW Airport -->
+          <circle cx="430" cy="150" r="8" fill="rgba(124,58,237,0.8)"/>
+          <text x="430" y="172" text-anchor="middle" fill="#c084fc" font-size="8" font-family="monospace">DFW AIRPORT</text>
+          <!-- Dallas Love Field -->
+          <circle cx="480" cy="200" r="7" fill="rgba(124,58,237,0.6)"/>
+          <text x="480" y="220" text-anchor="middle" fill="#c084fc" font-size="8" font-family="monospace">LOVE FIELD</text>
+          <!-- Arlington -->
+          <circle cx="320" cy="240" r="7" fill="rgba(0,229,255,0.6)"/>
+          <text x="320" y="258" text-anchor="middle" fill="var(--cyan2)" font-size="8" font-family="monospace">ARLINGTON</text>
+          <!-- Frisco -->
+          <circle cx="430" cy="80" r="7" fill="rgba(0,229,255,0.5)"/>
+          <text x="430" y="70" text-anchor="middle" fill="var(--cyan2)" font-size="8" font-family="monospace">FRISCO</text>
+          <!-- Alliance Airport -->
+          <circle cx="90" cy="100" r="7" fill="rgba(245,197,24,0.6)"/>
+          <text x="90" y="90" text-anchor="middle" fill="var(--gold)" font-size="8" font-family="monospace">ALLIANCE</text>
+          <!-- Stockyards -->
+          <circle cx="150" cy="155" r="6" fill="rgba(0,229,255,0.4)"/>
+          <text x="150" y="148" text-anchor="middle" fill="var(--muted)" font-size="7.5" font-family="monospace">STOCKYARDS</text>
+          <!-- TCU -->
+          <circle cx="140" cy="235" r="6" fill="rgba(0,229,255,0.4)"/>
+          <text x="140" y="248" text-anchor="middle" fill="var(--muted)" font-size="7.5" font-family="monospace">TCU</text>
+          <!-- Sundance Square -->
+          <circle cx="168" cy="185" r="5" fill="rgba(0,229,255,0.4)"/>
+          <text x="168" y="178" text-anchor="middle" fill="var(--muted)" font-size="7" font-family="monospace">SUNDANCE</text>
+          <!-- Vehicle marker (animated) -->
+          <g id="vehicle-marker" opacity="0">
+            <circle r="8" fill="var(--cyan)" filter="url(#glow)"/>
+            <circle r="14" fill="none" stroke="var(--cyan)" stroke-width="1" opacity="0.4"/>
+          </g>
+          <defs>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- City labels -->
+          <text x="130" y="320" fill="rgba(255,255,255,0.15)" font-size="11" font-family="Inter,sans-serif">FORT WORTH</text>
+          <text x="420" y="310" fill="rgba(255,255,255,0.12)" font-size="11" font-family="Inter,sans-serif">DALLAS</text>
+        </svg>
+      </div>
+
+      <!-- Vehicle info card -->
+      <div class="panel" id="vehicle-info" style="display:none;">
+        <div class="panel-title">Vehicle Information</div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+          <div>
+            <div style="font-size:0.72rem; color:var(--muted); margin-bottom:4px;">Aircraft</div>
+            <div style="font-weight:600;" id="vi-model">Joby S4</div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem; color:var(--muted); margin-bottom:4px;">Registration</div>
+            <div style="font-family:monospace; color:var(--cyan);" id="vi-reg">N-VEC447</div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem; color:var(--muted); margin-bottom:4px;">Speed</div>
+            <div style="color:var(--gold);" id="vi-speed">185 mph</div>
+          </div>
+          <div>
+            <div style="font-size:0.72rem; color:var(--muted); margin-bottom:4px;">Altitude</div>
+            <div id="vi-alt">1,500 ft</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo / recent completions when no active trip -->
+      <div id="no-trip-panel" class="panel" style="text-align:center; padding:30px;">
+        <svg width="48" height="48" fill="none" stroke="var(--muted)" stroke-width="1.5" viewBox="0 0 48 48" style="margin:0 auto 12px; display:block;">
+          <circle cx="24" cy="24" r="20"/><path d="M24 14v10l7 7"/>
+        </svg>
+        <p style="color:var(--muted); margin-bottom:16px;">No active trip. Watch a simulated eVTOL flight demo.</p>
+        <button class="btn btn-primary" onclick="startDemo()">▶ Watch Demo Flight</button>
+      </div>
+    </div>
+
+    <!-- Right panel: Timeline -->
+    <div>
+      <div class="panel" style="margin-bottom:16px;">
+        <div class="panel-title">Trip Status</div>
+        <div id="trip-timeline">
+          <div style="color:var(--muted); font-size:0.85rem; text-align:center; padding:20px 0;">No active trip</div>
+        </div>
+        <div id="eta-display" style="display:none; text-align:center; padding:12px; background:rgba(0,229,255,0.06); border-radius:8px; margin-top:12px;">
+          <div style="font-size:0.72rem; color:var(--muted); margin-bottom:4px;">ETA</div>
+          <div class="orbitron" style="font-size:1.6rem; color:var(--cyan);" id="eta-timer">--:--</div>
+        </div>
+      </div>
+
+      <!-- Recent completions -->
+      <div class="panel">
+        <div class="panel-title">Recent Completions</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="padding:8px 0; border-bottom:1px solid var(--border);">
+            <div style="display:flex; justify-content:space-between; font-size:0.82rem;">
+              <span style="font-weight:500;">T&amp;P Hub → DFW</span>
+              <span style="color:var(--green); font-size:0.72rem;">✓ Done</span>
+            </div>
+            <div style="color:var(--muted); font-size:0.72rem; margin-top:3px;">Today, 08:45 — 14 min</div>
+          </div>
+          <div style="padding:8px 0; border-bottom:1px solid var(--border);">
+            <div style="display:flex; justify-content:space-between; font-size:0.82rem;">
+              <span style="font-weight:500;">T&amp;P Hub → Arlington</span>
+              <span style="color:var(--green); font-size:0.72rem;">✓ Done</span>
+            </div>
+            <div style="color:var(--muted); font-size:0.72rem; margin-top:3px;">Yesterday, 16:20 — 9 min</div>
+          </div>
+          <div style="padding:8px 0;">
+            <div style="display:flex; justify-content:space-between; font-size:0.82rem;">
+              <span style="font-weight:500;">T&amp;P Hub → Sundance Sq</span>
+              <span style="color:var(--green); font-size:0.72rem;">✓ Done</span>
+            </div>
+            <div style="color:var(--muted); font-size:0.72rem; margin-top:3px;">Mar 10, 12:10 — 8 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ MY TRIPS VIEW ============================================================ -->
+<div id="view-trips" class="view">
+  <h2 class="orbitron" style="font-size:1.2rem; margin-bottom:20px;">My Trips</h2>
+  <div style="display:grid; grid-template-columns:1fr 280px; gap:20px;">
+    <div>
+      <!-- Tabs -->
+      <div class="tab-bar">
+        <div class="tab active" id="trips-tab-active" onclick="setTripsTab('active')">Active</div>
+        <div class="tab" id="trips-tab-upcoming" onclick="setTripsTab('upcoming')">Upcoming</div>
+        <div class="tab" id="trips-tab-past" onclick="setTripsTab('past')">Past</div>
+      </div>
+      <div id="trips-active-content">
+        <div style="color:var(--muted); text-align:center; padding:40px; font-size:0.9rem;">No active trips</div>
+      </div>
+      <div id="trips-upcoming-content" style="display:none;">
+        <div class="trip-row" style="margin-bottom:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <div style="font-weight:600; font-size:0.95rem;">T&amp;P Hub → DFW Airport</div>
+              <div style="font-size:0.78rem; color:var(--muted); margin-top:3px;">Mar 13, 2026 · 09:00 · eVTOL · 1 pax</div>
+            </div>
+            <span style="background:rgba(0,229,255,0.12); color:var(--cyan); font-size:0.72rem; padding:3px 10px; border-radius:20px;">Upcoming</span>
+          </div>
+        </div>
+      </div>
+      <div id="trips-past-content" style="display:none; flex-direction:column; gap:10px;">
+        <!-- Past trips rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Stats sidebar -->
+    <div>
+      <div class="panel" style="margin-bottom:16px;">
+        <div class="panel-title">Travel Stats</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem;"><span style="color:var(--muted);">Total Rides</span><span style="font-weight:600;">24</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem;"><span style="color:var(--muted);">Miles Traveled</span><span style="font-weight:600; color:var(--cyan);">1,247 mi</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem;"><span style="color:var(--muted);">CO₂ Saved</span><span style="font-weight:600; color:var(--green);">186 kg</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem;"><span style="color:var(--muted);">Total Spent</span><span style="font-weight:600;">$1,482.50</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem;"><span style="color:var(--muted);">Avg. Rating</span><span style="font-weight:600; color:var(--gold);">★ 4.8</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">HUB Credits</div>
+        <div style="font-family:'Orbitron',monospace; font-size:1.8rem; font-weight:700; color:var(--gold); margin-bottom:6px;">1,482</div>
+        <div style="font-size:0.75rem; color:var(--muted); margin-bottom:12px;">credits ($1 = 1 credit)</div>
+        <div style="font-size:0.78rem; color:var(--muted); margin-bottom:6px; display:flex; justify-content:space-between;"><span>Next reward: 2,000 credits</span><span style="color:var(--cyan);">74%</span></div>
+        <div class="loyalty-bar"><div class="loyalty-fill" style="width:74%;"></div></div>
+        <div style="font-size:0.75rem; color:var(--muted); margin-top:8px;">518 credits to Gold status</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+const state = {
+  view: 'dashboard',
+  bookingStep: 1,
+  selectedMode: null,
+  selectedRoute: null,
+  passengers: 1,
+  addons: { priority: true, wifi: false, meetgreet: false },
+  addonPrices: { priority: 8, wifi: 5, meetgreet: 15 },
+  payTab: 'card',
+  saveCard: false,
+  tripActive: false,
+  demoTrip: null,
+  trackInterval: null,
+  trackProgress: 0,
+  etaSeconds: 0,
+  etaInterval: null,
+  tripsTab: 'active',
+};
+
+const VTOL_ROUTES = [
+  { id:'v1', name:'T&P Vector Hub → DFW Airport', duration:'15 min', distance:'28 mi', price:65, type:'Joby S4', co2:'18 kg saved', destX:430, destY:150 },
+  { id:'v2', name:'T&P Vector Hub → Dallas Love Field', duration:'22 min', distance:'35 mi', price:95, type:'Archer Midnight', co2:'24 kg saved', destX:480, destY:200 },
+  { id:'v3', name:'T&P Vector Hub → Frisco', duration:'28 min', distance:'42 mi', price:105, type:'Joby S4', co2:'28 kg saved', destX:430, destY:80 },
+  { id:'v4', name:'T&P Vector Hub → Arlington', duration:'10 min', distance:'15 mi', price:45, type:'Wisk Aero Gen6', co2:'9 kg saved', destX:320, destY:240 },
+  { id:'v5', name:'T&P Vector Hub → Alliance Airport', duration:'35 min', distance:'55 mi', price:125, type:'Archer Midnight', co2:'35 kg saved', destX:90, destY:100 },
+];
+
+const AV_ROUTES = [
+  { id:'a1', name:'T&P Vector Hub → Sundance Square', duration:'8 min', distance:'1.2 mi', price:12, type:'Waymo 5th Gen', co2:'2 kg saved', destX:168, destY:185 },
+  { id:'a2', name:'T&P Vector Hub → TCU Campus', duration:'14 min', distance:'3.8 mi', price:16, type:'Cruise Origin', co2:'4 kg saved', destX:140, destY:235 },
+  { id:'a3', name:'T&P Vector Hub → Near Southside', duration:'11 min', distance:'2.5 mi', price:14, type:'Waymo 5th Gen', co2:'3 kg saved', destX:180, destY:280 },
+  { id:'a4', name:'T&P Vector Hub → Stockyards', duration:'18 min', distance:'5.2 mi', price:22, type:'Cruise Origin', co2:'6 kg saved', destX:150, destY:155 },
+  { id:'a5', name:'T&P Vector Hub → Panther Island', duration:'12 min', distance:'3.0 mi', price:15, type:'Waymo 5th Gen', co2:'3 kg saved', destX:200, destY:170 },
+];
+
+const MULTI_ROUTES = [
+  { id:'m1', name:'T&P Vector Hub → DFW (Full Service)', duration:'32 min', distance:'31 mi', price:89, type:'AV + eVTOL + AV', co2:'20 kg saved', destX:430, destY:150 },
+  { id:'m2', name:'T&P Vector Hub → Love Field (Full Service)', duration:'40 min', distance:'38 mi', price:115, type:'AV + eVTOL + AV', co2:'26 kg saved', destX:480, destY:200 },
+  { id:'m3', name:'T&P Vector Hub → Frisco (Full Service)', duration:'48 min', distance:'45 mi', price:130, type:'AV + eVTOL + AV', co2:'30 kg saved', destX:430, destY:80 },
+];
+
+const LIVE_FEED_MSGS = [
+  'VTOL VEC-447 departed Pad 3 → DFW 09:14',
+  'AV Unit 23 charging Bay 5 — 87%',
+  'VEC-312 landed Love Field — 4 pax deplaned',
+  'System: Weather clear, all pads nominal',
+  'AV Unit 07 en route Sundance Square ETA 3 min',
+  'VEC-118 maintenance complete — returning to service',
+  'New booking: T&P Vector Hub → Arlington, 10:30',
+  'VTOL Archer-02 pre-flight check in progress',
+  'AV Unit 31 picked up 2 passengers at TCU',
+  'VEC-447 charging at Pad 3 — 62%',
+  'Airspace coordination: DFW corridor active',
+  'VEC-612 departed Alliance → T&P Vector Hub 11:05',
+  'AV Unit 15 completing route Stockyards',
+  'System: 6 active vehicles, 2 charging, 1 maintenance',
+  'VTOL VEC-312 at cruise altitude 1,500 ft',
+  'New booking: Multimodal → Frisco, 14:00',
+  'AV Unit 23 charge complete — Standby Pad 2',
+  'VEC-447 boarding — Pad 3, 15 min to departure',
+  'Weather update: Wind 8 kts N, VFR conditions',
+  'VTOL VEC-800 taxi to Pad 1 — Frisco route',
+];
+
+const PAST_TRIPS = [
+  { date:'Mar 11, 2026', route:'T&P Vector Hub → DFW Airport', mode:'eVTOL', duration:'14 min', price:'$65.00', status:'Completed', rating:5, ref:'VEC-20260311-4821' },
+  { date:'Mar 10, 2026', route:'T&P Vector Hub → Sundance Square', mode:'AV Ride', duration:'8 min', price:'$12.00', status:'Completed', rating:5, ref:'VEC-20260310-3194' },
+  { date:'Mar 9, 2026', route:'T&P Vector Hub → Arlington', mode:'eVTOL', duration:'10 min', price:'$45.00', status:'Completed', rating:4, ref:'VEC-20260309-7733' },
+  { date:'Mar 7, 2026', route:'T&P Vector Hub → Frisco (Full Service)', mode:'Multimodal', duration:'48 min', price:'$130.00', status:'Completed', rating:5, ref:'VEC-20260307-2256' },
+  { date:'Mar 5, 2026', route:'T&P Vector Hub → TCU Campus', mode:'AV Ride', duration:'14 min', price:'$16.00', status:'Completed', rating:4, ref:'VEC-20260305-9901' },
+];
+
+// ============================================================
+// VIEW MANAGEMENT
+// ============================================================
+function showView(name) {
+  state.view = name;
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.mob-nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('view-' + name).classList.add('active');
+  const navEl = document.getElementById('nav-' + name);
+  if (navEl) navEl.classList.add('active');
+  const mobItems = document.querySelectorAll('.mob-nav-item');
+  const views = ['dashboard', 'book', 'track', 'trips'];
+  const idx = views.indexOf(name);
+  if (idx >= 0 && mobItems[idx]) mobItems[idx].classList.add('active');
+  if (name === 'trips') renderPastTrips();
+  if (name === 'book' && state.bookingStep === 1 && !state.selectedMode) resetBooking();
+}
+
+// ============================================================
+// BOOKING FLOW
+// ============================================================
+function resetBooking() {
+  state.bookingStep = 1;
+  state.selectedMode = null;
+  state.selectedRoute = null;
+  state.passengers = 1;
+  state.addons = { priority: true, wifi: false, meetgreet: false };
+  showStep(1);
+  updateAddonUI();
+}
+
+function showStep(n) {
+  state.bookingStep = n;
+  for (let i = 1; i <= 5; i++) {
+    const el = document.getElementById('step' + i);
+    if (el) el.style.display = i === n ? 'block' : 'none';
+    const ind = document.getElementById('step-ind-' + i);
+    if (ind) {
+      ind.className = 'step-item' + (i < n ? ' done' : i === n ? ' active' : '');
+    }
+    const line = document.getElementById('step-line-' + i);
+    if (line) {
+      line.className = 'step-line' + (i < n ? ' done' : '');
+    }
+  }
+  if (n === 2) loadRoutes();
+  if (n === 3) updateSeatOptions();
+  if (n === 4) updatePriceSummary();
+}
+
+function nextStep() {
+  if (state.bookingStep < 5) showStep(state.bookingStep + 1);
+}
+function prevStep() {
+  if (state.bookingStep > 1) showStep(state.bookingStep - 1);
+}
+
+function selectMode(m) {
+  state.selectedMode = m;
+  state.selectedRoute = null;
+  ['vtol','av','multi'].forEach(id => {
+    const c = document.getElementById('card-' + id);
+    if (c) c.classList.toggle('selected', id === m);
+  });
+  const btn = document.getElementById('step1-next');
+  if (btn) btn.disabled = false;
+  // If called from dashboard, also advance to step 2
+  if (state.view === 'book' && state.bookingStep === 1) {
+    // just select
+  }
+}
+
+function loadRoutes() {
+  const list = document.getElementById('routes-list');
+  const loading = document.getElementById('routes-loading');
+  list.innerHTML = '';
+  loading.style.display = 'flex';
+  loading.style.flexDirection = 'column';
+  setTimeout(() => {
+    loading.style.display = 'none';
+    const routes = state.selectedMode === 'vtol' ? VTOL_ROUTES : state.selectedMode === 'av' ? AV_ROUTES : MULTI_ROUTES;
+    routes.forEach(r => {
+      const card = document.createElement('div');
+      card.className = 'route-card' + (state.selectedRoute && state.selectedRoute.id === r.id ? ' selected' : '');
+      card.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+          <div class="route-name">${r.name}</div>
+          <div style="font-family:'Orbitron',monospace; font-size:1.1rem; font-weight:700; color:var(--cyan);">$${r.price}.00</div>
+        </div>
+        <div class="route-meta">
+          <span class="route-badge badge-cyan">⏱ ${r.duration}</span>
+          <span class="route-badge badge-gold">📍 ${r.distance}</span>
+          <span class="route-badge badge-green">🌿 ${r.co2}</span>
+          <span class="route-badge" style="background:rgba(255,255,255,0.06); color:var(--muted);">${r.type}</span>
+        </div>`;
+      card.onclick = () => selectRoute(r);
+      list.appendChild(card);
+    });
+  }, 1200);
+}
+
+function selectRoute(r) {
+  state.selectedRoute = r;
+  document.querySelectorAll('.route-card').forEach(c => c.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  document.getElementById('step2-next').disabled = false;
+  updatePriceSummary();
+}
+
+function changePax(d) {
+  state.passengers = Math.max(1, Math.min(6, state.passengers + d));
+  document.getElementById('pax-val').textContent = state.passengers;
+  updatePriceSummary();
+}
+
+function updateSeatOptions() {
+  const sel = document.getElementById('seat-pref');
+  sel.innerHTML = '';
+  const opts = state.selectedMode === 'av'
+    ? ['Front Left','Front Right','Rear Left','Rear Right','Rear Center']
+    : ['Window Left','Window Right','Aisle Left','Aisle Right'];
+  opts.forEach(o => {
+    const op = document.createElement('option');
+    op.value = o.toLowerCase().replace(' ','_');
+    op.textContent = o;
+    sel.appendChild(op);
+  });
+}
+
+function toggleAddon(key, price) {
+  state.addons[key] = !state.addons[key];
+  updateAddonUI();
+  updatePriceSummary();
+}
+
+function updateAddonUI() {
+  Object.keys(state.addons).forEach(k => {
+    const item = document.getElementById('addon-' + k);
+    const check = document.getElementById('check-' + k);
+    if (!item) return;
+    item.classList.toggle('checked', state.addons[k]);
+    check.textContent = state.addons[k] ? '✓' : '';
+  });
+}
+
+function getTotal() {
+  if (!state.selectedRoute) return 0;
+  let total = state.selectedRoute.price * state.passengers;
+  Object.keys(state.addons).forEach(k => {
+    if (state.addons[k]) total += state.addonPrices[k];
+  });
+  return total;
+}
+
+function updatePriceSummary() {
+  const container = document.getElementById('price-summary-content');
+  if (!state.selectedRoute) {
+    container.innerHTML = '<div style="color:var(--muted); font-size:0.85rem; text-align:center; padding:20px 0;">Select a route to see pricing</div>';
+    return;
+  }
+  const base = state.selectedRoute.price * state.passengers;
+  let addonTotal = 0;
+  let addonLines = '';
+  Object.keys(state.addons).forEach(k => {
+    if (state.addons[k]) {
+      addonTotal += state.addonPrices[k];
+      const names = { priority:'Priority Boarding', wifi:'In-Flight WiFi', meetgreet:'Meet & Greet' };
+      addonLines += `<div class="price-row"><span style="color:var(--muted); font-size:0.8rem;">+ ${names[k]}</span><span>$${state.addonPrices[k].toFixed(2)}</span></div>`;
+    }
+  });
+  const subtotal = base + addonTotal;
+  const tax = subtotal * 0.0825;
+  const total = subtotal + tax;
+  container.innerHTML = `
+    <div class="price-row"><span style="color:var(--muted);">${state.selectedRoute.name}</span></div>
+    <div class="price-row"><span style="color:var(--muted); font-size:0.8rem;">Base fare × ${state.passengers}</span><span>$${base.toFixed(2)}</span></div>
+    ${addonLines}
+    <div class="price-row"><span style="color:var(--muted); font-size:0.8rem;">Subtotal</span><span>$${subtotal.toFixed(2)}</span></div>
+    <div class="price-row"><span style="color:var(--muted); font-size:0.8rem;">TX Tax (8.25%)</span><span>$${tax.toFixed(2)}</span></div>
+    <div class="price-row total"><span>TOTAL</span><span>$${total.toFixed(2)}</span></div>`;
+}
+
+// ============================================================
+// PAYMENT
+// ============================================================
+function setPayTab(tab) {
+  state.payTab = tab;
+  ['card','apple','google','credits'].forEach(t => {
+    document.getElementById('tab-' + t).classList.toggle('active', t === tab);
+  });
+  const cardForm = document.getElementById('pay-card');
+  const altForm = document.getElementById('pay-alt');
+  if (tab === 'card') {
+    cardForm.style.display = 'block';
+    altForm.style.display = 'none';
+  } else {
+    cardForm.style.display = 'none';
+    altForm.style.display = 'block';
+    const icons = { apple:'🍎', google:'G', credits:'💎' };
+    const titles = { apple:'Apple Pay', google:'Google Pay', credits:'HUB Credits' };
+    document.getElementById('pay-alt-icon').textContent = icons[tab] || '💳';
+    document.getElementById('pay-alt-title').textContent = titles[tab] || '';
+  }
+}
+
+function formatCard(input) {
+  let val = input.value.replace(/\D/g,'').substring(0,16);
+  input.value = val.replace(/(.{4})/g,'$1 ').trim();
+  const num = val.charAt(0);
+  const typeIcon = document.getElementById('card-type-icon');
+  const displayEl = document.getElementById('card-display');
+  if (num === '4') { typeIcon.textContent = '💳 VISA'; typeIcon.style.color = '#1a1f71'; }
+  else if (num === '5') { typeIcon.textContent = '💳 MC'; typeIcon.style.color = '#eb001b'; }
+  else { typeIcon.textContent = ''; }
+  displayEl.textContent = input.value || '•••• •••• •••• ••••';
+}
+
+function formatExpiry(input) {
+  let val = input.value.replace(/\D/g,'');
+  if (val.length >= 2) val = val.substring(0,2) + '/' + val.substring(2,4);
+  input.value = val;
+  document.getElementById('card-exp-display').textContent = input.value || 'MM/YY';
+}
+
+function toggleSave() {
+  state.saveCard = !state.saveCard;
+  const thumb = document.getElementById('save-thumb');
+  const toggle = document.getElementById('save-toggle');
+  if (state.saveCard) {
+    thumb.style.transform = 'translateX(18px)';
+    thumb.style.background = 'var(--cyan)';
+    toggle.style.background = 'rgba(0,229,255,0.2)';
+  } else {
+    thumb.style.transform = '';
+    thumb.style.background = 'var(--muted)';
+    toggle.style.background = 'rgba(0,229,255,0.1)';
+  }
+}
+
+function processPayment() {
+  // Validate card if card tab
+  if (state.payTab === 'card') {
+    const num = document.getElementById('card-number').value.replace(/\s/g,'');
+    const exp = document.getElementById('card-expiry').value;
+    const cvv = document.getElementById('card-cvv').value;
+    let valid = true;
+    if (num.length < 16) { document.getElementById('card-number').classList.add('error'); valid = false; setTimeout(()=>document.getElementById('card-number').classList.remove('error'),600); }
+    if (exp.length < 5) { document.getElementById('card-expiry').classList.add('error'); valid = false; setTimeout(()=>document.getElementById('card-expiry').classList.remove('error'),600); }
+    if (cvv.length < 3) { document.getElementById('card-cvv').classList.add('error'); valid = false; setTimeout(()=>document.getElementById('card-cvv').classList.remove('error'),600); }
+    if (!valid) { showToast('Please complete all payment fields', 'error'); return; }
+  }
+  const btn = document.getElementById('pay-btn');
+  const btnText = document.getElementById('pay-btn-text');
+  const spinner = document.getElementById('pay-spinner');
+  btn.disabled = true;
+  btnText.style.display = 'none';
+  spinner.style.display = 'block';
+  setTimeout(() => {
+    showConfirmation();
+  }, 2000);
+}
+
+function showConfirmation() {
+  showStep(5);
+  const now = new Date();
+  const ref = 'VEC-' + now.toISOString().replace(/-|T.*/g,'') + '-' + Math.floor(1000 + Math.random()*9000);
+  document.getElementById('booking-ref').textContent = ref;
+  if (state.selectedRoute) {
+    document.getElementById('conf-route').textContent = state.selectedRoute.name;
+    const depTime = new Date(now.getTime() + 35*60000);
+    document.getElementById('conf-depart').textContent = depTime.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  }
+  const pads = ['Pad 1', 'Pad 2', 'Pad 3', 'Pad 4', 'Bay A', 'Bay B'];
+  document.getElementById('conf-pad').textContent = pads[Math.floor(Math.random()*pads.length)];
+  const vehicles = ['VEC-447','VEC-312','AV-023','VEC-800','AV-031'];
+  document.getElementById('conf-vehicle').textContent = vehicles[Math.floor(Math.random()*vehicles.length)];
+  const total = getTotal();
+  const tax = total * 0.0825;
+  document.getElementById('conf-total').textContent = '$' + (total + tax).toFixed(2);
+  // Build QR
+  buildQR();
+  // Set active trip for tracking
+  state.tripActive = true;
+  state.demoTrip = state.selectedRoute;
+  showToast('Booking confirmed! Reference: ' + ref, 'success');
+  // Reset pay button
+  const btn = document.getElementById('pay-btn');
+  const btnText = document.getElementById('pay-btn-text');
+  const spinner = document.getElementById('pay-spinner');
+  if (btn) btn.disabled = false;
+  if (btnText) btnText.style.display = '';
+  if (spinner) spinner.style.display = 'none';
+}
+
+function buildQR() {
+  const grid = document.getElementById('qr-grid');
+  grid.innerHTML = '';
+  for (let i = 0; i < 100; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'qr-cell';
+    const dark = Math.random() > 0.45;
+    cell.style.background = dark ? 'var(--text)' : 'transparent';
+    if (i < 9 || i > 90 || (i >= 30 && i <= 39)) cell.style.background = 'var(--text)'; // corners
+    grid.appendChild(cell);
+  }
+}
+
+// ============================================================
+// TRACKING
+// ============================================================
+function startTracking(trip) {
+  const route = trip || state.demoTrip;
+  if (!route) return;
+  const panel = document.getElementById('no-trip-panel');
+  const vinfo = document.getElementById('vehicle-info');
+  const etaDisp = document.getElementById('eta-display');
+  if (panel) panel.style.display = 'none';
+  if (vinfo) vinfo.style.display = 'block';
+  if (etaDisp) etaDisp.style.display = 'block';
+
+  // Show route on map
+  const routeLine = document.getElementById('route-line');
+  const destRing = document.getElementById('dest-ring');
+  const vm = document.getElementById('vehicle-marker');
+  if (routeLine) {
+    routeLine.setAttribute('x2', route.destX);
+    routeLine.setAttribute('y2', route.destY);
+    routeLine.setAttribute('opacity', '1');
+  }
+  if (destRing) {
+    destRing.setAttribute('cx', route.destX);
+    destRing.setAttribute('cy', route.destY);
+    destRing.setAttribute('opacity', '1');
+  }
+
+  state.trackProgress = 0;
+  const startX = 160, startY = 200;
+  const endX = route.destX, endY = route.destY;
+  const totalDuration = 30000; // 30 seconds demo
+  const startTime = Date.now();
+  state.etaSeconds = 30;
+
+  // ETA countdown
+  if (state.etaInterval) clearInterval(state.etaInterval);
+  state.etaInterval = setInterval(() => {
+    state.etaSeconds = Math.max(0, Math.round((startTime + totalDuration - Date.now()) / 1000));
+    const mins = Math.floor(state.etaSeconds / 60);
+    const secs = state.etaSeconds % 60;
+    const etaEl = document.getElementById('eta-timer');
+    if (etaEl) etaEl.textContent = String(mins).padStart(2,'0') + ':' + String(secs).padStart(2,'0');
+    if (state.etaSeconds <= 0) {
+      clearInterval(state.etaInterval);
+      tripComplete();
+    }
+  }, 1000);
+
+  // Timeline
+  renderTimeline('active');
+
+  // Animate vehicle
+  if (state.trackInterval) clearInterval(state.trackInterval);
+  state.trackInterval = setInterval(() => {
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min(elapsed / totalDuration, 1);
+    const x = startX + (endX - startX) * progress;
+    const y = startY + (endY - startY) * progress;
+    const vmEl = document.getElementById('vehicle-marker');
+    if (vmEl) {
+      vmEl.setAttribute('transform', `translate(${x},${y})`);
+      vmEl.setAttribute('opacity', '1');
+    }
+    if (progress >= 1) {
+      clearInterval(state.trackInterval);
+    }
+  }, 100);
+}
+
+function tripComplete() {
+  renderTimeline('done');
+  const panel = document.getElementById('no-trip-panel');
+  setTimeout(() => {
+    if (panel) panel.style.display = 'block';
+    const vinfo = document.getElementById('vehicle-info');
+    const etaDisp = document.getElementById('eta-display');
+    const routeLine = document.getElementById('route-line');
+    const destRing = document.getElementById('dest-ring');
+    const vm = document.getElementById('vehicle-marker');
+    if (vinfo) vinfo.style.display = 'none';
+    if (etaDisp) etaDisp.style.display = 'none';
+    if (routeLine) routeLine.setAttribute('opacity','0');
+    if (destRing) destRing.setAttribute('opacity','0');
+    if (vm) vm.setAttribute('opacity','0');
+    state.tripActive = false;
+    showToast('Trip complete! You have arrived.', 'success');
+  }, 2000);
+}
+
+function startDemo() {
+  const demoRoute = VTOL_ROUTES[0];
+  state.demoTrip = demoRoute;
+  state.tripActive = true;
+  startTracking(demoRoute);
+  showToast('Demo flight started — T&P Vector Hub → DFW Airport', 'info');
+}
+
+function renderTimeline(status) {
+  const container = document.getElementById('trip-timeline');
+  const now = new Date();
+  const depTime = new Date(now.getTime() - 2*60000);
+  const items = [
+    { label:'Booking Confirmed', sub:'Reference assigned', state:'done' },
+    { label:'Vehicle Assigned', sub:'VEC-447 — Pad 3', state:'done' },
+    { label:`Departed ${depTime.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}`, sub:'Airborne, climbing to 1,500 ft', state:'done' },
+    { label:'En Route', sub:'ETA counting down', state: status === 'done' ? 'done' : 'active' },
+    { label:'Arrived at Destination', sub:'', state: status === 'done' ? 'done' : 'pending' },
+    { label:'Journey Complete', sub:'Rate your experience', state: status === 'done' ? 'done' : 'pending' },
+  ];
+  container.innerHTML = items.map(item => `
+    <div class="timeline-item">
+      <div class="tl-dot ${item.state}">${item.state==='done'?'✓':item.state==='active'?'→':'○'}</div>
+      <div>
+        <div style="font-weight:${item.state==='active'?'600':'400'}; font-size:0.85rem; color:${item.state==='pending'?'var(--muted)':'var(--text)'}">${item.label}</div>
+        ${item.sub ? `<div style="font-size:0.75rem; color:var(--muted); margin-top:2px;">${item.sub}</div>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+// ============================================================
+// MY TRIPS
+// ============================================================
+function setTripsTab(tab) {
+  state.tripsTab = tab;
+  ['active','upcoming','past'].forEach(t => {
+    document.getElementById('trips-tab-' + t).classList.toggle('active', t === tab);
+    document.getElementById('trips-' + t + '-content').style.display = t === tab ? (t === 'past' ? 'flex' : 'block') : 'none';
+  });
+  if (tab === 'past') renderPastTrips();
+}
+
+function renderPastTrips() {
+  const container = document.getElementById('trips-past-content');
+  container.innerHTML = PAST_TRIPS.map((trip, idx) => `
+    <div class="trip-row" id="trip-row-${idx}" onclick="toggleTrip(${idx})">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <div style="font-weight:600; font-size:0.95rem;">${trip.route}</div>
+          <div style="font-size:0.78rem; color:var(--muted); margin-top:3px;">${trip.date} · ${trip.duration} · ${trip.mode}</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-weight:700; color:var(--cyan);">${trip.price}</div>
+          <span style="background:rgba(34,197,94,0.12); color:var(--green); font-size:0.7rem; padding:2px 8px; border-radius:20px;">✓ ${trip.status}</span>
+        </div>
+      </div>
+      <div class="trip-detail">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <div>
+            <div style="font-size:0.75rem; color:var(--muted);">Booking Ref</div>
+            <div style="font-family:monospace; font-size:0.85rem; color:var(--gold);">${trip.ref}</div>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); downloadReceipt('${trip.ref}')">↓ Receipt</button>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="font-size:0.78rem; color:var(--muted);">Rate this trip:</div>
+          <div class="stars" id="stars-${idx}">${[1,2,3,4,5].map(s => `<span class="star ${s <= trip.rating ? 'lit' : ''}" onclick="event.stopPropagation(); setRating(${idx},${s})">★</span>`).join('')}</div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function toggleTrip(idx) {
+  const row = document.getElementById('trip-row-' + idx);
+  row.classList.toggle('expanded');
+}
+
+function setRating(tripIdx, rating) {
+  PAST_TRIPS[tripIdx].rating = rating;
+  const stars = document.getElementById('stars-' + tripIdx);
+  stars.querySelectorAll('.star').forEach((s, i) => s.classList.toggle('lit', i < rating));
+  showToast('Rating saved — thanks!', 'success');
+}
+
+function downloadReceipt(ref) {
+  showToast('Receipt for ' + ref + ' — download started', 'info');
+}
+
+// ============================================================
+// LIVE FEED
+// ============================================================
+function startLiveFeed() {
+  const feed = document.getElementById('live-feed');
+  if (!feed) return;
+  let feedIdx = 0;
+  function addEvent() {
+    const msg = LIVE_FEED_MSGS[feedIdx % LIVE_FEED_MSGS.length];
+    feedIdx++;
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'});
+    const item = document.createElement('div');
+    item.className = 'feed-item new';
+    item.innerHTML = `<span class="feed-time">${timeStr}</span>${msg}`;
+    feed.insertBefore(item, feed.firstChild);
+    setTimeout(() => item.classList.remove('new'), 500);
+    // Keep max 30 items
+    while (feed.children.length > 30) feed.removeChild(feed.lastChild);
+  }
+  // Add initial events
+  for (let i = 0; i < 8; i++) {
+    setTimeout(() => addEvent(), i * 100);
+  }
+  setInterval(addEvent, 3000);
+}
+
+// ============================================================
+// COUNTDOWN (dashboard)
+// ============================================================
+function startCountdown() {
+  const el = document.getElementById('countdown');
+  let secs = 23 * 60 + 47; // next departure in 23:47
+  setInterval(() => {
+    secs = Math.max(0, secs - 1);
+    const m = Math.floor(secs / 60);
+    const s = secs % 60;
+    el.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  }, 1000);
+}
+
+// ============================================================
+// TOAST
+// ============================================================
+function showToast(msg, type = 'info') {
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = 'toast ' + type;
+  const icons = { success:'✓', error:'✕', info:'ℹ' };
+  toast.innerHTML = `<span style="font-size:1rem;">${icons[type]||'ℹ'}</span> ${msg}`;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(20px)';
+    toast.style.transition = 'all 0.3s';
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+function init() {
+  // Date
+  const now = new Date();
+  const hour = now.getHours();
+  const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+  const greetEl = document.getElementById('greeting');
+  if (greetEl) greetEl.textContent = greeting + ', Alex';
+  const dateEl = document.getElementById('dash-date');
+  if (dateEl) dateEl.textContent = now.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+
+  // Trip date default (tomorrow)
+  const tripDateEl = document.getElementById('trip-date');
+  if (tripDateEl) {
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tripDateEl.value = tomorrow.toISOString().split('T')[0];
+  }
+
+  // Time slots
+  const tripTimeEl = document.getElementById('trip-time');
+  if (tripTimeEl) {
+    for (let h = 5; h < 22; h++) {
+      for (let m = 0; m < 60; m += 15) {
+        const timeStr = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0');
+        const opt = document.createElement('option');
+        opt.value = timeStr;
+        opt.textContent = timeStr;
+        if (h === 9 && m === 0) opt.selected = true;
+        tripTimeEl.appendChild(opt);
+      }
+    }
+  }
+
+  // Init addons
+  updateAddonUI();
+  startLiveFeed();
+  startCountdown();
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && state.view === 'book') showView('dashboard');
+  });
+
+  showToast('Welcome back, Alex! You have 1 upcoming trip.', 'info');
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

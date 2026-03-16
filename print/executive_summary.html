@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T&P Nexus HUB — Executive Summary</title>
+<link rel="stylesheet" href="print.css">
+<style>
+  .es-hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .es-hero-text h2 {
+    font-size: 1.35rem;
+    color: var(--navy);
+    margin: 0 0 0.4rem;
+    line-height: 1.2;
+  }
+  .es-hero-text .lead {
+    font-size: 0.83rem;
+    line-height: 1.55;
+    color: #333;
+    margin: 0;
+  }
+  .es-hero-img img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+  .banner-stat-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border: 2px solid var(--navy);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0.8rem 0;
+  }
+  .banner-stat {
+    text-align: center;
+    padding: 0.6rem 0.4rem;
+    border-right: 1px solid var(--border);
+  }
+  .banner-stat:last-child { border-right: none; }
+  .banner-stat:nth-child(odd) { background: var(--navy); }
+  .banner-stat:nth-child(odd) .bs-val { color: var(--cyan); }
+  .banner-stat:nth-child(odd) .bs-label { color: #cde; }
+  .banner-stat:nth-child(even) { background: #fff; }
+  .banner-stat:nth-child(even) .bs-val { color: var(--navy); }
+  .banner-stat:nth-child(even) .bs-label { color: #555; }
+  .bs-val { font-size: 1.1rem; font-weight: 900; line-height: 1.1; }
+  .bs-label { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.15rem; }
+  .three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin: 0.8rem 0;
+  }
+  .pillar {
+    border-top: 3px solid var(--cyan);
+    padding-top: 0.6rem;
+  }
+  .pillar h4 { margin: 0 0 0.3rem; font-size: 0.8rem; color: var(--navy); }
+  .pillar p { margin: 0; font-size: 0.72rem; line-height: 1.45; color: #444; }
+  .divider-line {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 1rem 0;
+  }
+  .phase-mini {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: 0.6rem 0;
+  }
+  .pm-card {
+    background: #f5f9fc;
+    border-left: 3px solid var(--cyan);
+    border-radius: 0 4px 4px 0;
+    padding: 0.5rem 0.6rem;
+  }
+  .pm-card .pm-yr { font-size: 0.65rem; color: var(--blue); font-weight: 700; text-transform: uppercase; }
+  .pm-card .pm-cap { font-size: 1rem; font-weight: 800; color: var(--navy); }
+  .pm-card .pm-note { font-size: 0.65rem; color: #555; margin-top: 0.15rem; }
+  .rev-mini {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 0.3rem 0.6rem;
+    align-items: center;
+    font-size: 0.73rem;
+    margin: 0.5rem 0;
+  }
+  .rev-mini .hdr { font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.05em; color: #777; font-weight: 700; }
+  .rev-mini .stream-name { color: #333; }
+  .rev-mini .con { color: #888; }
+  .rev-mini .mod { color: var(--blue); font-weight: 700; }
+  .rev-mini .opt { color: var(--navy); font-weight: 700; }
+  .rev-mini .total-row-mini { font-weight: 800; border-top: 1.5px solid var(--navy); padding-top: 0.2rem; margin-top: 0.1rem; }
+  .ask-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin: 0.8rem 0;
+  }
+  .ask-box {
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 0.65rem 0.8rem;
+  }
+  .ask-box .ask-who { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--cyan); font-weight: 700; margin-bottom: 0.3rem; }
+  .ask-box ul { margin: 0; padding-left: 1rem; }
+  .ask-box li { font-size: 0.72rem; margin: 0.2rem 0; line-height: 1.4; }
+  .footer-cta {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.9rem 1.2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .footer-cta h4 { margin: 0 0 0.2rem; color: var(--cyan); font-size: 0.9rem; }
+  .footer-cta p { margin: 0; font-size: 0.75rem; line-height: 1.4; }
+  .footer-cta .cta-contact { text-align: right; }
+  .footer-cta .cta-contact .email { font-size: 0.9rem; font-weight: 700; color: #fff; }
+  .footer-cta .cta-contact .sub { font-size: 0.65rem; color: #aac; margin-top: 0.2rem; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     COVER PAGE
+════════════════════════════════════════════════ ->
+<div class="cover-page">
+  <div class="cover-hero" style="background-image: url('../images/buildingcorner.png');">
+    <div class="cover-overlay"></div>
+    <div class="cover-content">
+      <div class="cover-eyebrow">Executive Summary — March 2026</div>
+      <h1 class="cover-title">T&P Nexus<br>HUB Transportation System</h1>
+      <p class="cover-subtitle">America's First Integrated eVTOL &amp; Autonomous Vehicle Hub<br>Historic Texas &amp; Pacific Warehouse · Downtown Fort Worth, Texas</p>
+      <div class="cover-stats">
+        <div class="cover-stat"><div class="cs-val">8.7M</div><div class="cs-label">DFW Population</div></div>
+        <div class="cover-stat"><div class="cs-val">$129M</div><div class="cs-label">Total Investment</div></div>
+        <div class="cover-stat"><div class="cs-val">$133M+</div><div class="cs-label">Year 5 Revenue</div></div>
+        <div class="cover-stat"><div class="cs-val">2030</div><div class="cs-label">Operations at Scale</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-footer-left">
+      <div class="cover-logo">T&P NEXUS HUB</div>
+      <div class="cover-tagline">Fort Worth · Texas · March 2026</div>
+    </div>
+    <div class="cover-footer-right">partnerships@tpnexus.com</div>
+  </div>
+</div-->
+
+
+<!-- ===== COVER PAGE ===== -->
+<div class="cover-page">
+  <img src="../images/buildingcorner.png" class="cover-hero" alt="T&P Warehouse Fort Worth">
+  <div class="cover-body">
+    <p class="cover-eyebrow">White Paper &nbsp;|&nbsp; March 2026</p>
+    <h1 class="cover-title">T&P Nexus Hub<br>Transportation System</h1>
+    <p class="cover-subtitle">America's First Integrated eVTOL–Autonomous Vehicle Mobility Hub</p>
+    <div class="cover-divider"></div>
+    <p class="cover-desc">A comprehensive analysis of the market opportunity, technical architecture, financial projections, regulatory pathway, and investment case for transforming the historic Texas &amp; Pacific Warehouse in downtown Fort Worth, Texas into the nation's first multi-modal eVTOL and autonomous vehicle transportation hub.</p>
+    <div class="cover-stat-bar">
+      <div class="cover-stat"><span class="val">$129M</span><span class="lbl">Total Investment</span></div>
+      <div class="cover-stat"><span class="val">22.3%</span><span class="lbl">Projected IRR</span></div>
+      <div class="cover-stat"><span class="val">$133M</span><span class="lbl">Year 5 Revenue</span></div>
+      <div class="cover-stat"><span class="val">800+</span><span class="lbl">Permanent Jobs</span></div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="logo">T&P NEXUS &nbsp;|&nbsp; FORT WORTH, TEXAS</span>
+    <span>Confidential &nbsp;|&nbsp; For Authorized Recipients Only &nbsp;|&nbsp; March 2026</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 2 — EXECUTIVE SUMMARY
+════════════════════════════════════════════════ -->
+<div class="doc-page">
+  <div class="doc-header">
+    <span>T&P Nexus HUB Transportation System</span>
+    <span>Executive Summary · March 2026</span>
+  </div>
+
+  <div class="es-hero">
+    <div class="es-hero-text">
+      <h2>The Vision: Fort Worth's Transportation Future Starts Here</h2>
+      <p class="lead">The T&P Nexus HUB is a proposed public-private transformation of the historic Texas &amp; Pacific Warehouse in downtown Fort Worth into America's first fully integrated multi-modal transportation hub — combining commercial eVTOL (electric vertical take-off and landing) aircraft, Level 4 autonomous vehicles, a 120,000 SF innovation center, and a restored historic landmark into a single, seamlessly connected facility.</p>
+      <br>
+      <p class="lead">Fort Worth is the 12th largest city in the United States, the fastest-growing large city in Texas, and faces a transportation crisis of national significance. The HUB addresses that crisis with proven technology, a phased capital plan, and a model replicable across every major U.S. metro.</p>
+    </div>
+    <div class="es-hero-img">
+      <img src="../images/interior_cleanshuttledock.png" alt="HUB Concept">
+    </div>
+  </div>
+
+  <div class="banner-stat-row">
+    <div class="banner-stat">
+      <div class="bs-val">69 hrs</div>
+      <div class="bs-label">Lost per commuter/yr (TX A&M)</div>
+    </div>
+    <div class="banner-stat">
+      <div class="bs-val">$1,618</div>
+      <div class="bs-label">Annual congestion cost/driver</div>
+    </div>
+    <div class="banner-stat">
+      <div class="bs-val">&lt;1%</div>
+      <div class="bs-label">Workers using transit</div>
+    </div>
+    <div class="banner-stat">
+      <div class="bs-val">$36.4B</div>
+      <div class="bs-label">Congestion cost by 2050</div>
+    </div>
+    <div class="banner-stat">
+      <div class="bs-val">10th</div>
+      <div class="bs-label">Worst commute in U.S. (Forbes)</div>
+    </div>
+  </div>
+
+  <div class="three-col no-break">
+    <div class="pillar">
+      <h4>eVTOL Operations (Rooftop)</h4>
+      <p>Landing pads + charging infrastructure for commercial eVTOL aircraft. Partners include Archer Aviation (Texas eIPP-selected, Part 135 certified, commercial 2026) and Joby Aviation (FAA Stage 4, Toyota-backed $1B+). Point-to-point fares: $75–$150/trip at 150–200 mph.</p>
+    </div>
+    <div class="pillar">
+      <h4>Autonomous Vehicle Hub (Ground)</h4>
+      <p>Level 4 AV terminal for first/last mile connectivity across DFW. Waymo operates commercially in Austin TX (March 2025) with 450K+ rides/week. AV platform brings 88% fewer property damage claims, 92% fewer injury claims vs. human drivers (Swiss Re, 25.3M miles).</p>
+    </div>
+    <div class="pillar">
+      <h4>Innovation Center (Floors 2–7)</h4>
+      <p>120,000 SF of Class A technology workspace in a nationally recognized historic building. Fort Worth Class A rents: $30.68/SF (CommercialCafe, 2025). Tenants: transportation tech, aerospace, AI, and logistics companies requiring proximity to operating eVTOL/AV infrastructure.</p>
+    </div>
+  </div>
+
+  <hr class="divider-line">
+
+  <div class="two-col">
+    <div>
+      <h3 class="subsection-title">The Asset: T&P Warehouse</h3>
+      <p class="body-text">The 8-story Texas &amp; Pacific Warehouse (600 ft × 100 ft) is an architecturally significant historic property adjacent to Fort Worth's Amtrak station, TEXRail terminus, and Trinity Metro bus hub — the only site in the region with the scale and intermodal connectivity required for a true transportation hub. Structural assessment complete; $2.15M stabilization scope identified. Federal Historic Tax Credits (20% of qualified expenses) reduce effective renovation cost.</p>
+    </div>
+    <div>
+      <h3 class="subsection-title">The Regulatory Moment</h3>
+      <p class="body-text">On March 9, 2026, the U.S. Department of Transportation announced 8 national eIPP (eVTOL Integration Pilot Program) sites — including <strong>Texas DOT + Archer Aviation</strong>, with named routes in Dallas, Austin, San Antonio, and Houston. The eIPP enables <strong>revenue passenger operations before full FAA type certification</strong>, beginning H2 2026. Fort Worth is not yet named — making immediate positioning as the Fort Worth vertiport anchor critical.</p>
+    </div>
+  </div>
+
+  <hr class="divider-line">
+
+  <h3 class="subsection-title">Investment &amp; Financial Snapshot</h3>
+  <div class="phase-mini no-break">
+    <div class="pm-card">
+      <div class="pm-yr">2026 · Phase 1</div>
+      <div class="pm-cap">$20M</div>
+      <div class="pm-note">Planning, regulatory, team, partner MOUs</div>
+    </div>
+    <div class="pm-card">
+      <div class="pm-yr">2027 · Phase 2</div>
+      <div class="pm-cap">$50M</div>
+      <div class="pm-note">T&P renovation, rooftop eVTOL, AV terminal</div>
+    </div>
+    <div class="pm-card">
+      <div class="pm-yr">2028 · Phase 3</div>
+      <div class="pm-cap">$32M</div>
+      <div class="pm-note">Fleet acquisition, AI systems, integration</div>
+    </div>
+    <div class="pm-card">
+      <div class="pm-yr">2029–30 · Phase 4–5</div>
+      <div class="pm-cap">$27M</div>
+      <div class="pm-note">Operations launch; breakeven Year 5</div>
+    </div>
+  </div>
+
+  <div class="rev-mini no-break">
+    <span class="hdr stream-name">Revenue Stream (Year 5)</span>
+    <span class="hdr con">Conservative</span>
+    <span class="hdr mod">Moderate</span>
+    <span class="hdr opt">Optimistic</span>
+
+    <span class="stream-name">eVTOL Operations</span>
+    <span class="con">$21.9M</span>
+    <span class="mod">$54.8M</span>
+    <span class="opt">$131.4M</span>
+
+    <span class="stream-name">AV Fleet Services</span>
+    <span class="con">$16.4M</span>
+    <span class="mod">$54.8M</span>
+    <span class="opt">$137.3M</span>
+
+    <span class="stream-name">Innovation Center (Real Estate)</span>
+    <span class="con">$2.4M</span>
+    <span class="mod">$3.8M</span>
+    <span class="opt">$5.1M</span>
+
+    <span class="stream-name">Technology Licensing + Ancillary</span>
+    <span class="con">$10.0M</span>
+    <span class="mod">$20.0M</span>
+    <span class="opt">$32.0M</span>
+
+    <span class="stream-name total-row-mini">TOTAL</span>
+    <span class="con total-row-mini">$50.7M</span>
+    <span class="mod total-row-mini">$133.4M</span>
+    <span class="opt total-row-mini">$305.8M</span>
+  </div>
+
+  <p class="body-text" style="font-size:0.72rem; color:#555; margin:0.2rem 0 0.8rem;">Projected IRR: 22.3% (moderate) · Breakeven: Year 5 (2030) · Funding mix: 45% equity / 35% debt / 15% grants / 5% revenue-based</p>
+
+  <hr class="divider-line">
+
+  <h3 class="subsection-title">Partnership &amp; Stakeholder Asks</h3>
+  <div class="ask-grid no-break">
+    <div class="ask-box">
+      <div class="ask-who">City of Fort Worth / Tarrant County</div>
+      <ul>
+        <li>Execute MOU to designate T&P Warehouse as Fort Worth's official eVTOL/AV hub</li>
+        <li>Provide letter of support for FAA eIPP enrollment and TxDOT coordination</li>
+        <li>Explore expedited historic preservation and permitting pathway</li>
+        <li>Connect HUB team with Fort Worth EDC and economic incentive programs</li>
+      </ul>
+    </div>
+    <div class="ask-box">
+      <div class="ask-who">Private Investors</div>
+      <ul>
+        <li>Lead or join Phase 1 equity raise ($20M; pre-money $40M valuation)</li>
+        <li>Grant investors: submit federal/state grant applications alongside equity close</li>
+        <li>Strategic investors: execute technology MOU + capacity reservation agreement</li>
+        <li>Board and advisory participation available for anchor investors</li>
+      </ul>
+    </div>
+    <div class="ask-box">
+      <div class="ask-who">TxDOT / FAA eIPP Team</div>
+      <ul>
+        <li>Include Fort Worth T&P Nexus in Texas eIPP network as Fort Worth vertiport node</li>
+        <li>Coordinate airspace integration planning with FAA Southwest Region</li>
+        <li>Technical assistance through TxDOT Emerging Aviation Technology Section</li>
+      </ul>
+    </div>
+    <div class="ask-box">
+      <div class="ask-who">eVTOL / AV Technology Partners</div>
+      <ul>
+        <li>Execute vertiport capacity MOU for H2 2026 Texas eIPP operations</li>
+        <li>Joint press announcement on Fort Worth route selection</li>
+        <li>Co-develop ground operations standards with Hub team</li>
+        <li>Preferred operator agreement for Innovation Center anchor tenancy</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-cta no-break">
+    <div>
+      <h4>Next Step: Schedule a Briefing</h4>
+      <p>Full due diligence package — financial model, technical specifications, white paper, and government brief — available upon request. We welcome meetings with municipal leadership, investors, technology partners, and community stakeholders.</p>
+    </div>
+    <div class="cta-contact">
+      <div class="email">partnerships@tpnexus.com</div>
+      <div class="sub">Fort Worth, Texas · March 2026</div>
+    </div>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>T&P Nexus HUB Transportation System | Executive Summary | March 2026</span>
+    <span>partnerships@tpnexus.com</span>
+  </div>
+</div>
+
+</body>
+</html>

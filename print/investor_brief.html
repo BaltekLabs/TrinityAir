@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T&P Nexus HUB — Investor Brief</title>
+<link rel="stylesheet" href="print.css">
+<style>
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin: 1rem 0;
+  }
+  .kpi-box {
+    background: var(--light);
+    border: 1.5px solid var(--cyan);
+    border-radius: 6px;
+    padding: 0.75rem 0.9rem;
+    text-align: center;
+  }
+  .kpi-box .kpi-val {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .kpi-box .kpi-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #555;
+    margin-top: 0.2rem;
+  }
+  .thesis-box {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+  }
+  .thesis-box h3 { color: var(--cyan); margin: 0 0 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .thesis-box ul { margin: 0; padding-left: 1.2rem; }
+  .thesis-box li { margin: 0.3rem 0; font-size: 0.82rem; line-height: 1.45; }
+  .rev-table th { background: var(--navy); color: #fff; font-size: 0.72rem; padding: 0.4rem 0.5rem; }
+  .rev-table td { font-size: 0.73rem; padding: 0.35rem 0.5rem; }
+  .rev-table tr:nth-child(even) td { background: #f0f6fa; }
+  .rev-table .total-row td { background: var(--light); font-weight: 700; border-top: 2px solid var(--navy); }
+  .capital-block {
+    background: #f9fbfd;
+    border-left: 4px solid var(--gold);
+    padding: 0.8rem 1rem;
+    margin: 0.8rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .capital-block h4 { margin: 0 0 0.4rem; color: var(--navy); font-size: 0.82rem; }
+  .capital-block p { margin: 0; font-size: 0.78rem; }
+  .moat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin: 0.8rem 0;
+  }
+  .moat-item {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.65rem 0.8rem;
+  }
+  .moat-item h5 { margin: 0 0 0.25rem; color: var(--blue); font-size: 0.78rem; }
+  .moat-item p { margin: 0; font-size: 0.72rem; line-height: 1.4; color: #444; }
+  .scenario-bar {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.4rem 0;
+  }
+  .scenario-bar .s-label { font-size: 0.72rem; font-weight: 600; color: var(--navy); }
+  .scenario-bar .s-track { height: 18px; border-radius: 3px; position: relative; }
+  .scenario-bar .s-val { font-size: 0.72rem; font-weight: 700; color: var(--navy); white-space: nowrap; }
+  .bar-con { background: #dce8f0; }
+  .bar-mod { background: var(--cyan); }
+  .bar-opt { background: var(--navy); }
+  .irr-highlight {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    color: #fff;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+  }
+  .irr-highlight .irr-num { font-size: 2.8rem; font-weight: 900; color: var(--cyan); line-height: 1; }
+  .irr-highlight .irr-sub { font-size: 0.75rem; line-height: 1.5; }
+  .irr-highlight .irr-sub strong { color: #b8e8f8; }
+  .exit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin: 0.8rem 0;
+  }
+  .exit-card {
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 0.65rem 0.75rem;
+    text-align: center;
+  }
+  .exit-card .e-type { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; color: #777; margin-bottom: 0.3rem; }
+  .exit-card .e-mult { font-size: 1.3rem; font-weight: 800; color: var(--navy); }
+  .exit-card .e-note { font-size: 0.65rem; color: #666; margin-top: 0.2rem; }
+  .risk-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 0.5rem; padding: 0.35rem 0; border-bottom: 1px solid #eee; }
+  .risk-row:last-child { border-bottom: none; }
+  .risk-row .r-name { font-size: 0.75rem; }
+  .risk-row .r-badge { font-size: 0.62rem; padding: 0.15rem 0.4rem; border-radius: 3px; font-weight: 700; }
+  .badge-med { background: #fff3cd; color: #7a5a00; }
+  .badge-low { background: #d4edda; color: #155724; }
+  .partner-logos {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 0.6rem 0;
+  }
+  .partner-tag {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     COVER PAGE
+════════════════════════════════════════════════ -->
+<div class="cover-page">
+  <div class="cover-hero" style="background-image: url('../images/hubImagery4.jpeg');">
+    <div class="cover-overlay"></div>
+    <div class="cover-content">
+      <div class="cover-eyebrow">Confidential Investment Brief — March 2026</div>
+      <h1 class="cover-title">T&P Nexus<br>HUB Transportation System</h1>
+      <p class="cover-subtitle">America's First Integrated eVTOL &amp; Autonomous Vehicle Transportation Hub<br>Fort Worth, Texas</p>
+      <div class="cover-stats">
+        <div class="cover-stat"><div class="cs-val">$129M</div><div class="cs-label">Total Capital</div></div>
+        <div class="cover-stat"><div class="cs-val">22.3%</div><div class="cs-label">Projected IRR</div></div>
+        <div class="cover-stat"><div class="cs-val">5x</div><div class="cs-label">Target Multiple</div></div>
+        <div class="cover-stat"><div class="cs-val">2030</div><div class="cs-label">Breakeven Year</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-footer-left">
+      <div class="cover-logo">T&P NEXUS HUB</div>
+      <div class="cover-tagline">Fort Worth · Texas · Investor Brief 2026</div>
+    </div>
+    <div class="cover-footer-right">Confidential — For Qualified Investors Only</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 2 — INVESTMENT THESIS & OPPORTUNITY
+════════════════════════════════════════════════ -->
+<div class="doc-page">
+  <div class="doc-header">
+    <span>T&P Nexus HUB Transportation System</span>
+    <span>Investor Brief — March 2026</span>
+  </div>
+
+  <h2 class="section-title">Investment Opportunity</h2>
+
+  <div class="kpi-row">
+    <div class="kpi-box">
+      <div class="kpi-val">$129M</div>
+      <div class="kpi-label">Total Investment (4 Phases)</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-val">22.3%</div>
+      <div class="kpi-label">Projected IRR (Moderate)</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-val">$133M</div>
+      <div class="kpi-label">Year 5 Revenue (Moderate)</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-val">8.7M</div>
+      <div class="kpi-label">DFW Metro Population</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-val">$710B+</div>
+      <div class="kpi-label">DFW Regional GDP</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-val">First-Mover</div>
+      <div class="kpi-label">No Comparable Hub in TX</div>
+    </div>
+  </div>
+
+  <div class="thesis-box no-break">
+    <h3>Investment Thesis</h3>
+    <ul>
+      <li><strong>Infrastructure play, not a tech bet.</strong> The T&P Nexus is a physical transportation terminal — a vertiport and AV hub — not an aircraft manufacturer. We capture value at the infrastructure layer regardless of which eVTOL or AV operator wins.</li>
+      <li><strong>Federal regulatory tailwind.</strong> The FAA's eVTOL Integration Pilot Program (eIPP), announced March 9, 2026, selects Texas DOT + Archer Aviation as a national site — creating immediate commercial revenue opportunity before full FAA type certification.</li>
+      <li><strong>Historic asset with tax advantages.</strong> The T&P Warehouse qualifies for 20% Federal Historic Tax Credits, reducing effective renovation cost by $3–4M.</li>
+      <li><strong>Multiple revenue streams.</strong> Fees from eVTOL operations + AV fleet + 120,000 SF Innovation Center real estate + technology licensing + ancillary retail/cargo — providing downside protection if any single stream underperforms.</li>
+      <li><strong>Zero municipal capital required.</strong> City provides regulatory facilitation and potential bond support; private capital deploys into a commercially structured entity.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">The Market Inflection</h2>
+
+  <div class="two-col">
+    <div>
+      <h3 class="subsection-title">DFW Transportation Crisis</h3>
+      <ul class="body-text" style="padding-left: 1.2rem;">
+        <li>69 hours lost per DFW commuter annually (TX A&M, 2024)</li>
+        <li>$1,618 annual cost per commuter — fuel + productivity</li>
+        <li>44 of Texas' 100 most congested roads are in DFW</li>
+        <li>10th worst commute in the U.S. — Fort Worth (Forbes, 2025)</li>
+        <li>&lt;1% of workers use public transit</li>
+        <li>Congestion cost projected to reach $36.4B/year by 2050</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="subsection-title">eVTOL & AV Readiness</h3>
+      <ul class="body-text" style="padding-left: 1.2rem;">
+        <li>Archer Aviation: Part 135/145 certified; commercial revenue Q1 2026; Texas eIPP selected</li>
+        <li>Joby Aviation: FAA Stage 4 of 5 certification; Toyota-backed $1B+; commercial 2026</li>
+        <li>Waymo Level 4: Austin, TX commercial ops March 2025; 450K+ rides/week</li>
+        <li>UAM market: $4.6B (2024) → $29.2B (2030); 31–34% CAGR</li>
+        <li>FAA eIPP enables pre-certification revenue passenger ops — H2 2026</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout no-break">
+    <strong>The Timing:</strong> The window to establish the Fort Worth vertiport anchor for the Texas eIPP network is <em>now</em>. Dallas is named in the initial Texas eIPP route set; Fort Worth is the adjacent market requiring an infrastructure node. First-mover capture of this position determines long-term competitive position.
+  </div>
+
+  <h2 class="section-title">The Asset</h2>
+
+  <div class="two-col">
+    <div>
+      <img src="../images/buildingFrontCity.jpeg" alt="T&P Warehouse" style="width:100%; border-radius:6px; margin-bottom:0.5rem;">
+    </div>
+    <div class="body-text">
+      <p><strong>Texas &amp; Pacific Warehouse</strong><br>221 W. Lancaster Avenue, Fort Worth, TX</p>
+      <ul style="padding-left: 1.1rem; margin-top: 0.5rem;">
+        <li>8-story historic warehouse: 600 ft × 100 ft = 480,000 gross SF</li>
+        <li>120,000 SF leasable Innovation Center (floors 2–7)</li>
+        <li>Rooftop: eVTOL landing pads + charging infrastructure</li>
+        <li>Ground level: AV terminal, passenger processing, retail</li>
+        <li>Adjacent to Amtrak station, TEXRail, Trinity Metro bus hub</li>
+        <li>Structural repair: $2.15M (already assessed)</li>
+        <li>Federal Historic Tax Credit eligible: 20% of qualified expenses</li>
+        <li>Class A downtown FW office rent: $30.68/SF (CommercialCafe, 2025)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>T&P Nexus HUB Transportation System | Investor Brief | Confidential</span>
+    <span>Page 2</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 3 — FINANCIALS
+════════════════════════════════════════════════ -->
+<div class="doc-page">
+  <div class="doc-header">
+    <span>T&P Nexus HUB Transportation System</span>
+    <span>Investor Brief — March 2026</span>
+  </div>
+
+  <h2 class="section-title">Financial Projections</h2>
+
+  <h3 class="subsection-title">Capital Deployment by Phase</h3>
+  <div class="phase-row no-break">
+    <div class="phase-card">
+      <div class="phase-num">Phase 1</div>
+      <div class="phase-name">Planning &amp; Prep</div>
+      <div class="phase-year">2026</div>
+      <div class="phase-amount">$20M</div>
+      <div class="phase-detail">Regulatory, design, team, eVTOL/AV MOUs</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">Phase 2</div>
+      <div class="phase-name">Infrastructure</div>
+      <div class="phase-year">2027</div>
+      <div class="phase-amount">$50M</div>
+      <div class="phase-detail">T&P renovation, rooftop eVTOL facilities, AV terminal</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">Phase 3</div>
+      <div class="phase-name">Technology</div>
+      <div class="phase-year">2028</div>
+      <div class="phase-amount">$32M</div>
+      <div class="phase-detail">Fleet acquisition 10–15 eVTOL + AV fleet + AI systems</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">Phase 4</div>
+      <div class="phase-name">Operations</div>
+      <div class="phase-year">2029</div>
+      <div class="phase-amount">$27M</div>
+      <div class="phase-detail">Working capital, fleet expansion, marketing launch</div>
+    </div>
+  </div>
+
+  <h3 class="subsection-title" style="margin-top:1rem;">Year 5 Revenue by Stream (Moderate Scenario)</h3>
+  <table class="data-table rev-table no-break">
+    <thead>
+      <tr>
+        <th style="text-align:left;">Revenue Stream</th>
+        <th>Conservative</th>
+        <th>Moderate</th>
+        <th>Optimistic</th>
+        <th>Assumptions (Moderate)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>eVTOL Operations</strong></td>
+        <td>$21.9M</td>
+        <td>$54.8M</td>
+        <td>$131.4M</td>
+        <td>30 aircraft × 10 flights × 5 pax × $100/trip × 365d</td>
+      </tr>
+      <tr>
+        <td><strong>AV Fleet Services</strong></td>
+        <td>$16.4M</td>
+        <td>$54.8M</td>
+        <td>$137.3M</td>
+        <td>75 vehicles × 20 trips × 5 pax × $20/trip × 365d</td>
+      </tr>
+      <tr>
+        <td><strong>Innovation Center (Real Estate)</strong></td>
+        <td>$2.4M</td>
+        <td>$3.8M</td>
+        <td>$5.1M</td>
+        <td>120K SF × 90% occupancy × $35/SF/yr</td>
+      </tr>
+      <tr>
+        <td><strong>Technology Licensing / IP</strong></td>
+        <td>$4.0M</td>
+        <td>$10.0M</td>
+        <td>$16.0M</td>
+        <td>Partner licensing + consulting</td>
+      </tr>
+      <tr>
+        <td><strong>Ancillary (Retail, Cargo, Parking)</strong></td>
+        <td>$6.0M</td>
+        <td>$10.0M</td>
+        <td>$16.0M</td>
+        <td>Retail/dining + cargo operations</td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>TOTAL REVENUE</strong></td>
+        <td><strong>$50.7M</strong></td>
+        <td><strong>$133.4M</strong></td>
+        <td><strong>$305.8M</strong></td>
+        <td></td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>Total OpEx</strong></td>
+        <td>($73.5M)</td>
+        <td>($88.5M)</td>
+        <td>($103.5M)</td>
+        <td>Personnel, tech, facilities, debt service</td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>EBITDA</strong></td>
+        <td style="color:#c00;"><strong>($22.8M)</strong></td>
+        <td style="color:#006600;"><strong>$44.9M (34%)</strong></td>
+        <td style="color:#006600;"><strong>$202.3M (66%)</strong></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsection-title" style="margin-top:1rem;">5-Year Cash Flow (Moderate Scenario)</h3>
+  <table class="data-table no-break">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Phase</th>
+        <th>Capital Deployed</th>
+        <th>Revenue</th>
+        <th>Operating CF</th>
+        <th>Cumulative CF</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>2026</td><td>Phase 1</td><td>($20M)</td><td>$0</td><td>($5M)</td><td>($25M)</td></tr>
+      <tr><td>2027</td><td>Phase 2</td><td>($50M)</td><td>$5M</td><td>($10M)</td><td>($80M)</td></tr>
+      <tr><td>2028</td><td>Phase 3</td><td>($32M)</td><td>$25M</td><td>($5M)</td><td>($92M)</td></tr>
+      <tr><td>2029</td><td>Phase 4</td><td>($22M)</td><td>$65M</td><td>$20M</td><td>($29M)</td></tr>
+      <tr><td>2030</td><td>Phase 5</td><td>($5M)</td><td>$133M</td><td>$45M</td><td style="font-weight:700; color:#006600;">+$44M</td></tr>
+    </tbody>
+  </table>
+
+  <div class="irr-highlight no-break">
+    <div>
+      <div class="irr-num">22.3%</div>
+      <div style="font-size:0.65rem; color:#aac; margin-top:0.2rem;">Projected IRR</div>
+    </div>
+    <div class="irr-sub">
+      <strong>Investment schedule:</strong> ($20M) / ($50M) / ($32M) / ($22M)<br>
+      <strong>Return schedule:</strong> $0 / $5M / $25M / $65M / $133M+<br>
+      <strong>Break-even:</strong> Year 5 (2030) — positive cumulative cash flow<br>
+      <strong>Sensitivity:</strong> 17.8% IRR at 75% revenue assumption; 26.1% IRR at 125% scenario
+    </div>
+  </div>
+
+  <h2 class="section-title">Capital Structure</h2>
+  <div class="two-col no-break">
+    <div>
+      <div class="capital-block">
+        <h4>Equity — 45% ($58M)</h4>
+        <p>Founder/management: $5M · Angels: $8M · VC (mobility focus): $15M · PE infrastructure: $25M · Strategic investors: $5M</p>
+      </div>
+      <div class="capital-block">
+        <h4>Debt — 35% ($45M)</h4>
+        <p>Commercial bank loans: $20M (7–10%) · Equipment financing: $15M (5–8%) · Municipal bonds: $10M (4–6%, 15–20yr)</p>
+      </div>
+    </div>
+    <div>
+      <div class="capital-block">
+        <h4>Grants — 15% ($20M)</h4>
+        <p>Federal (USDOT ATTAIN, FAA UAM): $8M · State of Texas (TEF, TxDOT Innovation): $6M · Local FW incentives: $4M · Foundation grants: $2M</p>
+      </div>
+      <div class="capital-block">
+        <h4>Revenue-based — 5% ($6M)</h4>
+        <p>Phase 4 revenue-based financing (12–18% IRR equiv.) once operations proven; no dilution</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>T&P Nexus HUB Transportation System | Investor Brief | Confidential</span>
+    <span>Page 3</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 4 — COMPETITIVE MOAT, RISKS & DEAL TERMS
+════════════════════════════════════════════════ -->
+<div class="doc-page">
+  <div class="doc-header">
+    <span>T&P Nexus HUB Transportation System</span>
+    <span>Investor Brief — March 2026</span>
+  </div>
+
+  <h2 class="section-title">Competitive Moat</h2>
+
+  <div class="moat-grid no-break">
+    <div class="moat-item">
+      <h5>Physical Infrastructure Scarcity</h5>
+      <p>The T&P Warehouse is the only building in downtown Fort Worth with the footprint, structural capacity, and multimodal adjacency (Amtrak, TEXRail, bus) to serve as a true intermodal hub. Competitors cannot replicate the location.</p>
+    </div>
+    <div class="moat-item">
+      <h5>Regulatory First-Mover</h5>
+      <p>FAA eIPP participation + established relationships with TxDOT Aviation, Fort Worth municipal partners, and FAA regional office create a regulatory moat that delays any competitor by 18–36 months.</p>
+    </div>
+    <div class="moat-item">
+      <h5>Operator-Agnostic Platform</h5>
+      <p>The HUB charges landing/docking/terminal fees like an airport or port, not a single-operator service. Joby, Archer, Waymo, and others all pay to access the infrastructure — diversifying away from any one technology provider.</p>
+    </div>
+    <div class="moat-item">
+      <h5>Multi-Revenue Lock-in</h5>
+      <p>Innovation Center tenants on multi-year leases + eVTOL operator MOUs + AV fleet contracts create a layered revenue stack where no single stream dominates. Each layer protects the others.</p>
+    </div>
+    <div class="moat-item">
+      <h5>Historic Tax Credit Arbitrage</h5>
+      <p>Federal 20% Historic Tax Credits on qualified renovation expenses reduce effective cost by $3–4M and create a preferential capital structure unavailable to new-build competitors.</p>
+    </div>
+    <div class="moat-item">
+      <h5>Network Effect Potential</h5>
+      <p>Each eVTOL route added increases value of all existing routes (more O&D pairs). Each AV vehicle added reduces per-ride unit cost. The hub model compounds in value as scale increases — a classic network effect.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Key Risks &amp; Mitigations</h2>
+
+  <div class="no-break">
+    <div class="risk-row">
+      <span class="r-name"><strong>FAA Approval Delays</strong> — eVTOL certification slower than projected</span>
+      <span class="r-badge badge-med">MEDIUM</span>
+      <span style="font-size:0.68rem; color:#666;">Mitigation: AV operations launch first; eIPP enables pre-cert revenue</span>
+    </div>
+    <div class="risk-row">
+      <span class="r-name"><strong>Construction Cost Overruns</strong> — Historic renovation complexity</span>
+      <span class="r-badge badge-med">MEDIUM</span>
+      <span style="font-size:0.68rem; color:#666;">Mitigation: 15–20% contingency reserve; fixed-price contracts; structural pre-assessed</span>
+    </div>
+    <div class="risk-row">
+      <span class="r-name"><strong>Market Adoption Pace</strong> — Consumer uptake of eVTOL slower than modeled</span>
+      <span class="r-badge badge-med">MEDIUM</span>
+      <span style="font-size:0.68rem; color:#666;">Mitigation: Conservative model uses 8 flights/aircraft/day; real estate income provides floor</span>
+    </div>
+    <div class="risk-row">
+      <span class="r-name"><strong>Interest Rate Risk</strong> — Capital market changes affecting debt cost</span>
+      <span class="r-badge badge-med">MEDIUM</span>
+      <span style="font-size:0.68rem; color:#666;">Mitigation: Fixed-rate debt preference; diverse funding sources; grant component lowers leverage need</span>
+    </div>
+    <div class="risk-row">
+      <span class="r-name"><strong>Competitor Entry</strong> — Large tech players entering DFW market</span>
+      <span class="r-badge badge-low">LOW</span>
+      <span style="font-size:0.68rem; color:#666;">Mitigation: Physical infrastructure moat; exclusive location; regulatory relationships</span>
+    </div>
+    <div class="risk-row">
+      <span class="r-name"><strong>Safety Incident</strong> — eVTOL or AV accident</span>
+      <span class="r-badge badge-low">LOW (&lt;5%)</span>
+      <span style="font-size:0.68rem; color:#666;">Mitigation: $100M+ aviation liability; partner with Stage 4+ FAA certified operators only</span>
+    </div>
+  </div>
+
+  <h2 class="section-title" style="margin-top:1.2rem;">Exit Pathways</h2>
+
+  <div class="exit-grid no-break">
+    <div class="exit-card">
+      <div class="e-type">Strategic Acquisition</div>
+      <div class="e-mult">4–7×</div>
+      <div class="e-note">Revenue multiple · eVTOL manufacturer or mobility platform acquires infrastructure layer (Joby, Waymo, Archer)</div>
+    </div>
+    <div class="exit-card">
+      <div class="e-type">Infrastructure REIT / Fund</div>
+      <div class="e-mult">12–18×</div>
+      <div class="e-note">EBITDA multiple · Brookfield, Macquarie, or Blackstone rolls up as transportation infrastructure asset</div>
+    </div>
+    <div class="exit-card">
+      <div class="e-type">IPO / SPAC</div>
+      <div class="e-mult">10–20×</div>
+      <div class="e-note">Revenue multiple · Public market listing as the first pure-play multi-modal AAM infrastructure company</div>
+    </div>
+  </div>
+
+  <h2 class="section-title" style="margin-top:1.2rem;">Technology Partner Ecosystem</h2>
+  <p class="body-text">Operator-agnostic infrastructure enables partnerships with leading certified or near-certified operators:</p>
+  <div class="partner-logos">
+    <div class="partner-tag">Archer Aviation (Part 135 cert; Texas eIPP selected)</div>
+    <div class="partner-tag">Joby Aviation (FAA Stage 4; Toyota $1B+)</div>
+    <div class="partner-tag">Waymo (Level 4; Austin TX commercial ops)</div>
+    <div class="partner-tag">Beta Technologies (CX300 certified)</div>
+    <div class="partner-tag">Wisk Aero (Boeing-backed; autonomous)</div>
+    <div class="partner-tag">REEF Technology (vertiport operations)</div>
+  </div>
+
+  <div class="callout no-break" style="margin-top:1.2rem;">
+    <strong>Phase 1 Capital Raise — $20M Target (Q1–Q3 2026)</strong><br>
+    Current raise: Founder commitment + angel round ($13M) + federal/state grant applications ($7M). Seeking lead investor for Series A structured as infrastructure equity with 1× non-participating liquidation preference, weighted-average anti-dilution. Pre-money valuation: $40M. Board seat available for $5M+ commitment.
+  </div>
+
+  <div style="text-align:center; margin-top:1.5rem; padding:1rem; background:var(--light); border-radius:8px;">
+    <p style="margin:0; font-size:0.9rem; font-weight:700; color:var(--navy);">Schedule an Investor Briefing</p>
+    <p style="margin:0.3rem 0 0; font-size:0.8rem; color:#444;">partnerships@tpnexus.com</p>
+    <p style="margin:0.3rem 0 0; font-size:0.72rem; color:#777;">Due diligence package, financial model, and technical specifications available under NDA</p>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>T&P Nexus HUB Transportation System | Confidential — For Qualified Investors Only</span>
+    <span>March 2026 · Page 4</span>
+  </div>
+</div>
+
+</body>
+</html>
