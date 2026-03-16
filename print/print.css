@@ -1,12 +1,12 @@
 /* ============================================================
-   T&P NEXUS HUB — Shared Print Stylesheet
+   Trinity Air Link — Shared Print Stylesheet
    Optimized for Letter (8.5×11) PDF output
    ============================================================ */
 
 :root {
   --navy:    #0f2444;
   --blue:    #1a4a7a;
-  --cyan:    #0891b2;
+  --cyan:    #00D4FF;
   --gold:    #b8860b;
   --light:   #e8f4f8;
   --border:  #c5d8e8;

@@ -1,4 +1,4 @@
-Business Case: Hub Transportation System for the Dallas-Fort Worth Area
+Business Case: Trinity Air Link for the Dallas-Fort Worth Area
 Executive Summary
 The proposed Hub transportation system represents a groundbreaking opportunity to revolutionize mobility in the Dallas-Fort Worth metroplex. By integrating advanced Vertical Take-Off and Landing (VTOL) aircraft with autonomous Electric Vehicles (EVs), the Hub system offers a sustainable, efficient, and scalable solution to the transportation challenges facing this rapidly growing region.
 This business case outlines the market opportunity, proposed solution, financial considerations, implementation strategy, and expected benefits of the Hub transportation system. It presents a compelling case for transforming the historic Texas and Pacific (T&P) Warehouse into a central hub for this innovative transportation network, leveraging its strategic location and preserving its architectural heritage while propelling DFW into the future of urban mobility.

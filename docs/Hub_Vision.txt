@@ -13,7 +13,7 @@
 
 
 "The Future Begins at T&P"
-In the 1930s, the Texas and Pacific Warehouse revolutionized transportation in Fort Worth as part of a $13 million investment in rail infrastructure that helped build the modern DFW metroplex. Today, we stand at the threshold of an even greater transportation revolution - one that will fundamentally reshape how we move, work, and live. The HUB project envisions transforming this historic building into the epicenter of next-generation mobility and technology innovation for the DFW area.
+In the 1930s, the Texas and Pacific Warehouse revolutionized transportation in Fort Worth as part of a $13 million investment in rail infrastructure that helped build the modern DFW metroplex. Today, we stand at the threshold of an even greater transportation revolution - one that will fundamentally reshape how we move, work, and live. The Link project envisions transforming this historic building into the epicenter of next-generation mobility and technology innovation for the DFW area.
 The Vision: By reimagining the T&P Warehouse as a central node in an advanced transportation network, we will create a first-of-its-kind integration of:
 •	Vertical takeoff and landing (VTOL) aircraft operations
 •	Autonomous electric vehicle networks
@@ -21,7 +21,7 @@ The Vision: By reimagining the T&P Warehouse as a central node in an advanced tr
 •	Technology innovation spaces and public showcases
 •	High-performance computing infrastructure
 Market Opportunity: The DFW metroplex, with its population of 7.4 million and robust economic growth, is ideally positioned to pioneer this transportation revolution. The T&P Warehouse sits at the convergence of over $500 million in planned development, including Texas A&M's new $320 million campus and the $217 million Omni Hotel expansion. This location, combined with existing rail infrastructure and downtown accessibility, creates a unique opportunity to build the future of urban mobility.
-Community Impact: The HUB project will:
+Community Impact: The Link project will:
 •	Create thousands of high-tech jobs
 •	Establish DFW as a leader in transportation innovation
 •	Preserve and revitalize a historic landmark
@@ -46,13 +46,13 @@ Key elements of the transformation include:
 •	Establishing computing infrastructure to manage next-generation transportation networks
 Bridging Past and Future This vision honors the building's heritage while propelling it into the future. The same spirit of innovation that drove the original T&P development will guide its transformation into a hub for future mobility. By preserving this historic structure while adapting it for tomorrow's transportation needs, we create a living bridge between Fort Worth's past and its future.
 
-The HUB System
-Network Overview The HUB system reimagines urban mobility through a seamlessly integrated network of air and ground transportation. With the T&P Warehouse as its central node, this system will connect the DFW metroplex through:
+The Link System
+Network Overview The Link system reimagines urban mobility through a seamlessly integrated network of air and ground transportation. With the T&P Warehouse as its central node, this system will connect the DFW metroplex through:
 •	A network of VTOL aircraft providing rapid city-to-city transport
 •	Autonomous electric vehicles offering efficient ground transportation
 •	Smart traffic management systems optimizing route efficiency
 •	Integration with existing rail and public transit infrastructure
-Central Node: T&P Hub The T&P Warehouse will serve as the flagship hub, showcasing the full potential of integrated transportation:
+Central Node: Trinity Air Link The T&P Warehouse will serve as the flagship hub, showcasing the full potential of integrated transportation:
 Ground Level Operations:
 •	Autonomous vehicle docking and charging stations
 •	Passenger terminal with seamless modal transfers
@@ -63,7 +63,7 @@ Rooftop VTOL Port:
 •	Advanced air traffic management systems
 •	Weather monitoring and safety systems
 •	Passenger boarding and waiting areas
-Technology Integration The HUB system leverages cutting-edge technologies to ensure safe, efficient operations:
+Technology Integration The Link system leverages cutting-edge technologies to ensure safe, efficient operations:
 •	AI-powered traffic management
 •	Real-time route optimization
 •	Predictive maintenance systems

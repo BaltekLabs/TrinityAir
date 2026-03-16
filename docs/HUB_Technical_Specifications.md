@@ -4,7 +4,7 @@ Executive Summary (2-3 pages)
 
 
 Vision and mission statement
-High-level overview of the HUB concept
+High-level overview of the Link concept
 Key market opportunities in DFW
 Initial implementation strategy
 Brief overview of required investment and expected returns
@@ -25,7 +25,7 @@ High-level financial projections
 Visual Presentations
 
 
-Conceptual designs of the HUB system
+Conceptual designs of the Link system
 Maps showing potential hub locations
 System architecture diagrams
 Comparative case studies from other cities
