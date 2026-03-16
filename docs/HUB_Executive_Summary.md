@@ -1,16 +1,16 @@
-# HUB Transportation System
+# Trinity Air Link
 ## Executive Summary
 
 ---
 
-> **BREAKING — March 9, 2026:** The U.S. Department of Transportation and FAA today announced the **8 selected sites** for the White House eVTOL Integration Pilot Program (eIPP). **Texas DOT is one of the 8**, with Archer Aviation as its industry partner. The program explicitly names **Dallas** in planned routes connecting Dallas, Austin, San Antonio, and Houston. Archer will begin **Midnight air taxi operations in Texas in H2 2026**. The HUB is the infrastructure layer this network needs — and Fort Worth is at the center of it.
+> **BREAKING — March 9, 2026:** The U.S. Department of Transportation and FAA today announced the **8 selected sites** for the White House eVTOL Integration Pilot Program (eIPP). **Texas DOT is one of the 8**, with Archer Aviation as its industry partner. The program explicitly names **Dallas** in planned routes connecting Dallas, Austin, San Antonio, and Houston. Archer will begin **Midnight air taxi operations in Texas in H2 2026**. The Link is the infrastructure layer this network needs — and Fort Worth is at the center of it.
 
 ---
 
 ### **TRANSFORMING AMERICAN TRANSPORTATION**
 **America's First Integrated eVTOL-Autonomous Vehicle Transportation Hub**
 
-The HUB Transportation System represents a groundbreaking opportunity to transform the historic Texas & Pacific Warehouse in downtown Fort Worth into the nation's first fully integrated multi-modal transportation hub, combining electric VTOL (eVTOL) aircraft, autonomous vehicles, and innovation center operations.
+The Trinity Air Link represents a groundbreaking opportunity to transform the historic Texas & Pacific Warehouse in downtown Fort Worth into the nation's first fully integrated multi-modal transportation hub, combining electric VTOL (eVTOL) aircraft, autonomous vehicles, and innovation center operations.
 
 ---
 
@@ -34,7 +34,7 @@ The HUB Transportation System represents a groundbreaking opportunity to transfo
 - **Commercial eVTOL operations launching in 2026:** Joby Aviation completed FAA Stage 4 of 5 certification (Nov 2025), targeting first passenger flights in 2026; Archer holds Part 135 Air Carrier, Part 145 Repair, and Part 141 Pilot Training certificates
 - **Level 4 AV commercially proven:** Waymo delivering 450,000+ paid rides/week across five U.S. cities including **Austin, TX** — expanding to Atlanta, Miami, and D.C. in 2026
 - **No comparable integrated eVTOL-AV hub** currently operating in any major U.S. metropolitan area
-- **The aircraft are already coming to DFW.** The HUB provides the ground infrastructure they need.
+- **The aircraft are already coming to DFW.** The Link provides the ground infrastructure they need.
 
 ---
 
@@ -111,7 +111,7 @@ The HUB Transportation System represents a groundbreaking opportunity to transfo
 - **Phased approach** limits exposure and validates assumptions
 - **Diversified revenue streams** reduce dependency on single service
 - **Conservative financial projections** with 15-20% contingency reserves
-- **Industry maturity:** Joby and Archer both targeting 2026 commercial ops — HUB timed for fleet availability
+- **Industry maturity:** Joby and Archer both targeting 2026 commercial ops — TAL timed for fleet availability
 - **Comprehensive insurance** coverage ($200M+ total liability)
 
 ---
@@ -151,7 +151,7 @@ The HUB Transportation System represents a groundbreaking opportunity to transfo
 
 ### **Strategic Positioning**
 - **First integrated hub** combining eVTOL and AV in major metropolitan area
-- **Timing advantage:** eVTOL certifications arriving 2026 — HUB positioned to capture day-one commercial operators
+- **Timing advantage:** eVTOL certifications arriving 2026 — TAL positioned to capture day-one commercial operators
 - **Historic building** provides unique character and community connection
 - **Regulatory relationships** established early in development process
 - **Technology partnerships** with leading eVTOL and AV companies
@@ -183,8 +183,8 @@ The HUB Transportation System represents a groundbreaking opportunity to transfo
 ## **NEXT STEPS**
 
 ### **Immediate Actions (Next 30 Days)**
-1. **Contact Texas DOT eIPP team** — position HUB as the Fort Worth vertiport and ground operations hub for the Texas eIPP program; Archer is the partner and already targeting DFW
-2. **Contact Archer Aviation directly** — they are standing up Texas operating teams NOW for H2 2026 operations; the HUB offers infrastructure, operations base, and a branded experience
+1. **Contact Texas DOT eIPP team** — position TAL as the Fort Worth vertiport and ground operations hub for the Texas eIPP program; Archer is the partner and already targeting DFW
+2. **Contact Archer Aviation directly** — they are standing up Texas operating teams NOW for H2 2026 operations; the Link offers infrastructure, operations base, and a branded experience
 3. **Stakeholder Meetings:** Fort Worth Mayor's office, City Council, economic development — frame around today's eIPP announcement
 4. **Grant Applications:** The eIPP creates direct federal funding pathways; apply immediately
 5. **Investor outreach:** Today's announcement is the most compelling validation event this project will have — begin investor conversations immediately while the news is fresh
@@ -227,7 +227,7 @@ The HUB Transportation System represents a groundbreaking opportunity to transfo
 - **Risk Management:** Phased approach with diversified revenue streams
 - **Community Impact:** Historic preservation, job creation, transportation innovation
 
-**The HUB Transportation System represents a transformative opportunity to lead American transportation innovation while generating strong investor returns and significant community benefits.**
+**The Trinity Air Link represents a transformative opportunity to lead American transportation innovation while generating strong investor returns and significant community benefits.**
 
 ---
 

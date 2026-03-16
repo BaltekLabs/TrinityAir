@@ -4,7 +4,7 @@ Executive Summary (2-3 pages)
 
 
 Vision and mission statement
-High-level overview of the HUB concept
+High-level overview of the Link concept
 Key market opportunities in DFW
 Initial implementation strategy
 Brief overview of required investment and expected returns
@@ -25,7 +25,7 @@ High-level financial projections
 Visual Presentations
 
 
-Conceptual designs of the HUB system
+Conceptual designs of the Link system
 Maps showing potential hub locations
 System architecture diagrams
 Comparative case studies from other cities
@@ -90,6 +90,6 @@ Resource Allocation Plan: Determine human, financial, and technological resource
 
 10. Marketing and Communications Strategy
 
-Brand Development: Create a compelling brand identity for the Hub system.
+Brand Development: Create a compelling brand identity for the Trinity Air Link.
 Public Education Campaign: Design materials to explain the concept to the general public.
 Digital Presence: Develop website and social media strategy to build public support and awareness.

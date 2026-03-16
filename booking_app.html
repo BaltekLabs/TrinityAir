@@ -3,38 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>T&P Vector Hub — Transportation Hub</title>
+<title>Trinity Air Link — Transportation Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
 :root {
-  --bg0: #060b1a;
-  --bg1: #0a1228;
-  --bg2: #0f1e3d;
-  --panel: rgba(15,30,61,0.85);
-  --cyan: #00e5ff;
+  --bg0: #000000;
+  --bg1: #0a0a0f;
+  --bg2: #111118;
+  --panel: rgba(10,10,15,0.92);
+  --cyan: #00D4FF;
   --cyan2: #00b8d9;
-  --gold: #f5c518;
-  --violet: #7c3aed;
+  --gold: #00D4FF;
+  --violet: #00D4FF;
   --green: #22c55e;
   --red: #ef4444;
-  --border: rgba(0,229,255,0.18);
-  --text: #e8f4f8;
-  --muted: #7a9bb5;
+  --border: rgba(0,212,255,0.15);
+  --border-subtle: rgba(255,255,255,0.06);
+  --text: #FFFFFF;
+  --muted: #8892A0;
+  --accent-dim: rgba(0,212,255,0.12);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg0); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; overflow-x: hidden; }
+body { background: var(--bg0); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; overflow-x: hidden; letter-spacing: 0.01em; }
 .orbitron { font-family: 'Orbitron', monospace; }
 
 /* Navbar */
-#navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(6,11,26,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); height: 60px; display: flex; align-items: center; padding: 0 24px; gap: 32px; }
-.nav-logo { font-family: 'Orbitron', monospace; font-size: 1.2rem; font-weight: 800; color: var(--cyan); letter-spacing: 2px; text-shadow: 0 0 20px rgba(0,229,255,0.5); white-space: nowrap; }
+#navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(0,0,0,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); height: 60px; display: flex; align-items: center; padding: 0 32px; gap: 32px; }
+.nav-logo { font-family: 'Orbitron', monospace; font-size: 1rem; font-weight: 700; color: var(--cyan); letter-spacing: 3px; text-shadow: 0 0 24px rgba(0,212,255,0.35); white-space: nowrap; }
 .nav-items { display: flex; gap: 4px; margin-left: auto; }
-.nav-item { padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: all 0.2s; border: 1px solid transparent; white-space: nowrap; }
-.nav-item:hover { color: var(--text); background: rgba(0,229,255,0.08); }
-.nav-item.active { color: var(--cyan); border-color: var(--border); background: rgba(0,229,255,0.1); box-shadow: 0 0 12px rgba(0,229,255,0.15); }
+.nav-item { padding: 6px 16px; border-radius: 4px; cursor: pointer; font-size: 0.82rem; font-weight: 500; color: var(--muted); transition: all 0.2s; border: 1px solid transparent; white-space: nowrap; letter-spacing: 0.03em; }
+.nav-item:hover { color: var(--text); background: var(--accent-dim); }
+.nav-item.active { color: var(--cyan); border-color: var(--border); background: var(--accent-dim); }
 
 /* Views */
 .view { display: none; padding: 80px 24px 24px; max-width: 1400px; margin: 0 auto; }
@@ -42,31 +44,31 @@ body { background: var(--bg0); color: var(--text); font-family: 'Inter', sans-se
 @keyframes fadeIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
 
 /* Panels */
-.panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; backdrop-filter: blur(8px); }
-.panel-title { font-family: 'Orbitron', monospace; font-size: 0.75rem; font-weight: 600; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+.panel { background: var(--bg1); border: 1px solid var(--border); border-radius: 8px; padding: 20px; backdrop-filter: blur(8px); }
+.panel-title { font-family: 'Orbitron', monospace; font-size: 0.7rem; font-weight: 600; color: var(--cyan); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; opacity: 0.85; }
 
 /* Stats */
-.stat-card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; }
+.stat-card { background: var(--bg1); border: 1px solid var(--border); border-radius: 6px; padding: 16px 20px; }
 .stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
 .stat-value { font-family: 'Orbitron', monospace; font-size: 1.6rem; font-weight: 700; margin: 6px 0 2px; }
 .stat-sub { font-size: 0.75rem; color: var(--muted); }
 
 /* Buttons */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.875rem; cursor: pointer; transition: all 0.2s; border: none; outline: none; }
-.btn-primary { background: var(--cyan); color: #060b1a; }
-.btn-primary:hover { background: var(--cyan2); box-shadow: 0 0 20px rgba(0,229,255,0.4); transform: translateY(-1px); }
-.btn-secondary { background: rgba(0,229,255,0.1); color: var(--cyan); border: 1px solid var(--border); }
-.btn-secondary:hover { background: rgba(0,229,255,0.2); }
-.btn-gold { background: var(--gold); color: #060b1a; }
-.btn-gold:hover { background: #e0b014; box-shadow: 0 0 20px rgba(245,197,24,0.4); }
-.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
-.btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+.btn-primary { background: var(--cyan); color: #000000; }
+.btn-primary:hover { background: var(--cyan2); box-shadow: 0 0 20px rgba(0,212,255,0.3); transform: translateY(-1px); }
+.btn-secondary { background: var(--accent-dim); color: var(--cyan); border: 1px solid var(--border); }
+.btn-secondary:hover { background: rgba(0,212,255,0.2); }
+.btn-gold { background: var(--cyan); color: #000000; }
+.btn-gold:hover { background: var(--cyan2); box-shadow: 0 0 20px rgba(0,212,255,0.3); }
+.btn-outline { background: transparent; color: var(--muted); border: 1px solid var(--border-subtle); }
+.btn-outline:hover { border-color: var(--border); color: var(--text); }
 .btn-lg { padding: 14px 28px; font-size: 1rem; }
 .btn-sm { padding: 6px 14px; font-size: 0.8rem; }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
 
 /* Fleet status */
-.fleet-card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px; position: relative; overflow: hidden; }
+.fleet-card { background: var(--bg1); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 14px; position: relative; overflow: hidden; }
 .fleet-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
 .fleet-card.active-fleet::before { background: var(--green); }
 .fleet-card.standby-fleet::before { background: var(--gold); }
@@ -82,14 +84,14 @@ body { background: var(--bg0); color: var(--text); font-family: 'Inter', sans-se
 #live-feed::-webkit-scrollbar { width: 4px; }
 #live-feed::-webkit-scrollbar-track { background: transparent; }
 #live-feed::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-.feed-item { font-size: 0.78rem; padding: 8px 10px; background: rgba(0,229,255,0.04); border-left: 2px solid var(--border); border-radius: 0 4px 4px 0; animation: slideIn 0.3s ease; }
+.feed-item { font-size: 0.78rem; padding: 8px 10px; background: rgba(0,212,255,0.03); border-left: 1px solid var(--border); border-radius: 0 4px 4px 0; animation: slideIn 0.3s ease; }
 .feed-item.new { border-left-color: var(--cyan); }
 .feed-time { color: var(--cyan); font-family: monospace; margin-right: 8px; }
 @keyframes slideIn { from { opacity:0; transform: translateX(-10px); } to { opacity:1; transform: translateX(0); } }
 
 /* Quick book buttons */
-.quick-btn { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.25s; text-align: center; }
-.quick-btn:hover { border-color: var(--cyan); background: rgba(0,229,255,0.08); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.quick-btn { background: var(--bg1); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 20px; cursor: pointer; transition: all 0.25s; text-align: center; }
+.quick-btn:hover { border-color: var(--border); background: var(--accent-dim); transform: translateY(-2px); }
 .quick-btn svg { margin: 0 auto 10px; display: block; }
 
 /* Step wizard */
@@ -104,16 +106,16 @@ body { background: var(--bg0); color: var(--text); font-family: 'Inter', sans-se
 .step-line.done { background: var(--green); }
 
 /* Mode cards */
-.mode-card { background: var(--panel); border: 2px solid var(--border); border-radius: 14px; padding: 28px 24px; cursor: pointer; transition: all 0.25s; text-align: center; }
-.mode-card:hover { border-color: rgba(0,229,255,0.4); transform: translateY(-2px); }
-.mode-card.selected { border-color: var(--cyan); background: rgba(0,229,255,0.08); box-shadow: 0 0 30px rgba(0,229,255,0.15); }
+.mode-card { background: var(--bg1); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 28px 24px; cursor: pointer; transition: all 0.25s; text-align: center; }
+.mode-card:hover { border-color: var(--border); transform: translateY(-2px); }
+.mode-card.selected { border-color: var(--cyan); background: var(--accent-dim); box-shadow: 0 0 20px rgba(0,212,255,0.08); }
 .mode-card h3 { font-family: 'Orbitron', monospace; font-size: 1rem; font-weight: 700; margin: 12px 0 8px; color: var(--cyan); }
 .mode-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
 
 /* Route cards */
-.route-card { background: var(--panel); border: 2px solid var(--border); border-radius: 10px; padding: 16px; cursor: pointer; transition: all 0.2s; }
-.route-card:hover { border-color: rgba(0,229,255,0.3); }
-.route-card.selected { border-color: var(--cyan); background: rgba(0,229,255,0.06); }
+.route-card { background: var(--bg1); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 16px; cursor: pointer; transition: all 0.2s; }
+.route-card:hover { border-color: var(--border); }
+.route-card.selected { border-color: var(--cyan); background: var(--accent-dim); }
 .route-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; }
 .route-meta { display: flex; gap: 12px; flex-wrap: wrap; }
 .route-badge { font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; font-weight: 500; }
@@ -243,7 +245,7 @@ select.form-input option { background: #0a1228; }
 
 <!-- Navbar -->
 <nav id="navbar">
-  <div class="nav-logo">T&P VECTOR HUB</div>
+  <div class="nav-logo">TRINITY AIR LINK</div>
   <div class="nav-items">
     <div class="nav-item active" id="nav-dashboard" onclick="showView('dashboard')">Dashboard</div>
     <div class="nav-item" id="nav-book" onclick="showView('book')">Book</div>
@@ -392,7 +394,7 @@ select.form-input option { background: #0a1228; }
       <!-- STEP 1: Journey Type -->
       <div id="step1" class="step-content">
         <h2 class="orbitron" style="font-size:1.2rem; margin-bottom:8px;">Select Journey Type</h2>
-        <p style="color:var(--muted); font-size:0.85rem; margin-bottom:24px;">Choose how you'd like to travel with T&P Vector Hub</p>
+        <p style="color:var(--muted); font-size:0.85rem; margin-bottom:24px;">Choose how you'd like to travel with Trinity Air Link</p>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
           <div class="mode-card" id="card-vtol" onclick="selectMode('vtol')">
             <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="var(--cyan)" stroke-width="1.5" style="margin:0 auto;">
@@ -534,7 +536,7 @@ select.form-input option { background: #0a1228; }
           <div class="pay-tab active" id="tab-card" onclick="setPayTab('card')">Credit/Debit Card</div>
           <div class="pay-tab" id="tab-apple" onclick="setPayTab('apple')">Apple Pay</div>
           <div class="pay-tab" id="tab-google" onclick="setPayTab('google')">Google Pay</div>
-          <div class="pay-tab" id="tab-credits" onclick="setPayTab('credits')">HUB Credits</div>
+          <div class="pay-tab" id="tab-credits" onclick="setPayTab('credits')">TAL Credits</div>
         </div>
         <div id="pay-card">
           <div class="card-preview" style="margin-bottom:16px;">
@@ -671,10 +673,10 @@ select.form-input option { background: #0a1228; }
             <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
           </circle>
           <!-- Location nodes -->
-          <!-- T&P Vector Hub -->
+          <!-- Trinity Air Link -->
           <circle cx="160" cy="200" r="10" fill="var(--cyan)" opacity="0.9"/>
           <circle cx="160" cy="200" r="16" fill="none" stroke="var(--cyan)" stroke-width="1.5" opacity="0.4"/>
-          <text x="160" y="228" text-anchor="middle" fill="var(--cyan)" font-size="9" font-family="Orbitron,monospace" font-weight="700">VECTOR HUB</text>
+          <text x="160" y="228" text-anchor="middle" fill="var(--cyan)" font-size="9" font-family="Orbitron,monospace" font-weight="700">TAL HUB</text>
           <!-- DFW Airport -->
           <circle cx="430" cy="150" r="8" fill="rgba(124,58,237,0.8)"/>
           <text x="430" y="172" text-anchor="middle" fill="#c084fc" font-size="8" font-family="monospace">DFW AIRPORT</text>
@@ -768,21 +770,21 @@ select.form-input option { background: #0a1228; }
         <div style="display:flex; flex-direction:column; gap:8px;">
           <div style="padding:8px 0; border-bottom:1px solid var(--border);">
             <div style="display:flex; justify-content:space-between; font-size:0.82rem;">
-              <span style="font-weight:500;">T&amp;P Hub → DFW</span>
+              <span style="font-weight:500;">TAL Hub → DFW</span>
               <span style="color:var(--green); font-size:0.72rem;">✓ Done</span>
             </div>
             <div style="color:var(--muted); font-size:0.72rem; margin-top:3px;">Today, 08:45 — 14 min</div>
           </div>
           <div style="padding:8px 0; border-bottom:1px solid var(--border);">
             <div style="display:flex; justify-content:space-between; font-size:0.82rem;">
-              <span style="font-weight:500;">T&amp;P Hub → Arlington</span>
+              <span style="font-weight:500;">TAL Hub → Arlington</span>
               <span style="color:var(--green); font-size:0.72rem;">✓ Done</span>
             </div>
             <div style="color:var(--muted); font-size:0.72rem; margin-top:3px;">Yesterday, 16:20 — 9 min</div>
           </div>
           <div style="padding:8px 0;">
             <div style="display:flex; justify-content:space-between; font-size:0.82rem;">
-              <span style="font-weight:500;">T&amp;P Hub → Sundance Sq</span>
+              <span style="font-weight:500;">TAL Hub → Sundance Sq</span>
               <span style="color:var(--green); font-size:0.72rem;">✓ Done</span>
             </div>
             <div style="color:var(--muted); font-size:0.72rem; margin-top:3px;">Mar 10, 12:10 — 8 min</div>
@@ -811,7 +813,7 @@ select.form-input option { background: #0a1228; }
         <div class="trip-row" style="margin-bottom:10px;">
           <div style="display:flex; justify-content:space-between; align-items:center;">
             <div>
-              <div style="font-weight:600; font-size:0.95rem;">T&amp;P Hub → DFW Airport</div>
+              <div style="font-weight:600; font-size:0.95rem;">TAL Hub → DFW Airport</div>
               <div style="font-size:0.78rem; color:var(--muted); margin-top:3px;">Mar 13, 2026 · 09:00 · eVTOL · 1 pax</div>
             </div>
             <span style="background:rgba(0,229,255,0.12); color:var(--cyan); font-size:0.72rem; padding:3px 10px; border-radius:20px;">Upcoming</span>
@@ -836,7 +838,7 @@ select.form-input option { background: #0a1228; }
         </div>
       </div>
       <div class="panel">
-        <div class="panel-title">HUB Credits</div>
+        <div class="panel-title">TAL Credits</div>
         <div style="font-family:'Orbitron',monospace; font-size:1.8rem; font-weight:700; color:var(--gold); margin-bottom:6px;">1,482</div>
         <div style="font-size:0.75rem; color:var(--muted); margin-bottom:12px;">credits ($1 = 1 credit)</div>
         <div style="font-size:0.78rem; color:var(--muted); margin-bottom:6px; display:flex; justify-content:space-between;"><span>Next reward: 2,000 credits</span><span style="color:var(--cyan);">74%</span></div>
@@ -871,25 +873,25 @@ const state = {
 };
 
 const VTOL_ROUTES = [
-  { id:'v1', name:'T&P Vector Hub → DFW Airport', duration:'15 min', distance:'28 mi', price:65, type:'Joby S4', co2:'18 kg saved', destX:430, destY:150 },
-  { id:'v2', name:'T&P Vector Hub → Dallas Love Field', duration:'22 min', distance:'35 mi', price:95, type:'Archer Midnight', co2:'24 kg saved', destX:480, destY:200 },
-  { id:'v3', name:'T&P Vector Hub → Frisco', duration:'28 min', distance:'42 mi', price:105, type:'Joby S4', co2:'28 kg saved', destX:430, destY:80 },
-  { id:'v4', name:'T&P Vector Hub → Arlington', duration:'10 min', distance:'15 mi', price:45, type:'Wisk Aero Gen6', co2:'9 kg saved', destX:320, destY:240 },
-  { id:'v5', name:'T&P Vector Hub → Alliance Airport', duration:'35 min', distance:'55 mi', price:125, type:'Archer Midnight', co2:'35 kg saved', destX:90, destY:100 },
+  { id:'v1', name:'Trinity Air Link → DFW Airport', duration:'15 min', distance:'28 mi', price:65, type:'Joby S4', co2:'18 kg saved', destX:430, destY:150 },
+  { id:'v2', name:'Trinity Air Link → Dallas Love Field', duration:'22 min', distance:'35 mi', price:95, type:'Archer Midnight', co2:'24 kg saved', destX:480, destY:200 },
+  { id:'v3', name:'Trinity Air Link → Frisco', duration:'28 min', distance:'42 mi', price:105, type:'Joby S4', co2:'28 kg saved', destX:430, destY:80 },
+  { id:'v4', name:'Trinity Air Link → Arlington', duration:'10 min', distance:'15 mi', price:45, type:'Wisk Aero Gen6', co2:'9 kg saved', destX:320, destY:240 },
+  { id:'v5', name:'Trinity Air Link → Alliance Airport', duration:'35 min', distance:'55 mi', price:125, type:'Archer Midnight', co2:'35 kg saved', destX:90, destY:100 },
 ];
 
 const AV_ROUTES = [
-  { id:'a1', name:'T&P Vector Hub → Sundance Square', duration:'8 min', distance:'1.2 mi', price:12, type:'Waymo 5th Gen', co2:'2 kg saved', destX:168, destY:185 },
-  { id:'a2', name:'T&P Vector Hub → TCU Campus', duration:'14 min', distance:'3.8 mi', price:16, type:'Cruise Origin', co2:'4 kg saved', destX:140, destY:235 },
-  { id:'a3', name:'T&P Vector Hub → Near Southside', duration:'11 min', distance:'2.5 mi', price:14, type:'Waymo 5th Gen', co2:'3 kg saved', destX:180, destY:280 },
-  { id:'a4', name:'T&P Vector Hub → Stockyards', duration:'18 min', distance:'5.2 mi', price:22, type:'Cruise Origin', co2:'6 kg saved', destX:150, destY:155 },
-  { id:'a5', name:'T&P Vector Hub → Panther Island', duration:'12 min', distance:'3.0 mi', price:15, type:'Waymo 5th Gen', co2:'3 kg saved', destX:200, destY:170 },
+  { id:'a1', name:'Trinity Air Link → Sundance Square', duration:'8 min', distance:'1.2 mi', price:12, type:'Waymo 5th Gen', co2:'2 kg saved', destX:168, destY:185 },
+  { id:'a2', name:'Trinity Air Link → TCU Campus', duration:'14 min', distance:'3.8 mi', price:16, type:'Cruise Origin', co2:'4 kg saved', destX:140, destY:235 },
+  { id:'a3', name:'Trinity Air Link → Near Southside', duration:'11 min', distance:'2.5 mi', price:14, type:'Waymo 5th Gen', co2:'3 kg saved', destX:180, destY:280 },
+  { id:'a4', name:'Trinity Air Link → Stockyards', duration:'18 min', distance:'5.2 mi', price:22, type:'Cruise Origin', co2:'6 kg saved', destX:150, destY:155 },
+  { id:'a5', name:'Trinity Air Link → Panther Island', duration:'12 min', distance:'3.0 mi', price:15, type:'Waymo 5th Gen', co2:'3 kg saved', destX:200, destY:170 },
 ];
 
 const MULTI_ROUTES = [
-  { id:'m1', name:'T&P Vector Hub → DFW (Full Service)', duration:'32 min', distance:'31 mi', price:89, type:'AV + eVTOL + AV', co2:'20 kg saved', destX:430, destY:150 },
-  { id:'m2', name:'T&P Vector Hub → Love Field (Full Service)', duration:'40 min', distance:'38 mi', price:115, type:'AV + eVTOL + AV', co2:'26 kg saved', destX:480, destY:200 },
-  { id:'m3', name:'T&P Vector Hub → Frisco (Full Service)', duration:'48 min', distance:'45 mi', price:130, type:'AV + eVTOL + AV', co2:'30 kg saved', destX:430, destY:80 },
+  { id:'m1', name:'Trinity Air Link → DFW (Full Service)', duration:'32 min', distance:'31 mi', price:89, type:'AV + eVTOL + AV', co2:'20 kg saved', destX:430, destY:150 },
+  { id:'m2', name:'Trinity Air Link → Love Field (Full Service)', duration:'40 min', distance:'38 mi', price:115, type:'AV + eVTOL + AV', co2:'26 kg saved', destX:480, destY:200 },
+  { id:'m3', name:'Trinity Air Link → Frisco (Full Service)', duration:'48 min', distance:'45 mi', price:130, type:'AV + eVTOL + AV', co2:'30 kg saved', destX:430, destY:80 },
 ];
 
 const LIVE_FEED_MSGS = [
@@ -899,12 +901,12 @@ const LIVE_FEED_MSGS = [
   'System: Weather clear, all pads nominal',
   'AV Unit 07 en route Sundance Square ETA 3 min',
   'VEC-118 maintenance complete — returning to service',
-  'New booking: T&P Vector Hub → Arlington, 10:30',
+  'New booking: Trinity Air Link → Arlington, 10:30',
   'VTOL Archer-02 pre-flight check in progress',
   'AV Unit 31 picked up 2 passengers at TCU',
   'VEC-447 charging at Pad 3 — 62%',
   'Airspace coordination: DFW corridor active',
-  'VEC-612 departed Alliance → T&P Vector Hub 11:05',
+  'VEC-612 departed Alliance → Trinity Air Link 11:05',
   'AV Unit 15 completing route Stockyards',
   'System: 6 active vehicles, 2 charging, 1 maintenance',
   'VTOL VEC-312 at cruise altitude 1,500 ft',
@@ -916,11 +918,11 @@ const LIVE_FEED_MSGS = [
 ];
 
 const PAST_TRIPS = [
-  { date:'Mar 11, 2026', route:'T&P Vector Hub → DFW Airport', mode:'eVTOL', duration:'14 min', price:'$65.00', status:'Completed', rating:5, ref:'VEC-20260311-4821' },
-  { date:'Mar 10, 2026', route:'T&P Vector Hub → Sundance Square', mode:'AV Ride', duration:'8 min', price:'$12.00', status:'Completed', rating:5, ref:'VEC-20260310-3194' },
-  { date:'Mar 9, 2026', route:'T&P Vector Hub → Arlington', mode:'eVTOL', duration:'10 min', price:'$45.00', status:'Completed', rating:4, ref:'VEC-20260309-7733' },
-  { date:'Mar 7, 2026', route:'T&P Vector Hub → Frisco (Full Service)', mode:'Multimodal', duration:'48 min', price:'$130.00', status:'Completed', rating:5, ref:'VEC-20260307-2256' },
-  { date:'Mar 5, 2026', route:'T&P Vector Hub → TCU Campus', mode:'AV Ride', duration:'14 min', price:'$16.00', status:'Completed', rating:4, ref:'VEC-20260305-9901' },
+  { date:'Mar 11, 2026', route:'Trinity Air Link → DFW Airport', mode:'eVTOL', duration:'14 min', price:'$65.00', status:'Completed', rating:5, ref:'VEC-20260311-4821' },
+  { date:'Mar 10, 2026', route:'Trinity Air Link → Sundance Square', mode:'AV Ride', duration:'8 min', price:'$12.00', status:'Completed', rating:5, ref:'VEC-20260310-3194' },
+  { date:'Mar 9, 2026', route:'Trinity Air Link → Arlington', mode:'eVTOL', duration:'10 min', price:'$45.00', status:'Completed', rating:4, ref:'VEC-20260309-7733' },
+  { date:'Mar 7, 2026', route:'Trinity Air Link → Frisco (Full Service)', mode:'Multimodal', duration:'48 min', price:'$130.00', status:'Completed', rating:5, ref:'VEC-20260307-2256' },
+  { date:'Mar 5, 2026', route:'Trinity Air Link → TCU Campus', mode:'AV Ride', duration:'14 min', price:'$16.00', status:'Completed', rating:4, ref:'VEC-20260305-9901' },
 ];
 
 // ============================================================
@@ -1123,7 +1125,7 @@ function setPayTab(tab) {
     cardForm.style.display = 'none';
     altForm.style.display = 'block';
     const icons = { apple:'🍎', google:'G', credits:'💎' };
-    const titles = { apple:'Apple Pay', google:'Google Pay', credits:'HUB Credits' };
+    const titles = { apple:'Apple Pay', google:'Google Pay', credits:'TAL Credits' };
     document.getElementById('pay-alt-icon').textContent = icons[tab] || '💳';
     document.getElementById('pay-alt-title').textContent = titles[tab] || '';
   }
@@ -1326,7 +1328,7 @@ function startDemo() {
   state.demoTrip = demoRoute;
   state.tripActive = true;
   startTracking(demoRoute);
-  showToast('Demo flight started — T&P Vector Hub → DFW Airport', 'info');
+  showToast('Demo flight started — Trinity Air Link → DFW Airport', 'info');
 }
 
 function renderTimeline(status) {

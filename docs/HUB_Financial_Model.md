@@ -1,4 +1,4 @@
-# HUB Transportation System - Financial Model
+# Trinity Air Link - Financial Model
 
 ## Executive Summary
 
@@ -410,7 +410,7 @@ Based on moderate scenario projections (2026–2030 timeline):
 
 ## Conclusion
 
-The HUB Transportation System represents a compelling investment opportunity with strong financial returns and significant market potential. The phased approach minimizes risk while the diverse revenue streams provide stability and growth potential.
+The Trinity Air Link represents a compelling investment opportunity with strong financial returns and significant market potential. The phased approach minimizes risk while the diverse revenue streams provide stability and growth potential.
 
 **Key Investment Highlights:**
 - **Market opportunity:** $1T+ urban air mobility market

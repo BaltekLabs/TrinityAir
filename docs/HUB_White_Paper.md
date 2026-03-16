@@ -1,11 +1,11 @@
-# T&P NEXUS HUB TRANSPORTATION SYSTEM
+# TRINITY AIR LINK
 ## White Paper: America's First Integrated eVTOL–Autonomous Vehicle Mobility Hub
 
 **Fort Worth, Texas | March 2026**
 
 ---
 
-> **Policy Context — March 9, 2026:** The U.S. Department of Transportation and FAA announced 8 selections for the White House eVTOL Integration Pilot Program (eIPP). Texas DOT, with Archer Aviation as its industry partner, is one of the 8. Named routes connect Dallas, Austin, San Antonio, and Houston. Archer Midnight air taxi operations begin in Texas **H2 2026**. Fort Worth — Texas's second million-plus city and the DFW corridor's western anchor — is not yet on the route map. The T&P Nexus HUB is the infrastructure project that puts it there.
+> **Policy Context — March 9, 2026:** The U.S. Department of Transportation and FAA announced 8 selections for the White House eVTOL Integration Pilot Program (eIPP). Texas DOT, with Archer Aviation as its industry partner, is one of the 8. Named routes connect Dallas, Austin, San Antonio, and Houston. Archer Midnight air taxi operations begin in Texas **H2 2026**. Fort Worth — Texas's second million-plus city and the DFW corridor's western anchor — is not yet on the route map. The Trinity Air Link is the infrastructure project that puts it there.
 
 ---
 
@@ -14,7 +14,7 @@
 1. Executive Overview
 2. The Problem: DFW's Transportation Crisis
 3. The Inflection Point: eVTOL and AV Arrive Simultaneously
-4. The Solution: T&P Nexus HUB
+4. The Solution: Trinity Air Link
 5. The Asset: Texas & Pacific Warehouse
 6. Technical Architecture
 7. Market Analysis
@@ -31,11 +31,11 @@
 
 ## 1. EXECUTIVE OVERVIEW
 
-The T&P Nexus HUB Transportation System proposes the adaptive reuse of the historic Texas & Pacific Warehouse in downtown Fort Worth, Texas, into the nation's first fully integrated multi-modal mobility hub — combining electric vertical takeoff and landing (eVTOL) aircraft, Level 4 autonomous electric vehicles, a 120,000 square foot technology innovation center, and AI-powered systems management into a single, seamlessly connected infrastructure platform.
+The Trinity Air Link Transportation System proposes the adaptive reuse of the historic Texas & Pacific Warehouse in downtown Fort Worth, Texas, into the nation's first fully integrated multi-modal mobility hub — combining electric vertical takeoff and landing (eVTOL) aircraft, Level 4 autonomous electric vehicles, a 120,000 square foot technology innovation center, and AI-powered systems management into a single, seamlessly connected infrastructure platform.
 
-This is not a speculative concept. The technologies that power the HUB are commercially operational today. Waymo delivers 450,000+ paid autonomous rides per week across five U.S. cities including Austin, Texas. Archer Aviation holds FAA Part 135 Air Carrier, Part 145 Repair Station, and Part 141 Pilot Training certificates and begins Texas air taxi operations under the federal eIPP program in H2 2026. Joby Aviation completed FAA Stage 4 of 5 type certification in November 2025 and targets first U.S. commercial passenger flights in 2026.
+This is not a speculative concept. The technologies that power the Link are commercially operational today. Waymo delivers 450,000+ paid autonomous rides per week across five U.S. cities including Austin, Texas. Archer Aviation holds FAA Part 135 Air Carrier, Part 145 Repair Station, and Part 141 Pilot Training certificates and begins Texas air taxi operations under the federal eIPP program in H2 2026. Joby Aviation completed FAA Stage 4 of 5 type certification in November 2025 and targets first U.S. commercial passenger flights in 2026.
 
-The HUB arrives precisely at the moment these technologies transition from demonstration to deployment. Fort Worth — ranked the 10th worst commute city in America, home to 1,008,106 residents, and growing by approximately 487 people per day — is the right city. The T&P Warehouse, an 8-story, 600-foot-long 1920s railroad landmark sitting vacant in the heart of downtown, is the right building. And the window, triggered by the federal eIPP announcement, is now.
+The Link arrives precisely at the moment these technologies transition from demonstration to deployment. Fort Worth — ranked the 10th worst commute city in America, home to 1,008,106 residents, and growing by approximately 487 people per day — is the right city. The T&P Warehouse, an 8-story, 600-foot-long 1920s railroad landmark sitting vacant in the heart of downtown, is the right building. And the window, triggered by the federal eIPP announcement, is now.
 
 **Investment Summary**
 
@@ -80,7 +80,7 @@ The solution requires a new dimension: altitude.
 
 ## 3. THE INFLECTION POINT: eVTOL AND AV ARRIVE SIMULTANEOUSLY
 
-Two technology categories that were theoretical five years ago are commercially operational today. Their simultaneous maturity creates a narrow window for the HUB's first-mover advantage.
+Two technology categories that were theoretical five years ago are commercially operational today. Their simultaneous maturity creates a narrow window for the Link's first-mover advantage.
 
 ### Electric Vertical Takeoff and Landing (eVTOL) Aircraft
 
@@ -92,7 +92,7 @@ The eVTOL industry has moved decisively from demonstration to deployment.
 
 **The eIPP Program** is the critical regulatory unlock. Established by Presidential Executive Order in September 2025, it authorizes participating operators to carry revenue passengers *before* full FAA type certification is complete — something previously unavailable under research and development programs. This is real commercial service, beginning this year.
 
-**Industry note:** Lilium declared insolvency in November 2024 after burning $1.8 billion. This outcome validates the HUB's platform-agnostic design philosophy — the infrastructure serves multiple operators, insulating the project from single-manufacturer risk.
+**Industry note:** Lilium declared insolvency in November 2024 after burning $1.8 billion. This outcome validates the Link's platform-agnostic design philosophy — the infrastructure serves multiple operators, insulating the project from single-manufacturer risk.
 
 ### Autonomous Ground Vehicles
 
@@ -104,27 +104,27 @@ Waymo's **Austin, Texas** deployment — just 30 miles from the Fort Worth core 
 
 ### The Integration Gap
 
-Both technologies are arriving simultaneously in the DFW market with no integrated infrastructure to connect them. Air mobility without ground connectivity creates passenger experience friction that limits adoption. Ground mobility without air speed fails to solve DFW's geometry problem. The HUB closes that gap — providing the single passenger experience that makes both technologies more useful together than either is alone.
+Both technologies are arriving simultaneously in the DFW market with no integrated infrastructure to connect them. Air mobility without ground connectivity creates passenger experience friction that limits adoption. Ground mobility without air speed fails to solve DFW's geometry problem. The Link closes that gap — providing the single passenger experience that makes both technologies more useful together than either is alone.
 
-No comparable integrated eVTOL-AV hub currently operates in any major U.S. metropolitan area. The HUB would be the first.
+No comparable integrated eVTOL-AV hub currently operates in any major U.S. metropolitan area. The Link would be the first.
 
 ---
 
-## 4. THE SOLUTION: T&P NEXUS HUB
+## 4. THE SOLUTION: Trinity Air Link
 
-The T&P Nexus HUB integrates four functional systems within a single historic building and its immediate environs:
+The Trinity Air Link integrates four functional systems within a single historic building and its immediate environs:
 
 ### 4.1 eVTOL Air Mobility Terminal
 Rooftop vertiport infrastructure supporting multiple simultaneous aircraft — landing pads, charging systems, passenger boarding facilities, operations and air traffic coordination center, and weather monitoring systems. Initial fleet of 10–15 aircraft (Archer Midnight and/or Joby S4) scaling to 25–40 aircraft by Year 5. The rooftop provides line-of-sight visibility across downtown Fort Worth and direct connection to the T&P passenger terminal below.
 
 ### 4.2 Autonomous Vehicle Ground Terminal
-Ground-level EV fleet operations providing first- and last-mile connectivity across the Fort Worth urban core, connecting the HUB to residential neighborhoods, commercial districts, the Texas A&M Fort Worth campus corridor, and the TEXRail commuter rail network. Fleet of 50–100 Level 4 autonomous vehicles at full operations. Smart charging infrastructure integrated with on-site power systems.
+Ground-level EV fleet operations providing first- and last-mile connectivity across the Fort Worth urban core, connecting the Link to residential neighborhoods, commercial districts, the Texas A&M Fort Worth campus corridor, and the TEXRail commuter rail network. Fleet of 50–100 Level 4 autonomous vehicles at full operations. Smart charging infrastructure integrated with on-site power systems.
 
 ### 4.3 Technology Innovation Center
-Floors 2 through 7 — approximately 120,000 square feet of leasable research and development space — providing a revenue-generating innovation ecosystem for transportation technology companies, academic research partners, battery technology developers, robotics labs, and AI research programs. Fort Worth Class A downtown rental rates of $29–$37 per square foot. The HUB serves simultaneously as an operational transportation system and a living laboratory — the world's first vertiport-scale research deployment platform.
+Floors 2 through 7 — approximately 120,000 square feet of leasable research and development space — providing a revenue-generating innovation ecosystem for transportation technology companies, academic research partners, battery technology developers, robotics labs, and AI research programs. Fort Worth Class A downtown rental rates of $29–$37 per square foot. The Link serves simultaneously as an operational transportation system and a living laboratory — the world's first vertiport-scale research deployment platform.
 
 ### 4.4 AI-Powered Systems Integration
-A central command platform manages real-time scheduling across air and ground fleets, predictive maintenance, weather-adaptive routing, demand forecasting, and seamless passenger handoff between VTOL and AV services. A single consumer-facing application books, tracks, and pays for end-to-end journeys. This integration layer is the HUB's most durable competitive asset — proprietary data and operational expertise that deepens over time.
+A central command platform manages real-time scheduling across air and ground fleets, predictive maintenance, weather-adaptive routing, demand forecasting, and seamless passenger handoff between VTOL and AV services. A single consumer-facing application books, tracks, and pays for end-to-end journeys. This integration layer is the Link's most durable competitive asset — proprietary data and operational expertise that deepens over time.
 
 ---
 
@@ -136,9 +136,9 @@ Built in the 1920s to serve the Texas & Pacific Railway at the height of Fort Wo
 
 The building has been vacant since 1998 — a 27-year history of announced redevelopment plans that never materialized, including a terminated $11M+ Tax Increment Finance agreement in 2016. The City of Fort Worth has characterized its condition as "demolition by neglect." A structural assessment conducted in 2023 identified $2.15 million in stabilization work as an immediate requirement.
 
-That assessment is the project's foundation, not its barrier. The structural core of the building is sound. The required stabilization work is defined and budgeted. And the building's vacancy means the HUB acquires it without the displacement or demolition costs that would attach to an occupied site.
+That assessment is the project's foundation, not its barrier. The structural core of the building is sound. The required stabilization work is defined and budgeted. And the building's vacancy means the Link acquires it without the displacement or demolition costs that would attach to an occupied site.
 
-The T&P Warehouse is a historic transportation building that spent a century moving people by rail. The HUB's proposal is, in the deepest sense, a continuation of its original purpose — updated for the next century of mobility.
+The T&P Warehouse is a historic transportation building that spent a century moving people by rail. The Link's proposal is, in the deepest sense, a continuation of its original purpose — updated for the next century of mobility.
 
 ---
 
@@ -185,11 +185,11 @@ The DFW metropolitan area provides an unusually concentrated serviceable market:
 - **600,000 jobs created** in DFW in the five years prior to 2024 (Dallas Federal Reserve)
 - **Major corporate concentration:** American Airlines, AT&T, Southwest Airlines, Charles Schwab, Toyota North America, and dozens of Fortune 500 regional headquarters within the service radius
 
-At even 0.5% modal shift in DFW commute trips — a conservative target given Waymo's demonstrated 450,000 weekly rides in smaller markets — the HUB serves hundreds of thousands of passengers annually.
+At even 0.5% modal shift in DFW commute trips — a conservative target given Waymo's demonstrated 450,000 weekly rides in smaller markets — the Link serves hundreds of thousands of passengers annually.
 
 ### 7.3 Target Customer Segments
 
-**Business travelers and commuters** represent the primary revenue driver in Phase 1 and 2. The HUB's $75–$150 per trip pricing is competitive with current business travel expenses (Uber Black, parking, fuel) and directly targets the high-value-per-mile customer segment that eVTOL economics require to reach profitability.
+**Business travelers and commuters** represent the primary revenue driver in Phase 1 and 2. The Link's $75–$150 per trip pricing is competitive with current business travel expenses (Uber Black, parking, fuel) and directly targets the high-value-per-mile customer segment that eVTOL economics require to reach profitability.
 
 **Airport connectivity** between DFW International Airport, Love Field, and downtown Fort Worth represents a high-frequency, price-inelastic demand segment. Current ground transportation from downtown Fort Worth to DFW Airport requires 30–50 minutes by car. An eVTOL connection would complete the journey in under 12 minutes.
 
@@ -201,7 +201,7 @@ At even 0.5% modal shift in DFW commute trips — a conservative target given Wa
 
 ## 8. GLOBAL PRECEDENTS
 
-The HUB does not ask the question "can this work?" — it asks "what does doing this well look like?" Global case studies provide the answers.
+The Link does not ask the question "can this work?" — it asks "what does doing this well look like?" Global case studies provide the answers.
 
 ### Singapore: Regulatory-First AV Integration
 Singapore established dedicated autonomous vehicle test zones with structured government support, phased regulatory development, and mandatory stakeholder collaboration from inception. The result was the fastest commercial AV deployment timeline of any major city. Lesson: regulatory relationships built early, not acquired reactively, determine deployment speed.
@@ -210,13 +210,13 @@ Singapore established dedicated autonomous vehicle test zones with structured go
 Dubai's Roads and Transport Authority committed to vertiport infrastructure investment before commercial eVTOL certification was complete — securing first-mover advantage in airspace management and passenger experience design. The lesson for Fort Worth: infrastructure investment that precedes operator arrival sets the terms of the partnership.
 
 ### Seoul: AI Traffic Management at Scale
-Seoul's integrated digital twin and AI traffic management platform — connecting thousands of sensors, vehicles, and data streams in real time — demonstrated a 20%+ reduction in urban congestion on managed corridors. The HUB's AI integration layer is modeled on this approach, adapted for a U.S. regulatory and urban context.
+Seoul's integrated digital twin and AI traffic management platform — connecting thousands of sensors, vehicles, and data streams in real time — demonstrated a 20%+ reduction in urban congestion on managed corridors. The Link's AI integration layer is modeled on this approach, adapted for a U.S. regulatory and urban context.
 
 ### London: Historic Station as Mobility Hub
 King's Cross and Paddington stations in London demonstrate that adaptive reuse of historic transportation buildings as modern multi-modal hubs is not only feasible but creates iconic civic anchors. Both conversions preserved and celebrated historic character while adding contemporary transit functions. The T&P Warehouse has equivalent architectural significance and structural potential.
 
 ### Los Angeles Union Station: AV Integration
-LA Metro's Union Station mobility hub — integrating rail, bus, AV testing, and adjacent development — is the closest U.S. analog to the HUB concept. Its public-private partnership structure, phased approach, and multi-modal integration architecture provide a direct template for the Fort Worth implementation.
+LA Metro's Union Station mobility hub — integrating rail, bus, AV testing, and adjacent development — is the closest U.S. analog to the Link concept. Its public-private partnership structure, phased approach, and multi-modal integration architecture provide a direct template for the Fort Worth implementation.
 
 ---
 
@@ -424,14 +424,14 @@ Total insurance budget of $2–4M annually, covering: aviation liability ($100M 
 ## 13. REGULATORY PATHWAY
 
 ### Federal
-**FAA eIPP Participation:** The HUB's first regulatory priority is formal inclusion in the Texas eIPP program — securing vertiport designation for the T&P Warehouse site within the Archer Aviation and Joby Aviation Texas operations network. This requires engagement with TxDOT's Emerging Aviation Technology Section (Director Sergio Roman; AAM Lead Emily Lambert) and direct coordination with the eIPP operator teams.
+**FAA eIPP Participation:** The Link's first regulatory priority is formal inclusion in the Texas eIPP program — securing vertiport designation for the T&P Warehouse site within the Archer Aviation and Joby Aviation Texas operations network. This requires engagement with TxDOT's Emerging Aviation Technology Section (Director Sergio Roman; AAM Lead Emily Lambert) and direct coordination with the eIPP operator teams.
 
 **Vertiport Design Standards:** FAA Advisory Circular 150/5390-3 establishes vertiport design guidance. The rooftop design will comply with all clearance, marking, lighting, and obstruction requirements, and will be submitted for FAA verification prior to construction.
 
-**UTM Integration:** The HUB's air traffic management platform will integrate with FAA's Unmanned Traffic Management (UTM) framework, coordinating with TxDOT's UAS Program Manager (William Graffis) for low-altitude airspace coordination.
+**UTM Integration:** The Link's air traffic management platform will integrate with FAA's Unmanned Traffic Management (UTM) framework, coordinating with TxDOT's UAS Program Manager (William Graffis) for low-altitude airspace coordination.
 
 ### State
-**TxDOT Coordination:** TxDOT Aviation Division's Emerging Aviation Technology Section is the primary state regulatory partner. The HUB will seek TxDOT's support in vertiport designation and state-level eIPP program integration.
+**TxDOT Coordination:** TxDOT Aviation Division's Emerging Aviation Technology Section is the primary state regulatory partner. The Link will seek TxDOT's support in vertiport designation and state-level eIPP program integration.
 
 **TxDOT Ground Operations:** The Texas Department of Transportation also governs curb management and right-of-way access for the AV terminal. Early coordination with TxDOT's Urban Mobility team is required for the Lancaster Avenue curb designation.
 
@@ -445,7 +445,7 @@ Total insurance budget of $2–4M annually, covering: aviation liability ($100M 
 ## 14. STAKEHOLDER VALUE FRAMEWORK
 
 ### Government and Public Sector
-The HUB delivers to Fort Worth and Texas the economic infrastructure of a national transportation innovation cluster:
+The Link delivers to Fort Worth and Texas the economic infrastructure of a national transportation innovation cluster:
 
 - **$500M+ economic multiplier** from hub operations and surrounding development catalysis
 - **2,500+ construction jobs** during build-out; 800+ permanent positions at full operations
@@ -457,7 +457,7 @@ The HUB delivers to Fort Worth and Texas the economic infrastructure of a nation
 ### Investors and Financial Partners
 - **22.3% projected IRR** (moderate scenario) with multiple exit pathways: strategic acquisition, IPO, or infrastructure fund recapitalization
 - **First-mover positioning** in the $23–41B+ urban air mobility market before the competitive landscape consolidates
-- **Scalable and replicable model** — the HUB's technology platform and operational playbook is designed for deployment across 50+ comparable U.S. metropolitan markets
+- **Scalable and replicable model** — the Link's technology platform and operational playbook is designed for deployment across 50+ comparable U.S. metropolitan markets
 - **Diversified revenue streams** reducing dependency on any single service line during the adoption curve
 - **Federal validation** via eIPP dramatically reduces regulatory risk premium
 
@@ -468,7 +468,7 @@ The HUB delivers to Fort Worth and Texas the economic infrastructure of a nation
 - **Market access** to 8.5 million DFW residents and the $710B+ regional economy
 
 ### Community and the Public
-- **40–60% commute time reduction** for HUB users; measurable contribution to Fort Worth's 10th-worst commute ranking
+- **40–60% commute time reduction** for TAL users; measurable contribution to Fort Worth's 10th-worst commute ranking
 - **30% reduction in local traffic emissions** from modal shift to electric air and ground transportation
 - **Historic preservation** of an iconic building that defines downtown Fort Worth's visual identity
 - **800+ permanent jobs** with training and development programs emphasizing local hiring
@@ -478,7 +478,7 @@ The HUB delivers to Fort Worth and Texas the economic infrastructure of a nation
 
 ## 15. CONCLUSION AND CALL TO ACTION
 
-The T&P Nexus HUB is not a project waiting for technology to catch up. The technology has arrived. Archer Aviation holds its air carrier certificate and begins Texas operations this summer. Waymo operates commercially in Austin today. The federal government has declared Texas a national priority for eVTOL integration and selected it as one of only eight sites nationwide.
+The Trinity Air Link is not a project waiting for technology to catch up. The technology has arrived. Archer Aviation holds its air carrier certificate and begins Texas operations this summer. Waymo operates commercially in Austin today. The federal government has declared Texas a national priority for eVTOL integration and selected it as one of only eight sites nationwide.
 
 What is missing is the infrastructure that ties it together in Fort Worth — a physical hub, an integrated operations platform, and the partnership coalition to build and operate it.
 
@@ -492,14 +492,14 @@ The window opened on March 9, 2026. It will not stay open indefinitely.
 
 **For Investors:** Phase 1 financing of $20M is actively raising, targeting close by Q3 2026. The eIPP announcement has materially de-risked the regulatory and technology assumptions underlying the financial model. Investor materials including the complete financial model, risk assessment, and technology partnership term sheets are available upon request.
 
-**For Technology Partners:** We are executing Memoranda of Understanding with eVTOL operators and autonomous vehicle providers in Q2 2026. If your organization is deploying or planning to deploy in Texas, the HUB is the Fort Worth anchor you need.
+**For Technology Partners:** We are executing Memoranda of Understanding with eVTOL operators and autonomous vehicle providers in Q2 2026. If your organization is deploying or planning to deploy in Texas, the Link is the Fort Worth anchor you need.
 
 **For the Community:** The T&P Warehouse belongs to Fort Worth. This project is built to serve Fort Worth first — and to show the world what Fort Worth is capable of building.
 
 ---
 
 *For partnership inquiries, investment discussions, or government coordination:*
-*partnerships@tpnexus.com*
+*partnerships@trinityairlink.com*
 
 ---
 
@@ -507,5 +507,5 @@ The window opened on March 9, 2026. It will not stay open indefinitely.
 
 ---
 
-*T&P Nexus Hub Transportation System | Fort Worth, Texas | March 2026*
+*Trinity Air Link Transportation System | Fort Worth, Texas | March 2026*
 *This white paper is provided for informational purposes. Financial projections are based on moderate scenario assumptions and are subject to change as project parameters are refined.*

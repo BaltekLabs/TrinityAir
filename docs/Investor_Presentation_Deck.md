@@ -1,4 +1,4 @@
-# HUB Transportation System - Investor Presentation Deck
+# Trinity Air Link - Investor Presentation Deck
 
 ## Presentation Overview
 
@@ -12,7 +12,7 @@
 
 ## SLIDE 1: TITLE SLIDE
 
-**Title:** The HUB Transportation System
+**Title:** The Trinity Air Link
 **Subtitle:** America's First Integrated VTOL-Autonomous Vehicle Transportation Hub
 
 **Investment Highlights:**
@@ -50,14 +50,14 @@
 - Joby Aviation reached FAA Stage 4 (first in history, Nov 2025); targeting 2026 commercial flights; also a Texas eIPP participant
 - Waymo delivering 450,000+ paid rides/week at Level 4 including **Austin TX** (30 miles from DFW), valued at $126B
 - Fort Worth congestion crisis: 174M hours of delays/year; $1,618 lost per commuter; ranked 10th worst commute in U.S.
-- **The aircraft are coming to DFW. The HUB provides the ground infrastructure they need.**
+- **The aircraft are coming to DFW. The Link provides the ground infrastructure they need.**
 
 **Unique Positioning:**
 - Only integrated eVTOL-AV hub in development in a major U.S. metro
 - Historic T&P Warehouse provides unique character and community connection
 - Central DFW location serves 8.5M population — the only U.S. metro with TWO million-plus cities
-- **Texas is already an eIPP site.** Archer Midnight ops begin H2 2026. The HUB is the natural vertiport and operations anchor for Fort Worth — the fastest-growing of the two major cities in the corridor
-- Archer's Midnight converts a 60-90 min DFW car trip into a **10-20 minute flight** — the HUB is where those flights land
+- **Texas is already an eIPP site.** Archer Midnight ops begin H2 2026. The Link is the natural vertiport and operations anchor for Fort Worth — the fastest-growing of the two major cities in the corridor
+- Archer's Midnight converts a 60-90 min DFW car trip into a **10-20 minute flight** — the Link is where those flights land
 
 **Visual Elements:**
 - Market size progression timeline (2020-2030)
@@ -523,7 +523,7 @@
 **VTOL Aircraft Partnerships:**
 
 **Archer Aviation (Primary Texas Partner)**
-- **Relationship:** Texas eIPP partner — Archer is operating in DFW **H2 2026**; HUB is the natural Fort Worth anchor
+- **Relationship:** Texas eIPP partner — Archer is operating in DFW **H2 2026**; the Link is the natural Fort Worth anchor
 - **Aircraft:** Midnight eVTOL, 4-passenger + pilot, 150 mph, 60-mile range; Starlink-equipped; Wisk autonomy roadmap
 - **Status:** NYSE public company; Part 135/145/141 certs held; Texas DOT eIPP partner (announced March 9, 2026)
 - **Partnership Benefits:** Immediate operational partnership, vertiport hosting, ground crew, passenger experience
@@ -647,10 +647,10 @@
 
 **Timeline to Operations:**
 - **H2 2026:** Archer Midnight begins revenue operations in Texas under eIPP — **DFW corridor is live**
-- **2026:** HUB Phase 1 — secure Fort Worth vertiport position within Texas eIPP network; FAA eIPP participation
-- **2027:** HUB Phase 2 infrastructure; Joby Type Certification expected; Archer FAA cert approaching
-- **2028:** HUB Phase 3 — fleet deployment, AI systems; full FAA-certified fleet operations begin
-- **2029:** HUB Phase 4 — full commercial launch with certified, integrated operations
+- **2026:** the Link Phase 1 — secure Fort Worth vertiport position within Texas eIPP network; FAA eIPP participation
+- **2027:** the Link Phase 2 infrastructure; Joby Type Certification expected; Archer FAA cert approaching
+- **2028:** the Link Phase 3 — fleet deployment, AI systems; full FAA-certified fleet operations begin
+- **2029:** the Link Phase 4 — full commercial launch with certified, integrated operations
 
 **Visual Elements:**
 - Regulatory approval timeline and milestones
@@ -803,7 +803,7 @@
 **Comparable Company Benchmarks:**
 - **Uber (Peak Growth):** 95% revenue growth, -15% EBITDA margin
 - **Tesla (Growth Phase):** 87% revenue growth, 8% EBITDA margin
-- **HUB Projections:** 174% revenue growth, 34% EBITDA margin
+- **Trinity Air Link Projections:** 174% revenue growth, 34% EBITDA margin
 
 **Sensitivity Analysis:**
 - **10% Ridership Change:** ±$13M revenue impact
@@ -1331,4 +1331,4 @@ This presentation contains confidential and proprietary information. Distributio
 - **Reference Calls:** Facilitate investor calls with partners and advisors
 - **Timeline Management:** Clear milestones and decision timeline communication
 
-This investor presentation deck provides a comprehensive, investment-focused overview designed to secure Series A funding while establishing long-term investor relationships for the HUB Transportation System project.
+This investor presentation deck provides a comprehensive, investment-focused overview designed to secure Series A funding while establishing long-term investor relationships for the Trinity Air Link project.

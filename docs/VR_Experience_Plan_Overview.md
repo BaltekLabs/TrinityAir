@@ -1,8 +1,8 @@
-# HUB Transportation System - VR Experience Plan Overview
+# Trinity Air Link - VR Experience Plan Overview
 
 ## Project Overview
 
-This document outlines the comprehensive plan for developing a Virtual Reality experience for the HUB Transportation System using Oculus 3's mixed reality capabilities. The VR experience will serve as a powerful demonstration tool for stakeholder engagement, allowing users to experience the transformed T&P Warehouse and integrated transportation system in an immersive, interactive environment.
+This document outlines the comprehensive plan for developing a Virtual Reality experience for the Trinity Air Link using Oculus 3's mixed reality capabilities. The VR experience will serve as a powerful demonstration tool for stakeholder engagement, allowing users to experience the transformed T&P Warehouse and integrated transportation system in an immersive, interactive environment.
 
 ## VR Experience Architecture
 
@@ -565,8 +565,8 @@ This document outlines the comprehensive plan for developing a Virtual Reality e
 
 ## Conclusion
 
-This VR experience plan provides a comprehensive roadmap for creating an immersive, engaging, and effective demonstration tool for the HUB Transportation System. By leveraging the Oculus 3's advanced mixed reality capabilities, we can create a powerful stakeholder engagement tool that transforms abstract concepts into tangible, experiential understanding.
+This VR experience plan provides a comprehensive roadmap for creating an immersive, engaging, and effective demonstration tool for the Trinity Air Link. By leveraging the Oculus 3's advanced mixed reality capabilities, we can create a powerful stakeholder engagement tool that transforms abstract concepts into tangible, experiential understanding.
 
 The multi-modal approach ensures accessibility across different stakeholder types while maintaining high production values and technical sophistication. The phased development approach allows for iterative improvement and stakeholder feedback integration throughout the creation process.
 
-Success will be measured not only by technical achievement but by the ability to accelerate stakeholder decision-making, build project support, and effectively communicate the transformative potential of the HUB Transportation System for the DFW metroplex.
+Success will be measured not only by technical achievement but by the ability to accelerate stakeholder decision-making, build project support, and effectively communicate the transformative potential of the Trinity Air Link for the DFW metroplex.

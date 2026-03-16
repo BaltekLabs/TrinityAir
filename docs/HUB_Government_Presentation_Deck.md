@@ -1,10 +1,10 @@
-# HUB Transportation System - Government Presentation Deck
+# Trinity Air Link - Government Presentation Deck
 
 ## Presentation Overview
 
 **Target Audience:** Fort Worth Mayor, City Council, City Manager, Economic Development Team
 **Duration:** 20-25 minutes presentation + 10-15 minutes Q&A
-**Objective:** Secure municipal partnership and support for the HUB Transportation System
+**Objective:** Secure municipal partnership and support for the Trinity Air Link
 **Key Message:** Historic preservation meets transportation innovation for unprecedented economic development
 **Updated:** March 2026 — all data current; eVTOL commercial operations launching now
 
@@ -12,7 +12,7 @@
 
 ## SLIDE 1: TITLE SLIDE
 
-**Title:** The HUB Transportation System
+**Title:** The Trinity Air Link
 **Subtitle:** Transforming Fort Worth's T&P Warehouse into America's First Integrated Transportation Hub
 
 **Visual Elements:**
@@ -48,7 +48,7 @@
 **Title:** "Why Fort Worth? Why Now? Because Texas Was Selected Today."
 
 **Breaking News — March 9, 2026:**
-U.S. Transportation Secretary Sean Duffy announced today that **Texas DOT + Archer Aviation** are one of **8 nationally selected** eIPP sites. Planned routes connect **Dallas, Austin, San Antonio, and Houston**. Archer Midnight air taxi operations begin in Texas **this summer**. Fort Worth — the fastest-growing city in the DFW corridor — has no designated vertiport. The HUB fills that gap.
+U.S. Transportation Secretary Sean Duffy announced today that **Texas DOT + Archer Aviation** are one of **8 nationally selected** eIPP sites. Planned routes connect **Dallas, Austin, San Antonio, and Houston**. Archer Midnight air taxi operations begin in Texas **this summer**. Fort Worth — the fastest-growing city in the DFW corridor — has no designated vertiport. The Link fills that gap.
 
 **Strategic Advantages:**
 - **Texas is in the program NOW.** The federal framework is live. The aircraft are coming. Fort Worth must secure its position on the route map.
@@ -72,7 +72,7 @@ U.S. Transportation Secretary Sean Duffy announced today that **Texas DOT + Arch
 
 ## SLIDE 4: PROJECT OVERVIEW
 
-**Title:** "The HUB: Where Historic Preservation Meets Transportation Innovation"
+**Title:** "The Link: Where Historic Preservation Meets Transportation Innovation"
 
 **Facility Components:**
 - **Rooftop VTOL Operations:** Commercial air taxi services with 25-40 aircraft capacity
@@ -102,7 +102,7 @@ U.S. Transportation Secretary Sean Duffy announced today that **Texas DOT + Arch
 - **Annual Revenue:** $133M by Year 5 (moderate scenario)
 - **Job Creation:** 2,500+ construction jobs, 800+ permanent positions
 - **Payroll Impact:** $45M+ annual salaries and benefits
-- **DFW Congestion Cost:** $1,618 lost per commuter annually; projected $36.4B/year by 2050 if unaddressed — the HUB directly attacks this
+- **DFW Congestion Cost:** $1,618 lost per commuter annually; projected $36.4B/year by 2050 if unaddressed — the Link directly attacks this
 
 **Multiplier Effects:**
 - **Total Economic Impact:** $500M+ over 10 years
@@ -582,7 +582,7 @@ U.S. Transportation Secretary Sean Duffy announced today that **Texas DOT + Arch
 **Comparison to Other Projects:**
 - **Convention Center:** $540M municipal investment, limited ongoing revenue
 - **Sports Stadiums:** $200-500M municipal investment, seasonal benefits
-- **HUB Project:** $0 municipal investment, year-round economic benefits
+- **Trinity Air Link Project:** $0 municipal investment, year-round economic benefits
 - **Economic Development:** Highest ROI of any major Fort Worth development
 
 **Financial Risk Management:**
@@ -781,4 +781,4 @@ U.S. Transportation Secretary Sean Duffy announced today that **Texas DOT + Arch
 
 ---
 
-This government presentation deck provides a comprehensive, municipal-focused overview designed to secure Fort Worth city partnership and support for the HUB Transportation System project. The presentation emphasizes economic development benefits, minimal municipal risk, and significant community advantages while addressing potential concerns and providing clear next steps for partnership development.
+This government presentation deck provides a comprehensive, municipal-focused overview designed to secure Fort Worth city partnership and support for the Trinity Air Link project. The presentation emphasizes economic development benefits, minimal municipal risk, and significant community advantages while addressing potential concerns and providing clear next steps for partnership development.

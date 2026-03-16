@@ -1,11 +1,11 @@
-# HUB Transportation System - Project Status
+# Trinity Air Link - Project Status
 
 ## 🚨 BREAKING — March 9, 2026: Texas Selected for White House eIPP
 
 The U.S. DOT and FAA today announced 8 selections for the eVTOL Integration Pilot Program (eIPP). **Texas DOT is one of the 8 selected**, with **Archer Aviation as the industry partner**. The announcement explicitly names **Dallas** among planned route cities. Archer will begin Midnight air taxi operations in Texas **in H2 2026**.
 
-This is the single most important external validation event for the HUB project. **Immediate actions required:**
-1. Contact Texas DOT eIPP program team — offer HUB as the Fort Worth vertiport/ground ops anchor
+This is the single most important external validation event for the Link project. **Immediate actions required:**
+1. Contact Texas DOT eIPP program team — offer the Link as the Fort Worth vertiport/ground ops anchor
 2. Contact Archer Aviation's Texas operations team — they are standing up infrastructure NOW
 3. Brief Fort Worth Mayor's office using today's announcement as the lead
 4. Begin investor outreach immediately — today's news dramatically de-risks the project
@@ -33,11 +33,11 @@ Multi-modal transportation hub project transforming the historic Texas & Pacific
 This project is uniquely timed to capture the commercial launch of the eVTOL and AV industries:
 
 #### eVTOL Industry — Commercial Operations Starting in Texas THIS YEAR
-- **🚨 BREAKING (March 9, 2026):** DOT Secretary Duffy announced 8 eIPP project selections. **Texas DOT + Archer Aviation** is one of them. Routes include **Dallas, Austin, San Antonio, and Houston**. Archer begins Midnight ops in Texas **H2 2026**. The HUB must act immediately to be the Fort Worth anchor for this network.
+- **🚨 BREAKING (March 9, 2026):** DOT Secretary Duffy announced 8 eIPP project selections. **Texas DOT + Archer Aviation** is one of them. Routes include **Dallas, Austin, San Antonio, and Houston**. Archer begins Midnight ops in Texas **H2 2026**. The Link must act immediately to be the Fort Worth anchor for this network.
 - **Joby Aviation** reached FAA Stage 4 of 5 certification (November 2025); FAA pilot flight testing underway in 2026; Joby targeting first commercial U.S. passenger flights in 2026. Also a Texas eIPP participant (working with Texas, Florida, Ohio, NY, CA).
 - **Archer Aviation — Midnight aircraft specs:** 4 passengers + pilot, 150 mph cruise, 60-mile range. Converts 60-90 minute DFW car trips into 10-20 minute flights. Has Part 135 Air Carrier, Part 145 Repair, and Part 141 Pilot Training certificates. Plans Starlink integration; Boeing/Wisk Aero as future autonomous flight partner.
 - **The eIPP** allows participating operators to fly passengers **for revenue** — something not previously possible under test programs. This is real commercial service, starting this year.
-- **Note:** Lilium declared insolvency November 2024 — reinforces HUB's platform-agnostic approach.
+- **Note:** Lilium declared insolvency November 2024 — reinforces TAL's platform-agnostic approach.
 
 #### Autonomous Vehicles — Level 4 Commercially Proven
 - **Waymo** operating 450,000+ paid rides/week commercially in Phoenix, SF, LA, Austin (TX), and Atlanta. Raised $16B at $126B valuation (February 2026).

@@ -3,54 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Property Report: T&P Warehouse</title>
+    <title>Trinity Air Link — Property Report: T&P Warehouse</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: The application is designed as a single-page, scrolling dashboard to tell a compelling investment story. It starts with a high-level overview (The Asset), moves to the core conflict (The Challenge vs. The Opportunity), provides historical context through an interactive timeline, dives into key data with charts and filterable lists (Financials & Incentives), and ends with a "Data Room" (Resource Hub). This structure allows a potential developer to quickly grasp the high-risk/high-reward nature of the property and then drill down into specific areas of due diligence, guided by a sticky navigation bar for easy access. The flow is logical for an investment evaluation: What is it? What are the problems? What are the upsides? What's the history? What are the numbers? Where can I find more info? -->
-    <!-- Visualization & Content Choices: 
-        - Property History (Report Narrative -> Timeline): An interactive HTML/CSS timeline is used to visualize the property's long history. Clicking an event reveals details, making the dense history more digestible than a long text block.
-        - Value Disparity (Report Text -> Bar Chart): A Chart.js bar chart starkly compares the $6.4M purchase price to the $1.2M current appraisal. This financial story is more impactful visually than textually.
-        - Development Challenges (Report Lists -> Tabs): The numerous challenges (vacancy, parking, code violations) are organized into a tabbed component. This prevents user overload and makes the negative information structured and accessible.
-        - Financial Incentives (Report List -> Interactive Cards): Available incentives are presented as a grid of interactive cards. Clicking a card reveals details. This is more engaging and user-driven than a static bulleted list.
-        - Key Data Points (Report Numbers -> Stat Cards): Key metrics like building size, age, and area investment figures are displayed in high-contrast "stat cards" for immediate impact and easy scanning.
-    -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        :root {
+            --bg: #000000;
+            --surface: #0a0a0f;
+            --surface-2: #111118;
+            --accent: #00D4FF;
+            --accent-dim: rgba(0, 212, 255, 0.12);
+            --text-primary: #FFFFFF;
+            --text-secondary: #8892A0;
+            --border: rgba(0, 212, 255, 0.15);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --green: #22c55e;
+            --red: #ef4444;
+        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-primary); }
+        h1, h2, h3 { font-family: 'Inter', sans-serif; }
+        .orbitron { font-family: 'Orbitron', monospace; }
         .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
         @media (max-width: 640px) { .chart-container { height: 300px; max-height: 350px; } }
-        .tab-active { border-color: #ca8a04; color: #ca8a04; }
-        .tab-inactive { border-color: transparent; color: #4b5563; }
-        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; background-color: #f3f4f6; border: 4px solid #ca8a04; border-radius: 9999px; z-index: 10; }
-        .timeline-item:hover::before { background-color: #ca8a04; }
-        .nav-active { color: #ca8a04; }
+        .tab-active { border-color: var(--accent) !important; color: var(--accent) !important; }
+        .tab-inactive { border-color: transparent !important; color: var(--text-secondary) !important; }
+        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; background-color: var(--surface); border: 2px solid var(--accent); border-radius: 9999px; z-index: 10; transition: background-color 0.2s; }
+        .timeline-item:hover::before { background-color: var(--accent); }
+        .nav-active { color: var(--accent) !important; }
+        .stat-accent { color: var(--accent); }
     </style>
 </head>
-<body class="bg-stone-50 text-slate-800">
+<body style="background:#000000; color:#FFFFFF;">
 
-    <header id="nav-header" class="bg-stone-50/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <header id="nav-header" style="background:rgba(0,0,0,0.96); backdrop-filter:blur(16px); border-bottom:1px solid rgba(0,212,255,0.15);" class="sticky top-0 z-50">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <span class="font-bold text-lg text-slate-900">T&P Warehouse</span>
+                <div class="flex items-center gap-3">
+                    <span class="orbitron font-bold text-sm tracking-widest" style="color:#00D4FF; text-shadow:0 0 20px rgba(0,212,255,0.3);">TRINITY AIR LINK</span>
+                    <span style="color:rgba(255,255,255,0.2);">|</span>
+                    <span class="text-sm font-medium" style="color:#8892A0;">Property Report</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Overview</a>
-                        <a href="#challenge" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">The Challenge</a>
-                        <a href="#opportunity" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">The Opportunity</a>
-                        <a href="#timeline" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Timeline</a>
-                        <a href="#financials" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Financials</a>
-                        <a href="#resources" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Resources</a>
+                        <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">Overview</a>
+                        <a href="#challenge" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">The Challenge</a>
+                        <a href="#opportunity" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">The Opportunity</a>
+                        <a href="#timeline" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">Timeline</a>
+                        <a href="#financials" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">Financials</a>
+                        <a href="#resources" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">Resources</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-white hover:bg-slate-700 focus:outline-none">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none" style="color:#8892A0;">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -58,55 +67,56 @@
                 </div>
             </div>
         </nav>
-        <div id="mobile-menu" class="md:hidden hidden">
+        <div id="mobile-menu" class="md:hidden hidden" style="border-top:1px solid rgba(0,212,255,0.1);">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#overview" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Overview</a>
-                <a href="#challenge" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">The Challenge</a>
-                <a href="#opportunity" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">The Opportunity</a>
-                <a href="#timeline" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Timeline</a>
-                <a href="#financials" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Financials</a>
-                <a href="#resources" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Resources</a>
+                <a href="#overview" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">Overview</a>
+                <a href="#challenge" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">The Challenge</a>
+                <a href="#opportunity" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">The Opportunity</a>
+                <a href="#timeline" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">Timeline</a>
+                <a href="#financials" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">Financials</a>
+                <a href="#resources" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">Resources</a>
             </div>
         </div>
     </header>
 
     <main>
-        <section id="overview" class="py-16 sm:py-24 bg-white">
+        <section id="overview" class="py-16 sm:py-24" style="background:#0a0a0f; border-bottom:1px solid rgba(0,212,255,0.1);">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p class="text-base font-semibold text-amber-600 tracking-wide uppercase">300 W Lancaster Ave, Fort Worth, TX</p>
-                <h1 class="mt-2 text-4xl font-bold text-slate-900 sm:text-5xl lg:text-6xl">A Landmark Opportunity</h1>
-                <p class="mt-4 max-w-3xl mx-auto text-xl text-slate-600">An iconic, 580,000 sq ft Art Deco warehouse representing one of Fort Worth's most significant redevelopment challenges and its greatest potential catalyst for urban revitalization.</p>
-                
-                <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-5xl font-bold text-amber-600">580k</p>
-                        <p class="mt-2 text-lg font-medium text-slate-700">Square Feet</p>
+                <p class="text-sm font-semibold tracking-widest uppercase" style="color:#00D4FF; letter-spacing:3px;">300 W Lancaster Ave, Fort Worth, TX</p>
+                <h1 class="mt-4 text-4xl font-bold sm:text-5xl lg:text-6xl" style="color:#FFFFFF;">T&amp;P Warehouse</h1>
+                <p class="mt-2 text-lg font-light tracking-wide" style="color:#8892A0;">A Landmark Opportunity</p>
+                <p class="mt-6 max-w-3xl mx-auto text-lg" style="color:#8892A0; line-height:1.8;">An iconic, 580,000 sq ft Art Deco warehouse representing one of Fort Worth's most significant redevelopment challenges and its greatest potential catalyst for urban revitalization.</p>
+
+                <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <p class="text-5xl font-bold" style="color:#00D4FF; font-family:'Orbitron',monospace;">580k</p>
+                        <p class="mt-3 text-sm font-medium tracking-wide uppercase" style="color:#8892A0; letter-spacing:1.5px;">Square Feet</p>
                     </div>
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-5xl font-bold text-amber-600">1931</p>
-                        <p class="mt-2 text-lg font-medium text-slate-700">Year Built</p>
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <p class="text-5xl font-bold" style="color:#00D4FF; font-family:'Orbitron',monospace;">1931</p>
+                        <p class="mt-3 text-sm font-medium tracking-wide uppercase" style="color:#8892A0; letter-spacing:1.5px;">Year Built</p>
                     </div>
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-5xl font-bold text-amber-600">$1.2M</p>
-                        <p class="mt-2 text-lg font-medium text-slate-700">Current Appraisal</p>
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <p class="text-5xl font-bold" style="color:#00D4FF; font-family:'Orbitron',monospace;">$1.2M</p>
+                        <p class="mt-3 text-sm font-medium tracking-wide uppercase" style="color:#8892A0; letter-spacing:1.5px;">Current Appraisal</p>
                     </div>
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-5xl font-bold text-amber-600">25+</p>
-                        <p class="mt-2 text-lg font-medium text-slate-700">Years Vacant</p>
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <p class="text-5xl font-bold" style="color:#00D4FF; font-family:'Orbitron',monospace;">25+</p>
+                        <p class="mt-3 text-sm font-medium tracking-wide uppercase" style="color:#8892A0; letter-spacing:1.5px;">Years Vacant</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="challenge" class="py-16 sm:py-24">
+        <section id="challenge" class="py-16 sm:py-24" style="background:#000000;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">The Challenge: Risks & Realities</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">The property's potential is tempered by significant, long-standing issues. Understanding these risks is the first step in evaluating the development opportunity.</p>
+                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:#FFFFFF;">The Challenge: Risks &amp; Realities</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:#8892A0;">The property's potential is tempered by significant, long-standing issues. Understanding these risks is the first step in evaluating the development opportunity.</p>
                 </div>
 
                 <div class="mt-12 max-w-4xl mx-auto">
-                    <div class="mb-4 border-b border-gray-200">
+                    <div class="mb-4" style="border-bottom:1px solid rgba(0,212,255,0.15);">
                         <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="challenge-tabs">
                             <li class="mr-2"><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-active" data-tab="vacancy">Stalled Projects</button></li>
                             <li class="mr-2"><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-inactive" data-tab="parking">Infrastructure Gaps</button></li>
@@ -114,69 +124,69 @@
                         </ul>
                     </div>
                     <div id="challenge-content">
-                        <div id="vacancy-content" class="p-4 bg-white rounded-lg shadow">
-                            <h3 class="text-xl font-semibold text-slate-800">Decades of Inaction</h3>
-                            <p class="mt-2 text-slate-600">The T&P Warehouse has remained vacant since its acquisition in 1998. The property has a documented history of "years of announcements, false starts, multiple extended deadlines," and terminated city incentives. The current owner attributes delays to outside influences, but the city terminated an $11M+ TIF agreement in 2016 due to an "inability to provide a funding plan."</p>
+                        <div id="vacancy-content" class="p-6 rounded-lg" style="background:#0a0a0f; border:1px solid rgba(0,212,255,0.15);">
+                            <h3 class="text-xl font-semibold" style="color:#FFFFFF;">Decades of Inaction</h3>
+                            <p class="mt-3" style="color:#8892A0; line-height:1.8;">The T&amp;P Warehouse has remained vacant since its acquisition in 1998. The property has a documented history of "years of announcements, false starts, multiple extended deadlines," and terminated city incentives. The current owner attributes delays to outside influences, but the city terminated an $11M+ TIF agreement in 2016 due to an "inability to provide a funding plan."</p>
                         </div>
-                        <div id="parking-content" class="hidden p-4 bg-white rounded-lg shadow">
-                            <h3 class="text-xl font-semibold text-slate-800">Critical Parking Deficit</h3>
-                            <p class="mt-2 text-slate-600">A primary development hurdle is the complete lack of adjacent parking. Any redevelopment plan must include the costly construction of new parking structures to serve all potential users, especially for retail or hotel components. This has been a consistent barrier for previous development attempts and represents a major capital expenditure for any new project.</p>
+                        <div id="parking-content" class="hidden p-6 rounded-lg" style="background:#0a0a0f; border:1px solid rgba(0,212,255,0.15);">
+                            <h3 class="text-xl font-semibold" style="color:#FFFFFF;">Critical Parking Deficit</h3>
+                            <p class="mt-3" style="color:#8892A0; line-height:1.8;">A primary development hurdle is the complete lack of adjacent parking. Any redevelopment plan must include the costly construction of new parking structures to serve all potential users, especially for retail or hotel components. This has been a consistent barrier for previous development attempts and represents a major capital expenditure for any new project.</p>
                         </div>
-                        <div id="compliance-content" class="hidden p-4 bg-white rounded-lg shadow">
-                            <h3 class="text-xl font-semibold text-slate-800">Severe Compliance & Condition Issues</h3>
-                            <p class="mt-2 text-slate-600">The building suffers from "years of code compliance violations" and has been described by city officials as a case of "demolition by neglect." Issues include standing water in the basement for over a decade, creating a public health hazard. The city has performed mandatory temporary work and conducted a structural inspection in 2023, signaling the urgent need for stabilization and remediation.</p>
+                        <div id="compliance-content" class="hidden p-6 rounded-lg" style="background:#0a0a0f; border:1px solid rgba(0,212,255,0.15);">
+                            <h3 class="text-xl font-semibold" style="color:#FFFFFF;">Severe Compliance &amp; Condition Issues</h3>
+                            <p class="mt-3" style="color:#8892A0; line-height:1.8;">The building suffers from "years of code compliance violations" and has been described by city officials as a case of "demolition by neglect." Issues include standing water in the basement for over a decade, creating a public health hazard. The city has performed mandatory temporary work and conducted a structural inspection in 2023, signaling the urgent need for stabilization and remediation.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="opportunity" class="py-16 sm:py-24 bg-white">
+        <section id="opportunity" class="py-16 sm:py-24" style="background:#0a0a0f; border-top:1px solid rgba(0,212,255,0.1); border-bottom:1px solid rgba(0,212,255,0.1);">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">The Opportunity: A Favorable Environment</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">Despite the internal challenges, the external market and public sector support create a uniquely favorable context for redevelopment.</p>
+                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:#FFFFFF;">The Opportunity: A Favorable Environment</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:#8892A0;">Despite the internal challenges, the external market and public sector support create a uniquely favorable context for redevelopment.</p>
                 </div>
-                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="p-6 bg-stone-50 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-slate-800">Surrounding Development Boom</h3>
-                        <p class="mt-2 text-slate-600">The property sits in a district with a <span class="font-bold text-amber-600">$1 billion development pipeline</span>, including major Texas A&M expansion, a convention center overhaul, and a new Omni hotel tower. The T&P Warehouse is the last major "roadblock" in a rapidly appreciating area.</p>
+                <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <h3 class="text-lg font-semibold" style="color:#FFFFFF;">Surrounding Development Boom</h3>
+                        <p class="mt-3" style="color:#8892A0; line-height:1.8;">The property sits in a district with a <span class="font-bold" style="color:#00D4FF;">$1 billion development pipeline</span>, including major Texas A&amp;M expansion, a convention center overhaul, and a new Omni hotel tower. The T&amp;P Warehouse is the last major "roadblock" in a rapidly appreciating area.</p>
                     </div>
-                    <div class="p-6 bg-stone-50 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-slate-800">Massive Public Investment</h3>
-                        <p class="mt-2 text-slate-600">The city and NCTCOG are investing <span class="font-bold text-amber-600">$182 million</span> to completely rebuild East Lancaster Avenue with modern infrastructure, improved transit, and pedestrian features. This public commitment de-risks private investment and enhances long-term value.</p>
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <h3 class="text-lg font-semibold" style="color:#FFFFFF;">Massive Public Investment</h3>
+                        <p class="mt-3" style="color:#8892A0; line-height:1.8;">The city and NCTCOG are investing <span class="font-bold" style="color:#00D4FF;">$182 million</span> to completely rebuild East Lancaster Avenue with modern infrastructure, improved transit, and pedestrian features. This public commitment de-risks private investment and enhances long-term value.</p>
                     </div>
-                    <div class="p-6 bg-stone-50 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-semibold text-slate-800">Targeted Financial Incentives</h3>
-                        <p class="mt-2 text-slate-600">As part of PID 20, the project is eligible for a suite of powerful incentives, including tax abatements (NEZ), façade grants, and catalytic development grants (Chapter 380), specifically including one for surface parking lot redevelopment. The city is highly motivated to partner with a capable developer.</p>
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <h3 class="text-lg font-semibold" style="color:#FFFFFF;">Targeted Financial Incentives</h3>
+                        <p class="mt-3" style="color:#8892A0; line-height:1.8;">As part of PID 20, the project is eligible for a suite of powerful incentives, including tax abatements (NEZ), façade grants, and catalytic development grants (Chapter 380), specifically including one for surface parking lot redevelopment. The city is highly motivated to partner with a capable developer.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="timeline" class="py-16 sm:py-24">
+        <section id="timeline" class="py-16 sm:py-24" style="background:#000000;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">A Storied History</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">From an icon of industry to a symbol of neglect, the warehouse's timeline reveals a complex past. Click on any event to learn more.</p>
+                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:#FFFFFF;">A Storied History</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:#8892A0;">From an icon of industry to a symbol of neglect, the warehouse's timeline reveals a complex past. Click on any event to learn more.</p>
                 </div>
                 <div class="mt-12 max-w-2xl mx-auto">
-                    <div class="relative border-l-2 border-slate-200">
+                    <div class="relative" style="border-left:1px solid rgba(0,212,255,0.2); padding-left:1px;">
                         <div id="timeline-container"></div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <div id="timeline-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-            <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-2xl shadow-lg rounded-md bg-white">
+
+        <div id="timeline-modal" class="hidden fixed inset-0 overflow-y-auto h-full w-full z-50" style="background:rgba(0,0,0,0.8); backdrop-filter:blur(8px);">
+            <div class="relative top-20 mx-auto p-6 w-11/12 max-w-2xl rounded-lg" style="background:#0a0a0f; border:1px solid rgba(0,212,255,0.2);">
                 <div class="mt-3 text-center">
-                    <h3 id="modal-title" class="text-2xl leading-6 font-bold text-slate-900"></h3>
+                    <h3 id="modal-title" class="text-2xl leading-6 font-bold" style="color:#FFFFFF;"></h3>
                     <div class="mt-4 px-7 py-3">
-                        <p id="modal-description" class="text-md text-slate-600"></p>
+                        <p id="modal-description" class="text-md" style="color:#8892A0; line-height:1.8;"></p>
                     </div>
                     <div class="items-center px-4 py-3">
-                        <button id="close-modal-button" class="px-4 py-2 bg-amber-600 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <button id="close-modal-button" class="px-6 py-2 text-sm font-semibold rounded-md w-full focus:outline-none" style="background:#00D4FF; color:#000000; letter-spacing:0.05em;">
                             Close
                         </button>
                     </div>
@@ -184,70 +194,71 @@
             </div>
         </div>
 
-        <section id="financials" class="py-16 sm:py-24 bg-white">
+        <section id="financials" class="py-16 sm:py-24" style="background:#0a0a0f; border-top:1px solid rgba(0,212,255,0.1); border-bottom:1px solid rgba(0,212,255,0.1);">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">The Financial Picture</h2>
-                        <p class="mt-4 text-lg text-slate-600">The property's financial history highlights the opportunity cost of its vacancy. The current low appraisal reflects its distressed state, not its potential market value upon redevelopment.</p>
+                        <h2 class="text-3xl font-bold sm:text-4xl" style="color:#FFFFFF;">The Financial Picture</h2>
+                        <p class="mt-4 text-lg" style="color:#8892A0; line-height:1.8;">The property's financial history highlights the opportunity cost of its vacancy. The current low appraisal reflects its distressed state, not its potential market value upon redevelopment.</p>
                         <div class="mt-8 chart-container">
                             <canvas id="valueChart"></canvas>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-slate-900">Available Redevelopment Incentives</h3>
-                        <p class="mt-2 text-lg text-slate-600">The city and PID 20 offer numerous programs to support a viable project. Click each card for details.</p>
-                        <div id="incentives-container" class="mt-6 space-y-4"></div>
+                        <h3 class="text-2xl font-bold" style="color:#FFFFFF;">Available Redevelopment Incentives</h3>
+                        <p class="mt-2 text-lg" style="color:#8892A0;">The city and PID 20 offer numerous programs to support a viable project. Click each card for details.</p>
+                        <div id="incentives-container" class="mt-6 space-y-3"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="resources" class="py-16 sm:py-24">
+        <section id="resources" class="py-16 sm:py-24" style="background:#000000;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">Developer Resource Hub</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">Direct links to primary source data for your due diligence process.</p>
+                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:#FFFFFF;">Developer Resource Hub</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:#8892A0;">Direct links to primary source data for your due diligence process.</p>
                 </div>
-                <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                        <h3 class="font-semibold text-lg">Zoning & Planning</h3>
-                        <p class="mt-2 text-sm text-slate-600">Access the official City of Fort Worth interactive zoning map and planning ordinances.</p>
-                        <a href="https://gisapps.fortworthtexas.gov/Html5Viewer/?viewer=Zoning" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">View Zoning Map &rarr;</a>
+                <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="p-6 rounded-lg transition-all" style="background:#0a0a0f; border:1px solid rgba(255,255,255,0.06);" onmouseover="this.style.borderColor='rgba(0,212,255,0.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+                        <h3 class="font-semibold text-lg" style="color:#FFFFFF;">Zoning &amp; Planning</h3>
+                        <p class="mt-2 text-sm" style="color:#8892A0; line-height:1.7;">Access the official City of Fort Worth interactive zoning map and planning ordinances.</p>
+                        <a href="https://gisapps.fortworthtexas.gov/Html5Viewer/?viewer=Zoning" target="_blank" class="mt-4 inline-block text-sm font-semibold" style="color:#00D4FF;">View Zoning Map →</a>
                     </div>
-                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                        <h3 class="font-semibold text-lg">County Appraisal (TCAD)</h3>
-                        <p class="mt-2 text-sm text-slate-600">Search the Tarrant Appraisal District database for property details and tax history.</p>
-                        <a href="https://www.tad.org/search-results" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">Search TCAD &rarr;</a>
+                    <div class="p-6 rounded-lg transition-all" style="background:#0a0a0f; border:1px solid rgba(255,255,255,0.06);" onmouseover="this.style.borderColor='rgba(0,212,255,0.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+                        <h3 class="font-semibold text-lg" style="color:#FFFFFF;">County Appraisal (TCAD)</h3>
+                        <p class="mt-2 text-sm" style="color:#8892A0; line-height:1.7;">Search the Tarrant Appraisal District database for property details and tax history.</p>
+                        <a href="https://www.tad.org/search-results" target="_blank" class="mt-4 inline-block text-sm font-semibold" style="color:#00D4FF;">Search TCAD →</a>
                     </div>
-                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                        <h3 class="font-semibold text-lg">County Clerk Records</h3>
-                        <p class="mt-2 text-sm text-slate-600">Find deeds, plats, and other official real estate records from the Tarrant County Clerk.</p>
-                        <a href="https://countyfusion.tarrantcounty.com/" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">Access Records &rarr;</a>
+                    <div class="p-6 rounded-lg transition-all" style="background:#0a0a0f; border:1px solid rgba(255,255,255,0.06);" onmouseover="this.style.borderColor='rgba(0,212,255,0.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+                        <h3 class="font-semibold text-lg" style="color:#FFFFFF;">County Clerk Records</h3>
+                        <p class="mt-2 text-sm" style="color:#8892A0; line-height:1.7;">Find deeds, plats, and other official real estate records from the Tarrant County Clerk.</p>
+                        <a href="https://countyfusion.tarrantcounty.com/" target="_blank" class="mt-4 inline-block text-sm font-semibold" style="color:#00D4FF;">Access Records →</a>
                     </div>
-                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                        <h3 class="font-semibold text-lg">Permits & Inspections</h3>
-                        <p class="mt-2 text-sm text-slate-600">Use the city's Accela portal to search for historical permits and code compliance cases.</p>
-                        <a href="https://accela.fortworthtexas.gov/citizenaccess/" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">Search Permits &rarr;</a>
+                    <div class="p-6 rounded-lg transition-all" style="background:#0a0a0f; border:1px solid rgba(255,255,255,0.06);" onmouseover="this.style.borderColor='rgba(0,212,255,0.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+                        <h3 class="font-semibold text-lg" style="color:#FFFFFF;">Permits &amp; Inspections</h3>
+                        <p class="mt-2 text-sm" style="color:#8892A0; line-height:1.7;">Use the city's Accela portal to search for historical permits and code compliance cases.</p>
+                        <a href="https://accela.fortworthtexas.gov/citizenaccess/" target="_blank" class="mt-4 inline-block text-sm font-semibold" style="color:#00D4FF;">Search Permits →</a>
                     </div>
-                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                        <h3 class="font-semibold text-lg">PID 20 Documents</h3>
-                        <p class="mt-2 text-sm text-slate-600">Review budgets, service plans, and official documents for the East Lancaster PID.</p>
-                        <a href="https://www.pid20.org/documents" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">View PID Docs &rarr;</a>
+                    <div class="p-6 rounded-lg transition-all" style="background:#0a0a0f; border:1px solid rgba(255,255,255,0.06);" onmouseover="this.style.borderColor='rgba(0,212,255,0.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+                        <h3 class="font-semibold text-lg" style="color:#FFFFFF;">PID 20 Documents</h3>
+                        <p class="mt-2 text-sm" style="color:#8892A0; line-height:1.7;">Review budgets, service plans, and official documents for the East Lancaster PID.</p>
+                        <a href="https://www.pid20.org/documents" target="_blank" class="mt-4 inline-block text-sm font-semibold" style="color:#00D4FF;">View PID Docs →</a>
                     </div>
-                    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                        <h3 class="font-semibold text-lg">State Environmental (TCEQ)</h3>
-                        <p class="mt-2 text-sm text-slate-600">Search the Texas Commission on Environmental Quality database for site records.</p>
-                        <a href="https://www.tceq.texas.gov/agency/data" target="_blank" class="mt-4 inline-block text-amber-600 font-semibold hover:text-amber-700">Search TCEQ Data &rarr;</a>
+                    <div class="p-6 rounded-lg transition-all" style="background:#0a0a0f; border:1px solid rgba(255,255,255,0.06);" onmouseover="this.style.borderColor='rgba(0,212,255,0.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+                        <h3 class="font-semibold text-lg" style="color:#FFFFFF;">State Environmental (TCEQ)</h3>
+                        <p class="mt-2 text-sm" style="color:#8892A0; line-height:1.7;">Search the Texas Commission on Environmental Quality database for site records.</p>
+                        <a href="https://www.tceq.texas.gov/agency/data" target="_blank" class="mt-4 inline-block text-sm font-semibold" style="color:#00D4FF;">Search TCEQ Data →</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-white">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-slate-500">&copy; 2024 Interactive Property Report. For informational purposes only.</p>
+    <footer style="background:#0a0a0f; border-top:1px solid rgba(0,212,255,0.1);">
+        <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 text-center">
+            <p class="orbitron text-xs tracking-widest" style="color:#00D4FF; letter-spacing:3px; margin-bottom:8px;">TRINITY AIR LINK</p>
+            <p class="text-sm" style="color:#8892A0;">&copy; 2026 Trinity Air Link — Property Report. For informational purposes only.</p>
         </div>
     </footer>
 
@@ -277,7 +288,10 @@ document.addEventListener('DOMContentLoaded', function() {
     timelineData.forEach(item => {
         const div = document.createElement('div');
         div.className = 'timeline-item relative pl-8 pr-4 py-6 cursor-pointer';
-        div.innerHTML = `<h3 class="text-lg font-semibold">${item.year} - ${item.title}</h3>`;
+        div.style.cssText = 'border-radius:4px; transition:background 0.2s;';
+        div.innerHTML = `<h3 class="text-lg font-semibold" style="color:#FFFFFF;">${item.year} <span style="color:#8892A0; font-weight:400;">—</span> ${item.title}</h3>`;
+        div.addEventListener('mouseover', () => { div.style.background = 'rgba(0,212,255,0.04)'; });
+        div.addEventListener('mouseout', () => { div.style.background = ''; });
         div.addEventListener('click', () => openModal(item.title, item.description));
         timelineContainer.appendChild(div);
     });
@@ -285,14 +299,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const incentivesContainer = document.getElementById('incentives-container');
     incentivesData.forEach(item => {
         const div = document.createElement('div');
-        div.className = 'bg-stone-50 rounded-lg shadow-sm cursor-pointer';
+        div.style.cssText = 'background:#111118; border:1px solid rgba(0,212,255,0.15); border-radius:6px; cursor:pointer;';
         div.innerHTML = `
             <div class="incentive-header p-4 flex justify-between items-center">
-                <h4 class="font-semibold text-slate-800">${item.title}</h4>
-                <span class="transform transition-transform text-amber-600">&#9662;</span>
+                <h4 class="font-semibold text-sm" style="color:#FFFFFF;">${item.title}</h4>
+                <span class="transform transition-transform" style="color:#00D4FF;">&#9662;</span>
             </div>
-            <div class="incentive-body hidden p-4 border-t border-stone-200">
-                <p class="text-slate-600">${item.description}</p>
+            <div class="incentive-body hidden p-4" style="border-top:1px solid rgba(0,212,255,0.1);">
+                <p class="text-sm" style="color:#8892A0; line-height:1.7;">${item.description}</p>
             </div>
         `;
         incentivesContainer.appendChild(div);
@@ -332,16 +346,31 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Value in Millions ($)',
                 data: [6.4, 1.2],
-                backgroundColor: ['rgba(55, 65, 81, 0.8)', 'rgba(202, 138, 4, 0.8)'],
-                borderColor: ['#374151', '#ca8a04'],
+                backgroundColor: ['rgba(0, 212, 255, 0.25)', 'rgba(0, 212, 255, 0.08)'],
+                borderColor: ['rgba(0, 212, 255, 0.8)', 'rgba(0, 212, 255, 0.35)'],
                 borderWidth: 1
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            scales: { y: { beginAtZero: true, ticks: { callback: function(value) { return '$' + value + 'M'; } } } },
-            plugins: { legend: { display: false }, title: { display: true, text: 'Value Comparison: Acquisition vs. Current', font: { size: 16 } } }
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { callback: function(value) { return '$' + value + 'M'; }, color: '#8892A0' },
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    border: { color: 'rgba(0,212,255,0.15)' }
+                },
+                x: {
+                    ticks: { color: '#8892A0' },
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    border: { color: 'rgba(0,212,255,0.15)' }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                title: { display: true, text: 'Value Comparison: Acquisition vs. Current', font: { size: 14 }, color: '#FFFFFF', padding: { bottom: 16 } }
+            }
         }
     });
 
