@@ -37,7 +37,7 @@ Today's Technological Convergence We stand at a similar inflection point in tran
 •	Artificial intelligence and robotics transforming logistics
 •	Virtual and augmented reality changing how we experience travel
 •	Advanced computing enabling real-time transportation management
-The T&P Vision Just as this building once served as a crucial hub for rail freight, connecting Fort Worth to the nation's rail network, we envision it becoming the nexus of future transportation technologies. The building's original design - with its robust structure, strategic location, and expansive spaces - makes it uniquely suited for this transformation.
+The Trinity Air Link Vision Just as this building once served as a crucial hub for rail freight, connecting Fort Worth to the nation's rail network, we envision it becoming the nexus of future transportation technologies. The building's original design - with its robust structure, strategic location, and expansive spaces - makes it uniquely suited for this transformation.
 Key elements of the transformation include:
 •	Converting the rooftop for VTOL operations
 •	Utilizing the ground floor for autonomous vehicle operations
@@ -52,7 +52,7 @@ Network Overview The Link system reimagines urban mobility through a seamlessly 
 •	Autonomous electric vehicles offering efficient ground transportation
 •	Smart traffic management systems optimizing route efficiency
 •	Integration with existing rail and public transit infrastructure
-Central Node: Trinity Air Link The T&P Warehouse will serve as the flagship hub, showcasing the full potential of integrated transportation:
+Central Node: Trinity Air Link The T&P Warehouse will serve as the flagship Trinity Air Link hub, showcasing the full potential of integrated transportation:
 Ground Level Operations:
 •	Autonomous vehicle docking and charging stations
 •	Passenger terminal with seamless modal transfers
@@ -69,7 +69,7 @@ Technology Integration The Link system leverages cutting-edge technologies to en
 •	Predictive maintenance systems
 •	Integrated passenger booking and tracking
 •	Advanced security systems
-Network Expansion From the central T&P hub, the network will expand through strategic placement of secondary hubs across the DFW metroplex:
+Network Expansion From the central Trinity Air Link hub, the network will expand through strategic placement of secondary hubs across the DFW metroplex:
 •	Major business districts
 •	Residential centers
 •	Entertainment venues

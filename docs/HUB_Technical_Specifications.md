@@ -90,6 +90,6 @@ Resource Allocation Plan: Determine human, financial, and technological resource
 
 10. Marketing and Communications Strategy
 
-Brand Development: Create a compelling brand identity for the Hub system.
+Brand Development: Create a compelling brand identity for the Trinity Air Link.
 Public Education Campaign: Design materials to explain the concept to the general public.
 Digital Presence: Develop website and social media strategy to build public support and awareness.

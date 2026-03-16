@@ -499,7 +499,7 @@ The window opened on March 9, 2026. It will not stay open indefinitely.
 ---
 
 *For partnership inquiries, investment discussions, or government coordination:*
-*partnerships@tpnexus.com*
+*partnerships@trinityairlink.com*
 
 ---
 

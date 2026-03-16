@@ -3,54 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Property Report: T&P Warehouse</title>
+    <title>Trinity Air Link — Property Report: T&P Warehouse</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: The application is designed as a single-page, scrolling dashboard to tell a compelling investment story. It starts with a high-level overview (The Asset), moves to the core conflict (The Challenge vs. The Opportunity), provides historical context through an interactive timeline, dives into key data with charts and filterable lists (Financials & Incentives), and ends with a "Data Room" (Resource Hub). This structure allows a potential developer to quickly grasp the high-risk/high-reward nature of the property and then drill down into specific areas of due diligence, guided by a sticky navigation bar for easy access. The flow is logical for an investment evaluation: What is it? What are the problems? What are the upsides? What's the history? What are the numbers? Where can I find more info? -->
-    <!-- Visualization & Content Choices: 
-        - Property History (Report Narrative -> Timeline): An interactive HTML/CSS timeline is used to visualize the property's long history. Clicking an event reveals details, making the dense history more digestible than a long text block.
-        - Value Disparity (Report Text -> Bar Chart): A Chart.js bar chart starkly compares the $6.4M purchase price to the $1.2M current appraisal. This financial story is more impactful visually than textually.
-        - Development Challenges (Report Lists -> Tabs): The numerous challenges (vacancy, parking, code violations) are organized into a tabbed component. This prevents user overload and makes the negative information structured and accessible.
-        - Financial Incentives (Report List -> Interactive Cards): Available incentives are presented as a grid of interactive cards. Clicking a card reveals details. This is more engaging and user-driven than a static bulleted list.
-        - Key Data Points (Report Numbers -> Stat Cards): Key metrics like building size, age, and area investment figures are displayed in high-contrast "stat cards" for immediate impact and easy scanning.
-    -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        :root {
+            --bg: #000000;
+            --surface: #0a0a0f;
+            --surface-2: #111118;
+            --accent: #00D4FF;
+            --accent-dim: rgba(0, 212, 255, 0.12);
+            --text-primary: #FFFFFF;
+            --text-secondary: #8892A0;
+            --border: rgba(0, 212, 255, 0.15);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --green: #22c55e;
+            --red: #ef4444;
+        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-primary); }
+        h1, h2, h3 { font-family: 'Inter', sans-serif; }
+        .orbitron { font-family: 'Orbitron', monospace; }
         .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
         @media (max-width: 640px) { .chart-container { height: 300px; max-height: 350px; } }
-        .tab-active { border-color: #ca8a04; color: #ca8a04; }
-        .tab-inactive { border-color: transparent; color: #4b5563; }
-        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; background-color: #f3f4f6; border: 4px solid #ca8a04; border-radius: 9999px; z-index: 10; }
-        .timeline-item:hover::before { background-color: #ca8a04; }
-        .nav-active { color: #ca8a04; }
+        .tab-active { border-color: var(--accent) !important; color: var(--accent) !important; }
+        .tab-inactive { border-color: transparent !important; color: var(--text-secondary) !important; }
+        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; background-color: var(--surface); border: 2px solid var(--accent); border-radius: 9999px; z-index: 10; transition: background-color 0.2s; }
+        .timeline-item:hover::before { background-color: var(--accent); }
+        .nav-active { color: var(--accent) !important; }
+        .stat-accent { color: var(--accent); }
     </style>
 </head>
-<body class="bg-stone-50 text-slate-800">
+<body style="background:#000000; color:#FFFFFF;">
 
-    <header id="nav-header" class="bg-stone-50/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <header id="nav-header" style="background:rgba(0,0,0,0.96); backdrop-filter:blur(16px); border-bottom:1px solid rgba(0,212,255,0.15);" class="sticky top-0 z-50">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <span class="font-bold text-lg text-slate-900">T&P Warehouse</span>
+                <div class="flex items-center gap-3">
+                    <span class="orbitron font-bold text-sm tracking-widest" style="color:#00D4FF; text-shadow:0 0 20px rgba(0,212,255,0.3);">TRINITY AIR LINK</span>
+                    <span style="color:rgba(255,255,255,0.2);">|</span>
+                    <span class="text-sm font-medium" style="color:#8892A0;">Property Report</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Overview</a>
-                        <a href="#challenge" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">The Challenge</a>
-                        <a href="#opportunity" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">The Opportunity</a>
-                        <a href="#timeline" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Timeline</a>
-                        <a href="#financials" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Financials</a>
-                        <a href="#resources" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600">Resources</a>
+                        <a href="#overview" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">Overview</a>
+                        <a href="#challenge" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">The Challenge</a>
+                        <a href="#opportunity" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">The Opportunity</a>
+                        <a href="#timeline" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">Timeline</a>
+                        <a href="#financials" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">Financials</a>
+                        <a href="#resources" class="nav-link px-3 py-2 rounded-md text-sm font-medium" style="color:#8892A0;" onmouseover="this.style.color='#00D4FF'" onmouseout="this.style.color='#8892A0'">Resources</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-white hover:bg-slate-700 focus:outline-none">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none" style="color:#8892A0;">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -58,55 +67,56 @@
                 </div>
             </div>
         </nav>
-        <div id="mobile-menu" class="md:hidden hidden">
+        <div id="mobile-menu" class="md:hidden hidden" style="border-top:1px solid rgba(0,212,255,0.1);">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#overview" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Overview</a>
-                <a href="#challenge" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">The Challenge</a>
-                <a href="#opportunity" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">The Opportunity</a>
-                <a href="#timeline" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Timeline</a>
-                <a href="#financials" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Financials</a>
-                <a href="#resources" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-amber-600">Resources</a>
+                <a href="#overview" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">Overview</a>
+                <a href="#challenge" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">The Challenge</a>
+                <a href="#opportunity" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">The Opportunity</a>
+                <a href="#timeline" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">Timeline</a>
+                <a href="#financials" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">Financials</a>
+                <a href="#resources" class="nav-link block px-3 py-2 rounded-md text-base font-medium" style="color:#8892A0;">Resources</a>
             </div>
         </div>
     </header>
 
     <main>
-        <section id="overview" class="py-16 sm:py-24 bg-white">
+        <section id="overview" class="py-16 sm:py-24" style="background:#0a0a0f; border-bottom:1px solid rgba(0,212,255,0.1);">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p class="text-base font-semibold text-amber-600 tracking-wide uppercase">300 W Lancaster Ave, Fort Worth, TX</p>
-                <h1 class="mt-2 text-4xl font-bold text-slate-900 sm:text-5xl lg:text-6xl">A Landmark Opportunity</h1>
-                <p class="mt-4 max-w-3xl mx-auto text-xl text-slate-600">An iconic, 580,000 sq ft Art Deco warehouse representing one of Fort Worth's most significant redevelopment challenges and its greatest potential catalyst for urban revitalization.</p>
-                
-                <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-5xl font-bold text-amber-600">580k</p>
-                        <p class="mt-2 text-lg font-medium text-slate-700">Square Feet</p>
+                <p class="text-sm font-semibold tracking-widest uppercase" style="color:#00D4FF; letter-spacing:3px;">300 W Lancaster Ave, Fort Worth, TX</p>
+                <h1 class="mt-4 text-4xl font-bold sm:text-5xl lg:text-6xl" style="color:#FFFFFF;">T&amp;P Warehouse</h1>
+                <p class="mt-2 text-lg font-light tracking-wide" style="color:#8892A0;">A Landmark Opportunity</p>
+                <p class="mt-6 max-w-3xl mx-auto text-lg" style="color:#8892A0; line-height:1.8;">An iconic, 580,000 sq ft Art Deco warehouse representing one of Fort Worth's most significant redevelopment challenges and its greatest potential catalyst for urban revitalization.</p>
+
+                <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <p class="text-5xl font-bold" style="color:#00D4FF; font-family:'Orbitron',monospace;">580k</p>
+                        <p class="mt-3 text-sm font-medium tracking-wide uppercase" style="color:#8892A0; letter-spacing:1.5px;">Square Feet</p>
                     </div>
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-5xl font-bold text-amber-600">1931</p>
-                        <p class="mt-2 text-lg font-medium text-slate-700">Year Built</p>
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <p class="text-5xl font-bold" style="color:#00D4FF; font-family:'Orbitron',monospace;">1931</p>
+                        <p class="mt-3 text-sm font-medium tracking-wide uppercase" style="color:#8892A0; letter-spacing:1.5px;">Year Built</p>
                     </div>
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-5xl font-bold text-amber-600">$1.2M</p>
-                        <p class="mt-2 text-lg font-medium text-slate-700">Current Appraisal</p>
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <p class="text-5xl font-bold" style="color:#00D4FF; font-family:'Orbitron',monospace;">$1.2M</p>
+                        <p class="mt-3 text-sm font-medium tracking-wide uppercase" style="color:#8892A0; letter-spacing:1.5px;">Current Appraisal</p>
                     </div>
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-5xl font-bold text-amber-600">25+</p>
-                        <p class="mt-2 text-lg font-medium text-slate-700">Years Vacant</p>
+                    <div class="p-6 rounded-lg" style="background:#111118; border:1px solid rgba(0,212,255,0.15);">
+                        <p class="text-5xl font-bold" style="color:#00D4FF; font-family:'Orbitron',monospace;">25+</p>
+                        <p class="mt-3 text-sm font-medium tracking-wide uppercase" style="color:#8892A0; letter-spacing:1.5px;">Years Vacant</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="challenge" class="py-16 sm:py-24">
+        <section id="challenge" class="py-16 sm:py-24" style="background:#000000;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">The Challenge: Risks & Realities</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">The property's potential is tempered by significant, long-standing issues. Understanding these risks is the first step in evaluating the development opportunity.</p>
+                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:#FFFFFF;">The Challenge: Risks &amp; Realities</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:#8892A0;">The property's potential is tempered by significant, long-standing issues. Understanding these risks is the first step in evaluating the development opportunity.</p>
                 </div>
 
                 <div class="mt-12 max-w-4xl mx-auto">
-                    <div class="mb-4 border-b border-gray-200">
+                    <div class="mb-4" style="border-bottom:1px solid rgba(0,212,255,0.15);">
                         <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="challenge-tabs">
                             <li class="mr-2"><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-active" data-tab="vacancy">Stalled Projects</button></li>
                             <li class="mr-2"><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-inactive" data-tab="parking">Infrastructure Gaps</button></li>
@@ -114,17 +124,17 @@
                         </ul>
                     </div>
                     <div id="challenge-content">
-                        <div id="vacancy-content" class="p-4 bg-white rounded-lg shadow">
-                            <h3 class="text-xl font-semibold text-slate-800">Decades of Inaction</h3>
-                            <p class="mt-2 text-slate-600">The T&P Warehouse has remained vacant since its acquisition in 1998. The property has a documented history of "years of announcements, false starts, multiple extended deadlines," and terminated city incentives. The current owner attributes delays to outside influences, but the city terminated an $11M+ TIF agreement in 2016 due to an "inability to provide a funding plan."</p>
+                        <div id="vacancy-content" class="p-6 rounded-lg" style="background:#0a0a0f; border:1px solid rgba(0,212,255,0.15);">
+                            <h3 class="text-xl font-semibold" style="color:#FFFFFF;">Decades of Inaction</h3>
+                            <p class="mt-3" style="color:#8892A0; line-height:1.8;">The T&amp;P Warehouse has remained vacant since its acquisition in 1998. The property has a documented history of "years of announcements, false starts, multiple extended deadlines," and terminated city incentives. The current owner attributes delays to outside influences, but the city terminated an $11M+ TIF agreement in 2016 due to an "inability to provide a funding plan."</p>
                         </div>
-                        <div id="parking-content" class="hidden p-4 bg-white rounded-lg shadow">
-                            <h3 class="text-xl font-semibold text-slate-800">Critical Parking Deficit</h3>
-                            <p class="mt-2 text-slate-600">A primary development hurdle is the complete lack of adjacent parking. Any redevelopment plan must include the costly construction of new parking structures to serve all potential users, especially for retail or hotel components. This has been a consistent barrier for previous development attempts and represents a major capital expenditure for any new project.</p>
+                        <div id="parking-content" class="hidden p-6 rounded-lg" style="background:#0a0a0f; border:1px solid rgba(0,212,255,0.15);">
+                            <h3 class="text-xl font-semibold" style="color:#FFFFFF;">Critical Parking Deficit</h3>
+                            <p class="mt-3" style="color:#8892A0; line-height:1.8;">A primary development hurdle is the complete lack of adjacent parking. Any redevelopment plan must include the costly construction of new parking structures to serve all potential users, especially for retail or hotel components. This has been a consistent barrier for previous development attempts and represents a major capital expenditure for any new project.</p>
                         </div>
-                        <div id="compliance-content" class="hidden p-4 bg-white rounded-lg shadow">
-                            <h3 class="text-xl font-semibold text-slate-800">Severe Compliance & Condition Issues</h3>
-                            <p class="mt-2 text-slate-600">The building suffers from "years of code compliance violations" and has been described by city officials as a case of "demolition by neglect." Issues include standing water in the basement for over a decade, creating a public health hazard. The city has performed mandatory temporary work and conducted a structural inspection in 2023, signaling the urgent need for stabilization and remediation.</p>
+                        <div id="compliance-content" class="hidden p-6 rounded-lg" style="background:#0a0a0f; border:1px solid rgba(0,212,255,0.15);">
+                            <h3 class="text-xl font-semibold" style="color:#FFFFFF;">Severe Compliance &amp; Condition Issues</h3>
+                            <p class="mt-3" style="color:#8892A0; line-height:1.8;">The building suffers from "years of code compliance violations" and has been described by city officials as a case of "demolition by neglect." Issues include standing water in the basement for over a decade, creating a public health hazard. The city has performed mandatory temporary work and conducted a structural inspection in 2023, signaling the urgent need for stabilization and remediation.</p>
                         </div>
                     </div>
                 </div>
