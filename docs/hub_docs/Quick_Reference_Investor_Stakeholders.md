@@ -212,12 +212,12 @@
 
 ## Contact Information
 
-**Investment Relations:** [Contact Details]
-**CEO/Founder:** [Contact Details]
-**CFO:** [Contact Details]
+**Investment Relations:** Capital Formation Lead — investors@trinityairlink.com
+**CEO/Founder:** TAL Program Management Office — program.office@trinityairlink.com
+**CFO:** Finance Coordination Desk — finance@trinityairlink.com
 
-**Data Room Access:** [Secure portal information]
-**Next Investor Meeting:** [Proposed Date/Time]
+**Data Room Access:** Request provisioning via investors@trinityairlink.com (response SLA: 2 business days)
+**Next Investor Meeting:** March 9, 2026 checkpoint — Phase 1 Active Development & Stakeholder Engagement
 
 ---
 
