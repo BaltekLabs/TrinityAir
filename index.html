@@ -1651,11 +1651,11 @@ function triggerDownload(url, filename) {
 }
 
 function downloadExecutiveSummary() {
-    triggerDownload('docs/HUB_Executive_Summary.md', 'TAL_Executive_Summary.md');
+    triggerDownload('docs/hub_docs/HUB_Executive_Summary.md', 'TAL_Executive_Summary.md');
 }
 
 function downloadInvestorPackage() {
-    triggerDownload('docs/Investor_Presentation_Deck.md', 'TAL_Investor_Package.md');
+    triggerDownload('docs/hub_docs/Investor_Presentation_Deck.md', 'TAL_Investor_Package.md');
 }
 
 function downloadTechnicalSpecs() {
@@ -1680,11 +1680,11 @@ function schedulePresentation() {
 
 // Document Download Functions for New Documents Section
 function downloadGovernmentPresentation() {
-    triggerDownload('docs/Government_Presentation_Deck.md', 'TAL_Government_Presentation_Deck.md');
+    triggerDownload('docs/hub_docs/Government_Presentation_Deck.md', 'TAL_Government_Presentation_Deck.md');
 }
 
 function downloadEconomicImpact() {
-    triggerDownload('docs/HUB_Financial_Model.md', 'TAL_Economic_Impact_Financial_Model.md');
+    triggerDownload('docs/hub_docs/HUB_Financial_Model.md', 'TAL_Economic_Impact_Financial_Model.md');
 }
 
 function downloadRegulatoryPathway() {
@@ -1692,23 +1692,23 @@ function downloadRegulatoryPathway() {
 }
 
 function downloadCommunityBenefits() {
-    triggerDownload('docs/HUB_Executive_Summary.md', 'TAL_Community_Benefits_Overview.md');
+    triggerDownload('docs/hub_docs/HUB_Executive_Summary.md', 'TAL_Community_Benefits_Overview.md');
 }
 
 function downloadInvestorDeck() {
-    triggerDownload('docs/Investor_Presentation_Deck.md', 'TAL_Investor_Presentation_Deck.md');
+    triggerDownload('docs/hub_docs/Investor_Presentation_Deck.md', 'TAL_Investor_Presentation_Deck.md');
 }
 
 function downloadFinancialModel() {
-    triggerDownload('docs/HUB_Financial_Model.md', 'TAL_5Year_Financial_Model.md');
+    triggerDownload('docs/hub_docs/HUB_Financial_Model.md', 'TAL_5Year_Financial_Model.md');
 }
 
 function downloadRiskAssessment() {
-    triggerDownload('docs/Risk_Assessment_Matrix.md', 'TAL_Risk_Assessment_Matrix.md');
+    triggerDownload('docs/hub_docs/Risk_Assessment_Matrix.md', 'TAL_Risk_Assessment_Matrix.md');
 }
 
 function downloadFundingSources() {
-    triggerDownload('docs/Funding_Sources_Analysis.md', 'TAL_Funding_Sources_Analysis.md');
+    triggerDownload('docs/hub_docs/Funding_Sources_Analysis.md', 'TAL_Funding_Sources_Analysis.md');
 }
 
 function downloadTechSpecs() {
@@ -1724,15 +1724,15 @@ function downloadPartnershipFramework() {
 }
 
 function downloadSafetyProtocols() {
-    triggerDownload('docs/Risk_Assessment_Matrix.md', 'TAL_Safety_Compliance_Protocols.md');
+    triggerDownload('docs/hub_docs/Risk_Assessment_Matrix.md', 'TAL_Safety_Compliance_Protocols.md');
 }
 
 function downloadProjectTracking() {
-    triggerDownload('docs/Project_Action_Items_Tracking.md', 'TAL_Project_Action_Items_Tracking.md');
+    triggerDownload('docs/hub_docs/Project_Action_Items_Tracking.md', 'TAL_Project_Action_Items_Tracking.md');
 }
 
 function downloadStakeholderDatabase() {
-    triggerDownload('docs/Stakeholder_Contact_Database.md', 'TAL_Stakeholder_Contact_Database.md');
+    triggerDownload('docs/hub_docs/Stakeholder_Contact_Database.md', 'TAL_Stakeholder_Contact_Database.md');
 }
 
 function downloadImageGuide() {
@@ -1745,15 +1745,15 @@ function downloadVRPlan() {
 
 function downloadAllDocuments() {
     const docs = [
-        ['docs/HUB_Executive_Summary.md', 'TAL_Executive_Summary.md'],
-        ['docs/Investor_Presentation_Deck.md', 'TAL_Investor_Presentation_Deck.md'],
-        ['docs/Government_Presentation_Deck.md', 'TAL_Government_Presentation_Deck.md'],
-        ['docs/HUB_Financial_Model.md', 'TAL_Financial_Model.md'],
-        ['docs/Risk_Assessment_Matrix.md', 'TAL_Risk_Assessment_Matrix.md'],
-        ['docs/Funding_Sources_Analysis.md', 'TAL_Funding_Sources_Analysis.md'],
+        ['docs/hub_docs/HUB_Executive_Summary.md', 'TAL_Executive_Summary.md'],
+        ['docs/hub_docs/Investor_Presentation_Deck.md', 'TAL_Investor_Presentation_Deck.md'],
+        ['docs/hub_docs/Government_Presentation_Deck.md', 'TAL_Government_Presentation_Deck.md'],
+        ['docs/hub_docs/HUB_Financial_Model.md', 'TAL_Financial_Model.md'],
+        ['docs/hub_docs/Risk_Assessment_Matrix.md', 'TAL_Risk_Assessment_Matrix.md'],
+        ['docs/hub_docs/Funding_Sources_Analysis.md', 'TAL_Funding_Sources_Analysis.md'],
         ['docs/Technical_Specifications.md', 'TAL_Technical_Specifications.md'],
-        ['docs/Project_Action_Items_Tracking.md', 'TAL_Project_Action_Items_Tracking.md'],
-        ['docs/Stakeholder_Contact_Database.md', 'TAL_Stakeholder_Contact_Database.md'],
+        ['docs/hub_docs/Project_Action_Items_Tracking.md', 'TAL_Project_Action_Items_Tracking.md'],
+        ['docs/hub_docs/Stakeholder_Contact_Database.md', 'TAL_Stakeholder_Contact_Database.md'],
         ['docs/VR_Experience_Plan_Overview.md', 'TAL_VR_Experience_Plan.md'],
     ];
     docs.forEach(([url, filename], i) => {
