@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparative Case Studies - Urban Transportation Innovation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 25px;
+        }
+        .case-study-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .case-study-card:hover {
+            transform: translateY(-5px);
+        }
+        .card-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        .singapore {
+            background-image: url('/api/placeholder/400/200');
+            background-color: #3498db;
+        }
+        .dubai {
+            background-image: url('/api/placeholder/400/200');
+            background-color: #e74c3c;
+        }
+        .seoul {
+            background-image: url('/api/placeholder/400/200');
+            background-color: #2ecc71;
+        }
+        .london {
+            background-image: url('/api/placeholder/400/200');
+            background-color: #9b59b6;
+        }
+        .zurich {
+            background-image: url('/api/placeholder/400/200');
+            background-color: #f39c12;
+        }
+        .la {
+            background-image: url('/api/placeholder/400/200');
+            background-color: #1abc9c;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .city-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .project-title {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .key-points {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        .key-points li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .key-points li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .tech-tag {
+            display: inline-block;
+            background-color: #eaeaea;
+            border-radius: 15px;
+            padding: 4px 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #34495e;
+        }
+        .flag-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: normal;
+            color: white;
+        }
+        .singapore-flag {
+            background-color: #3498db;
+        }
+        .dubai-flag {
+            background-color: #e74c3c;
+        }
+        .seoul-flag {
+            background-color: #2ecc71;
+        }
+        .london-flag {
+            background-color: #9b59b6;
+        }
+        .zurich-flag {
+            background-color: #f39c12;
+        }
+        .la-flag {
+            background-color: #1abc9c;
+        }
+        .lessons-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            color: #7f8c8d;
+        }
+        .lessons {
+            background-color: #f8f9fa;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            gap: 15px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        .legend-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Comparative Case Studies: Urban Transportation Innovation</h1>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-icon" style="background-color: #3498db;"></div>
+                <span>Autonomous Vehicles</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon" style="background-color: #e74c3c;"></div>
+                <span>Aerial Mobility</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon" style="background-color: #2ecc71;"></div>
+                <span>Smart Infrastructure</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon" style="background-color: #9b59b6;"></div>
+                <span>Multi-Modal Integration</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon" style="background-color: #f39c12;"></div>
+                <span>Electric Mobility</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-icon" style="background-color: #1abc9c;"></div>
+                <span>Historic Revitalization</span>
+            </div>
+        </div>
+        
+        <div class="case-studies">
+            <!-- Singapore -->
+            <div class="case-study-card">
+                <div class="card-image singapore"></div>
+                <div class="card-content">
+                    <h2 class="city-name">
+                        <span class="flag-icon singapore-flag">SG</span>
+                        Singapore
+                    </h2>
+                    <p class="project-title">Autonomous Vehicle Initiative</p>
+                    
+                    <ul class="key-points">
+                        <li>National-level autonomous vehicle testing program launched in 2014</li>
+                        <li>Purpose-built test district in One-North business park</li>
+                        <li>Integration with existing public transportation network</li>
+                        <li>Strong regulatory framework developed alongside technology</li>
+                    </ul>
+                    
+                    <div>
+                        <span class="tech-tag">Autonomous Buses</span>
+                        <span class="tech-tag">Test Zones</span>
+                        <span class="tech-tag">Regulatory Framework</span>
+                    </div>
+                    
+                    <p class="lessons-title">Key Lessons for DFW</p>
+                    <p class="lessons">Singapore demonstrates the importance of creating dedicated test zones with strong government support. Their phased implementation approach and focus on regulatory development alongside technology provides a valuable blueprint for the Hub system.</p>
+                </div>
+            </div>
+            
+            <!-- Dubai -->
+            <div class="case-study-card">
+                <div class="card-image dubai"></div>
+                <div class="card-content">
+                    <h2 class="city-name">
+                        <span class="flag-icon dubai-flag">AE</span>
+                        Dubai
+                    </h2>
+                    <p class="project-title">Urban Air Mobility Strategy</p>
+                    
+                    <ul class="key-points">
+                        <li>World's first commercial air taxi testing program launched in 2017</li>
+                        <li>Developed vertical takeoff infrastructure integrated with transport hubs</li>
+                        <li>Created dedicated airspace management system for urban air mobility</li>
+                        <li>Set goal for 25% of all transportation to be autonomous by 2030</li>
+                    </ul>
+                    
+                    <div>
+                        <span class="tech-tag">Air Taxis</span>
+                        <span class="tech-tag">Vertiports</span>
+                        <span class="tech-tag">Airspace Management</span>
+                    </div>
+                    
+                    <p class="lessons-title">Key Lessons for DFW</p>
+                    <p class="lessons">Dubai highlights the feasibility of urban air mobility integration in a major metropolitan area. Their approach to building vertiport infrastructure and airspace management systems offers valuable insights for implementing the VTOL component of the Hub system.</p>
+                </div>
+            </div>
+            
+            <!-- Seoul -->
+            <div class="case-study-card">
+                <div class="card-image seoul"></div>
+                <div class="card-content">
+                    <h2 class="city-name">
+                        <span class="flag-icon seoul-flag">KR</span>
+                        Seoul
+                    </h2>
+                    <p class="project-title">Smart Transport Grid</p>
+                    
+                    <ul class="key-points">
+                        <li>Comprehensive IoT network connecting all public transportation</li>
+                        <li>Real-time traffic management system reducing congestion by 15%</li>
+                        <li>Digital twin of entire transportation network for simulation and optimization</li>
+                        <li>AI-powered predictive maintenance system for transportation infrastructure</li>
+                    </ul>
+                    
+                    <div>
+                        <span class="tech-tag">IoT Network</span>
+                        <span class="tech-tag">Digital Twin</span>
+                        <span class="tech-tag">AI Traffic Management</span>
+                    </div>
+                    
+                    <p class="lessons-title">Key Lessons for DFW</p>
+                    <p class="lessons">Seoul's smart transportation grid demonstrates the power of comprehensive data integration and AI-powered traffic management. Their digital twin approach provides a model for the Hub system's traffic management capabilities.</p>
+                </div>
+            </div>
+            
+            <!-- London -->
+            <div class="case-study-card">
+                <div class="card-image london"></div>
+                <div class="card-content">
+                    <h2 class="city-name">
+                        <span class="flag-icon london-flag">UK</span>
+                        London
+                    </h2>
+                    <p class="project-title">Multi-Modal Transport System</p>
+                    
+                    <ul class="key-points">
+                        <li>Unified payment system across all transport modes (Oyster/contactless)</li>
+                        <li>Integrated transport hubs connecting rail, bus, bike share, and rideshare</li>
+                        <li>Open data platform enabling third-party app development</li>
+                        <li>Conversion of historic buildings into mobility hubs</li>
+                    </ul>
+                    
+                    <div>
+                        <span class="tech-tag">Integrated Payment</span>
+                        <span class="tech-tag">Transport Hubs</span>
+                        <span class="tech-tag">Historic Preservation</span>
+                    </div>
+                    
+                    <p class="lessons-title">Key Lessons for DFW</p>
+                    <p class="lessons">London demonstrates successful multi-modal integration and unified payment systems. Their approach to converting historic transport buildings (like King's Cross) into modern mobility hubs provides a template for the T&P Warehouse transformation.</p>
+                </div>
+            </div>
+            
+            <!-- Zurich -->
+            <div class="case-study-card">
+                <div class="card-image zurich"></div>
+                <div class="card-content">
+                    <h2 class="city-name">
+                        <span class="flag-icon zurich-flag">CH</span>
+                        Zurich
+                    </h2>
+                    <p class="project-title">Electric Mobility Network</p>
+                    
+                    <ul class="key-points">
+                        <li>Comprehensive EV charging infrastructure integrated with parking</li>
+                        <li>Electric bus fleet with fast charging at transport hubs</li>
+                        <li>Smart grid integration optimizing charging based on energy availability</li>
+                        <li>Public-private partnership model for infrastructure development</li>
+                    </ul>
+                    
+                    <div>
+                        <span class="tech-tag">EV Charging</span>
+                        <span class="tech-tag">Electric Buses</span>
+                        <span class="tech-tag">Smart Grid</span>
+                    </div>
+                    
+                    <p class="lessons-title">Key Lessons for DFW</p>
+                    <p class="lessons">Zurich showcases best practices for electric vehicle infrastructure and grid integration. Their public-private partnership model for developing charging infrastructure offers a blueprint for the Hub system's EV component.</p>
+                </div>
+            </div>
+            
+            <!-- Los Angeles -->
+            <div class="case-study-card">
+                <div class="card-image la"></div>
+                <div class="card-content">
+                    <h2 class="city-name">
+                        <span class="flag-icon la-flag">US</span>
+                        Los Angeles
+                    </h2>
+                    <p class="project-title">Union Station Mobility Hub</p>
+                    
+                    <ul class="key-points">
+                        <li>Historic railway station transformed into multi-modal transportation center</li>
+                        <li>Integration of high-speed rail, metro, bus, and micromobility options</li>
+                        <li>Autonomous vehicle testing zone surrounding the hub</li>
+                        <li>Mixed-use development incorporating transportation, commercial, and residential</li>
+                    </ul>
+                    
+                    <div>
+                        <span class="tech-tag">Historic Preservation</span>
+                        <span class="tech-tag">Multi-Modal</span>
+                        <span class="tech-tag">Mixed-Use Development</span>
+                    </div>
+                    
+                    <p class="lessons-title">Key Lessons for DFW</p>
+                    <p class="lessons">Union Station in LA provides a direct parallel to the T&P Warehouse concept, showing how historic transportation buildings can be transformed into modern mobility hubs while preserving architectural heritage and creating economic development.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>These case studies highlight global best practices that can inform the Hub transportation system implementation in the DFW metroplex.</p>
+        </footer>
+    </div>
+</body>
+</html>
