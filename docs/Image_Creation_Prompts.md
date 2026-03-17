@@ -1,4 +1,4 @@
-# HUB Transportation System - Website Image Creation Prompts
+# TAL Transportation System - Website Image Creation Prompts
 
 ## Document Purpose
 This document provides detailed prompts for creating professional images to enhance the hub_new.html website. Each prompt is designed to generate compelling visuals that support the project narrative and stakeholder engagement goals.
@@ -23,12 +23,12 @@ This document provides detailed prompts for creating professional images to enha
 
 ---
 
-## HUB Vision Section Images
+## TAL Vision Section Images
 
 ### 3. Multi-Modal Transportation Hub Interior
 **Prompt:** "Interior architectural rendering of a modern transportation hub inside the renovated T&P Warehouse. Show multiple levels with autonomous electric vehicles on the ground floor, passenger waiting areas with modern seating, digital information displays, and large windows preserving the historic brick walls. Include diverse people using the space - families, business travelers, students. Clean, modern design with warm lighting and preserved industrial architectural elements. Wide-angle perspective."
 
-**Usage:** HUB Vision section
+**Usage:** TAL Vision section
 **Dimensions:** 1600x900px
 **Style:** Architectural interior rendering
 
@@ -90,7 +90,7 @@ This document provides detailed prompts for creating professional images to enha
 **Style:** Technology integration photography
 
 ### 11. Phase 4 - Full Operations
-**Prompt:** "Fully operational HUB Transportation System showing busy, successful operations. Multiple VTOL aircraft landing and taking off from rooftop, autonomous vehicles efficiently transporting passengers, diverse people using the services, digital displays showing schedules and information. Bustling but organized activity, successful transportation hub in full operation. Evening/golden hour lighting."
+**Prompt:** "Fully operational TAL Transportation System showing busy, successful operations. Multiple VTOL aircraft landing and taking off from rooftop, autonomous vehicles efficiently transporting passengers, diverse people using the services, digital displays showing schedules and information. Bustling but organized activity, successful transportation hub in full operation. Evening/golden hour lighting."
 
 **Usage:** Phase 4 implementation
 **Dimensions:** 1200x675px
@@ -151,7 +151,7 @@ This document provides detailed prompts for creating professional images to enha
 **Style:** Financial presentation graphics
 
 ### 18. Revenue Streams Diagram
-**Prompt:** "Infographic showing multiple revenue streams from the HUB Transportation System: VTOL aircraft operations (passenger fees, cargo transport), autonomous vehicle services, real estate development, technology licensing, innovation center leasing, retail and dining. Visual flow chart with dollar amounts and percentage breakdowns. Professional business infographic style."
+**Prompt:** "Infographic showing multiple revenue streams from the TAL Transportation System: VTOL aircraft operations (passenger fees, cargo transport), autonomous vehicle services, real estate development, technology licensing, innovation center leasing, retail and dining. Visual flow chart with dollar amounts and percentage breakdowns. Professional business infographic style."
 
 **Usage:** Investment details
 **Dimensions:** 1200x900px

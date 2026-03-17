@@ -1,7 +1,7 @@
-# HUB Transportation System - Project Action Items Tracking
+# TAL Transportation System - Project Action Items Tracking
 
 ## Document Purpose
-This document captures all immediate and near-term action items needed to advance the HUB Transportation System project toward stakeholder engagement and implementation. Items are organized by priority and include specific deliverables, timelines, and success criteria.
+This document captures all immediate and near-term action items needed to advance the TAL Transportation System project toward stakeholder engagement and implementation. Items are organized by priority and include specific deliverables, timelines, and success criteria.
 
 ---
 
@@ -375,4 +375,4 @@ This document captures all immediate and near-term action items needed to advanc
 
 ---
 
-*This document serves as the central coordination tool for advancing the HUB Transportation System project through stakeholder engagement toward implementation. Regular updates and progress tracking ensure accountability and momentum maintenance.*
+*This document serves as the central coordination tool for advancing the TAL Transportation System project through stakeholder engagement toward implementation. Regular updates and progress tracking ensure accountability and momentum maintenance.*

@@ -1,4 +1,4 @@
-# HUB Transportation System - Technology Partners Quick Reference
+# Trinity Air Link (TAL) - Technology Partners Quick Reference
 
 ## Strategic Partnership Opportunity
 **Become a founding technology partner in the world's first integrated VTOL/autonomous vehicle transportation hub**
