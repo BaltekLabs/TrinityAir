@@ -1,4 +1,4 @@
-# HUB Transportation System - Financial Spreadsheet Structure
+# TAL Transportation System - Financial Spreadsheet Structure
 
 ## Purpose
 This document provides the detailed structure for creating a comprehensive Excel financial model. Each worksheet is designed to provide specific analysis and can be linked together for dynamic scenario modeling.
@@ -12,7 +12,7 @@ This document provides the detailed structure for creating a comprehensive Excel
 
 **Layout:**
 ```
-A1: HUB Transportation System - Financial Model
+A1: TAL Transportation System - Financial Model
 A3: Key Investment Metrics
 A5: Total Investment Required: $129M
 A6: Projected Year 5 Revenue: $133M
