@@ -154,7 +154,7 @@
 ## Your Voice Matters
 
 ### Ways to Get Involved
-1. **Attend community meetings** - first meeting [Date/Location]
+1. **Attend community meetings** - first meeting March 9, 2026 status briefing (Fort Worth Downtown, venue shared via mailing list)
 2. **Join our mailing list** for regular updates
 3. **Participate in surveys** about your transportation needs
 4. **Follow our social media** for project news and photos
@@ -168,11 +168,11 @@
 - **Help shape** services and programs
 
 ### Feedback Channels
-- **Community hotline:** [Phone Number]
-- **Email:** [Community Email Address]
-- **Website:** [Project Website URL]
-- **Social media:** [Social Media Handles]
-- **In-person:** Community liaison office at [Location]
+- **Community hotline:** (817) 392-7808 (City of Fort Worth switchboard for project routing)
+- **Email:** community@trinityairlink.com
+- **Website:** https://trinityairlink.com
+- **Social media:** @TrinityAirLink (project updates)
+- **In-person:** Community liaison intake through City of Fort Worth economic development offices
 
 ---
 
@@ -197,13 +197,13 @@ A: We're committed to hiring locally and sourcing services from area businesses 
 
 ## Contact Information
 
-**Community Relations:** [Contact Name & Phone]
-**Project Website:** [Website URL]
-**Community Email:** [Email Address]
-**Office Address:** [Local Office Location]
+**Community Relations:** Community Relations Lead — community@trinityairlink.com
+**Project Website:** https://trinityairlink.com
+**Community Email:** community@trinityairlink.com
+**Office Address:** Downtown Fort Worth stakeholder intake (provided upon request)
 
-**Next Community Meeting:** [Date, Time, Location]
-**Sign up for updates:** [Website/Email signup]
+**Next Community Meeting:** March 9, 2026 checkpoint — Phase 1 Active Development & Stakeholder Engagement
+**Sign up for updates:** Email community@trinityairlink.com with subject line "TAL Community Updates"
 
 ---
 

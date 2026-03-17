@@ -152,12 +152,12 @@
 
 ## Contact Information
 
-**Project Leadership:** [Contact Details]
-**Government Relations:** [Contact Details]
-**Technical Liaison:** [Contact Details]
+**Project Leadership:** TAL Program Management Office — program.office@trinityairlink.com
+**Government Relations:** Government Affairs Lead — government@trinityairlink.com
+**Technical Liaison:** Integration Partnerships Lead — technology@trinityairlink.com
 
-**Next Meeting:** [Proposed Date/Time]
-**Follow-up Actions:** [Specific commitments from this interaction]
+**Next Meeting:** March 9, 2026 — Phase 1 Stakeholder Engagement Review (Status: Active Development & Stakeholder Engagement)
+**Follow-up Actions:** TxDOT eIPP outreach, Archer Texas ops outreach, Mayor briefing, and investor outreach sequence activation
 
 ---
 
