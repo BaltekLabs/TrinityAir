@@ -8,20 +8,20 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Trinity Air Link — Fort Worth's Future of Air Mobility -->
     <style>
         :root {
-            --bg: #000000;
-            --surface: #0a0a0f;
-            --surface-2: #111118;
-            --accent: #00D4FF;
-            --accent-dim: rgba(0, 212, 255, 0.12);
-            --text-primary: #FFFFFF;
-            --text-secondary: #8892A0;
-            --text-muted: #4a5568;
-            --border: rgba(0, 212, 255, 0.15);
-            --border-subtle: rgba(255, 255, 255, 0.06);
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-2: #eef3f9;
+            --accent: #0a6fff;
+            --accent-dim: rgba(10, 111, 255, 0.1);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border: rgba(15, 23, 42, 0.12);
+            --border-subtle: rgba(15, 23, 42, 0.08);
         }
 
         * {
@@ -30,13 +30,13 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #000000;
+            background: radial-gradient(circle at 10% 10%, #dbeafe 0, #f4f7fb 35%, #f8fafc 100%);
             color: var(--text-primary);
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Manrope', sans-serif;
             color: var(--text-primary);
         }
 
@@ -84,7 +84,7 @@
             width: 16px;
             height: 16px;
             background: var(--accent);
-            border: 2px solid #000000;
+            border: 2px solid #f8fafc;
             border-radius: 50%;
             z-index: 10;
             transition: all 0.3s ease;
@@ -92,7 +92,7 @@
 
         .timeline-item:hover::before {
             transform: translateY(-50%) scale(1.2);
-            box-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 0 8px rgba(10, 111, 255, 0.25);
         }
 
         .nav-active {
@@ -173,7 +173,7 @@
             font-size: 0.875rem;
             font-weight: 600;
             text-align: center;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Manrope', sans-serif;
         }
 
         @media (min-width: 1024px) {
@@ -238,9 +238,9 @@
             border: none;
             padding: 12px 24px;
             border-radius: 6px;
-            color: #000000;
+            color: #f8fafc;
             font-weight: 700;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Manrope', sans-serif;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -273,17 +273,17 @@
         }
     </style>
 </head>
-<body class="text-white" style="background:#000000;">
+<body class="text-white" style="background:radial-gradient(circle at 10% 10%, #dbeafe 0, #f4f7fb 35%, #f8fafc 100%);">
 
-    <header id="nav-header" class="fixed top-0 w-full z-50 transition-all duration-300" style="background: rgba(0,0,0,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border);">
+    <header id="nav-header" class="fixed top-0 w-full z-50 transition-all duration-300" style="background: rgba(255,255,255,0.86); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); box-shadow:0 8px 32px rgba(15,23,42,0.08);">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center space-x-4">
                     <div class="w-10 h-10 rounded-full border border-[var(--border)] flex items-center justify-center" style="background:var(--surface);">
-                        <span style="color:var(--accent);font-family:'Orbitron',sans-serif;font-weight:700;font-size:0.75rem;">TAL</span>
+                        <span style="color:var(--accent);font-family:'Manrope',sans-serif;font-weight:700;font-size:0.75rem;">TAL</span>
                     </div>
                     <div>
-                        <span style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:1rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">TRINITY AIR LINK</span>
+                        <span style="font-family:'Manrope',sans-serif;font-weight:700;font-size:1rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">TRINITY AIR LINK</span>
                         <div style="font-size:0.65rem;color:var(--text-secondary);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;">Fort Worth's Future of Air Mobility</div>
                     </div>
                 </div>
@@ -312,7 +312,7 @@
                 </div>
             </div>
         </nav>
-        <div id="mobile-menu" class="md:hidden hidden" style="background:rgba(0,0,0,0.98);border-top:1px solid var(--border);">
+        <div id="mobile-menu" class="md:hidden hidden" style="background:rgba(255,255,255,0.98);border-top:1px solid var(--border);">
             <div class="px-4 pt-4 pb-6 space-y-2">
                 <a href="#overview" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Overview</a>
                 <a href="#hub-vision" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Vision</a>
@@ -331,7 +331,7 @@
     </header>
 
     <main>
-        <section id="overview" class="py-24 sm:py-32 relative overflow-hidden" style="background:#000000; margin-top: 80px;">
+        <section id="overview" class="py-24 sm:py-32 relative overflow-hidden" style="background:#f8fafc; margin-top: 80px;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <div class="inline-flex items-center px-4 py-2 mb-4" style="border:1px solid var(--border);border-radius:999px;background:var(--accent-dim);">
                     <span class="w-2 h-2 rounded-full mr-3" style="background:var(--accent);"></span>
@@ -389,7 +389,7 @@
 
         <div class="section-divider"></div>
         
-        <section id="challenge" class="py-20 sm:py-28 relative overflow-hidden" style="background:#000000;">
+        <section id="challenge" class="py-20 sm:py-28 relative overflow-hidden" style="background:#f8fafc;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center">
                     <div class="inline-flex items-center px-4 py-2 mb-6" style="border-radius:999px;border:1px solid rgba(248,113,113,0.3);background:rgba(248,113,113,0.05);">
@@ -476,7 +476,7 @@
 
         <div class="section-divider"></div>
         
-        <section id="hub-vision" class="py-24 sm:py-32 relative overflow-hidden" style="background:#000000;">
+        <section id="hub-vision" class="py-24 sm:py-32 relative overflow-hidden" style="background:#f8fafc;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <div class="inline-flex items-center px-6 py-3 mb-8" style="border-radius:999px;border:1px solid var(--border);background:var(--accent-dim);">
                     <span class="w-3 h-3 rounded-full mr-3" style="background:var(--accent);"></span>
@@ -690,7 +690,7 @@
             </div>
         </section>
 
-        <section id="hub-system-details" class="py-16 sm:py-24" style="background:#000000;">
+        <section id="hub-system-details" class="py-16 sm:py-24" style="background:#f8fafc;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">The TAL System: Core Elements &amp; Technology</h2>
                 <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:var(--text-secondary);">The Trinity Air Link system reimagines urban mobility through a seamlessly integrated network of air and ground transportation, with the Texas &amp; Pacific Warehouse as its central node.</p>
@@ -801,7 +801,7 @@
             </div>
         </section>
 
-        <section id="phases" class="py-16 sm:py-24" style="background:#000000;">
+        <section id="phases" class="py-16 sm:py-24" style="background:#f8fafc;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">Implementation Strategy: 4-Phase Roadmap</h2>
@@ -1192,7 +1192,7 @@
         </section>
 
 
-        <section id="timeline" class="py-16 sm:py-24" style="background:#000000;">
+        <section id="timeline" class="py-16 sm:py-24" style="background:#f8fafc;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">A Storied History</h2>
@@ -1209,7 +1209,7 @@
         <div id="timeline-modal" class="hidden fixed inset-0 overflow-y-auto h-full w-full z-50" style="background:rgba(0,0,0,0.85);">
             <div class="relative top-20 mx-auto p-5 w-11/12 max-w-2xl rounded-md" style="background:var(--surface);border:1px solid var(--border);">
                 <div class="mt-3 text-center">
-                    <h3 id="modal-title" class="text-2xl leading-6 font-bold" style="color:var(--text-primary);font-family:'Orbitron',sans-serif;"></h3>
+                    <h3 id="modal-title" class="text-2xl leading-6 font-bold" style="color:var(--text-primary);font-family:'Manrope',sans-serif;"></h3>
                     <div class="mt-4 px-7 py-3">
                         <p id="modal-description" class="text-md" style="color:var(--text-secondary);"></p>
                     </div>
@@ -1239,7 +1239,7 @@
             </div>
         </section>
 
-        <section id="get-involved" class="py-16 sm:py-24" style="background:#000000;">
+        <section id="get-involved" class="py-16 sm:py-24" style="background:#f8fafc;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <div class="inline-flex items-center px-4 py-2 mb-6" style="border-radius:999px;border:1px solid rgba(251,191,36,0.3);background:rgba(251,191,36,0.05);">
                     <span class="w-2 h-2 rounded-full mr-3 animate-pulse" style="background:#fbbf24;"></span>
@@ -1380,7 +1380,7 @@
             </div>
         </section>
 
-        <section id="documents" class="py-16 sm:py-24" style="background:#000000;">
+        <section id="documents" class="py-16 sm:py-24" style="background:#f8fafc;">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">Project Documents &amp; Resources</h2>
@@ -1683,15 +1683,15 @@
             </div>
         </section>
     
-    <footer class="py-12 relative" style="background:#000000; border-top: 1px solid var(--border);">
+    <footer class="py-12 relative" style="background:#f8fafc; border-top: 1px solid var(--border);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
                         <div class="w-10 h-10 rounded-full border flex items-center justify-center" style="border-color:var(--border);background:var(--surface);">
-                            <span style="color:var(--accent);font-family:'Orbitron',sans-serif;font-weight:700;font-size:0.7rem;">TAL</span>
+                            <span style="color:var(--accent);font-family:'Manrope',sans-serif;font-weight:700;font-size:0.7rem;">TAL</span>
                         </div>
-                        <span style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:1rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">TRINITY AIR LINK</span>
+                        <span style="font-family:'Manrope',sans-serif;font-weight:700;font-size:1rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">TRINITY AIR LINK</span>
                     </div>
                     <p class="text-sm" style="color:var(--text-secondary);">Pioneering the future of urban air mobility through innovative VTOL-AV integration at the historic Texas &amp; Pacific Warehouse in Fort Worth.</p>
                 </div>
@@ -2055,7 +2055,7 @@ document.addEventListener('DOMContentLoaded', function() {
     timelineData.forEach(item => {
         const div = document.createElement('div');
         div.className = 'timeline-item relative pl-8 pr-4 py-6 cursor-pointer';
-        div.innerHTML = `<h3 class="text-lg font-semibold" style="color:#FFFFFF;font-family:'Orbitron',sans-serif;">${item.year} — ${item.title}</h3>`;
+        div.innerHTML = `<h3 class="text-lg font-semibold" style="color:#ffffff;font-family:'Manrope',sans-serif;">${item.year} — ${item.title}</h3>`;
         div.addEventListener('click', () => openModal(item.title, item.description));
         timelineContainer.appendChild(div);
     });
@@ -2066,7 +2066,7 @@ document.addEventListener('DOMContentLoaded', function() {
         div.style.cssText = 'background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;cursor:pointer;';
         div.innerHTML = `
             <div class="incentive-header p-4 flex justify-between items-center">
-                <h4 class="font-semibold" style="color:#FFFFFF;">${item.title}</h4>
+                <h4 class="font-semibold" style="color:#ffffff;">${item.title}</h4>
                 <span class="transform transition-transform" style="color:var(--accent);">&#9662;</span>
             </div>
             <div class="incentive-body hidden p-4" style="border-top:1px solid var(--border-subtle);">
@@ -2143,13 +2143,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 title: {
                     display: true,
                     text: 'Value Comparison: Acquisition vs. Current',
-                    color: '#FFFFFF',
-                    font: { size: 16, family: 'Orbitron' }
+                    color: '#ffffff',
+                    font: { size: 16, family: 'Manrope' }
                 },
                 tooltip: {
                     backgroundColor: 'rgba(10, 10, 15, 0.95)',
                     titleColor: '#00D4FF',
-                    bodyColor: '#FFFFFF',
+                    bodyColor: '#ffffff',
                     borderColor: '#00D4FF',
                     borderWidth: 1
                 }
