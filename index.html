@@ -212,6 +212,27 @@
             color: var(--text-primary);
         }
 
+        .source-chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0.35rem;
+            padding: 0.1rem 0.45rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-size: 0.65rem;
+            line-height: 1;
+            font-weight: 700;
+            vertical-align: super;
+            text-decoration: none;
+        }
+
+        .source-chip:hover {
+            background: rgba(0, 212, 255, 0.2);
+        }
+
         .cta-button {
             background: var(--accent);
             border: none;
@@ -318,7 +339,7 @@
                 </div>
                 <div class="inline-flex items-center px-5 py-2 mb-8 ml-3" style="border:1px solid rgba(251,191,36,0.4);border-radius:999px;background:rgba(251,191,36,0.07);">
                     <span class="w-2 h-2 rounded-full mr-3 animate-pulse" style="background:#fbbf24;"></span>
-                    <span style="font-size:0.7rem;font-weight:700;color:#fcd34d;letter-spacing:0.1em;text-transform:uppercase;">Breaking: Texas Selected for Federal eIPP — Archer Aviation Launches TX Air Taxi H2 2026</span>
+                    <span style="font-size:0.7rem;font-weight:700;color:#fcd34d;letter-spacing:0.1em;text-transform:uppercase;">Breaking: Texas Selected for Federal eIPP — Archer Aviation Launches TX Air Taxi H2 2026</span><a href="#sources-methods" class="source-chip" aria-label="Source for eIPP selection claim">S1</a>
                 </div>
 
                 <h1 class="mt-4 text-5xl font-bold sm:text-6xl lg:text-7xl" style="color:var(--text-primary);">
@@ -328,7 +349,7 @@
                     </span>
                 </h1>
 
-                <p class="mt-8 max-w-4xl mx-auto text-xl sm:text-2xl leading-relaxed" style="color:var(--text-secondary);">Transform the historic Texas &amp; Pacific Warehouse into America's first integrated VTOL-autonomous vehicle transportation hub. Revolutionary multi-modal mobility serving 8.5 million DFW residents through cutting-edge technology, historic preservation, and sustainable innovation. <span style="color:var(--accent);font-weight:600;">Texas selected for federal eIPP program — Archer Aviation launching Texas air taxi ops H2 2026.</span></p>
+                <p class="mt-8 max-w-4xl mx-auto text-xl sm:text-2xl leading-relaxed" style="color:var(--text-secondary);">Transform the historic Texas &amp; Pacific Warehouse into America's first integrated VTOL-autonomous vehicle transportation hub. Revolutionary multi-modal mobility serving 8.5 million DFW residents<a href="#sources-methods" class="source-chip" aria-label="Source for DFW market size claim">S2</a> through cutting-edge technology, historic preservation, and sustainable innovation. <span style="color:var(--accent);font-weight:600;">Texas selected for federal eIPP program — Archer Aviation launching Texas air taxi ops H2 2026.</span><a href="#sources-methods" class="source-chip" aria-label="Source for eIPP selection claim">S1</a></p>
                 <p class="mt-4 max-w-4xl mx-auto text-base sm:text-lg" style="color:var(--text-muted);">Trinity Air Link (formerly The Hub/Nexus Hub).</p>
 
                 <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -568,7 +589,7 @@
                             </li>
                             <li class="flex items-start">
                                 <span style="color:#f87171;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Growing Delay Crisis:</span> 174 million collective DFW delay hours in 2024 — up 8% year-over-year</div>
+                                <div><span class="font-semibold" style="color:var(--text-primary);">Growing Delay Crisis:</span> 174 million collective DFW delay hours in 2024 — up 8% year-over-year<a href="#sources-methods" class="source-chip" aria-label="Source for DFW traffic stats">S3</a></div>
                             </li>
                             <li class="flex items-start">
                                 <span style="color:#f87171;" class="mr-3 mt-1">•</span>
@@ -596,7 +617,7 @@
                         <ul class="space-y-4" style="color:var(--text-secondary);">
                             <li class="flex items-start">
                                 <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--accent);">Federal eIPP Selection (March 2026):</span> Texas + Archer Aviation selected for U.S. DOT's eVTOL Integration Pilot Program — Archer Midnight launching Texas air taxi ops H2 2026</div>
+                                <div><span class="font-semibold" style="color:var(--accent);">Federal eIPP Selection (March 2026):</span> Texas + Archer Aviation selected for U.S. DOT's eVTOL Integration Pilot Program — Archer Midnight launching Texas air taxi ops H2 2026<a href="#sources-methods" class="source-chip" aria-label="Source for eIPP selection claim">S1</a></div>
                             </li>
                             <li class="flex items-start">
                                 <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
@@ -604,7 +625,7 @@
                             </li>
                             <li class="flex items-start">
                                 <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">$710B+ Economy:</span> 3rd largest U.S. metro economy — Fort Worth crossed 1 million residents; corporate relocations accelerating</div>
+                                <div><span class="font-semibold" style="color:var(--text-primary);">$710B+ Economy:</span> 3rd largest U.S. metro economy — Fort Worth crossed 1 million residents; corporate relocations accelerating<a href="#sources-methods" class="source-chip" aria-label="Source for DFW market size claim">S2</a></div>
                             </li>
                             <li class="flex items-start">
                                 <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
@@ -1078,7 +1099,7 @@
                                 <div>
                                     <p class="font-semibold mb-3" style="color:var(--text-primary);">Financial Returns</p>
                                     <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li><span class="font-medium" style="color:var(--text-primary);">20-25% projected IRR</span> based on conservative ridership projections</li>
+                                        <li><span class="font-medium" style="color:var(--text-primary);">20-25% projected IRR</span> based on conservative ridership projections<a href="#sources-methods" class="source-chip" aria-label="Source for IRR range claim">S4</a></li>
                                         <li><span class="font-medium" style="color:var(--text-primary);">Break-even by Year 5</span> with positive cash flow throughout operations</li>
                                         <li><span class="font-medium" style="color:var(--text-primary);">$80-120M annual revenue</span> at full operational capacity</li>
                                         <li><span class="font-medium" style="color:var(--text-primary);">Multiple revenue streams</span> - transportation, real estate, technology licensing</li>
@@ -1315,6 +1336,45 @@
                         <h3 class="font-semibold text-lg" style="color:var(--text-primary);">State Environmental (TCEQ)</h3>
                         <p class="mt-2 text-sm" style="color:var(--text-secondary);">Search the Texas Commission on Environmental Quality database for site records.</p>
                         <a href="https://www.tceq.texas.gov/agency/data" target="_blank" class="mt-4 inline-block font-semibold transition-colors" style="color:var(--accent);">Search TCEQ Data &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="sources-methods" class="py-14 sm:py-18" style="background:var(--surface); border-top:1px solid var(--border-subtle);">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-3xl font-bold sm:text-4xl mb-4" style="color:var(--text-primary);">Sources &amp; Methods</h2>
+                    <p class="text-sm mb-8" style="color:var(--text-secondary);">This evidence layer maps key claims on this page to internal project references and current modeling assumptions.</p>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="p-4 rounded" style="background:var(--surface-2);border:1px solid var(--border-subtle);">
+                            <p class="font-semibold" style="color:var(--text-primary);"><span style="color:var(--accent);">S1</span> — eIPP Selection &amp; Texas Launch Timing</p>
+                            <p style="color:var(--text-secondary);">Derived from March 9, 2026 program update documenting Texas DOT + Archer Aviation eIPP selection and H2 2026 launch timing.</p>
+                            <p style="color:var(--text-muted);">Reference: <code>docs/hub_docs/PROJECT_STATUS.md</code> and <code>docs/hub_docs/Market_Data_Reference_2026.md</code>.</p>
+                        </div>
+                        <div class="p-4 rounded" style="background:var(--surface-2);border:1px solid var(--border-subtle);">
+                            <p class="font-semibold" style="color:var(--text-primary);"><span style="color:var(--accent);">S2</span> — DFW Market Size (Population &amp; Economy)</p>
+                            <p style="color:var(--text-secondary);">Population and GDP claims use the 2025-2026 consolidated DFW market table (8.5M-scale population and $710B+ economy).</p>
+                            <p style="color:var(--text-muted);">Reference: <code>docs/hub_docs/PROJECT_STATUS.md</code> and <code>docs/hub_docs/Market_Data_Reference_2026.md</code>.</p>
+                        </div>
+                        <div class="p-4 rounded" style="background:var(--surface-2);border:1px solid var(--border-subtle);">
+                            <p class="font-semibold" style="color:var(--text-primary);"><span style="color:var(--accent);">S3</span> — DFW Traffic Delay Statistics</p>
+                            <p style="color:var(--text-secondary);">Traffic stress metrics (174M annual delay hours, +8% year-over-year, commuter burden) are sourced from the transportation crisis summary.</p>
+                            <p style="color:var(--text-muted);">Reference: <code>docs/hub_docs/PROJECT_STATUS.md</code> and <code>docs/hub_docs/Market_Data_Reference_2026.md</code>.</p>
+                        </div>
+                        <div class="p-4 rounded" style="background:var(--surface-2);border:1px solid var(--border-subtle);">
+                            <p class="font-semibold" style="color:var(--text-primary);"><span style="color:var(--accent);">S4</span> — IRR Range &amp; Financial Method</p>
+                            <p style="color:var(--text-secondary);">The 20-25% IRR claim is taken from the TAL financial model range, with moderate-scenario IRR shown as 22.3%. Risk framing aligns with the risk scoring methodology.</p>
+                            <p style="color:var(--text-muted);">Reference: <code>docs/hub_docs/HUB_Financial_Model.md</code> and <code>docs/hub_docs/Risk_Assessment_Matrix.md</code>.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 rounded" style="background:rgba(0,212,255,0.08);border:1px solid var(--border);">
+                        <p class="text-sm" style="color:var(--text-primary);"><span class="font-semibold">Last updated:</span> March 9, 2026</p>
+                        <p class="text-sm" style="color:var(--text-secondary);"><span class="font-semibold">Evidence layer version:</span> v1.0 (internal-source linked claims)</p>
                     </div>
                 </div>
             </div>
