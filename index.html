@@ -169,13 +169,16 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
-            padding: 1rem;
-            color: var(--text-primary);
-            font-size: 0.875rem;
-            font-weight: 600;
+            background: linear-gradient(to top, rgba(0, 8, 20, 0.92) 0%, rgba(0, 8, 20, 0.6) 50%, transparent 100%);
+            padding: 0.75rem 1rem 0.875rem;
+            color: #e8f4ff;
+            font-size: 0.8rem;
+            font-weight: 700;
             text-align: center;
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-shadow: 0 0 12px rgba(0, 180, 255, 0.6), 0 1px 3px rgba(0, 0, 0, 0.9);
         }
 
         @media (min-width: 1024px) {
@@ -516,7 +519,7 @@
                     <div class="futuristic-card p-6">
                         <div class="image-container h-48 mb-4">
                             <img src="images/showcase.png" alt="AI-orchestrated robotics and vehicle operations bay for rapid passenger transfers" onerror="this.onerror=null;this.src='images/smallInterior.jpeg';" class="rounded-md">
-                            <div class="image-overlay">AI &amp; Robotics Research</div>
+                            <div class="image-overlay">Technology Innovation</div>
                         </div>
                         <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Technology Innovation Center</h3>
                         <p class="mt-2" style="color:var(--text-secondary);">Multi-floor research facilities (floors 3-7) housing advanced robotics labs, AI research centers, battery technology development, and prototype manufacturing spaces - creating a living laboratory for transportation innovation.</p>
@@ -524,7 +527,7 @@
                     <div class="futuristic-card p-6">
                         <div class="image-container h-48 mb-4">
                             <img src="images/showcaseOpen.png" alt="AI-orchestrated robotics and vehicle operations bay for rapid passenger transfers" onerror="this.onerror=null;this.src='images/smallInterior.jpeg';" class="rounded-md">
-                            <div class="image-overlay">AI &amp; Robotics Research</div>
+                            <div class="image-overlay">Public Tech Showcase</div>
                         </div>
                         <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Public Technology Showcase</h3>
                         <p class="mt-2" style="color:var(--text-secondary);">Ground floor interactive exhibitions, VR experience centers, educational programs, and public demonstrations - engaging the community while showcasing emerging transportation technologies and fostering STEM education.</p>
@@ -532,7 +535,7 @@
                     <div class="futuristic-card p-6">
                         <div class="image-container h-48 mb-4">
                             <img src="images/infrastructureHub.png" alt="AI-orchestrated robotics and vehicle operations bay for rapid passenger transfers" onerror="this.onerror=null;this.src='images/smallInterior.jpeg';" class="rounded-md">
-                            <div class="image-overlay">AI &amp; Robotics Research</div>
+                            <div class="image-overlay">Smart Infrastructure</div>
                         </div>
                         <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Smart Infrastructure Hub</h3>
                         <p class="mt-2" style="color:var(--text-secondary);">Top floor and basement computing centers with high-performance infrastructure, network operations, AI-powered traffic management systems, and advanced telecommunications - the digital brain of the transportation network.</p>
@@ -540,16 +543,34 @@
                     <div class="futuristic-card p-6">
                         <div class="image-container h-48 mb-4">
                             <img src="images/buildingbackLanding.png" alt="AI-orchestrated robotics and vehicle operations bay for rapid passenger transfers" onerror="this.onerror=null;this.src='images/smallInterior.jpeg';" class="rounded-md">
-                            <div class="image-overlay">AI &amp; Robotics Research</div>
+                            <div class="image-overlay">Community Impact</div>
                         </div>
                         <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Economic &amp; Community Impact</h3>
-                        <ul class="mt-2 list-disc list-inside space-y-1" style="color:var(--text-secondary);">
-                            <li>Thousands of high-tech jobs across construction, operations, and research</li>
-                            <li>DFW positioned as global transportation innovation leader</li>
-                            <li>Historic Texas &amp; Pacific Warehouse preservation and adaptive reuse</li>
-                            <li>Significant traffic congestion and emissions reduction</li>
-                            <li>$500M+ economic development catalyst and investment attraction</li>
-                            <li>Technology startups and academic partnerships</li>
+                        <ul class="mt-2 space-y-4" style="color:var(--text-secondary);">
+                            <li class="flex items-start">
+                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
+                                <div><span class="font-semibold" style="color:var(--text-primary);">High-Tech Job Creation:</span> Thousands of jobs across construction, operations, and research</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
+                                <div><span class="font-semibold" style="color:var(--text-primary);">Global Innovation Leader:</span> DFW positioned as a world-class transportation innovation hub</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
+                                <div><span class="font-semibold" style="color:var(--text-primary);">Historic Preservation:</span> Texas &amp; Pacific Warehouse adaptive reuse and revitalization</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
+                                <div><span class="font-semibold" style="color:var(--text-primary);">Emissions Reduction:</span> Measurable decline in traffic congestion and carbon output</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
+                                <div><span class="font-semibold" style="color:var(--text-primary);">$500M+ Economic Catalyst:</span> Major driver of regional investment and development</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
+                                <div><span class="font-semibold" style="color:var(--text-primary);">Academic Partnerships:</span> Technology startups and university research collaborations</div>
+                            </li>
                         </ul>
                     </div>
                 </div>
