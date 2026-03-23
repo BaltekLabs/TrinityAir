@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinity Air Link — Financial Model</title>
+<link rel="stylesheet" href="print.css">
+<style>
+  @page { margin: 0.75in 0.85in 0.85in; }
+  @page :first { margin: 0; }
+  .cover-hero { height: 32vh; }
+  .phase-invest {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.7rem;
+    margin: 1rem 0;
+  }
+  .pi-box {
+    border: 1.5px solid var(--border);
+    border-top: 4px solid var(--cyan);
+    padding: 0.8rem 0.7rem;
+    border-radius: 0 0 4px 4px;
+  }
+  .pi-box .pi-phase { font-size: 0.65rem; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; }
+  .pi-box .pi-year { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin: 0.2rem 0 0.1rem; }
+  .pi-box .pi-amount { font-size: 1.2rem; font-weight: 900; color: var(--blue); }
+  .pi-box .pi-desc { font-size: 0.65rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.35; }
+
+  .rev-scenario {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.7rem;
+    margin: 1rem 0;
+  }
+  .rs-box {
+    border-radius: 6px;
+    padding: 0.9rem;
+    text-align: center;
+  }
+  .rs-box.conservative { background: #e8f4f8; border: 1.5px solid #90c4d8; }
+  .rs-box.moderate { background: var(--navy); color: #fff; }
+  .rs-box.optimistic { background: #0a1a30; color: #fff; }
+  .rs-box .rs-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.4rem; color: var(--cyan); }
+  .rs-box.conservative .rs-label { color: var(--blue); }
+  .rs-box .rs-val { font-size: 1.6rem; font-weight: 900; line-height: 1.1; }
+  .rs-box.conservative .rs-val { color: var(--navy); }
+  .rs-box .rs-irr { font-size: 0.7rem; margin-top: 0.3rem; opacity: 0.8; }
+
+  .capital-structure {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+  }
+  .cs-item {
+    text-align: center;
+    padding: 0.7rem 0.5rem;
+    background: var(--light);
+    border-radius: 4px;
+    border-bottom: 3px solid var(--cyan);
+  }
+  .cs-item .cs-pct { font-size: 1.4rem; font-weight: 900; color: var(--navy); }
+  .cs-item .cs-amt { font-size: 0.82rem; font-weight: 700; color: var(--blue); }
+  .cs-item .cs-src { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.15rem; }
+
+  .returns-highlight {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    color: #fff;
+    border-radius: 8px;
+    padding: 1rem 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .rh-item .rh-val { font-size: 1.3rem; font-weight: 900; color: var(--cyan); display: block; line-height: 1.1; }
+  .rh-item .rh-lbl { font-size: 0.62rem; color: #a0c4d8; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.25rem; display: block; }
+
+  .opex-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+    font-size: 0.75rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .opex-row > div {
+    padding: 0.4rem 0.6rem;
+    border-right: 1px solid var(--border);
+  }
+  .opex-row > div:last-child { border-right: none; }
+  .opex-row.header > div { background: var(--navy); color: #fff; font-weight: 700; font-size: 0.68rem; }
+  .opex-row.alt > div { background: #f4f8fb; }
+  .opex-row.total-row > div { background: var(--light); font-weight: 700; border-top: 2px solid var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER PAGE ═══════════════ -->
+<div class="cover-page">
+  <img src="../images/hubImagery.jpeg" alt="Trinity Air Link Transportation System" class="cover-hero">
+  <div class="cover-body">
+    <div class="cover-eyebrow">Confidential — March 2026</div>
+    <h1 class="cover-title">Financial Model &amp;<br>Investment Analysis</h1>
+    <div class="cover-subtitle">Trinity Air Link Transportation System | T&amp;P Warehouse, Fort Worth, Texas</div>
+    <div class="cover-divider"></div>
+    <p class="cover-desc">Comprehensive financial projections, investment requirements, revenue scenarios, and return analysis for the nation's first integrated eVTOL–Autonomous Vehicle transportation hub. Four-phase development plan: 2026–2030.</p>
+    <div class="cover-stat-bar">
+      <div class="cover-stat"><span class="val">$129M</span><span class="lbl">Total Investment</span></div>
+      <div class="cover-stat"><span class="val">22.3%</span><span class="lbl">Projected IRR</span></div>
+      <div class="cover-stat"><span class="val">$133M</span><span class="lbl">Year 5 Revenue</span></div>
+      <div class="cover-stat"><span class="val">4.2 yr</span><span class="lbl">Payback Period</span></div>
+      <div class="cover-stat"><span class="val">$89M</span><span class="lbl">NPV @ 10%</span></div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="logo">TRINITY AIR LINK · FORT WORTH, TEXAS</span>
+    <span>For authorized recipients only — not for distribution</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="doc-page">
+  <div class="doc-header">
+    <span class="brand">TRINITY AIR LINK</span>
+    <span>Financial Model &amp; Investment Analysis · March 2026</span>
+  </div>
+
+  <span class="section-num">Section 01 · Investment Overview</span>
+  <h2>Total Capital Requirements</h2>
+
+  <div class="phase-invest">
+    <div class="pi-box">
+      <div class="pi-phase">Phase 1</div>
+      <div class="pi-year">2026 — Foundation</div>
+      <div class="pi-amount">$20M</div>
+      <div class="pi-desc">Planning, regulatory approvals, design, team building, FAA eIPP participation</div>
+    </div>
+    <div class="pi-box">
+      <div class="pi-phase">Phase 2</div>
+      <div class="pi-year">2027 — Infrastructure</div>
+      <div class="pi-amount">$50M</div>
+      <div class="pi-desc">Historic building restoration, VTOL rooftop facilities, AV terminals, computing systems</div>
+    </div>
+    <div class="pi-box">
+      <div class="pi-phase">Phase 3</div>
+      <div class="pi-year">2028 — Technology</div>
+      <div class="pi-amount">$32M</div>
+      <div class="pi-desc">eVTOL fleet (10–15 aircraft ~$1.3M/unit), AV fleet, AI traffic management, charging infra</div>
+    </div>
+    <div class="pi-box">
+      <div class="pi-phase">Phase 4</div>
+      <div class="pi-year">2029 — Launch</div>
+      <div class="pi-amount">$22M</div>
+      <div class="pi-desc">Operations launch, fleet expansion, marketing, working capital, growth reserves</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Phase 1 Funding Priority:</strong> $20M target by Q4 2026. Sources: Founder equity ($5M) + Angel investors ($8M) + Federal/state grants ($7M). Milestones: FAA eIPP enrollment, T&P lease execution, architectural design complete, technology partner MOUs signed.
+  </div>
+
+  <h3>Capital Structure — $129M Total</h3>
+  <div class="capital-structure">
+    <div class="cs-item">
+      <div class="cs-pct">45%</div>
+      <div class="cs-amt">$58M</div>
+      <div class="cs-src">Equity</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-pct">35%</div>
+      <div class="cs-amt">$45M</div>
+      <div class="cs-src">Debt</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-pct">15%</div>
+      <div class="cs-amt">$20M</div>
+      <div class="cs-src">Grants</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-pct">5%</div>
+      <div class="cs-amt">$6M</div>
+      <div class="cs-src">Revenue</div>
+    </div>
+  </div>
+
+  <span class="section-num">Section 02 · Revenue Model</span>
+  <h2>Revenue Projections — Year 5 (2031)</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Revenue Stream</th>
+        <th>Conservative</th>
+        <th>Moderate</th>
+        <th>Optimistic</th>
+        <th>Basis / Assumptions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>eVTOL Operations</td><td>$21.9M</td><td>$54.8M</td><td>$131.4M</td><td>25–40 aircraft, $75–125/passenger, 8–12 flights/day</td></tr>
+      <tr><td>Autonomous Vehicle Services</td><td>$16.4M</td><td>$54.8M</td><td>$137.3M</td><td>50–100 vehicles, $15–25/trip, 15–25 trips/day</td></tr>
+      <tr><td>Innovation Center / Real Estate</td><td>$2.4M</td><td>$3.8M</td><td>$5.1M</td><td>120K sq ft, $25–45/sq ft, 80–95% occupancy</td></tr>
+      <tr><td>Technology Licensing &amp; IP</td><td>$4.0M</td><td>$10.0M</td><td>$16.0M</td><td>Patents, data licensing, consulting</td></tr>
+      <tr><td>Ancillary (Retail / Cargo)</td><td>$6.0M</td><td>$10.0M</td><td>$16.0M</td><td>Retail, dining, parking, cargo transport</td></tr>
+      <tr class="total-row"><td><strong>Total Revenue</strong></td><td><strong>$50.7M</strong></td><td><strong>$133.4M</strong></td><td><strong>$305.8M</strong></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="rev-scenario">
+    <div class="rs-box conservative">
+      <div class="rs-label">Conservative</div>
+      <div class="rs-val">$50.7M</div>
+      <div class="rs-irr">IRR: 18% · Break-even Yr 6</div>
+    </div>
+    <div class="rs-box moderate">
+      <div class="rs-label">Moderate (Base Case)</div>
+      <div class="rs-val">$133.4M</div>
+      <div class="rs-irr">IRR: 22.3% · Break-even Yr 5</div>
+    </div>
+    <div class="rs-box optimistic">
+      <div class="rs-label">Optimistic</div>
+      <div class="rs-val">$305.8M</div>
+      <div class="rs-irr">IRR: 32%+ · Break-even Yr 4</div>
+    </div>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>CONFIDENTIAL — Trinity Air Link Transportation System</span>
+    <span>Page 1 of 2</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">TRINITY AIR LINK</span>
+    <span>Financial Model &amp; Investment Analysis · March 2026</span>
+  </div>
+
+  <span class="section-num">Section 03 · Operating Expenses</span>
+  <h2>Year 5 Operating Cost Structure</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Expense Category</th>
+        <th>Conservative</th>
+        <th>Moderate</th>
+        <th>Optimistic</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Personnel (executive, ops, tech, admin)</td><td>$32.5M</td><td>$32.5M</td><td>$32.5M</td><td>800+ FTEs; CEO, COO, CTO, CFO + team</td></tr>
+      <tr><td>Aircraft &amp; Vehicle Maintenance</td><td>$17M</td><td>$25M</td><td>$33M</td><td>Fleet-size dependent; annual maint. per aircraft</td></tr>
+      <tr><td>Facilities, Energy &amp; Utilities</td><td>$14M</td><td>$18M</td><td>$22M</td><td>EV charging, building ops, regulatory compliance</td></tr>
+      <tr><td>Debt Service, Professional &amp; Admin</td><td>$10M</td><td>$13M</td><td>$16M</td><td>Construction/equipment financing, legal, contingency</td></tr>
+      <tr class="total-row"><td><strong>Total Operating Expenses</strong></td><td><strong>$73.5M</strong></td><td><strong>$88.5M</strong></td><td><strong>$103.5M</strong></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h3>EBITDA &amp; Profitability (Year 5)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>Revenue</th>
+        <th>Total OpEx</th>
+        <th>EBITDA</th>
+        <th>EBITDA Margin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Conservative</td><td>$50.7M</td><td>$73.5M</td><td class="risk-high">($22.8M)</td><td>-45%</td></tr>
+      <tr><td>Moderate (Base Case)</td><td>$133.4M</td><td>$88.5M</td><td>$44.9M</td><td><strong>34%</strong></td></tr>
+      <tr><td>Optimistic</td><td>$305.8M</td><td>$103.5M</td><td>$202.3M</td><td><strong>66%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <span class="section-num">Section 04 · Investor Returns</span>
+  <h2>Return on Investment Summary</h2>
+
+  <div class="returns-highlight">
+    <div class="rh-item">
+      <span class="rh-val">22.3%</span>
+      <span class="rh-lbl">Projected IRR<br>(Moderate)</span>
+    </div>
+    <div class="rh-item">
+      <span class="rh-val">4.2 yr</span>
+      <span class="rh-lbl">Payback<br>Period</span>
+    </div>
+    <div class="rh-item">
+      <span class="rh-val">$89M</span>
+      <span class="rh-lbl">NPV at 10%<br>Discount Rate</span>
+    </div>
+    <div class="rh-item">
+      <span class="rh-val">Yr 5</span>
+      <span class="rh-lbl">Breakeven<br>Target (2031)</span>
+    </div>
+    <div class="rh-item">
+      <span class="rh-val">34%</span>
+      <span class="rh-lbl">EBITDA Margin<br>at Maturity</span>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h3>Exit Strategies</h3>
+      <ul class="bullets">
+        <li><strong>Strategic acquisition</strong> by major airline, automotive, or tech firm</li>
+        <li><strong>IPO</strong> as first publicly-traded integrated mobility hub operator</li>
+        <li><strong>Real estate REIT</strong> conversion for income-generating asset monetization</li>
+        <li><strong>Municipal partnership</strong> buyout with ongoing management contract</li>
+        <li><strong>Franchise licensing</strong> to other metropolitan markets nationally</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Government Incentives Available</h3>
+      <ul class="bullets">
+        <li>Federal DOT Transportation Investment Generating Economic Recovery (TIGER) grants</li>
+        <li>Historic Tax Credits (20% of qualified rehabilitation costs)</li>
+        <li>Texas Enterprise Fund &amp; Governor's Economic Development funds</li>
+        <li>Fort Worth Economic Development Program incentives</li>
+        <li>FAA eIPP program participation and co-investment</li>
+        <li>New Markets Tax Credits for community development investment</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Key Financial Assumptions &amp; Benchmarks</h3>
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>Assumption</th><th>Industry Benchmark / Source</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>eVTOL per-seat-mile fare</td><td>$3–11/mile</td><td>Joby targeting ~$3/seat-mile; industry range $3–11</td></tr>
+      <tr><td>Aircraft unit cost</td><td>~$1.3M</td><td>Joby S4 / Archer Midnight manufacturing cost</td></tr>
+      <tr><td>Trips per aircraft per day</td><td>8–25</td><td>Archer targeting 10–25 at scale</td></tr>
+      <tr><td>AV trip cost comparison</td><td>$15–25/trip</td><td>Comparable to current ride-share pricing</td></tr>
+      <tr><td>Innovation center rent</td><td>$29–37/sq ft</td><td>CommercialCafe Fort Worth Class A, 2025</td></tr>
+      <tr><td>Waymo injury rate reduction</td><td>88% fewer</td><td>Waymo published safety comparison data</td></tr>
+      <tr><td>DFW congestion cost</td><td>$1,618/driver/yr</td><td>Texas Transportation Institute 2024</td></tr>
+    </tbody>
+  </table>
+
+  <div class="contact-block">
+    <h4>Investment Inquiries</h4>
+    <p>Trinity Air Link Transportation System · Fort Worth, Texas<br>
+    For detailed financial model access, investor data room, or partnership discussions, please contact the executive team.<br>
+    <em>This document contains forward-looking statements and projections. Actual results may vary. See risk disclosures.</em></p>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>CONFIDENTIAL — Trinity Air Link Transportation System · Financial Model v3.2 · March 2026</span>
+    <span>Page 2 of 2</span>
+  </div>
+</div>
+
+</body>
+</html>

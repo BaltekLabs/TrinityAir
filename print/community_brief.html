@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinity Air Link — Community Brief</title>
+<link rel="stylesheet" href="print.css">
+<style>
+  @page { margin: 0.75in 0.85in 0.85in; }
+  @page :first { margin: 0; }
+  .cover-hero { height: 32vh; }
+  .community-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
+    margin: 0.8rem 0;
+  }
+  .chs-box {
+    background: var(--light);
+    border-radius: 6px;
+    padding: 0.75rem 0.6rem;
+    text-align: center;
+    border-bottom: 3px solid var(--cyan);
+  }
+  .chs-box .chs-val { font-size: 1.25rem; font-weight: 900; color: var(--navy); display: block; line-height: 1.1; }
+  .chs-box .chs-lbl { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; display: block; }
+
+  .benefit-section {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0.8rem 0;
+  }
+  .bs-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 0.5rem 0.8rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .bs-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .bs-col { padding: 0.6rem 0.8rem; }
+  .bs-col:first-child { border-right: 1px solid var(--border); }
+  .bs-col h5 { font-size: 0.68rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.07em; margin: 0 0 0.25rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .bs-col ul { margin: 0; padding-left: 1rem; }
+  .bs-col li { font-size: 0.72rem; margin: 0.2rem 0; line-height: 1.4; }
+
+  .qa-item {
+    border-bottom: 1px solid var(--border);
+    padding: 0.55rem 0;
+  }
+  .qa-item:last-child { border-bottom: none; }
+  .qa-item .qa-q { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .qa-item .qa-a { font-size: 0.73rem; color: #333; line-height: 1.45; }
+
+  .phase-timeline-community {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+  }
+  .ptc-box {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.65rem 0.6rem;
+    text-align: center;
+  }
+  .ptc-box .ptc-phase { font-size: 0.6rem; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.07em; }
+  .ptc-box .ptc-period { font-size: 0.72rem; font-weight: 800; color: var(--navy); margin: 0.15rem 0; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .ptc-box .ptc-title { font-size: 0.68rem; color: var(--blue); font-weight: 600; margin-bottom: 0.2rem; }
+  .ptc-box ul { text-align: left; padding-left: 0.9rem; margin: 0; }
+  .ptc-box li { font-size: 0.62rem; color: #444; margin: 0.15rem 0; line-height: 1.3; }
+
+  .get-involved {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin: 0.8rem 0;
+  }
+  .gi-box {
+    background: var(--light);
+    border-radius: 6px;
+    padding: 0.75rem 0.8rem;
+    border-left: 3px solid var(--navy);
+  }
+  .gi-box h5 { font-size: 0.75rem; font-weight: 700; color: var(--navy); margin: 0 0 0.3rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .gi-box p { margin: 0; font-size: 0.7rem; line-height: 1.4; color: #333; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER PAGE ═══════════════ -->
+<div class="cover-page">
+  <img src="../images/buildingFrontCity.jpeg" alt="T&P Warehouse Fort Worth" class="cover-hero">
+  <div class="cover-body">
+    <div class="cover-eyebrow">Community Brief · March 2026</div>
+    <h1 class="cover-title">Your Link.<br>Your Future.</h1>
+    <div class="cover-subtitle">Trinity Air Link — What It Means for Fort Worth Residents</div>
+    <div class="cover-divider"></div>
+    <p class="cover-desc">Transforming the historic Texas &amp; Pacific Warehouse into a world-class transportation hub that creates jobs, preserves our heritage, reduces traffic, and positions Fort Worth as a global leader in mobility innovation.</p>
+    <div class="cover-stat-bar">
+      <div class="cover-stat"><span class="val">800+</span><span class="lbl">Permanent Jobs</span></div>
+      <div class="cover-stat"><span class="val">2,500+</span><span class="lbl">Construction Jobs</span></div>
+      <div class="cover-stat"><span class="val">$25M+</span><span class="lbl">Annual Tax Revenue</span></div>
+      <div class="cover-stat"><span class="val">Historic</span><span class="lbl">T&P Warehouse Saved</span></div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="logo">TRINITY AIR LINK · FORT WORTH, TEXAS</span>
+    <span>trinityairlink.com · Community Information</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="doc-page">
+  <div class="doc-header">
+    <span class="brand">TRINITY AIR LINK</span>
+    <span>Community Brief · Fort Worth, Texas · March 2026</span>
+  </div>
+
+  <span class="section-num">Section 01 · What Is the Link?</span>
+  <h2>Transforming Fort Worth's Most Iconic Building</h2>
+
+  <div class="two-col wide-left">
+    <div>
+      <p>The Trinity Air Link Transportation System is a proposal to transform the historic <strong>Texas &amp; Pacific Warehouse</strong> in downtown Fort Worth — the landmark 8-story, 600-foot-long 1920s railroad building — into the nation's first integrated transportation hub.</p>
+      <p>The Link will combine <strong>electric air taxis (eVTOL)</strong>, <strong>autonomous electric vehicles</strong>, and a <strong>120,000 sq ft innovation center</strong> into a single, seamlessly connected facility that preserves Fort Worth's railroad heritage while pioneering its transportation future.</p>
+      <p>This is not science fiction. On March 9, 2026, the White House announced that <strong>Texas DOT and Archer Aviation</strong> were selected as one of only 8 national sites for the federal eVTOL Integration Pilot Program. Air taxi operations begin in Texas this summer. <strong>The Link is the infrastructure that puts Fort Worth on that map.</strong></p>
+    </div>
+    <div>
+      <div class="community-hero-stats">
+        <div class="chs-box"><span class="chs-val">1M+</span><span class="chs-lbl">Fort Worth Residents</span></div>
+        <div class="chs-box"><span class="chs-val">69 hrs</span><span class="chs-lbl">Lost per Commuter/Year</span></div>
+        <div class="chs-box"><span class="chs-val">10th</span><span class="chs-lbl">Worst Commute City, US</span></div>
+        <div class="chs-box"><span class="chs-val">$1,618</span><span class="chs-lbl">Cost of Congestion/Driver/Yr</span></div>
+      </div>
+      <div class="callout" style="margin-top:0.5rem">
+        <strong>Fort Worth's challenge:</strong> Growing faster than any city in DFW — but ranked 10th worst commute city in America. The Link addresses that directly.
+      </div>
+    </div>
+  </div>
+
+  <span class="section-num">Section 02 · Community Benefits</span>
+  <h2>What the Link Delivers for Fort Worth</h2>
+
+  <div class="benefit-section">
+    <div class="bs-header">Jobs &amp; Economic Growth</div>
+    <div class="bs-body">
+      <div class="bs-col">
+        <h5>During Construction</h5>
+        <ul>
+          <li>2,500+ construction jobs over 24 months</li>
+          <li>Local hiring preferences built into contracts</li>
+          <li>Partnerships with Fort Worth trade schools</li>
+          <li>Estimated $150M+ in local economic activity</li>
+        </ul>
+      </div>
+      <div class="bs-col">
+        <h5>Permanent Operations</h5>
+        <ul>
+          <li>800+ permanent positions at the hub</li>
+          <li>Technology, transportation, operations, hospitality</li>
+          <li>Training programs for local residents</li>
+          <li>$500M+ regional economic multiplier effect</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="benefit-section">
+    <div class="bs-header">Better Transportation for Everyone</div>
+    <div class="bs-body">
+      <div class="bs-col">
+        <h5>Air Taxi Service</h5>
+        <ul>
+          <li>60-90 minute DFW car trips reduced to 10–20 min flights</li>
+          <li>Point-to-point service across the metroplex</li>
+          <li>Fares competitive with premium ride-share ($75–150/trip)</li>
+          <li>100x quieter than traditional helicopters</li>
+        </ul>
+      </div>
+      <div class="bs-col">
+        <h5>Autonomous Vehicles</h5>
+        <ul>
+          <li>Level 4 self-driving vehicles for first/last-mile connectivity</li>
+          <li>$15–25 fares comparable to current Uber/Lyft pricing</li>
+          <li>Accessible options for seniors and those with disabilities</li>
+          <li>Connects to Trinity Railway Express and existing transit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="benefit-section">
+    <div class="bs-header">Historic Preservation &amp; Community Pride</div>
+    <div class="bs-body">
+      <div class="bs-col">
+        <h5>Saving the T&amp;P Warehouse</h5>
+        <ul>
+          <li>Rescuing a Fort Worth landmark from deterioration</li>
+          <li>$2.15M in immediate structural rehabilitation</li>
+          <li>Historic character preserved and celebrated</li>
+          <li>Building brought back to life after decades vacant</li>
+        </ul>
+      </div>
+      <div class="bs-col">
+        <h5>Community Spaces</h5>
+        <ul>
+          <li>Public areas within the hub for events and community use</li>
+          <li>Transportation history exhibits honoring Fort Worth's past</li>
+          <li>Restaurants, retail, and gathering spaces</li>
+          <li>Gateway to the $500M Texas A&amp;M / Omni development district</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>Trinity Air Link Transportation System — Community Brief</span>
+    <span>Page 1 of 2</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">TRINITY AIR LINK</span>
+    <span>Community Brief · Fort Worth, Texas · March 2026</span>
+  </div>
+
+  <span class="section-num">Section 03 · Answering Your Questions</span>
+  <h2>Community Q&amp;A</h2>
+
+  <div class="qa-item">
+    <div class="qa-q">Q: Are air taxis safe? Will this put aircraft over our neighborhoods?</div>
+    <div class="qa-a">Modern electric air taxis have extensive redundant safety systems certified by the FAA. They are 100x quieter than traditional helicopters. Flight paths are designed to minimize noise over residential areas. The technology being used — Archer Midnight and Joby S4 — has undergone years of FAA certification testing. Waymo's autonomous vehicles have 88% fewer injury claims than human drivers. Safety is the first priority, not an afterthought.</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">Q: Will this increase traffic and congestion around the T&amp;P area?</div>
+    <div class="qa-a">The hub is specifically designed to <em>reduce</em> local traffic by providing alternatives to driving. Most passengers will arrive via existing rail, bus, or autonomous vehicles. Smart traffic management systems actively reduce congestion around the facility. The goal is to take cars off the road, not add them.</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">Q: Is this affordable for regular Fort Worth residents?</div>
+    <div class="qa-a">Autonomous vehicle fares ($15–25/trip) are priced comparably to current Uber/Lyft. Air taxi fares will be premium initially ($75–150/trip) but will decline as fleet scales — similar to how Uber/Lyft prices dropped after launch. Subscription programs and community discounts are planned. All Fort Worth residents benefit from reduced traffic congestion on roads.</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">Q: How will construction affect daily life near downtown?</div>
+    <div class="qa-a">Construction is phased to minimize community disruption. Local traffic management plans will be implemented. Regular updates will be provided on progress. Local hiring is prioritized for construction jobs. Construction will be coordinated around major community events in the downtown area.</div>
+  </div>
+
+  <div class="qa-item">
+    <div class="qa-q">Q: What tax dollars are being spent on this project?</div>
+    <div class="qa-a">The Link is primarily a private investment project ($129M total). Government incentives include standard federal programs (Historic Tax Credits, transportation grants) that are available to any qualifying project. The project will <em>generate</em> an estimated $25M+ annually in new tax revenue for the City of Fort Worth by Year 5 — a net positive for public finances.</div>
+  </div>
+
+  <span class="section-num">Section 04 · Timeline</span>
+  <h2>Project Development Schedule</h2>
+
+  <div class="phase-timeline-community">
+    <div class="ptc-box">
+      <div class="ptc-phase">Phase 1</div>
+      <div class="ptc-period">2026</div>
+      <div class="ptc-title">Planning</div>
+      <ul>
+        <li>Community meetings begin</li>
+        <li>Building safety repairs</li>
+        <li>Regulatory approvals</li>
+        <li>Architectural design</li>
+      </ul>
+    </div>
+    <div class="ptc-box">
+      <div class="ptc-phase">Phase 2</div>
+      <div class="ptc-period">2027</div>
+      <div class="ptc-title">Construction</div>
+      <ul>
+        <li>Historic renovation begins</li>
+        <li>2,500+ local jobs created</li>
+        <li>Transportation infrastructure</li>
+        <li>Innovation center build-out</li>
+      </ul>
+    </div>
+    <div class="ptc-box">
+      <div class="ptc-phase">Phase 3</div>
+      <div class="ptc-period">2028</div>
+      <div class="ptc-title">Technology</div>
+      <ul>
+        <li>Fleet deployment</li>
+        <li>Innovation center opens</li>
+        <li>Staff training begins</li>
+        <li>Community preview events</li>
+      </ul>
+    </div>
+    <div class="ptc-box">
+      <div class="ptc-phase">Phase 4</div>
+      <div class="ptc-period">2029+</div>
+      <div class="ptc-title">Operations</div>
+      <ul>
+        <li>Services open to public</li>
+        <li>800+ permanent jobs</li>
+        <li>Community programs active</li>
+        <li>Regional expansion</li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="section-num">Section 05 · Get Involved</span>
+  <h2>Your Voice Shapes the Link</h2>
+
+  <div class="get-involved">
+    <div class="gi-box">
+      <h5>Attend Community Meetings</h5>
+      <p>Public meetings are held monthly to share updates and gather your input. All perspectives — supportive and critical — are welcome. First public meeting date to be announced.</p>
+    </div>
+    <div class="gi-box">
+      <h5>Join the Advisory Committee</h5>
+      <p>We are forming a Community Advisory Committee with neighborhood representatives. Members get direct access to project leadership and influence community-facing decisions.</p>
+    </div>
+    <div class="gi-box">
+      <h5>Local Jobs &amp; Business</h5>
+      <p>We are committed to hiring locally for both construction and permanent positions. Local businesses are prioritized for services and supplies. Contact us to register your company.</p>
+    </div>
+  </div>
+
+  <h3>Environmental Commitments</h3>
+  <div class="two-col">
+    <div>
+      <ul class="checklist">
+        <li>100% electric aircraft fleet — zero local emissions</li>
+        <li>100% electric autonomous vehicle fleet</li>
+        <li>Renewable energy integration for charging infrastructure</li>
+        <li>Net reduction in local vehicle miles traveled</li>
+      </ul>
+    </div>
+    <div>
+      <ul class="checklist">
+        <li>Green building standards for historic renovation</li>
+        <li>10–15% reduction in local traffic volume projected</li>
+        <li>Noise monitoring systems with community feedback</li>
+        <li>Annual environmental impact reporting to community</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="contact-block">
+    <h4>Contact &amp; Stay Connected</h4>
+    <p><strong>Community Relations Office:</strong> Trinity Air Link Transportation System, Fort Worth, Texas<br>
+    <strong>Project Website:</strong> trinityairlink.com<br>
+    <strong>Sign up for updates, attend meetings, or ask questions</strong> — your participation makes this better for everyone.<br>
+    <em>Next community meeting: Date and location to be announced on our website and social media channels.</em></p>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>Trinity Air Link Transportation System — Community Brief · March 2026</span>
+    <span>Page 2 of 2</span>
+  </div>
+</div>
+
+</body>
+</html>

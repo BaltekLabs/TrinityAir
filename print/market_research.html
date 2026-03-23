@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinity Air Link — Market Research</title>
+<link rel="stylesheet" href="print.css">
+<style>
+  @page { margin: 0.75in 0.85in 0.85in; }
+  @page :first { margin: 0; }
+  .cover-hero { height: 32vh; }
+  .market-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin: 1rem 0;
+  }
+  .mm-box {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.85rem 0.9rem;
+    text-align: center;
+  }
+  .mm-box .mm-val { font-size: 1.4rem; font-weight: 900; color: var(--cyan); display: block; line-height: 1.1; }
+  .mm-box .mm-label { font-size: 0.65rem; color: #a0c4d8; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.3rem; display: block; }
+  .mm-box .mm-src { font-size: 0.6rem; color: #607080; margin-top: 0.15rem; display: block; }
+
+  .competitor-table th { background: var(--navy); }
+  .check { color: #22c55e; font-weight: 700; }
+  .cross { color: #ef4444; font-weight: 700; }
+  .partial { color: #f59e0b; font-weight: 700; }
+
+  .market-timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.4rem;
+    margin: 1rem 0;
+  }
+  .mt-item {
+    text-align: center;
+    padding: 0.6rem 0.4rem;
+    background: var(--light);
+    border-radius: 4px;
+    border-bottom: 3px solid var(--border);
+  }
+  .mt-item.active { background: var(--navy); color: #fff; border-bottom-color: var(--cyan); }
+  .mt-item .mt-year { font-size: 0.78rem; font-weight: 800; }
+  .mt-item.active .mt-year { color: var(--cyan); }
+  .mt-item .mt-val { font-size: 0.95rem; font-weight: 900; color: var(--blue); }
+  .mt-item.active .mt-val { color: #fff; }
+  .mt-item .mt-note { font-size: 0.58rem; color: var(--muted); }
+  .mt-item.active .mt-note { color: #a0c4d8; }
+
+  .congestion-bar {
+    display: grid;
+    grid-template-columns: 160px 1fr 80px;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.35rem 0;
+  }
+  .cb-city { font-size: 0.75rem; font-weight: 600; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .cb-track { height: 16px; border-radius: 2px; }
+  .cb-val { font-size: 0.7rem; font-weight: 700; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; text-align: right; }
+
+  .tech-readiness {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin: 0.8rem 0;
+  }
+  .tr-item {
+    border: 1.5px solid var(--border);
+    border-left: 4px solid var(--cyan);
+    border-radius: 0 6px 6px 0;
+    padding: 0.65rem 0.8rem;
+  }
+  .tr-item h5 { margin: 0 0 0.25rem; color: var(--blue); font-size: 0.78rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .tr-item p { margin: 0; font-size: 0.72rem; color: #444; line-height: 1.4; }
+  .tr-item .trl { font-size: 0.62rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.2rem; display: block; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER PAGE ═══════════════ -->
+<div class="cover-page">
+  <img src="../images/cityView.jpeg" alt="DFW Metroplex" class="cover-hero">
+  <div class="cover-body">
+    <div class="cover-eyebrow">Market Intelligence Report · March 2026</div>
+    <h1 class="cover-title">Market Research &amp;<br>Opportunity Analysis</h1>
+    <div class="cover-subtitle">Dallas-Fort Worth Urban Air Mobility &amp; Integrated Transportation | Trinity Air Link Transportation System</div>
+    <div class="cover-divider"></div>
+    <p class="cover-desc">Comprehensive analysis of the DFW metropolitan market, urban air mobility sector dynamics, competitive landscape, technology readiness, and demand forecasts supporting the Trinity Air Link Transportation System business case.</p>
+    <div class="cover-stat-bar">
+      <div class="cover-stat"><span class="val">8.5M</span><span class="lbl">DFW Population</span></div>
+      <div class="cover-stat"><span class="val">$710B</span><span class="lbl">Regional GDP</span></div>
+      <div class="cover-stat"><span class="val">$41B</span><span class="lbl">UAM Market 2035</span></div>
+      <div class="cover-stat"><span class="val">174M hrs</span><span class="lbl">Annual Traffic Delay</span></div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="logo">TRINITY AIR LINK · FORT WORTH, TEXAS</span>
+    <span>For authorized recipients only</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="doc-page">
+  <div class="doc-header">
+    <span class="brand">TRINITY AIR LINK</span>
+    <span>Market Research &amp; Opportunity Analysis · March 2026</span>
+  </div>
+
+  <span class="section-num">Section 01 · DFW Market Overview</span>
+  <h2>The Dallas-Fort Worth Opportunity</h2>
+
+  <div class="market-metric-grid">
+    <div class="mm-box">
+      <span class="mm-val">8.5M</span>
+      <span class="mm-label">DFW Metro Population</span>
+      <span class="mm-src">4th largest U.S. metro — +487 residents/day</span>
+    </div>
+    <div class="mm-box">
+      <span class="mm-val">$710B+</span>
+      <span class="mm-label">Annual Regional GDP</span>
+      <span class="mm-src">3rd largest U.S. metro economy · 5.7% annual growth</span>
+    </div>
+    <div class="mm-box">
+      <span class="mm-val">174M hrs</span>
+      <span class="mm-label">Annual Traffic Delay</span>
+      <span class="mm-src">Up 8% YoY · 44 of TX 100 worst roads</span>
+    </div>
+    <div class="mm-box">
+      <span class="mm-val">$1,618</span>
+      <span class="mm-label">Annual Congestion Cost / Driver</span>
+      <span class="mm-src">Texas Transportation Institute 2024</span>
+    </div>
+    <div class="mm-box">
+      <span class="mm-val">10th</span>
+      <span class="mm-label">Worst Commute City — U.S.</span>
+      <span class="mm-src">Forbes 2025 · 69 hrs lost/commuter/year</span>
+    </div>
+    <div class="mm-box">
+      <span class="mm-val">$36.4B</span>
+      <span class="mm-label">Projected 2050 Congestion Cost</span>
+      <span class="mm-src">Without transformative transportation action</span>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    "The DFW metroplex is simultaneously one of America's greatest economic success stories and one of its most acute transportation failures. Traffic congestion is strangling the economic growth that created it."
+  </div>
+
+  <h3>Why Conventional Solutions Fail</h3>
+  <div class="two-col">
+    <div>
+      <p>Highway expansion induces new demand within 5–7 years, restoring congestion to prior levels — a well-documented phenomenon in Texas Transportation Institute data. The I-35 expansion is a case study in this failure mode.</p>
+      <p>Rail expansion is politically constrained, capital-intensive ($150–300M/mile for light rail), and optimized for fixed corridors rather than the distributed, point-to-point demand patterns of an 8,000-square-mile sprawling metroplex.</p>
+      <p>Less than <strong>1% of DFW workers use public transit</strong>. Approximately 70% drive alone. The problem requires a fundamentally different approach — a new dimension: <em>altitude</em>.</p>
+    </div>
+    <div>
+      <h4>Fort Worth Specific Data</h4>
+      <ul class="bullets">
+        <li><strong>Population:</strong> 1,008,106 (10th largest U.S. city)</li>
+        <li><strong>Growth rate:</strong> Fastest-growing major city in DFW corridor</li>
+        <li><strong>Commute ranking:</strong> 10th worst in America (Forbes 2025)</li>
+        <li><strong>Two million-plus cities:</strong> Only U.S. metro with both Fort Worth (1M+) and Dallas (1.3M+)</li>
+        <li><strong>eIPP status:</strong> Texas DOT + Archer Aviation selected (March 9, 2026); routes connect Dallas—but not Fort Worth without the Link</li>
+        <li><strong>Median household income:</strong> $68,800 (target customer capacity confirmed)</li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="section-num">Section 02 · Urban Air Mobility Market</span>
+  <h2>Global UAM Market Sizing &amp; Growth</h2>
+
+  <div class="market-timeline">
+    <div class="mt-item">
+      <div class="mt-year">2024</div>
+      <div class="mt-val">$4.6B</div>
+      <div class="mt-note">Commercial launch phase</div>
+    </div>
+    <div class="mt-item active">
+      <div class="mt-year">2026 ◄ NOW</div>
+      <div class="mt-val">~$8B</div>
+      <div class="mt-note">eIPP ops begin; Link window</div>
+    </div>
+    <div class="mt-item">
+      <div class="mt-year">2028</div>
+      <div class="mt-val">$14B</div>
+      <div class="mt-note">Fleet scale-up phase</div>
+    </div>
+    <div class="mt-item">
+      <div class="mt-year">2030</div>
+      <div class="mt-val">$29B</div>
+      <div class="mt-note">CAGR 31–34%</div>
+    </div>
+    <div class="mt-item">
+      <div class="mt-year">2035</div>
+      <div class="mt-val">$41B+</div>
+      <div class="mt-note">$1T+ broader mobility (MS)</div>
+    </div>
+  </div>
+
+  <p><strong>Sources:</strong> MarketsandMarkets, Grand View Research, Morgan Stanley Urban Air Mobility projections. North America holds the largest regional market share. CAGR of 31–34% driven by eVTOL certification arrivals, urban congestion crises, and declining aircraft manufacturing costs.</p>
+
+  <div class="doc-footer-bar">
+    <span>CONFIDENTIAL — Trinity Air Link Transportation System</span>
+    <span>Page 1 of 2</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">TRINITY AIR LINK</span>
+    <span>Market Research &amp; Opportunity Analysis · March 2026</span>
+  </div>
+
+  <span class="section-num">Section 03 · Technology Readiness</span>
+  <h2>Technology Is Here — Not Speculative</h2>
+
+  <div class="callout">
+    <strong>March 9, 2026 — Breaking Development:</strong> U.S. DOT Secretary Duffy announced 8 eIPP sites for the White House eVTOL Integration Pilot Program. Texas DOT + Archer Aviation selected; routes connect Dallas, Austin, San Antonio, Houston. Archer Midnight air taxi operations begin in Texas <strong>H2 2026</strong>. The Link is the infrastructure this network needs in Fort Worth.
+  </div>
+
+  <div class="tech-readiness">
+    <div class="tr-item">
+      <span class="trl">Commercial Operations 2026</span>
+      <h5>Archer Aviation — Midnight eVTOL</h5>
+      <p>Holds FAA Part 135 Air Carrier, Part 145 Repair Station, Part 141 Pilot Training certificates. Texas eIPP participant. 4 passengers + pilot, 150 mph, 60-mile range. Converts 60–90 min DFW car trip to 10–20 min flight. Manufacturing cost ~$1.3M/unit.</p>
+    </div>
+    <div class="tr-item">
+      <span class="trl">FAA Stage 4/5 — Targeting 2026 Launch</span>
+      <h5>Joby Aviation — S4 eVTOL</h5>
+      <p>Completed FAA Stage 4 of 5 type certification (November 2025) — first in history. Targeting first U.S. commercial passenger flights in 2026. Also a Texas eIPP participant. 4 passengers + pilot. ~$3/seat-mile target pricing.</p>
+    </div>
+    <div class="tr-item">
+      <span class="trl">Level 4 Autonomy — Commercially Proven</span>
+      <h5>Waymo — Autonomous Vehicles</h5>
+      <p>450,000+ paid rides per week across five U.S. cities including Austin, TX. Valued at $126B. Expanding to Atlanta, Miami, D.C. in 2026. 88% fewer property damage claims vs. human drivers. Proven business model at scale.</p>
+    </div>
+    <div class="tr-item">
+      <span class="trl">Active Policy Framework</span>
+      <h5>Federal eIPP Program</h5>
+      <p>White House eVTOL Integration Pilot Program enables revenue-generating passenger operations before full FAA type certification. 8 sites selected nationwide. Texas DOT selected with Archer. Operational H2 2026. Fort Worth needs vertiport infrastructure.</p>
+    </div>
+  </div>
+
+  <span class="section-num">Section 04 · Competitive Landscape</span>
+  <h2>No Direct Competitor in Major U.S. Metro</h2>
+
+  <table class="competitor-table">
+    <thead>
+      <tr>
+        <th>Capability</th>
+        <th>TRINITY AIR LINK (FW)</th>
+        <th>Standalone Vertiport</th>
+        <th>Traditional Transit Hub</th>
+        <th>Airport eVTOL Terminal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Integrated eVTOL + AV operations</td><td class="check">✓ YES</td><td class="cross">✗ NO</td><td class="cross">✗ NO</td><td class="cross">✗ NO</td></tr>
+      <tr><td>Innovation center / tech campus</td><td class="check">✓ YES</td><td class="cross">✗ NO</td><td class="partial">⟡ LIMITED</td><td class="cross">✗ NO</td></tr>
+      <tr><td>AI-powered multi-modal routing</td><td class="check">✓ YES</td><td class="cross">✗ NO</td><td class="partial">⟡ PARTIAL</td><td class="cross">✗ NO</td></tr>
+      <tr><td>Historic landmark / brand identity</td><td class="check">✓ ICONIC</td><td class="cross">✗ NO</td><td class="partial">⟡ VARIES</td><td class="cross">✗ NO</td></tr>
+      <tr><td>Downtown urban core location</td><td class="check">✓ YES</td><td class="partial">⟡ VARIES</td><td class="check">✓ YES</td><td class="cross">✗ SUBURBAN</td></tr>
+      <tr><td>Scalable franchise model</td><td class="check">✓ YES</td><td class="cross">✗ NO</td><td class="cross">✗ NO</td><td class="partial">⟡ POSSIBLE</td></tr>
+      <tr><td>Revenue from multiple streams</td><td class="check">✓ 5 STREAMS</td><td class="cross">✗ 1 STREAM</td><td class="partial">⟡ 2–3</td><td class="partial">⟡ 2–3</td></tr>
+    </tbody>
+  </table>
+
+  <div class="two-col">
+    <div>
+      <h3>Target Customer Segments</h3>
+      <ul class="bullets">
+        <li><strong>Business travelers</strong> — DFW corporate market, time-sensitive trips</li>
+        <li><strong>Airport connectors</strong> — DFW/Love Field to downtown Fort Worth</li>
+        <li><strong>Intra-DFW commuters</strong> — Fort Worth ↔ Dallas corridor</li>
+        <li><strong>Entertainment/events</strong> — concerts, sports, special occasions</li>
+        <li><strong>Tech corridor workers</strong> — Innovation center tenants</li>
+        <li><strong>Tourism</strong> — Unique aerial experience of Fort Worth</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Demand Validation Signals</h3>
+      <ul class="bullets">
+        <li>Waymo waitlists in every city before launch</li>
+        <li>Joby/Archer oversubscribed pre-order lists</li>
+        <li>DFW riders paying $1,618/year in lost productivity — motivation to switch</li>
+        <li>Business survey: 73% of DFW executives cite transportation as top barrier</li>
+        <li>Fort Worth hotel nights 12.4M/year — captive premium market</li>
+        <li>Texas A&M Fort Worth, medical district, TCU campus — anchor demand generators</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="contact-block">
+    <h4>Market Research &amp; Data Inquiries</h4>
+    <p>Trinity Air Link Transportation System · Fort Worth, Texas<br>
+    Full market research report with methodology, primary sources, and regional data appendix available upon request.<br>
+    <em>Data sources: MarketsandMarkets, Grand View Research, Morgan Stanley, TTI, Forbes, FAA, TxDOT, CommercialCafe — all 2024/2025/2026.</em></p>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>CONFIDENTIAL — Trinity Air Link Transportation System · Market Research v2.1 · March 2026</span>
+    <span>Page 2 of 2</span>
+  </div>
+</div>
+
+</body>
+</html>

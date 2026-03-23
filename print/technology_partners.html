@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinity Air Link — Technology Partner Brief</title>
+<link rel="stylesheet" href="print.css">
+<style>
+  @page { margin: 0.75in 0.85in 0.85in; }
+  @page :first { margin: 0; }
+  .cover-hero { height: 32vh; }
+  .partner-tier {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin: 1rem 0;
+  }
+  .pt-box {
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 0.85rem 0.9rem;
+  }
+  .pt-box .pt-tier { font-size: 0.62rem; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+  .pt-box .pt-name { font-size: 0.88rem; font-weight: 800; color: var(--navy); margin-bottom: 0.4rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .pt-box .pt-desc { font-size: 0.72rem; color: #444; line-height: 1.4; }
+  .pt-box.featured { background: var(--navy); border-color: var(--cyan); }
+  .pt-box.featured .pt-tier { color: var(--cyan); }
+  .pt-box.featured .pt-name { color: #fff; }
+  .pt-box.featured .pt-desc { color: #a0c4d8; }
+
+  .tech-category {
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--cyan);
+    border-radius: 0 6px 6px 0;
+    padding: 0.7rem 0.9rem;
+    margin: 0.6rem 0;
+  }
+  .tc-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.3rem; }
+  .tc-title { font-size: 0.83rem; font-weight: 700; color: var(--navy); font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .tc-status { font-size: 0.62rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; }
+  .tc-desc { font-size: 0.73rem; color: #444; line-height: 1.4; margin: 0; }
+
+  .partnership-model-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin: 0.8rem 0;
+  }
+  .pm-box {
+    background: var(--light);
+    border-radius: 6px;
+    padding: 0.75rem 0.9rem;
+    border-top: 3px solid var(--navy);
+  }
+  .pm-box h5 { font-size: 0.78rem; color: var(--navy); margin: 0 0 0.35rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .pm-box ul { margin: 0; padding-left: 1rem; }
+  .pm-box li { font-size: 0.7rem; margin: 0.2rem 0; line-height: 1.4; color: #333; }
+
+  .milestone-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0.8rem 0;
+  }
+  .mt-phase {
+    padding: 0.65rem 0.7rem;
+    border-right: 1px solid var(--border);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .mt-phase:last-child { border-right: none; }
+  .mt-phase:nth-child(odd) { background: #f4f8fb; }
+  .mt-phase .mtp-num { font-size: 0.62rem; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; }
+  .mt-phase .mtp-time { font-size: 0.78rem; font-weight: 800; color: var(--navy); margin: 0.15rem 0; }
+  .mt-phase ul { margin: 0; padding-left: 0.9rem; }
+  .mt-phase li { font-size: 0.63rem; color: #444; margin: 0.15rem 0; line-height: 1.35; }
+
+  .benefit-callout {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    margin: 0.8rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+  .bc-item .bc-icon { font-size: 1.3rem; display: block; }
+  .bc-item .bc-title { font-size: 0.75rem; font-weight: 700; color: var(--cyan); display: block; margin: 0.2rem 0 0.15rem; }
+  .bc-item .bc-desc { font-size: 0.65rem; color: #a0c4d8; line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER PAGE ═══════════════ -->
+<div class="cover-page">
+  <img src="../images/hubImagery3.jpeg" alt="Technology Integration Hub" class="cover-hero">
+  <div class="cover-body">
+    <div class="cover-eyebrow">Technology Partnership Brief · March 2026</div>
+    <h1 class="cover-title">Technology Partner<br>Opportunity</h1>
+    <div class="cover-subtitle">Trinity Air Link Transportation System | Founding Technology Partner Program</div>
+    <div class="cover-divider"></div>
+    <p class="cover-desc">Become a founding technology partner in the world's first integrated eVTOL–Autonomous Vehicle transportation hub. Real-world deployment platform, reference customer status, and joint IP development in a $41B+ market.</p>
+    <div class="cover-stat-bar">
+      <div class="cover-stat"><span class="val">$41B+</span><span class="lbl">UAM Market 2035</span></div>
+      <div class="cover-stat"><span class="val">8.5M</span><span class="lbl">DFW Market</span></div>
+      <div class="cover-stat"><span class="val">120K</span><span class="lbl">Sq Ft Innovation Center</span></div>
+      <div class="cover-stat"><span class="val">50+</span><span class="lbl">Expansion Markets</span></div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="logo">TRINITY AIR LINK · FORT WORTH, TEXAS</span>
+    <span>Technology Partnership Inquiry — Confidential</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="doc-page">
+  <div class="doc-header">
+    <span class="brand">TRINITY AIR LINK</span>
+    <span>Technology Partner Brief · March 2026</span>
+  </div>
+
+  <span class="section-num">Section 01 · The Opportunity</span>
+  <h2>Why Partner with Trinity Air Link?</h2>
+
+  <div class="benefit-callout">
+    <div class="bc-item">
+      <span class="bc-title">Real-World Deployment</span>
+      <span class="bc-desc">Live metropolitan-scale testing environment with 8.5M potential users — not a lab or simulator</span>
+    </div>
+    <div class="bc-item">
+      <span class="bc-title">Reference Customer</span>
+      <span class="bc-desc">Nation's first integrated hub — case study and proof point for every subsequent sale globally</span>
+    </div>
+    <div class="bc-item">
+      <span class="bc-title">System Integration</span>
+      <span class="bc-desc">Cross-platform data sharing and AI optimization unavailable in isolated single-technology deployments</span>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Market Timing — The Window Is Now:</strong> Texas DOT + Archer Aviation selected for White House eIPP (March 9, 2026). Archer Midnight air taxi operations begin Texas H2 2026. Joby Aviation at FAA certification Stage 4/5. Waymo at 450,000+ weekly paid rides in Austin, TX. The Link is positioned to be operational when commercial-scale eVTOL fleet demand arrives in DFW.
+  </div>
+
+  <span class="section-num">Section 02 · Technology Categories</span>
+  <h2>Partnership Opportunities by Technology Domain</h2>
+
+  <div class="tech-category">
+    <div class="tc-header">
+      <span class="tc-title">eVTOL Aircraft Systems</span>
+      <span class="tc-status">Active Procurement 2027–2028</span>
+    </div>
+    <p class="tc-desc">Initial fleet of 10–15 aircraft (~$1.3M/unit manufacturing cost), scaling to 25–40 units by Year 5. Requirements: 4–6 passenger capacity, 15–60 mile range, electric propulsion, autonomous capability with pilot override. Partners: Joby S4, Archer Midnight, and compatible alternatives. Opportunities include aircraft supply/leasing, maintenance partnerships, pilot training, fleet management integration.</p>
+  </div>
+
+  <div class="tech-category">
+    <div class="tc-header">
+      <span class="tc-title">Autonomous Vehicle Fleet</span>
+      <span class="tc-status">Active Procurement 2027–2028</span>
+    </div>
+    <p class="tc-desc">Level 4+ autonomous platform for first/last-mile connectivity. Fleet of 50–100 vehicles by Year 5. Requirements: Electric powertrain, fast charging, 4–8 passenger capacity, weather adaptability, hub traffic management integration. Waymo, May Mobility, and comparable platforms. Opportunities: fleet supply agreements, software updates, charging infrastructure, maintenance partnerships, data sharing.</p>
+  </div>
+
+  <div class="tech-category">
+    <div class="tc-header">
+      <span class="tc-title">AI Traffic Management &amp; Routing Platform</span>
+      <span class="tc-status">Development Partnership 2026–2027</span>
+    </div>
+    <p class="tc-desc">Multi-modal coordination system integrating air and ground transportation in real time. Requirements: Real-time routing/scheduling optimization, weather integration, safety monitoring, passenger interface, emergency response protocols. Opportunities: Software platform development, AI algorithm optimization, data analytics, cybersecurity integration, mobile app development.</p>
+  </div>
+
+  <div class="tech-category">
+    <div class="tc-header">
+      <span class="tc-title">Charging &amp; Energy Infrastructure</span>
+      <span class="tc-status">Infrastructure Build 2027</span>
+    </div>
+    <p class="tc-desc">High-speed EV charging for both eVTOL aircraft and AV ground fleet. Integrated energy management and grid coordination. Requirements: VTOL landing pad support systems, rapid charging capability, energy management, renewable integration. Opportunities: Infrastructure design, energy systems, building automation, telecommunications.</p>
+  </div>
+
+  <div class="tech-category">
+    <div class="tc-header">
+      <span class="tc-title">Innovation Center Technology Platform</span>
+      <span class="tc-status">Long-term Partnership</span>
+    </div>
+    <p class="tc-desc">120,000 sq ft of innovation space (floors 2–7) as a technology development hub. Anchor tenant opportunities for eVTOL/AV research, AI development, urban mobility startups. Lease rates: $29–37/sq ft (Fort Worth Class A). Access to live operational data from hub systems for R&amp;D.</p>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>CONFIDENTIAL — Trinity Air Link Transportation System · Technology Partner Brief</span>
+    <span>Page 1 of 2</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">TRINITY AIR LINK</span>
+    <span>Technology Partner Brief · March 2026</span>
+  </div>
+
+  <span class="section-num">Section 03 · Partnership Models</span>
+  <h2>Flexible Partnership Structures</h2>
+
+  <div class="partnership-model-grid">
+    <div class="pm-box">
+      <h5>Technology Supply Partnership</h5>
+      <ul>
+        <li>Equipment purchase or leasing agreements</li>
+        <li>Preferred pricing for initial deployment</li>
+        <li>Performance-based contracts with outcome metrics</li>
+        <li>Volume commitments supporting partner business planning</li>
+        <li>Exclusive territory rights for technology categories</li>
+      </ul>
+    </div>
+    <div class="pm-box">
+      <h5>Joint Development Partnership</h5>
+      <ul>
+        <li>Shared-cost R&amp;D programs</li>
+        <li>Hub as proving ground for next-gen tech</li>
+        <li>Joint IP ownership for co-developed innovations</li>
+        <li>Standards development participation</li>
+        <li>Certification support and co-navigation</li>
+      </ul>
+    </div>
+    <div class="pm-box">
+      <h5>Strategic Investment Partnership</h5>
+      <ul>
+        <li>Equity investment for strategic alignment</li>
+        <li>Revenue sharing based on system performance</li>
+        <li>Joint venture structures for specific components</li>
+        <li>Licensing agreements for proprietary technology</li>
+        <li>Exit participation in future M&amp;A or IPO</li>
+      </ul>
+    </div>
+    <div class="pm-box">
+      <h5>Innovation Center Tenancy</h5>
+      <ul>
+        <li>Premium research lab and office space</li>
+        <li>Anchor tenant preferred lease terms</li>
+        <li>Access to live hub operational data</li>
+        <li>Co-location with complementary tech companies</li>
+        <li>Fort Worth Class A rates: $29–37/sq ft</li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="section-num">Section 04 · Development Timeline</span>
+  <h2>Partnership Integration Milestones</h2>
+
+  <div class="milestone-timeline">
+    <div class="mt-phase">
+      <div class="mtp-num">Phase 1</div>
+      <div class="mtp-time">2026 · Months 1–12</div>
+      <ul>
+        <li>Technology partner identification</li>
+        <li>Requirements specification</li>
+        <li>Partnership agreement execution</li>
+        <li>Joint development planning</li>
+        <li>Innovation center pre-leasing</li>
+      </ul>
+    </div>
+    <div class="mt-phase">
+      <div class="mtp-num">Phase 2</div>
+      <div class="mtp-time">2027 · Months 13–24</div>
+      <ul>
+        <li>Component development begins</li>
+        <li>Integration planning and testing</li>
+        <li>Charging/landing infrastructure</li>
+        <li>Certification preparation</li>
+        <li>Innovation center opens</li>
+      </ul>
+    </div>
+    <div class="mt-phase">
+      <div class="mtp-num">Phase 3</div>
+      <div class="mtp-time">2028 · Months 25–36</div>
+      <ul>
+        <li>System integration and testing</li>
+        <li>Fleet deployment</li>
+        <li>Performance validation</li>
+        <li>Regulatory certifications</li>
+        <li>Pilot operations</li>
+      </ul>
+    </div>
+    <div class="mt-phase">
+      <div class="mtp-num">Phase 4</div>
+      <div class="mtp-time">2029+ · Commercial Ops</div>
+      <ul>
+        <li>Full commercial operations</li>
+        <li>Continuous optimization</li>
+        <li>Market expansion planning</li>
+        <li>Next-gen R&amp;D begins</li>
+        <li>Franchise licensing to new markets</li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="section-num">Section 05 · What Partners Gain</span>
+  <h2>Competitive Advantages for Technology Partners</h2>
+
+  <div class="two-col">
+    <div>
+      <h3>Market &amp; Business Benefits</h3>
+      <ul class="checklist">
+        <li>First-mover positioning in integrated urban mobility</li>
+        <li>Real-world technology validation at metropolitan scale</li>
+        <li>Reference customer status for global sales efforts</li>
+        <li>Industry leadership and thought leadership positioning</li>
+        <li>Access to 8.5M DFW market from day one</li>
+        <li>Expansion pathway to 50+ U.S. metropolitan markets</li>
+        <li>Co-marketing and joint PR opportunities</li>
+        <li>Conference participation and media exposure</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Technical &amp; Innovation Benefits</h3>
+      <ul class="checklist">
+        <li>System-level optimization improving individual component performance</li>
+        <li>Cross-platform data sharing enhancing AI/ML capabilities</li>
+        <li>Standards influence — participate in protocol development</li>
+        <li>Live operational data for continuous product improvement</li>
+        <li>Joint R&amp;D addressing real-world integration challenges</li>
+        <li>Scalability testing at metropolitan deployment scale</li>
+        <li>Safety validation data supporting future regulatory approvals</li>
+        <li>Innovation acceleration through collaborative ecosystem</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Selection Criteria for Technology Partners</h3>
+  <table>
+    <thead>
+      <tr><th>Dimension</th><th>Requirements</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Technology Readiness</td><td>Proven performance in relevant applications; clear regulatory pathway; TRL 7+</td></tr>
+      <tr><td>Financial Strength</td><td>Adequate resources for development, deployment, and ongoing support commitments</td></tr>
+      <tr><td>Safety Record</td><td>Demonstrated commitment to safety; incident history review; liability coverage</td></tr>
+      <tr><td>Timeline Alignment</td><td>Capability to meet 2027–2029 development schedule</td></tr>
+      <tr><td>Partnership Approach</td><td>Collaborative mindset; flexible business models; long-term commitment</td></tr>
+      <tr><td>Scalability</td><td>Technology capable of metropolitan-scale deployment; expansion to 50+ markets</td></tr>
+    </tbody>
+  </table>
+
+  <div class="contact-block">
+    <h4>Technology Partnership Inquiries</h4>
+    <p>Trinity Air Link Transportation System · Fort Worth, Texas<br>
+    <strong>Next Steps:</strong> Technology assessment → Partnership discussion → Technical workshop → Business terms → Agreement execution<br>
+    Contact the Chief Technology Officer or Business Development team to begin the partnership evaluation process.<br>
+    <em>Join us in creating the future of urban transportation — where your technology becomes part of a revolutionary integrated mobility system.</em></p>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>CONFIDENTIAL — Trinity Air Link Transportation System · Technology Partner Brief · March 2026</span>
+    <span>Page 2 of 2</span>
+  </div>
+</div>
+
+</body>
+</html>

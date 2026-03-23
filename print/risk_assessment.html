@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinity Air Link — Risk Assessment</title>
+<link rel="stylesheet" href="print.css">
+<style>
+  @page { margin: 0.75in 0.85in 0.85in; }
+  @page :first { margin: 0; }
+  .cover-hero { height: 32vh; }
+  .risk-matrix-legend {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: 0.8rem 0 1.2rem;
+  }
+  .rml-item {
+    padding: 0.5rem 0.7rem;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .rml-item .rml-range { font-size: 1.1rem; font-weight: 900; }
+  .rml-item .rml-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.15rem; display: block; }
+  .rml-low  { background: #dcfce7; border: 1.5px solid #16a34a; }
+  .rml-low  .rml-range, .rml-low .rml-label { color: #166534; }
+  .rml-med  { background: #fefce8; border: 1.5px solid #ca8a04; }
+  .rml-med  .rml-range, .rml-med .rml-label { color: #854d0e; }
+  .rml-high { background: #fff7ed; border: 1.5px solid #ea580c; }
+  .rml-high .rml-range, .rml-high .rml-label { color: #9a3412; }
+  .rml-crit { background: #fef2f2; border: 1.5px solid #dc2626; }
+  .rml-crit .rml-range, .rml-crit .rml-label { color: #7f1d1d; }
+
+  .risk-entry {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin: 0.7rem 0;
+    overflow: hidden;
+  }
+  .risk-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 0.55rem 0.8rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .risk-header .rh-title { font-size: 0.83rem; font-weight: 700; color: var(--navy); }
+  .risk-header .rh-cat { font-size: 0.62rem; color: var(--muted); }
+  .risk-score-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .badge-low  { background: #dcfce7; color: #166534; }
+  .badge-med  { background: #fefce8; color: #854d0e; }
+  .badge-high { background: #fff7ed; color: #9a3412; }
+  .badge-crit { background: #fef2f2; color: #7f1d1d; }
+  .risk-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    font-size: 0.73rem;
+  }
+  .risk-body .rb-section { padding: 0.5rem 0.8rem; }
+  .risk-body .rb-section:first-child { border-right: 1px solid var(--border); }
+  .risk-body h5 { font-size: 0.65rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.07em; margin: 0 0 0.25rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
+  .risk-body ul { margin: 0; padding-left: 1rem; }
+  .risk-body li { margin: 0.15rem 0; line-height: 1.4; }
+
+  .overall-risk-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+  }
+  .ors-box {
+    text-align: center;
+    padding: 0.6rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .ors-box .ors-count { font-size: 1.5rem; font-weight: 900; }
+  .ors-box .ors-level { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.15rem; display: block; }
+  .ors-low  { background: #dcfce7; } .ors-low  .ors-count { color: #16a34a; }
+  .ors-med  { background: #fefce8; } .ors-med  .ors-count { color: #ca8a04; }
+  .ors-high { background: #fff7ed; } .ors-high .ors-count { color: #ea580c; }
+  .ors-crit { background: #fef2f2; } .ors-crit .ors-count { color: #dc2626; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER PAGE ═══════════════ -->
+<div class="cover-page">
+  <img src="../images/hubImagery2.jpeg" alt="Trinity Air Link Transportation System" class="cover-hero">
+  <div class="cover-body">
+    <div class="cover-eyebrow">Confidential — March 2026</div>
+    <h1 class="cover-title">Risk Assessment<br>Matrix</h1>
+    <div class="cover-subtitle">Trinity Air Link Transportation System | Project Risk Analysis &amp; Mitigation Framework</div>
+    <div class="cover-divider"></div>
+    <p class="cover-desc">Comprehensive identification, quantification, and mitigation strategy for all major project risks across regulatory, financial, technical, market, and operational dimensions. Phased approach design limits exposure while validating assumptions.</p>
+    <div class="cover-stat-bar">
+      <div class="cover-stat"><span class="val">0</span><span class="lbl">Critical Risks</span></div>
+      <div class="cover-stat"><span class="val">3</span><span class="lbl">High Risks</span></div>
+      <div class="cover-stat"><span class="val">6</span><span class="lbl">Medium Risks</span></div>
+      <div class="cover-stat"><span class="val">4</span><span class="lbl">Low Risks</span></div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span class="logo">TRINITY AIR LINK · FORT WORTH, TEXAS</span>
+    <span>Confidential Risk Documentation — Authorized Recipients Only</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 1 ═══════════════ -->
+<div class="doc-page">
+  <div class="doc-header">
+    <span class="brand">TRINITY AIR LINK</span>
+    <span>Risk Assessment Matrix · March 2026</span>
+  </div>
+
+  <span class="section-num">Section 01 · Risk Framework</span>
+  <h2>Risk Scoring Methodology</h2>
+
+  <p>Risk Score = <strong>Impact (1–5) × Probability (1–5)</strong>. Impact ranges from Minimal (&lt;$1M, &lt;3 months) to Critical (&gt;$50M or project failure). Probability from Very Low (&lt;10%) to Very High (&gt;75%).</p>
+
+  <div class="risk-matrix-legend">
+    <div class="rml-item rml-low"><div class="rml-range">1–6</div><span class="rml-label">Low · Monitor</span></div>
+    <div class="rml-item rml-med"><div class="rml-range">7–12</div><span class="rml-label">Medium · Manage</span></div>
+    <div class="rml-item rml-high"><div class="rml-range">13–20</div><span class="rml-label">High · Mitigate</span></div>
+    <div class="rml-item rml-crit"><div class="rml-range">21–25</div><span class="rml-label">Critical · Act Now</span></div>
+  </div>
+
+  <div class="overall-risk-summary">
+    <div class="ors-box ors-low"><div class="ors-count">4</div><span class="ors-level">Low Risks (1–6)</span></div>
+    <div class="ors-box ors-med"><div class="ors-count">6</div><span class="ors-level">Medium Risks (7–12)</span></div>
+    <div class="ors-box ors-high"><div class="ors-count">3</div><span class="ors-level">High Risks (13–20)</span></div>
+    <div class="ors-box ors-crit"><div class="ors-count">0</div><span class="ors-level">Critical Risks (21–25)</span></div>
+  </div>
+
+  <span class="section-num">Section 02 · Regulatory Risks</span>
+  <h2>Regulatory &amp; Compliance</h2>
+
+  <div class="risk-entry">
+    <div class="risk-header" style="background:#fff7ed">
+      <div><div class="rh-title">R1 — FAA Approval Delays</div><div class="rh-cat">Regulatory · Phase 1–3 (2026–2028)</div></div>
+      <span class="risk-score-badge badge-med">Score 12 · MEDIUM</span>
+    </div>
+    <div class="risk-body">
+      <div class="rb-section">
+        <h5>Impact &amp; Probability</h5>
+        <ul><li>Impact 4: $15–30M overrun, 12–18 month delay</li><li>Probability 3: 30% chance</li><li>Timeline Risk: Phase 1–3</li></ul>
+        <h5 style="margin-top:0.5rem">Contingency</h5>
+        <ul><li>Phase 1 focus on AV operations only if needed</li><li>Staged VTOL after regulatory approval</li><li>Revenue diversification via real estate/tech</li></ul>
+      </div>
+      <div class="rb-section">
+        <h5>Mitigation Strategies</h5>
+        <ul><li>Early and continuous FAA engagement; eIPP enrollment</li><li>Hire experienced aviation regulatory consultants</li><li>Partner with Archer/Joby who hold existing certifications</li><li>Regulatory timeline buffers built into project plan</li><li>Participate in FAA Urban Air Mobility initiatives</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-entry">
+    <div class="risk-header" style="background:#f0f9f0">
+      <div><div class="rh-title">R2 — Local Zoning &amp; Permitting Challenges</div><div class="rh-cat">Regulatory · Phase 1–2 (2026–2027)</div></div>
+      <span class="risk-score-badge badge-med">Score 9 · MEDIUM</span>
+    </div>
+    <div class="risk-body">
+      <div class="rb-section">
+        <h5>Impact &amp; Probability</h5>
+        <ul><li>Impact 3: $5–10M, 6–9 month delay</li><li>Probability 3: 25% chance</li><li>Specific risk: Fort Worth Historic Preservation Commission</li></ul>
+      </div>
+      <div class="rb-section">
+        <h5>Mitigation Strategies</h5>
+        <ul><li>Proactive community engagement and education</li><li>Historic preservation compliance and partnerships</li><li>Economic development benefits demonstration</li><li>Professional government relations support</li><li>Early City Council liaison engagement</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <span class="section-num">Section 03 · Financial Risks</span>
+  <h2>Financial &amp; Market</h2>
+
+  <div class="risk-entry">
+    <div class="risk-header" style="background:#fff7ed">
+      <div><div class="rh-title">F1 — Funding Gap / Capital Raising Difficulty</div><div class="rh-cat">Financial · Phase 1–2 (2026–2027)</div></div>
+      <span class="risk-score-badge badge-high">Score 16 · HIGH</span>
+    </div>
+    <div class="risk-body">
+      <div class="rb-section">
+        <h5>Impact &amp; Probability</h5>
+        <ul><li>Impact 4: $20–40M gap, 12–24 month delay</li><li>Probability 4: 50% chance for full Phase 1 capital</li><li>Phase 1 requires $20M by Q4 2026</li></ul>
+        <h5 style="margin-top:0.5rem">Contingency</h5>
+        <ul><li>Phased funding approach with smaller tranches</li><li>Government grant prioritization</li><li>Strategic partner equity investment</li></ul>
+      </div>
+      <div class="rb-section">
+        <h5>Mitigation Strategies</h5>
+        <ul><li>Diversified capital structure (equity, debt, grants)</li><li>Multiple investor track engagement simultaneously</li><li>Government incentive programs (Historic Tax Credit, TIGER)</li><li>FAA eIPP co-investment opportunity</li><li>Texas Enterprise Fund application</li><li>Staged milestone-based funding to reduce ask size</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-entry">
+    <div class="risk-header" style="background:#f9f9f9">
+      <div><div class="rh-title">F2 — Slower-Than-Expected Market Adoption</div><div class="rh-cat">Market · Phase 4 (2029–2031)</div></div>
+      <span class="risk-score-badge badge-med">Score 9 · MEDIUM</span>
+    </div>
+    <div class="risk-body">
+      <div class="rb-section">
+        <h5>Impact &amp; Probability</h5>
+        <ul><li>Impact 3: Revenue 40–60% below moderate scenario</li><li>Probability 3: 30% chance of conservative scenario</li></ul>
+      </div>
+      <div class="rb-section">
+        <h5>Mitigation Strategies</h5>
+        <ul><li>Conservative base case modeled in financial plan</li><li>Phased rollout allowing demand validation</li><li>Corporate partnership pre-sales before launch</li><li>Innovation center revenue provides floor</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>CONFIDENTIAL — Trinity Air Link Transportation System · Risk Assessment</span>
+    <span>Page 1 of 2</span>
+  </div>
+</div>
+
+<!-- ═══════════════ PAGE 2 ═══════════════ -->
+<div class="doc-page page-break">
+  <div class="doc-header">
+    <span class="brand">TRINITY AIR LINK</span>
+    <span>Risk Assessment Matrix · March 2026</span>
+  </div>
+
+  <span class="section-num">Section 04 · Technical Risks</span>
+  <h2>Technical &amp; Operational</h2>
+
+  <div class="risk-entry">
+    <div class="risk-header" style="background:#fff7ed">
+      <div><div class="rh-title">T1 — eVTOL Technology Delays or Performance Issues</div><div class="rh-cat">Technical · Phase 3 (2028)</div></div>
+      <span class="risk-score-badge badge-high">Score 15 · HIGH</span>
+    </div>
+    <div class="risk-body">
+      <div class="rb-section">
+        <h5>Impact &amp; Probability</h5>
+        <ul><li>Impact 5: Core service delayed by 12–24 months</li><li>Probability 3: 25% residual risk given certification progress</li><li>Note: Joby at Stage 4/5, Archer holds Part 135 — dramatically reduced vs. 2024</li></ul>
+        <h5 style="margin-top:0.5rem">Contingency</h5>
+        <ul><li>Lead with AV services (proven technology)</li><li>Innovation center opens ahead of flight operations</li><li>Phase 3 capital held until certification confirmed</li></ul>
+      </div>
+      <div class="rb-section">
+        <h5>Mitigation Strategies</h5>
+        <ul><li>Partner with multiple eVTOL manufacturers (Joby + Archer)</li><li>Flexible infrastructure supports multiple aircraft types</li><li>Extensive technology due diligence before fleet orders</li><li>Pilot program agreements allow performance validation</li><li>Technology contingency 15–20% budget buffer</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-entry">
+    <div class="risk-header" style="background:#f0f9f0">
+      <div><div class="rh-title">T2 — System Integration Complexity</div><div class="rh-cat">Technical · Phase 3–4 (2028–2029)</div></div>
+      <span class="risk-score-badge badge-med">Score 9 · MEDIUM</span>
+    </div>
+    <div class="risk-body">
+      <div class="rb-section">
+        <h5>Impact &amp; Probability</h5>
+        <ul><li>Impact 3: 3–6 month launch delay, $5–10M overrun</li><li>Probability 3: 30% chance of integration issues</li></ul>
+      </div>
+      <div class="rb-section">
+        <h5>Mitigation Strategies</h5>
+        <ul><li>Open API architecture from design phase</li><li>Staged integration with extensive testing protocols</li><li>Dedicated systems integration team</li><li>Technology partner contractual performance guarantees</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-entry">
+    <div class="risk-header" style="background:#f0f9f0">
+      <div><div class="rh-title">T3 — Building Structural Assessment Overruns</div><div class="rh-cat">Technical · Phase 1–2 (2026–2027)</div></div>
+      <span class="risk-score-badge badge-med">Score 8 · MEDIUM</span>
+    </div>
+    <div class="risk-body">
+      <div class="rb-section">
+        <h5>Impact &amp; Probability</h5>
+        <ul><li>Impact 4: $2–8M overrun above $2.15M baseline</li><li>Probability 2: Low — initial assessment already complete</li></ul>
+      </div>
+      <div class="rb-section">
+        <h5>Mitigation Strategies</h5>
+        <ul><li>Detailed structural engineering assessment in Phase 1</li><li>20% contingency on all structural cost estimates</li><li>Historic preservation contractors with T&P experience</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <span class="section-num">Section 05 · Competitive &amp; Operational Risks</span>
+  <h2>Competitive &amp; Operational</h2>
+
+  <div class="risk-entry">
+    <div class="risk-header" style="background:#f0f4ff">
+      <div><div class="rh-title">C1 — New Entrant / Competing Hub Development</div><div class="rh-cat">Competitive · Phase 2–4 (2027–2030)</div></div>
+      <span class="risk-score-badge badge-med">Score 8 · MEDIUM</span>
+    </div>
+    <div class="risk-body">
+      <div class="rb-section">
+        <h5>Assessment</h5>
+        <ul><li>High capital barrier to entry ($50M+ for credible hub)</li><li>Regulatory complexity as natural moat</li><li>First-mover advantage creates operational expertise gap</li></ul>
+      </div>
+      <div class="rb-section">
+        <h5>Mitigation Strategies</h5>
+        <ul><li>Exclusive technology partner agreements where possible</li><li>Historic asset creates location lock-in advantage</li><li>Speed to market as primary defense</li><li>Network effects from established customer base</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-entry">
+    <div class="risk-header" style="background:#f9f9f9">
+      <div><div class="rh-title">O1 — Safety Incident During Operations</div><div class="rh-cat">Operational · Phase 4+ (2029+)</div></div>
+      <span class="risk-score-badge badge-high">Score 14 · HIGH</span>
+    </div>
+    <div class="risk-body">
+      <div class="rb-section">
+        <h5>Impact &amp; Probability</h5>
+        <ul><li>Impact 5: Reputational damage, regulatory suspension</li><li>Probability (residual): Very low given technology track records</li><li>Waymo: 88% fewer property damage claims vs. human drivers</li></ul>
+      </div>
+      <div class="rb-section">
+        <h5>Mitigation Strategies</h5>
+        <ul><li>$200M+ comprehensive insurance coverage</li><li>Safety-first culture from day one; exceed all FAA requirements</li><li>Real-time monitoring systems with automatic intervention</li><li>Emergency response protocols integrated with FW Fire/EMS</li><li>Incident response plan developed pre-launch</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <h3>Risk Management Framework Summary</h3>
+  <div class="callout">
+    <strong>Phased Approach as Risk Control:</strong> The 4-phase development structure is itself the primary risk mitigation tool. Each phase requires milestone achievement before capital commitment for the next phase — limiting maximum exposure to phase-level investment ($20–50M) rather than full project capital ($129M). Revenue diversification across 5 streams ensures no single service failure is existential.
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Risk Category</th><th>Highest Risk Item</th><th>Score</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr class="risk-high"><td>Financial</td><td>Capital raising difficulty (Phase 1)</td><td>16</td><td>Active mitigation underway</td></tr>
+      <tr class="risk-high"><td>Technical</td><td>eVTOL technology delays</td><td>15</td><td>Reduced: Joby Stage 4, Archer certified</td></tr>
+      <tr class="risk-high"><td>Operational</td><td>Safety incident during operations</td><td>14</td><td>Pre-launch protocols being designed</td></tr>
+      <tr class="risk-med"><td>Regulatory</td><td>FAA approval delays</td><td>12</td><td>eIPP enrollment mitigates significantly</td></tr>
+      <tr class="risk-med"><td>Regulatory</td><td>Local zoning challenges</td><td>9</td><td>Community engagement program active</td></tr>
+      <tr class="risk-low"><td>Competitive</td><td>Competing hub development</td><td>8</td><td>High barrier to entry; monitor only</td></tr>
+    </tbody>
+  </table>
+
+  <div class="contact-block">
+    <h4>Risk Management Team</h4>
+    <p>Trinity Air Link Transportation System · Fort Worth, Texas<br>
+    This risk assessment is reviewed and updated quarterly. Full risk register with detailed scenario analysis and financial stress tests available to qualified investors upon execution of NDA.</p>
+  </div>
+
+  <div class="doc-footer-bar">
+    <span>CONFIDENTIAL — Trinity Air Link Transportation System · Risk Assessment v2.0 · March 2026</span>
+    <span>Page 2 of 2</span>
+  </div>
+</div>
+
+</body>
+</html>
