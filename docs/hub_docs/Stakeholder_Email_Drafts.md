@@ -9,6 +9,30 @@ This document provides ready-to-send email drafts for priority stakeholders. The
 - For investors, attach **Investor Brief**.
 - For technical partners, attach **Technology Partner brief/reference**.
 - Use a direct CTA: request a 20–30 minute call in a specific timeframe.
+- Position yourself as the active project lead and present team build-out as an execution strength, not a gap.
+
+## Founder Positioning While Team Is Being Built
+Yes—this should be mentioned, but briefly and confidently. You want to communicate momentum, leadership, and clear hiring priorities.
+
+### Recommended phrasing
+Use one sentence like:
+
+> "I’m currently leading development directly and selectively building out advisory support across finance, government relations, and technical operations as we move into the next phase."
+
+### Why this works
+- Signals ownership and accountability.
+- Shows you understand which functions matter next.
+- Avoids creating concern that the project is under-resourced.
+
+### What to avoid
+- Over-explaining that you are "alone" or "still figuring out the team."
+- Listing missing roles without explaining current progress.
+- Framing team formation as a blocker.
+
+### Optional sentence inserts by audience
+- **Government:** "I’m currently leading the initiative and standing up dedicated government-relations and permitting support for implementation coordination."
+- **Investor:** "I’m leading execution now and actively adding experienced finance and operating advisors aligned to the raise and deployment plan."
+- **Technology partner:** "I’m leading integration planning directly while formalizing technical advisory and operations support for rollout."
 
 ---
 
