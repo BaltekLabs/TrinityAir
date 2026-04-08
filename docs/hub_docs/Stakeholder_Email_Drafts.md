@@ -1,4 +1,4 @@
-# North Texas Rapid Mobility Hub — Stakeholder Email Drafts
+# Trinity Air Link — Stakeholder Email Drafts
 
 This document provides ready-to-send email drafts for priority stakeholders. The tone mirrors prior outreach examples: concise, credible, relationship-aware, and specific with a clear ask.
 
@@ -44,7 +44,7 @@ Hi Mayor Parker,
 
 I hope you’re doing well. I wanted to reconnect and share an opportunity that feels especially timely for Fort Worth.
 
-I’m leading the **North Texas Rapid Mobility Hub**, a transportation project centered on the T&P Warehouse that combines eVTOL operations with electric/autonomous ground transfers. The goal is to make Fort Worth a primary node in next-generation regional mobility—not a secondary stop.
+I’m leading the **Trinity Air Link**, a transportation project centered on the T&P Warehouse that combines eVTOL operations with electric/autonomous ground transfers. The goal is to make Fort Worth a primary node in next-generation regional mobility—not a secondary stop.
 
 Given your focus on economic development and infrastructure, I’d really value the chance to brief you directly. I believe this can drive meaningful investment, job creation, and long-term strategic positioning for Fort Worth.
 
@@ -64,7 +64,7 @@ Best,
 
 Hi Mr. Cooke,
 
-I’m reaching out to request a brief meeting regarding the **North Texas Rapid Mobility Hub**, a proposed transportation initiative at the T&P Warehouse in downtown Fort Worth.
+I’m reaching out to request a brief meeting regarding the **Trinity Air Link**, a proposed transportation initiative at the T&P Warehouse in downtown Fort Worth.
 
 The project integrates eVTOL-compatible infrastructure with electric/autonomous ground mobility and is designed to support economic development, improve regional connectivity, and position Fort Worth as a first-mover in advanced transportation deployment.
 
@@ -85,11 +85,11 @@ Respectfully,
 
 ## 3) Robert Sturns — Assistant City Manager (Economic Development)
 **To:** `robert.sturns@fortworthtexas.gov`  
-**Subject:** Economic development opportunity: North Texas Rapid Mobility Hub
+**Subject:** Economic development opportunity: Trinity Air Link
 
 Hi Mr. Sturns,
 
-I’m contacting you regarding a high-impact economic development project for downtown Fort Worth: the **North Texas Rapid Mobility Hub** at the T&P Warehouse.
+I’m contacting you regarding a high-impact economic development project for downtown Fort Worth: the **Trinity Air Link** at the T&P Warehouse.
 
 The concept pairs advanced air mobility readiness with clean ground transportation to create a scalable, high-visibility regional transit node. We see this as a strong fit with Fort Worth’s growth strategy and competitive positioning in North Texas.
 
@@ -116,7 +116,7 @@ Best regards,
 
 Hi Mr. Morris,
 
-I’m writing to introduce the **North Texas Rapid Mobility Hub**, a Fort Worth-based concept designed to complement broader DFW multimodal planning.
+I’m writing to introduce the **Trinity Air Link**, a Fort Worth-based concept designed to complement broader DFW multimodal planning.
 
 Our proposal integrates eVTOL-ready infrastructure, EV transfer operations, and data-informed routing to support regional connectivity goals while reducing pressure on conventional corridors.
 
@@ -138,7 +138,7 @@ Thank you,
 
 Hi Reilly,
 
-I’m building the **North Texas Rapid Mobility Hub**, an infrastructure-plus-operations mobility platform centered on the T&P Warehouse in Fort Worth.
+I’m building the **Trinity Air Link**, an infrastructure-plus-operations mobility platform centered on the T&P Warehouse in Fort Worth.
 
 The model combines:
 - eVTOL-ready vertiport infrastructure,
@@ -163,7 +163,7 @@ Best,
 
 Hi Ms. Ungricht,
 
-I’m reaching out to introduce a preservation-forward adaptive reuse concept for the T&P Warehouse: the **North Texas Rapid Mobility Hub**.
+I’m reaching out to introduce a preservation-forward adaptive reuse concept for the T&P Warehouse: the **Trinity Air Link**.
 
 Our intent is to honor the site’s transportation legacy while activating it for a new era of regional mobility. We are approaching this as a partnership opportunity where historic identity and future mobility can reinforce one another—not compete.
 
@@ -181,11 +181,11 @@ With appreciation,
 
 ## 7) Jared Williams — Fort Worth City Council, District 9
 **To:** `jared.williams@fortworthtexas.gov`  
-**Subject:** District 9 briefing request: North Texas Rapid Mobility Hub
+**Subject:** District 9 briefing request: Trinity Air Link
 
 Hi Councilmember Williams,
 
-I’m requesting a short briefing to share the **North Texas Rapid Mobility Hub** project and its relevance to District 9 and the broader downtown mobility network.
+I’m requesting a short briefing to share the **Trinity Air Link** project and its relevance to District 9 and the broader downtown mobility network.
 
 The concept is designed to improve connectivity, support growth, and position Fort Worth as a leader in practical next-generation transportation infrastructure.
 
@@ -209,7 +209,7 @@ Sincerely,
 
 Hi Councilmember Flores,
 
-I’m reaching out to request a short meeting regarding the **North Texas Rapid Mobility Hub**, a proposed transportation and economic development project centered on the T&P Warehouse.
+I’m reaching out to request a short meeting regarding the **Trinity Air Link**, a proposed transportation and economic development project centered on the T&P Warehouse.
 
 Because of District 2’s role in downtown development, your perspective is especially important. We believe this project can support core mobility improvements while strengthening long-term investment momentum in central Fort Worth.
 

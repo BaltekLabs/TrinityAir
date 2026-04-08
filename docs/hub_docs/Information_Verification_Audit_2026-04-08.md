@@ -1,4 +1,4 @@
-# Trinity Air Link / HUB Information Verification Audit
+# Trinity Air Link Information Verification Audit
 **Date:** April 8, 2026  
 **Reviewer:** Codex (repository + targeted external source verification)
 

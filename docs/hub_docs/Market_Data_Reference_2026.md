@@ -1,4 +1,4 @@
-# HUB Transportation System — Market Data Reference
+# Trinity Air Link — Market Data Reference
 ## Updated: March 9, 2026
 
 ---
@@ -18,9 +18,9 @@
 | Joby in Texas | Also a Texas eIPP participant; working with Texas, FL, OH, NY, CA state govts |
 | Source | U.S. Department of Transportation official press release, March 9, 2026 |
 
-**Strategic implication for HUB:** Fort Worth is not named in the initial Texas eIPP route set (Dallas is). The HUB must immediately position as the Fort Worth vertiport and ground operations anchor for the Texas eIPP network — contacting Texas DOT and Archer Aviation this week.
+**Strategic implication for Trinity Air Link:** Fort Worth is not named in the initial Texas eIPP route set (Dallas is). Trinity Air Link should immediately position as the Fort Worth vertiport and ground operations anchor for the Texas eIPP network — contacting Texas DOT and Archer Aviation this week.
 
-This document captures the current market data citations used throughout all HUB project materials. Update this document whenever key statistics are refreshed.
+This document captures the current market data citations used throughout all Trinity Air Link project materials. Update this document whenever key statistics are refreshed.
 
 ---
 
