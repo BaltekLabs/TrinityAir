@@ -7,7 +7,7 @@
 **Total Investment Required:** $100–140M
 **Projected Annual Revenue at Full Operation:** $80–120M (moderate scenario: $133M by Year 5)
 **Projected IRR:** 20–25%
-**Break-even:** Year 5 (2031)
+**Break-even:** Year 5 (2030)
 
 *Updated March 2026 with current eVTOL certification milestones, AV commercial data, and DFW market statistics.*
 
@@ -258,6 +258,12 @@ Based on moderate scenario projections (2026–2030 timeline):
 - Years 6-10: $50-80M annually
 
 **Calculated IRR:** 22.3%
+
+---
+
+## Disclosure
+
+All figures in this model are scenario-based planning estimates for diligence and partner discussions. Actual outcomes depend on certification timelines, market adoption rates, partner agreements, capital costs, and operating execution.
 **NPV (10% discount rate):** $89M
 **Payback period:** 4.2 years
 

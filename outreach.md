@@ -1,6 +1,6 @@
 North Texas Rapid Mobility Hub — Comprehensive Contact & Outreach Plan
 Updated: March 2026
-Hook for all outreach: Texas DOT + Archer Aviation selected as one of 8 national eIPP sites. Electric air taxi operations begin in Texas summer 2026. Fort Worth is not on the initial route map. That is the urgency and the opening for every contact.
+Hook for all outreach: Texas DOT + Archer Aviation selected as one of 8 national eIPP sites. Texas network deployment planning is underway, with operations timing dependent on FAA certification milestones. Fort Worth is not on the initial route map. That is the urgency and the opening for every contact.
 DOCUMENTS REFERENCE KEY
 Code
 File
