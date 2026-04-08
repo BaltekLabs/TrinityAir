@@ -280,30 +280,32 @@
 
     <header id="nav-header" class="fixed top-0 w-full z-50 transition-all duration-300" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); box-shadow:0 8px 32px rgba(15,23,42,0.08);">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex items-center space-x-4">
+            <div class="flex items-center justify-between h-20 gap-4">
+                <div class="flex items-center space-x-3 min-w-0">
                     <div class="w-10 h-10 rounded-full border border-[var(--border)] flex items-center justify-center" style="background:var(--surface);">
                         <span style="color:var(--accent);font-family:'Manrope',sans-serif;font-weight:700;font-size:0.75rem;">TAL</span>
                     </div>
-                    <div>
-                        <span style="font-family:'Manrope',sans-serif;font-weight:700;font-size:1rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">TRINITY AIR LINK</span>
-                        <div style="font-size:0.65rem;color:var(--text-secondary);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;">Fort Worth's Future of Air Mobility</div>
+                    <div class="min-w-0">
+                        <span class="block truncate" style="font-family:'Manrope',sans-serif;font-weight:700;font-size:0.95rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">TRINITY AIR LINK</span>
+                        <div class="truncate" style="font-size:0.62rem;color:var(--text-secondary);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Fort Worth's Future of Air Mobility</div>
                     </div>
                 </div>
-                <div class="hidden lg:flex items-center space-x-1">
-                    <a href="#overview" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Overview</a>
-                    <a href="#hub-vision" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Vision</a>
-                    <a href="#opportunity" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Opportunity</a>
-                    <a href="#case-studies" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Precedents</a>
-                    <a href="#phases" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Plan</a>
-                    <a href="#financials" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Financials</a>
-                    <a href="#documents" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Documents</a>
-                    <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Contact</a>
-                    <a href="#demo" class="nav-link px-3 py-2 text-sm font-medium transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;color:var(--accent);border:1px solid var(--border);border-radius:4px;background:var(--accent-dim);">Book</a>
+                <div class="hidden xl:block">
+                    <div class="flex items-center space-x-1">
+                        <a href="#overview" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Overview</a>
+                        <a href="#hub-vision" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Vision</a>
+                        <a href="#opportunity" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Opportunity</a>
+                        <a href="#case-studies" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Case Studies</a>
+                        <a href="#phases" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Implementation</a>
+                        <a href="#financials" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Financials</a>
+                        <a href="#documents" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Documents</a>
+                        <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Contact</a>
+                        <a href="#demo" class="nav-link px-3 py-2 text-sm font-medium transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;color:var(--accent);border:1px solid var(--border);border-radius:4px;background:var(--accent-dim);">Demo</a>
+                    </div>
                 </div>
-                <div class="hidden lg:flex items-center space-x-3">
+                <div class="hidden md:flex items-center space-x-3 shrink-0">
                     <button onclick="scrollToContact()" class="cta-button text-sm px-4 py-2">Get Involved</button>
-                    <button onclick="downloadExecutiveSummary()" style="border:1px solid var(--border);color:var(--accent);padding:8px 16px;border-radius:6px;font-size:0.8rem;font-weight:600;background:transparent;transition:all 0.2s ease;" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='transparent'">Exec Summary</button>
+                    <button onclick="downloadExecutiveSummary()" class="hidden 2xl:block" style="border:1px solid var(--border);color:var(--accent);padding:8px 16px;border-radius:6px;font-size:0.8rem;font-weight:600;background:transparent;transition:all 0.2s ease;" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='transparent'">Executive Summary</button>
                 </div>
                 <div class="lg:hidden">
                     <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded" style="color:var(--text-secondary);border:1px solid var(--border-subtle);background:transparent;">
@@ -1435,213 +1437,33 @@
         </section>
 
         <section id="documents" class="py-16 sm:py-24" style="background:var(--surface);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">Project Documents &amp; Resources</h2>
-                    <p class="mt-4 max-w-3xl mx-auto text-lg" style="color:var(--text-secondary);">Access comprehensive project documentation including financial models, presentations, and stakeholder materials for due diligence and partnership discussions.</p>
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">Public Documents</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg" style="color:var(--text-secondary);">To keep sensitive project information protected, only the Executive Summary and White Paper are publicly downloadable.</p>
                 </div>
 
-                <!-- Stakeholder-Specific Document Portals -->
-                <div class="mb-16">
-                    <h3 class="text-2xl font-bold mb-8 text-center" style="color:var(--text-primary);">Stakeholder Portals</h3>
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <!-- Government Portal -->
-                        <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
-                            <div class="p-6" style="border-bottom:1px solid var(--border-subtle);">
-                                <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background:var(--accent-dim);border:1px solid var(--border);">
-                                    <svg class="w-5 h-5" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H9m0 0H5m7 0v4"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="text-xl font-semibold" style="color:var(--text-primary);">Government &amp; Municipal</h4>
-                                <p class="mt-2" style="color:var(--text-secondary);">Resources for city officials, planners, and regulatory agencies.</p>
-                            </div>
-                            <div class="p-6 space-y-3">
-                                <button onclick="downloadGovernmentPresentation()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">
-                                    <span>Government Presentation Deck</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                                <button onclick="downloadEconomicImpact()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>Economic Impact Analysis</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                                <button onclick="downloadRegulatoryPathway()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>Regulatory Compliance Plan</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                                <button onclick="downloadCommunityBenefits()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>Community Benefits Overview</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+                <div class="grid md:grid-cols-2 gap-6 mb-10">
+                    <div class="futuristic-card p-6">
+                        <h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Executive Summary</h3>
+                        <p class="text-sm mb-5" style="color:var(--text-secondary);">High-level overview of the Trinity Air Link vision, market case, and implementation pathway.</p>
+                        <button onclick="downloadExecutiveSummary()" class="cta-button w-full">Download Executive Summary</button>
+                    </div>
 
-                        <!-- Investor Portal -->
-                        <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
-                            <div class="p-6" style="border-bottom:1px solid var(--border-subtle);">
-                                <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);">
-                                    <svg class="w-5 h-5" style="color:#4ade80;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="text-xl font-semibold" style="color:var(--text-primary);">Investors &amp; Financial Partners</h4>
-                                <p class="mt-2" style="color:var(--text-secondary);">Financial models, investment materials, and due diligence documents.</p>
-                            </div>
-                            <div class="p-6 space-y-3">
-                                <button onclick="downloadInvestorDeck()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>Investor Presentation Deck</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                                <button onclick="downloadFinancialModel()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>5-Year Financial Model</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                                <button onclick="downloadRiskAssessment()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>Risk Assessment Matrix</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                                <button onclick="downloadFundingSources()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>Funding Sources Analysis</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Technology Portal -->
-                        <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
-                            <div class="p-6" style="border-bottom:1px solid var(--border-subtle);">
-                                <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background:var(--accent-dim);border:1px solid var(--border);">
-                                    <svg class="w-5 h-5" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="text-xl font-semibold" style="color:var(--text-primary);">Technology Partners</h4>
-                                <p class="mt-2" style="color:var(--text-secondary);">Technical specifications, integration requirements, and partnership opportunities.</p>
-                            </div>
-                            <div class="p-6 space-y-3">
-                                <button onclick="downloadTechSpecs()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>Technical Specifications</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                                <button onclick="downloadIntegrationReqs()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>Integration Requirements</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                                <button onclick="downloadPartnershipFramework()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>Partnership Framework</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                                <button onclick="downloadSafetyProtocols()" class="w-full text-left flex items-center justify-between p-3 rounded transition-colors" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'"">
-                                    <span>Safety & Compliance Protocols</span>
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+                    <div class="futuristic-card p-6">
+                        <h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">White Paper</h3>
+                        <p class="text-sm mb-5" style="color:var(--text-secondary);">Comprehensive technical, policy, and financial framing for detailed review.</p>
+                        <button onclick="downloadWhitePaper()" class="cta-button w-full">Download White Paper</button>
                     </div>
                 </div>
 
-                <!-- Core Project Documents -->
-                <div class="mb-16">
-                    <h3 class="text-2xl font-bold mb-8 text-center" style="color:var(--text-primary);">Core Project Documents</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="futuristic-card p-6">
-                            <div class="flex items-center mb-4">
-                                <div class="w-10 h-10 rounded flex items-center justify-center mr-3" style="background:var(--accent-dim);border:1px solid var(--border);">
-                                    <svg class="w-5 h-5" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold" style="color:var(--text-primary);">Executive Summary</h4>
-                                    <p class="text-sm" style="color:var(--text-secondary);">1-page project overview</p>
-                                </div>
-                            </div>
-                            <button onclick="downloadExecutiveSummary()" class="w-full px-4 py-2 rounded transition-colors flex items-center justify-center" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">
-                                <span>Download</span>
-                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path>
-                                </svg>
-                            </button>
-                        </div>
-
-                        <div class="futuristic-card p-6">
-                            <div class="flex items-center mb-4">
-                                <div class="w-10 h-10 rounded flex items-center justify-center mr-3" style="background:var(--accent-dim);border:1px solid var(--border);">
-                                    <svg class="w-5 h-5" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold" style="color:var(--text-primary);">VR Experience Plan</h4>
-                                    <p class="text-sm" style="color:var(--text-secondary);">Demo materials strategy</p>
-                                </div>
-                            </div>
-                            <button onclick="downloadVRPlan()" class="w-full px-4 py-2 rounded transition-colors flex items-center justify-center" style="background:var(--surface-2);color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">
-                                <span>Download</span>
-                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path>
-                                </svg>
-                            </button>
-                        </div>
-
-                        <div class="futuristic-card p-6" style="border-color:var(--border);">
-                            <div class="flex items-center mb-4">
-                                <div class="w-10 h-10 rounded flex items-center justify-center mr-3" style="background:var(--accent-dim);border:1px solid var(--border);">
-                                    <svg class="w-5 h-5" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold" style="color:var(--text-primary);">Complete Document Package</h4>
-                                    <p class="text-sm" style="color:var(--text-secondary);">All project documents</p>
-                                </div>
-                            </div>
-                            <button onclick="downloadAllDocuments()" class="cta-button w-full flex items-center justify-center font-semibold">
-                                <span>Download All</span>
-                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"></path>
-                                </svg>
-                            </button>
-                        </div>
+                <div class="p-6 text-center" style="border:1px solid var(--border);border-radius:8px;background:var(--surface-2);">
+                    <h4 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Request Additional Materials</h4>
+                    <p class="mb-5 max-w-2xl mx-auto" style="color:var(--text-secondary);">Investor, government, technical, and diligence documents are available by request only.</p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <button onclick="requestAccess()" class="cta-button">Request Access Form</button>
+                        <a href="mailto:partnerships@trinityairlink.com?subject=Trinity%20Air%20Link%20Document%20Request" class="px-5 py-3 rounded font-semibold" style="border:1px solid var(--border);color:var(--accent);background:transparent;">Email Document Request</a>
                     </div>
-                </div>
-
-                <!-- Document Access Notice -->
-                <div class="p-6 text-center" style="border:1px solid var(--border);border-radius:8px;background:var(--surface);">
-                    <div class="flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                        </svg>
-                    </div>
-                    <h4 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Confidential Materials Access</h4>
-                    <p class="mb-4 max-w-2xl mx-auto" style="color:var(--text-secondary);">
-                        Some documents may require authorized access for viewing or downloading. Please contact us for access credentials or to request specific materials for due diligence purposes.
-                    </p>
-                    <button onclick="requestAccess()" class="cta-button">Request Access</button>
                 </div>
             </div>
         </section>
@@ -1825,7 +1647,11 @@ function triggerDownload(url, filename) {
 }
 
 function downloadExecutiveSummary() {
-    triggerDownload('docs/hub_docs/HUB Executive Summary.docx', 'TAL_Executive_Summary.docx');
+    triggerDownload('stakeholder_pdfs/01_Executive_Summary.pdf', 'Trinity_Air_Link_Executive_Summary.pdf');
+}
+
+function downloadWhitePaper() {
+    triggerDownload('stakeholder_pdfs/06_White_Paper.pdf', 'Trinity_Air_Link_White_Paper.pdf');
 }
 
 function downloadInvestorPackage() {
