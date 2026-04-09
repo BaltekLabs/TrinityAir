@@ -33,6 +33,8 @@ This file is the canonical reference for headline project metrics used across we
 |---|---|---|
 | eIPP effect | “eIPP supports integration planning and regulator coordination while FAA certification requirements remain in force.” | “eIPP allows revenue passenger operations before full FAA type certification.” |
 | 2026 launch language | “Operations timing depends on certification milestones and partner readiness.” | “Guaranteed commercial operations by fixed date.” |
+| Federal transport grants | “USDOT RAISE (successor to TIGER/BUILD) and other competitive programs may be pursued.” | “TIGER grant program is currently open as a standalone program.” |
+| eIPP funding | “eIPP is a coordination/integration program, not direct grant funding.” | “FAA eIPP co-investment” / “eIPP unlocks direct federal funding.” |
 
 ## Required Disclosure Snippet
 Use this in investor/government materials with financial figures:

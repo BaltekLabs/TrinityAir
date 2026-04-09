@@ -378,7 +378,7 @@ The HUB Transportation System represents a groundbreaking opportunity to transfo
 
 3. **Stakeholder Meetings:** Fort Worth Mayor's office, City Council, economic development — frame around today's eIPP announcement
 
-4. **Grant Applications:** The eIPP creates direct federal funding pathways; apply immediately
+4. **Grant Applications:** Pursue competitive federal/state/local grant programs in parallel with eIPP coordination; participation does not guarantee funding
 
 5. **Investor outreach:** Today's announcement is the most compelling validation event this project will have — begin investor conversations immediately while the news is fresh
 
