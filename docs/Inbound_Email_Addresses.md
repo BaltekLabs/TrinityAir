@@ -16,7 +16,6 @@ This file lists all email addresses currently found in project docs and webpages
 - `technology@trinityairlink.com` — sources: `docs/hub_docs/Quick_Reference_Government_Stakeholders.md, index.html`
 
 ## 2) External stakeholder/partner inboxes referenced in docs/pages
-- `amccoy@star-telegram.com` — sources: `docs/hub_docs/buildingDescription[1].txt`
 - `brad@foundrygroup.com` — sources: `docs/Contact_Outreach_Plan.md, docs/hub_docs/Stakeholder_Contact_Database.md, outreach.md`
 - `carlos.flores@fortworthtexas.gov` — sources: `docs/Contact_Outreach_Plan.md, docs/hub_docs/Stakeholder_Contact_Database.md, docs/hub_docs/Stakeholder_Email_Drafts.md, outreach.md`
 - `david.cooke@fortworthtexas.gov` — sources: `docs/Contact_Outreach_Plan.md, docs/hub_docs/Stakeholder_Contact_Database.md, docs/hub_docs/Stakeholder_Email_Drafts.md, outreach.md`
@@ -38,7 +37,7 @@ This file lists all email addresses currently found in project docs and webpages
 ---
 
 ## Totals
-- Total unique addresses found: **24**
+- Total unique addresses found: **23**
 - Trinity Air Link domain addresses: **8**
-- External non-Trinity addresses: **12**
+- External non-Trinity addresses: **11**
 - Legacy/test addresses flagged: **4**

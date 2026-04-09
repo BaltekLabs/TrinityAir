@@ -1692,7 +1692,7 @@ function downloadRegulatoryPathway() {
 }
 
 function downloadCommunityBenefits() {
-    triggerDownload('docs/hub_docs/HUB Executive Summary.docx', 'TAL_Community_Benefits_Overview.docx');
+    triggerDownload('stakeholder_pdfs/01_Executive_Summary.pdf', 'Trinity_Air_Link_Community_Benefits_Overview.pdf');
 }
 
 function downloadInvestorDeck() {
@@ -1745,16 +1745,12 @@ function downloadVRPlan() {
 
 function downloadAllDocuments() {
     const docs = [
-        ['docs/hub_docs/HUB Executive Summary.docx', 'TAL_Executive_Summary.docx'],
-        ['docs/hub_docs/Investor Presentation Deck.docx', 'TAL_Investor_Presentation_Deck.docx'],
-        ['docs/hub_docs/Government Presentation Deck.docx', 'TAL_Government_Presentation_Deck.docx'],
-        ['docs/hub_docs/Hub Financial Model.docx', 'TAL_Financial_Model.docx'],
-        ['docs/hub_docs/Risk Assessment Matrix.docx', 'TAL_Risk_Assessment_Matrix.docx'],
-        ['docs/hub_docs/Funding Sources Analysis.docx', 'TAL_Funding_Sources_Analysis.docx'],
-        ['docs/hub_docs/HUB_Infrastructure_Whitepaper.docx', 'TAL_Infrastructure_Whitepaper.docx'],
-        ['docs/hub_docs/Business Case.docx', 'TAL_Business_Case.docx'],
-        ['docs/hub_docs/Stakeholder Contact Database.docx', 'TAL_Stakeholder_Contact_Database.docx'],
-        ['docs/The_HUB_Fort_Worth.pdf', 'TAL_Full_Presentation.pdf'],
+        ['stakeholder_pdfs/01_Executive_Summary.pdf', 'Trinity_Air_Link_Executive_Summary.pdf'],
+        ['stakeholder_pdfs/06_White_Paper.pdf', 'Trinity_Air_Link_White_Paper.pdf'],
+        ['docs/hub_docs/HUB_Financial_Model.md', 'Trinity_Air_Link_Financial_Model.md'],
+        ['docs/hub_docs/Risk_Assessment_Matrix.md', 'Trinity_Air_Link_Risk_Assessment_Matrix.md'],
+        ['docs/hub_docs/Funding_Sources_Analysis.md', 'Trinity_Air_Link_Funding_Sources_Analysis.md'],
+        ['docs/hub_docs/Stakeholder_Contact_Database.md', 'Trinity_Air_Link_Stakeholder_Contact_Database.md'],
     ];
     docs.forEach(([url, filename], i) => {
         setTimeout(() => triggerDownload(url, filename), i * 300);
