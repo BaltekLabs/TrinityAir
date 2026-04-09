@@ -1,6 +1,6 @@
-North Texas Rapid Mobility Hub — Comprehensive Contact & Outreach Plan
+Trinity Air Link — Comprehensive Contact & Outreach Plan
 Updated: March 2026
-Hook for all outreach: Texas DOT + Archer Aviation selected as one of 8 national eIPP sites. Electric air taxi operations begin in Texas summer 2026. Fort Worth is not on the initial route map. That is the urgency and the opening for every contact.
+Hook for all outreach: Texas DOT + Archer Aviation selected as one of 8 national eIPP sites. Texas network deployment planning is underway, with operations timing dependent on FAA certification milestones. Fort Worth is not on the initial route map. That is the urgency and the opening for every contact.
 DOCUMENTS REFERENCE KEY
 Code
 File
@@ -51,7 +51,7 @@ Method: Personal email first, LinkedIn DM same day as follow-up
 Subject: Catching up — and something urgent for Fort Worth
 Tone: Warm, personal, brief. Use existing relationship. Do not over-pitch.
 Message:
-Hi Mattie, hope all is well. I know you're tracking this morning's news — Texas just got selected as one of 8 national sites for the White House eVTOL program. Electric air taxis are coming to DFW this summer. Fort Worth isn't on the initial route map yet. I think that needs to change, and fast. I've been working on the North Texas Rapid Mobility Hub — an eVTOL and autonomous vehicle hub at the T&P Warehouse downtown. Today's announcement is exactly the validation I've been waiting for, and I think the City needs to move on this quickly before Dallas gets all the attention. Can we find 20 minutes this week? I'd love to brief you before this story gets much bigger.
+Hi Mattie, hope all is well. I know you're tracking this morning's news — Texas just got selected as one of 8 national sites for the White House eVTOL program. Electric air taxis are coming to DFW this summer. Fort Worth isn't on the initial route map yet. I think that needs to change, and fast. I've been working on the Trinity Air Link — an eVTOL and autonomous vehicle hub at the T&P Warehouse downtown. Today's announcement is exactly the validation I've been waiting for, and I think the City needs to move on this quickly before Dallas gets all the attention. Can we find 20 minutes this week? I'd love to brief you before this story gets much bigger.
 Documents to attach: ES (executive_summary.html)
 Follow-up if no response in 3 days: LinkedIn DM referencing the email
 Ask: 20-minute briefing this week
@@ -75,10 +75,10 @@ Follow-up: 3 days. Sturns is often the implementation path even when Parker is t
 Ask: Brief this week, offer to present to economic development team
 4. Marc Williams — Executive Director, TxDOT
 Phone: (512) 416-2001 / Method: Email + certified letter to Austin office
-Subject: Fort Worth vertiport partnership — North Texas Rapid Mobility Hub
+Subject: Fort Worth vertiport partnership — Trinity Air Link
 Tone: Formal, technical, collaborative. Position as a partner to the eIPP program, not a petitioner.
 Message:
-Dear Mr. Williams, Congratulations on today's selection as one of 8 national eIPP sites. I'm leading the North Texas Rapid Mobility Hub — a planned eVTOL and autonomous vehicle hub at the historic Texas & Pacific Warehouse in downtown Fort Worth. As Archer Aviation stands up Texas operations in H2 2026, the Hub offers a purpose-built Fort Worth vertiport at one of the most centrally located and iconic buildings in the DFW corridor. Fort Worth is the western anchor of the metroplex and the natural complement to any Dallas-centric routes. I'd like to understand how the Texas eIPP program is approaching vertiport partnerships, and how the Hub can contribute to your network from day one. Would someone on your team be available for a call this week?
+Dear Mr. Williams, Congratulations on today's selection as one of 8 national eIPP sites. I'm leading the Trinity Air Link — a planned eVTOL and autonomous vehicle hub at the historic Texas & Pacific Warehouse in downtown Fort Worth. As Archer Aviation stands up Texas operations in H2 2026, Trinity Air Link offers a purpose-built Fort Worth vertiport at one of the most centrally located and iconic buildings in the DFW corridor. Fort Worth is the western anchor of the metroplex and the natural complement to any Dallas-centric routes. I'd like to understand how the Texas eIPP program is approaching vertiport partnerships, and how Trinity Air Link can contribute to your network from day one. Would someone on your team be available for a call this week?
 Documents: ES + GB. Offer WP as follow-up: "Happy to share our full technical white paper with your team."
 Follow-up: 5 days. Also reach James Bass (Deputy ED) simultaneously.
 Ask: Call this week with eIPP program team
@@ -92,7 +92,7 @@ Also contact: Eric Allison (Head of Product) in parallel as operational entry po
 Follow-up: 5 days / Ask: Exploratory call on Fort Worth operations and partnership
 6. Archer Aviation — Texas Operations Team
 Method: Email to business development / partnerships team
-Subject: Fort Worth vertiport and operations partnership — North Texas Rapid Mobility Hub
+Subject: Fort Worth vertiport and operations partnership — Trinity Air Link
 Tone: Operational and specific. They are standing up TX ops right now — speak to their immediate needs.
 Message: (full draft in A1_Contacts_Outreach.txt)
 Documents: ES + TP + 3D
@@ -100,7 +100,7 @@ Follow-up: 3 days. Time-sensitive — they are actively building their TX networ
 Ask: Call this week on vertiport and ground ops partnership
 7. Dmitri Dolgov — Co-CEO, Waymo
 Method: LinkedIn + email to Waymo partnerships team
-Subject: Fort Worth ground operations partnership — North Texas Rapid Mobility Hub
+Subject: Fort Worth ground operations partnership — Trinity Air Link
 Tone: Data-forward. Waymo responds to operational specifics and safety numbers.
 Message: (full draft in A1_Contacts_Outreach.txt)
 Documents: ES + TP. DEMO for follow-up meeting only.

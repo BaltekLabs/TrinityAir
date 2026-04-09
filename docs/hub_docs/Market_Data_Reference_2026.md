@@ -1,4 +1,4 @@
-# HUB Transportation System — Market Data Reference
+# Trinity Air Link — Market Data Reference
 ## Updated: March 9, 2026
 
 ---
@@ -12,15 +12,15 @@
 | Named Routes | Dallas, Austin, San Antonio, Houston |
 | Operations Start | **H2 2026 (this summer)** |
 | Aircraft | Archer Midnight (4 pax + pilot, 150 mph, 60-mile range) |
-| Revenue Allowed | Yes — eIPP allows **revenue passenger operations** before full FAA type cert |
+| Revenue Allowed | **Program supports integration planning and data collection; FAA certification requirements still apply** |
 | eIPP Span | 8 projects, 26 states, 3-year program |
 | Other Named Sites | Port Authority NY/NJ (12 concepts, Manhattan heliport); Utah DOT (4 states, Pacific NW to Oklahoma); Pennsylvania DOT / NASAO (13 states, regional air service) |
 | Joby in Texas | Also a Texas eIPP participant; working with Texas, FL, OH, NY, CA state govts |
 | Source | U.S. Department of Transportation official press release, March 9, 2026 |
 
-**Strategic implication for HUB:** Fort Worth is not named in the initial Texas eIPP route set (Dallas is). The HUB must immediately position as the Fort Worth vertiport and ground operations anchor for the Texas eIPP network — contacting Texas DOT and Archer Aviation this week.
+**Strategic implication for Trinity Air Link:** Fort Worth is not named in the initial Texas eIPP route set (Dallas is). Trinity Air Link should immediately position as the Fort Worth vertiport and ground operations anchor for the Texas eIPP network — contacting Texas DOT and Archer Aviation this week.
 
-This document captures the current market data citations used throughout all HUB project materials. Update this document whenever key statistics are refreshed.
+This document captures the current market data citations used throughout all Trinity Air Link project materials. Update this document whenever key statistics are refreshed.
 
 ---
 
@@ -95,7 +95,7 @@ This document captures the current market data citations used throughout all HUB
 
 **FAA Regulatory Framework:**
 - Powered-lift aircraft rule: Established first new aircraft category in 80 years
-- eVTOL Integration Pilot Program (eIPP): Launched by Presidential EO, Sept 2025 — enables pre-certification ops
+- eVTOL Integration Pilot Program (eIPP): Launched by Presidential EO, Sept 2025 — supports operational integration while certification requirements remain in force
 - FAA vision: Integrated AAM operations at key locations by 2028
 - Five-nation certification harmonization roadmap: Jan 2027 target (FAA, UK CAA, Australia CASA, Transport Canada, NZ CAA)
 
