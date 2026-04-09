@@ -370,10 +370,10 @@ The project maintains double-digit IRR across all meaningful sensitivity scenari
 | **Total** | **$129M** | **100%** |
 
 ### Grant Opportunities
-The eIPP designation creates direct federal funding pathways that did not exist before March 9, 2026:
+The grant strategy should be pursued through competitive federal/state/local programs that are independent of eIPP participation:
 
 - **USDOT Advanced Transportation Technology and Innovation (ATTAIN):** $3M target
-- **FAA Urban Air Mobility grants:** $2M target
+- **FAA discretionary airport/innovation programs (as eligible):** $2M planning target
 - **DOE Vehicle Technology Program:** $1.5M target
 - **Texas Economic Development Act:** $2.5M target
 - **Texas Enterprise Fund:** $2M target
