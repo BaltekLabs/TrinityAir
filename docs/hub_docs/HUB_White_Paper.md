@@ -42,10 +42,10 @@ The HUB arrives precisely at the moment these technologies transition from demon
 | Item | Figure |
 |------|--------|
 | Total Capital Required | $129M across 4 phases (2026–2029) |
-| Projected IRR (moderate) | 22.3% |
+| Target project IRR | 20%–25% |
 | Revenue at Year 5 (moderate) | $133.4M |
 | Break-Even | Year 5 (2030) |
-| NPV at 10% discount rate | $89M |
+| Illustrative NPV at 10% discount rate | $89M (including terminal assumptions) |
 | Payback Period | 4.2 years |
 | Jobs Created | 2,500+ construction; 800+ permanent |
 | Projected Annual Tax Revenue | $25M+ by Year 5 |
@@ -115,7 +115,7 @@ No comparable integrated eVTOL-AV hub currently operates in any major U.S. metro
 The T&P Nexus HUB integrates four functional systems within a single historic building and its immediate environs:
 
 ### 4.1 eVTOL Air Mobility Terminal
-Rooftop vertiport infrastructure supporting multiple simultaneous aircraft — landing pads, charging systems, passenger boarding facilities, operations and air traffic coordination center, and weather monitoring systems. Initial fleet of 10–15 aircraft (Archer Midnight and/or Joby S4) scaling to 25–40 aircraft by Year 5. The rooftop provides line-of-sight visibility across downtown Fort Worth and direct connection to the T&P passenger terminal below.
+Rooftop vertiport infrastructure supporting multiple simultaneous aircraft — landing pads, charging systems, passenger boarding facilities, operations and air traffic coordination center, and weather monitoring systems. Initial 10–15 aircraft-equivalent operator capacity, scaling to 25–40 aircraft-equivalent network capacity by Year 5. Aircraft may be operated by certified third-party operators under access agreements, with Trinity Air Link monetizing infrastructure, charging, passenger processing, dispatch, and data services. The rooftop provides line-of-sight visibility across downtown Fort Worth and direct connection to the T&P passenger terminal below.
 
 ### 4.2 Autonomous Vehicle Ground Terminal
 Ground-level EV fleet operations providing first- and last-mile connectivity across the Fort Worth urban core, connecting the HUB to residential neighborhoods, commercial districts, the Texas A&M Fort Worth campus corridor, and the TEXRail commuter rail network. Fleet of 50–100 Level 4 autonomous vehicles at full operations. Smart charging infrastructure integrated with on-site power systems.
@@ -260,8 +260,8 @@ The infrastructure phase transforms the T&P Warehouse from a vacant building int
 
 Technology deployment and operational validation:
 
-- eVTOL fleet acquisition: 10–15 aircraft at approximately $1.3M per unit (Archer Midnight and/or Joby S4)
-- Level 4 AV fleet deployment: 25–50 vehicles
+- 10–15 aircraft-equivalent operator capacity contracted/onboarded
+- 25–50 AV-equivalent operator capacity active or under agreement
 - Full AI systems integration and real-time operations launch
 - FAA operational approval for commercial revenue eVTOL operations
 - Consumer-facing app launch and marketing campaign
@@ -293,8 +293,8 @@ Full commercial launch and network growth:
 
 | Revenue Stream | Conservative | Moderate | Optimistic |
 |----------------|-------------|----------|------------|
-| eVTOL Operations | $21.9M | $54.8M | $131.4M |
-| Autonomous Vehicle Services | $16.4M | $54.8M | $137.3M |
+| Air Mobility Platform Revenue | $21.9M | $54.8M | $131.4M |
+| Ground Mobility Platform Revenue | $16.4M | $54.8M | $137.3M |
 | Innovation Center / Real Estate | $2.4M | $3.8M | $5.1M |
 | Technology Licensing & IP | $4.0M | $10.0M | $16.0M |
 | Ancillary (retail, cargo, parking) | $6.0M | $10.0M | $16.0M |
@@ -312,7 +312,7 @@ Full commercial launch and network growth:
 |---------------|-------------|
 | Personnel (pilots, technicians, operations, technology, admin) | $32.5M |
 | Aircraft maintenance | $8–15M |
-| AV fleet maintenance and operations | $2–4M |
+| Operator Support, Facilities & Maintenance | Infrastructure maintenance, charging support, dispatch systems, safety systems, regulatory support, passenger operations, and service-level management. Direct fleet maintenance is primarily borne by certified operators under the capital-light access model. |
 | Technology infrastructure | $3–6M |
 | Energy (electricity, charging) | $8–12M |
 | Insurance (aviation, general, cyber, property) | $4–8M |
@@ -330,7 +330,7 @@ Full commercial launch and network growth:
 | EBITDA | $44.9M |
 | EBITDA Margin | 34% |
 | Net Income | $16.4M |
-| Projected IRR | 22.3% |
+| Target project IRR | 20%–25% |
 | NPV (10% discount) | $89M |
 | Payback Period | 4.2 years |
 
@@ -343,6 +343,33 @@ Full commercial launch and network growth:
 | 2028 | 3 | ($32M) | $25M | ($37M) | ($92M) |
 | 2029 | 4 | ($22M) | $65M | ($2M) | ($29M) |
 | 2030 | 5 | ($5M) | $133M | $40M | **+$11M** |
+
+### 10-Year IRR Methodology and Terminal Value
+
+The five-year cash-flow table shows the development ramp and target breakeven timing. The stated project IRR is a 10-year project-level return estimate that depends on stabilized Years 6–10 cash flows and/or terminal value. The five-year cash-flow table alone does not fully support the stated IRR.
+
+Terminal value represents the estimated value of the stabilized Trinity Air Link platform at the end of the forecast period, typically calculated using an EBITDA exit multiple or stabilized infrastructure asset valuation.
+
+| Case | Year 10 EBITDA | Exit Multiple | Terminal Value |
+|------|----------------|---------------|----------------|
+| Conservative | $35M | 6.0x | $210M |
+| Moderate | $60M | 8.0x | $480M |
+| Optimistic | $100M | 10.0x | $1.0B |
+
+| Year | Development Phase | Net Project Cash Flow | Notes |
+|------|-------------------|-----------------------|-------|
+| 2026 | Phase 1 | -$25M | Planning, regulatory, team, early operating burn |
+| 2027 | Phase 2 | -$55M | Infrastructure development and operating burn |
+| 2028 | Phase 3 | -$17M to -$37M | Varies by capital-light, hybrid, or owned-fleet model |
+| 2029 | Phase 4 | -$2M | Launch year with major revenue ramp |
+| 2030 | Year 5 | +$40M | Breakeven / positive annual cash-flow target |
+| 2031 | Stabilization | +$50M | Operator agreements mature |
+| 2032 | Stabilization | +$55M | Route expansion and higher utilization |
+| 2033 | Stabilization | +$60M | Platform revenue growth |
+| 2034 | Stabilization | +$65M | Mature multi-operator network |
+| 2035 | Stabilization / Exit | +$70M plus terminal value | Exit/refinance/recapitalization case |
+
+These are planning assumptions for investor discussion and must be validated against final operator agreements, lease terms, debt structure, market adoption, and comparable infrastructure/platform transactions.
 
 ### Sensitivity Analysis — IRR vs. Key Variables
 
@@ -455,7 +482,7 @@ The HUB delivers to Fort Worth and Texas the economic infrastructure of a nation
 - **Federal eIPP positioning** — the opportunity to become the Fort Worth anchor of a federally sanctioned, nationally significant aviation program
 
 ### Investors and Financial Partners
-- **22.3% projected IRR** (moderate scenario) with multiple exit pathways: strategic acquisition, IPO, or infrastructure fund recapitalization
+- **20–25% target project IRR (illustrative moderate-case ~22% with 10-year + terminal assumptions)** (moderate scenario) with multiple exit pathways: strategic acquisition, IPO, or infrastructure fund recapitalization
 - **First-mover positioning** in the $23–41B+ urban air mobility market before the competitive landscape consolidates
 - **Scalable and replicable model** — the HUB's technology platform and operational playbook is designed for deployment across 50+ comparable U.S. metropolitan markets
 - **Diversified revenue streams** reducing dependency on any single service line during the adoption curve
