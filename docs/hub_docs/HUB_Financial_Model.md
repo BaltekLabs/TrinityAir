@@ -13,6 +13,10 @@
 
 ---
 
+Trinity Air Link does not need to own every vehicle in the network. The preferred model positions the project as critical transportation infrastructure: the node every certified operator needs to use.
+
+Under the preferred capital-light operator access model, certified independent eVTOL operators, autonomous vehicle operators, OEM partners, and mobility fleet companies provide and finance the aircraft and vehicles. Trinity Air Link owns and controls the infrastructure layer, including vertiport access, AV bays, passenger processing, charging/energy systems, dispatch software, data services, safety systems, and service standards. Vehicle ownership remains an upside/control option, not a launch requirement.
+
 ## Investment Requirements by Phase
 
 ### Phase 1: Planning & Preparation (2026) — *Underway*
@@ -54,13 +58,20 @@
 
 ### Phase 3: Technology Integration (2028)
 - **Duration:** 12 months
-- **Investment Required:** $25–40M
+- **Investment Required:** $10–32M depending on deployment model
 
-**Capital Expenditures:**
-- eVTOL aircraft fleet, initial 10–15 units at ~$1.3M/unit (Joby S4 / Archer Midnight): $13–20M
-- Autonomous vehicle fleet (Level 4 proven platform): $5–8M
-- Advanced traffic management AI: $3–5M
-- Charging infrastructure: $2–3M
+| Model | Phase 3 Capital Need | Description |
+|------|----------------------|-------------|
+| Capital-Light Operator Access Model | $10M–$16M | Preferred base case. Independent certified eVTOL and AV operators provide aircraft, vehicles, pilots, fleet maintenance, insurance, and vehicle financing. Trinity Air Link funds and monetizes terminal infrastructure, vertiport access, AV bays, passenger processing, charging/energy systems, dispatch software, data services, traffic management, and operator service fees. |
+| Hybrid Model | $18M–$24M | Trinity Air Link funds infrastructure, charging, software, passenger systems, and limited demonstration/seed vehicles while third-party operators carry most fleet capex. |
+| Owned Fleet Model | $32M | Full-control case. Trinity Air Link purchases or finances the initial eVTOL and AV fleet, capturing more direct transportation revenue but assuming greater asset, depreciation, maintenance, insurance, and regulatory exposure. |
+
+**Capital requirement framing:**
+- Owned-Fleet Case: approximately $129M total investment
+- Capital-Light Operator Access Case: approximately $107M–$113M total investment
+- Hybrid Case: approximately $115M–$121M total investment
+
+The $32M Phase 3 vehicle deployment remains the full-control owned-fleet case. The preferred capital-light case reduces Phase 3 capital exposure by shifting vehicle acquisition and fleet financing to independent operators while preserving infrastructure and platform economics.
 
 **Operating Expenses:**
 - Technology testing & validation: $2M
@@ -90,7 +101,7 @@
 
 ### Revenue Streams
 
-#### 1. eVTOL Aircraft Operations
+#### 1. Air Mobility Platform Revenue
 **Service Model:** Point-to-point passenger transportation
 - **Average fare:** $75–150 per passenger per trip ($3–11/mile industry benchmark; Joby targeting ~$3/seat-mile)
 - **Aircraft capacity:** 4–6 passengers per flight (Joby S4: 4-passenger + pilot; Archer Midnight: 4-passenger + pilot)
@@ -102,7 +113,7 @@
 - Moderate: 30 aircraft × 10 flights × 5 passengers × $100 × 365 days = $54.8M
 - Optimistic: 40 aircraft × 12 flights × 6 passengers × $125 × 365 days = $131.4M
 
-#### 2. Autonomous Vehicle Services
+#### 2. Ground Mobility Platform Revenue
 **Service Model:** First/last mile connectivity and local transportation
 - **Average fare:** $15-25 per passenger per trip
 - **Vehicle capacity:** 4-6 passengers per vehicle
@@ -149,7 +160,7 @@
 
 ### Total Revenue Projections (Year 5)
 
-| Scenario | VTOL | AV Services | Real Estate | Tech/IP | Ancillary | **Total** |
+| Scenario | Air Mobility Platform Revenue | Ground Mobility Platform Revenue | Real Estate | Tech/IP | Ancillary | **Total** |
 |----------|------|-------------|-------------|----------|-----------|-----------|
 | Conservative | $21.9M | $16.4M | $2.4M | $4M | $6M | **$50.7M** |
 | Moderate | $54.8M | $54.8M | $3.8M | $10M | $10M | **$133.4M** |
@@ -170,8 +181,7 @@
 - **Total Personnel:** $32.5M
 
 #### Technology & Equipment
-- **Aircraft maintenance:** $8-15M (annual maintenance costs)
-- **Vehicle maintenance:** $2-4M (AV fleet maintenance)
+- **Operator Support, Facilities & Maintenance:** infrastructure maintenance, charging support, dispatch systems, safety systems, regulatory support, passenger operations, and service-level management. Direct fleet maintenance is primarily borne by certified operators under the capital-light access model.
 - **Technology infrastructure:** $3-6M (servers, software, upgrades)
 - **Insurance:** $4-8M (comprehensive coverage)
 - **Total Technology:** $17-33M
@@ -239,7 +249,7 @@
 
 ## Return on Investment Analysis
 
-### IRR Calculations
+### 10-Year IRR Methodology and Terminal Value
 Based on moderate scenario projections (2026–2030 timeline):
 
 **Investment Schedule:**
@@ -257,7 +267,7 @@ Based on moderate scenario projections (2026–2030 timeline):
 - Year 5: $50M
 - Years 6-10: $50-80M annually
 
-**Calculated IRR:** 22.3%
+**Illustrative moderate-case project IRR:** approximately 22%–23%, subject to final 10-year cash-flow schedule and terminal value assumptions.
 
 ---
 
@@ -266,6 +276,33 @@ Based on moderate scenario projections (2026–2030 timeline):
 All figures in this model are scenario-based planning estimates for diligence and partner discussions. Actual outcomes depend on certification timelines, market adoption rates, partner agreements, capital costs, and operating execution.
 **NPV (10% discount rate):** $89M
 **Payback period:** 4.2 years
+
+
+
+The five-year cash-flow table shows the development ramp and target breakeven timing. The stated project IRR is a 10-year project-level return estimate that depends on stabilized Years 6–10 cash flows and/or terminal value. The five-year cash-flow table alone does not fully support the stated IRR.
+
+Terminal value represents the estimated value of the stabilized Trinity Air Link platform at the end of the forecast period, typically calculated using an EBITDA exit multiple or stabilized infrastructure asset valuation.
+
+| Case | Year 10 EBITDA | Exit Multiple | Terminal Value |
+|------|----------------|---------------|----------------|
+| Conservative | $35M | 6.0x | $210M |
+| Moderate | $60M | 8.0x | $480M |
+| Optimistic | $100M | 10.0x | $1.0B |
+
+| Year | Development Phase | Net Project Cash Flow | Notes |
+|------|-------------------|-----------------------|-------|
+| 2026 | Phase 1 | -$25M | Planning, regulatory, team, early operating burn |
+| 2027 | Phase 2 | -$55M | Infrastructure development and operating burn |
+| 2028 | Phase 3 | -$17M to -$37M | Varies by capital-light, hybrid, or owned-fleet model |
+| 2029 | Phase 4 | -$2M | Launch year with major revenue ramp |
+| 2030 | Year 5 | +$40M | Breakeven / positive annual cash-flow target |
+| 2031 | Stabilization | +$50M | Operator agreements mature |
+| 2032 | Stabilization | +$55M | Route expansion and higher utilization |
+| 2033 | Stabilization | +$60M | Platform revenue growth |
+| 2034 | Stabilization | +$65M | Mature multi-operator network |
+| 2035 | Stabilization / Exit | +$70M plus terminal value | Exit/refinance/recapitalization case |
+
+These are planning assumptions for investor discussion and must be validated against final operator agreements, lease terms, debt structure, market adoption, and comparable infrastructure/platform transactions.
 
 ### Sensitivity Analysis
 
