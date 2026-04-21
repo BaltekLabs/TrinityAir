@@ -40,6 +40,10 @@ The primary investment case should be evaluated before terminal value. Terminal 
 
 ---
 
+Trinity Air Link does not need to own every vehicle in the network. The preferred model positions the project as critical transportation infrastructure: the node every certified operator needs to use.
+
+Under the preferred capital-light operator access model, certified independent eVTOL operators, autonomous vehicle operators, OEM partners, and mobility fleet companies provide and finance the aircraft and vehicles. Trinity Air Link owns and controls the infrastructure layer, including vertiport access, AV bays, passenger processing, charging/energy systems, dispatch software, data services, safety systems, and service standards. Vehicle ownership remains an upside/control option, not a launch requirement.
+
 ## Investment Requirements by Phase
 
 ### Phase 1: Planning & Preparation (2026) — *Underway*
@@ -96,6 +100,13 @@ The primary investment case should be evaluated before terminal value. Terminal 
 
 The $32M Phase 3 vehicle deployment remains the full-control owned-fleet case. The preferred capital-light case reduces Phase 3 capital exposure by shifting vehicle acquisition and fleet financing to independent operators while preserving infrastructure and platform economics.
 
+**Capital requirement framing:**
+- Owned-Fleet Case: approximately $129M total investment
+- Capital-Light Operator Access Case: approximately $107M–$113M total investment
+- Hybrid Case: approximately $115M–$121M total investment
+
+The $32M Phase 3 vehicle deployment remains the full-control owned-fleet case. The preferred capital-light case reduces Phase 3 capital exposure by shifting vehicle acquisition and fleet financing to independent operators while preserving infrastructure and platform economics.
+
 ### Phase 4: Operations Launch (2029)
 - **Duration:** 12 months
 - **Investment Required:** $20–25M
@@ -108,11 +119,11 @@ The $32M Phase 3 vehicle deployment remains the full-control owned-fleet case. T
 ### Revenue Streams
 
 #### 1. Air Mobility Platform Revenue
-**Service Model:** Infrastructure access, passenger processing, charging/energy services, dispatch software, and revenue share on point-to-point passenger transportation.
-- **Average fare / economic basis:** $75–150 per passenger per trip ($3–11/mile industry benchmark; Joby targeting ~$3/seat-mile)
-- **Aircraft-equivalent network capacity:** 25–40 aircraft equivalent by Year 5
-- **Flight frequency:** 8–12 flights per aircraft equivalent per day
-- **Revenue capture:** pad access fees, stand/use fees, passenger facility charges, terminal fees, charging/energy markup, dispatch/scheduling software fees, data/traffic management fees, maintenance bay/hangar access fees, and revenue share per passenger or flight
+**Service Model:** Point-to-point passenger transportation
+- **Average fare:** $75–150 per passenger per trip ($3–11/mile industry benchmark; Joby targeting ~$3/seat-mile)
+- **Aircraft capacity:** 4–6 passengers per flight (Joby S4: 4-passenger + pilot; Archer Midnight: 4-passenger + pilot)
+- **Flight frequency:** 8–12 flights per aircraft per day (Archer targeting 10–25 trips/day at scale)
+- **Fleet size (Year 5):** 25–40 aircraft; aircraft at ~$1.3M manufacturing cost each
 
 **Revenue Calculation (Year 5):**
 - Conservative: 25 aircraft equivalent × 8 flights × 4 passengers × $75 × 365 days = $21.9M
@@ -120,11 +131,11 @@ The $32M Phase 3 vehicle deployment remains the full-control owned-fleet case. T
 - Optimistic: 40 aircraft equivalent × 12 flights × 6 passengers × $125 × 365 days = $131.4M
 
 #### 2. Ground Mobility Platform Revenue
-**Service Model:** First/last mile access, AV bay utilization, charging, software, and revenue share.
-- **Average fare / economic basis:** $15-25 per passenger per trip
-- **Vehicle-equivalent network capacity:** 50-100 vehicles by Year 5
-- **Daily trips:** 15-25 per vehicle equivalent
-- **Revenue capture:** AV bay access fees, curb-use fees, charging/energy services, passenger facility fees, dispatch/scheduling software fees, data services, revenue share per trip, and operator service-level agreements
+**Service Model:** First/last mile connectivity and local transportation
+- **Average fare:** $15-25 per passenger per trip
+- **Vehicle capacity:** 4-6 passengers per vehicle
+- **Daily trips:** 15-25 per vehicle
+- **Fleet size (Year 5):** 50-100 vehicles
 
 **Revenue Calculation (Year 5):**
 - Conservative: 50 vehicles × 15 trips × 4 passengers × $15 × 365 days = $16.4M
@@ -149,7 +160,7 @@ The $32M Phase 3 vehicle deployment remains the full-control owned-fleet case. T
 ### Total Revenue Projections (Year 5)
 
 | Scenario | Air Mobility Platform Revenue | Ground Mobility Platform Revenue | Real Estate | Tech/IP | Ancillary | **Total** |
-|----------|------------------------------:|---------------------------------:|------------:|--------:|----------:|----------:|
+|----------|------|-------------|-------------|----------|-----------|-----------|
 | Conservative | $21.9M | $16.4M | $2.4M | $4M | $6M | **$50.7M** |
 | Moderate | $54.8M | $54.8M | $3.8M | $10M | $10M | **$133.4M** |
 | Optimistic | $131.4M | $137.3M | $5.1M | $16M | $16M | **$305.8M** |
@@ -158,17 +169,42 @@ The $32M Phase 3 vehicle deployment remains the full-control owned-fleet case. T
 
 ## Operating Expense Projections
 
-Demand scenarios and deployment models are separate assumptions. The table below shows normalized capital-light/platform operating costs scaling with demand. The owned-fleet downside is shown separately as a stress case because it carries additional depreciation, maintenance, insurance, and equipment-debt exposure.
+### Year 5 Operating Expenses
 
-### Year 5 Operating Expenses — Capital-Light / Platform Case
+#### Personnel Costs
+- **Executive team:** $2M (CEO, COO, CTO, CFO)
+- **Operations staff:** $12M (pilots, technicians, customer service)
+- **Technology team:** $8M (engineers, AI specialists, data scientists)
+- **Administrative:** $4M (HR, finance, legal, facilities)
+- **Benefits & payroll taxes:** $6.5M (25% of salaries)
+- **Total Personnel:** $32.5M
 
-| Scenario | Personnel | Operator Support, Facilities & Maintenance | Facilities, Energy & Utilities | Debt Service, Professional & Admin | **Total OpEx** |
-|----------|----------:|-------------------------------------------:|-------------------------------:|-----------------------------------:|---------------:|
-| Conservative Demand | $24M | $14M | $12M | $9M | **$59M** |
-| Moderate Base | $32.5M | $25M | $18M | $13M | **$88.5M** |
-| Optimistic Demand | $45M | $42M | $32M | $19M | **$138M** |
+#### Technology & Equipment
+- **Operator Support, Facilities & Maintenance:** infrastructure maintenance, charging support, dispatch systems, safety systems, regulatory support, passenger operations, and service-level management. Direct fleet maintenance is primarily borne by certified operators under the capital-light access model.
+- **Technology infrastructure:** $3-6M (servers, software, upgrades)
+- **Insurance:** $4-8M (comprehensive coverage)
+- **Total Technology:** $17-33M
 
-Direct fleet maintenance is primarily borne by certified operators under the capital-light access model. The owned-fleet case carries higher depreciation, maintenance, insurance, and equipment debt exposure.
+#### Facilities & Operations
+- **Facility maintenance:** $2-3M (building, utilities, security)
+- **Fuel & energy:** $8-12M (electricity, charging infrastructure)
+- **Regulatory compliance:** $1-2M (ongoing certifications, reporting)
+- **Marketing & customer acquisition:** $3-5M
+- **Total Facilities:** $14-22M
+
+#### Financial & Administrative
+- **Debt service:** $5-8M (construction and equipment financing)
+- **Professional services:** $2-3M (legal, accounting, consultants)
+- **Contingency:** $3-5M (5% of revenues)
+- **Total Financial:** $10-16M
+
+### Total Operating Expenses (Year 5)
+
+| Scenario | Personnel | Technology | Facilities | Financial | **Total OpEx** |
+|----------|-----------|------------|------------|-----------|----------------|
+| Conservative | $32.5M | $17M | $14M | $10M | **$73.5M** |
+| Moderate | $32.5M | $25M | $18M | $13M | **$88.5M** |
+| Optimistic | $32.5M | $33M | $22M | $16M | **$103.5M** |
 
 ---
 
@@ -194,25 +230,15 @@ Direct fleet maintenance is primarily borne by certified operators under the cap
 
 ### 10-Year Capital-Light Project Cash Flow — Moderate Base Case Before Terminal Value
 
-| Year | Phase | Net Project Cash Flow | Notes |
-|------|-------|----------------------:|-------|
-| 2026 | Phase 1 | ($25M) | Planning, regulatory, team, early operating burn |
-| 2027 | Phase 2 | ($55M) | Infrastructure development and operating burn |
-| 2028 | Phase 3 | ($17M) | Capital-light technology systems, charging, dispatch, operator access infrastructure |
-| 2029 | Phase 4 | ($2M) | Launch year with major revenue ramp |
-| 2030 | Year 5 | $40M | Breakeven / positive annual cash-flow target |
-| 2031 | Stabilization | $50M | Operator agreements mature |
-| 2032 | Stabilization | $55M | Route expansion and higher utilization |
-| 2033 | Stabilization | $60M | Platform revenue growth |
-| 2034 | Stabilization | $65M | Mature multi-operator network |
-| 2035 | Stabilization / Exit | $70M | Final projected annual cash flow before terminal value |
+### 10-Year IRR Methodology and Terminal Value
+Based on moderate scenario projections (2026–2030 timeline):
 
 **Calculated 10-year project IRR before terminal value:** **24.8%**  
 **Calculated NPV @ 10% before terminal value:** **$89.7M**
 
 ### Terminal Value / Exit Upside
 
-Terminal value represents the estimated value of the stabilized Trinity Air Link platform at the end of the forecast period, typically calculated using an EBITDA exit multiple or stabilized infrastructure asset valuation. Terminal value is an exit/refinance/recapitalization assumption and is not counted as Year 5 operating cash flow.
+**Illustrative moderate-case project IRR:** approximately 22%–23%, subject to final 10-year cash-flow schedule and terminal value assumptions.
 
 | Case | Year 10 EBITDA | Exit Multiple | Terminal Value |
 |------|---------------:|--------------:|---------------:|
@@ -220,10 +246,43 @@ Terminal value represents the estimated value of the stabilized Trinity Air Link
 | Moderate | $60M | 8.0x | $480M |
 | Optimistic | $100M | 10.0x | $1.0B |
 
-**Moderate case including terminal value:**
-- Terminal value: $480M
-- Calculated IRR including terminal value: **36.8%**
-- Calculated NPV @ 10% including terminal value: **$293.2M**
+
+
+The five-year cash-flow table shows the development ramp and target breakeven timing. The stated project IRR is a 10-year project-level return estimate that depends on stabilized Years 6–10 cash flows and/or terminal value. The five-year cash-flow table alone does not fully support the stated IRR.
+
+Terminal value represents the estimated value of the stabilized Trinity Air Link platform at the end of the forecast period, typically calculated using an EBITDA exit multiple or stabilized infrastructure asset valuation.
+
+| Case | Year 10 EBITDA | Exit Multiple | Terminal Value |
+|------|----------------|---------------|----------------|
+| Conservative | $35M | 6.0x | $210M |
+| Moderate | $60M | 8.0x | $480M |
+| Optimistic | $100M | 10.0x | $1.0B |
+
+| Year | Development Phase | Net Project Cash Flow | Notes |
+|------|-------------------|-----------------------|-------|
+| 2026 | Phase 1 | -$25M | Planning, regulatory, team, early operating burn |
+| 2027 | Phase 2 | -$55M | Infrastructure development and operating burn |
+| 2028 | Phase 3 | -$17M to -$37M | Varies by capital-light, hybrid, or owned-fleet model |
+| 2029 | Phase 4 | -$2M | Launch year with major revenue ramp |
+| 2030 | Year 5 | +$40M | Breakeven / positive annual cash-flow target |
+| 2031 | Stabilization | +$50M | Operator agreements mature |
+| 2032 | Stabilization | +$55M | Route expansion and higher utilization |
+| 2033 | Stabilization | +$60M | Platform revenue growth |
+| 2034 | Stabilization | +$65M | Mature multi-operator network |
+| 2035 | Stabilization / Exit | +$70M plus terminal value | Exit/refinance/recapitalization case |
+
+These are planning assumptions for investor discussion and must be validated against final operator agreements, lease terms, debt structure, market adoption, and comparable infrastructure/platform transactions.
+
+### Sensitivity Analysis
+
+**IRR Sensitivity to Key Variables:**
+
+| Variable | -20% | -10% | Base Case | +10% | +20% |
+|----------|------|------|-----------|------|------|
+| Ridership | 15.8% | 19.1% | 22.3% | 25.4% | 28.6% |
+| Average Fare | 18.7% | 20.5% | 22.3% | 24.1% | 25.9% |
+| Operating Costs | 26.1% | 24.2% | 22.3% | 20.4% | 18.5% |
+| Capital Costs | 24.8% | 23.5% | 22.3% | 21.1% | 19.9% |
 
 ---
 
