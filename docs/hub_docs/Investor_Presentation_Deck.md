@@ -16,8 +16,12 @@
 **Subtitle:** America's First Integrated VTOL-Autonomous Vehicle Transportation Hub
 
 **Investment Highlights:**
+- Capital-light operator access model
+- Owned fleet optional
+- 20–25% target IRR, not an unsupported hard 22.3%
+- 10-year IRR includes stabilized cash flows and terminal value assumptions
 - $23–41B UAM Market by 2030; $1T+ broader mobility market by 2040 (Morgan Stanley)
-- 22.3% Projected IRR (moderate scenario)
+- 20–25% Target IRR (illustrative moderate-case ~22% with 10-year + terminal assumptions)
 - First-Mover Advantage — eVTOL commercial ops launching NOW
 - $129M Total Investment Across 4 Phases (2026–2030)
 
@@ -38,10 +42,14 @@
 **Title:** "The Perfect Storm: Technology, Market, and Opportunity Converge"
 
 **Investment Highlights:**
+- Capital-light operator access model
+- Owned fleet optional
+- 20–25% target IRR, not an unsupported hard 22.3%
+- 10-year IRR includes stabilized cash flows and terminal value assumptions
 - **$23–29B UAM Market by 2030** (MarketsandMarkets, Grand View Research); $41B+ by 2035; $1T+ by 2040 (Morgan Stanley broader mobility)
 - **First Integrated Hub** in major U.S. metropolitan area (8.5M population — 3rd largest U.S. metro economy at $710B+ GDP)
 - **Technology is here:** Joby Aviation at FAA Stage 4 of 5 (November 2025), targeting 2026 commercial launch; Archer expects commercial revenue Q1 2026
-- **Strong Returns:** 22.3% IRR with multiple exit strategies
+- **Strong Returns:** 20–25% target IRR (illustrative moderate-case ~22% with 10-year + terminal assumptions) and multiple exit strategies
 - **Defensible Moat:** Historic asset, regulatory relationships, technology partnerships
 
 **Market Timing — This Is Not Future Tense:**
@@ -163,7 +171,7 @@
 - **Capacity:** 4-6 passengers per aircraft, 8-12 flights per day
 - **Year 5 Revenue:** $54.8M (moderate scenario)
 
-**2. Autonomous Vehicle Services (40% of revenue)**
+**2. Ground Mobility Platform Revenue (40% of revenue)**
 - **Service Model:** First/last mile connectivity and local transportation
 - **Pricing:** $15-25 per passenger per trip
 - **Capacity:** 4-6 passengers per vehicle, 15-25 trips per day
@@ -216,7 +224,7 @@
 
 **Investment Returns Analysis:**
 - **Total Investment Required:** $129M across 4 phases
-- **IRR (Moderate Scenario):** 22.3%
+- **Target IRR:** 20–25% (illustrative moderate-case ~22% with 10-year + terminal assumptions)
 - **NPV (10% discount rate):** $89.2M
 - **Payback Period:** 4.2 years
 - **Multiple on Investment:** 3.2x at Year 10
@@ -226,7 +234,7 @@
 | Scenario | Revenue (Y5) | EBITDA (Y5) | IRR | NPV (10%) |
 |----------|-------------|-------------|-----|-----------|
 | **Conservative** | $50.7M | ($22.8M) | 8.2% | ($45.2M) |
-| **Moderate** | $133.4M | $44.9M | 22.3% | $89.2M |
+| **Moderate** | $133.4M | $44.9M | ~22% illustrative | $89.2M (illustrative, includes terminal assumptions) |
 | **Optimistic** | $305.8M | $202.3M | 41.7% | $425.8M |
 
 **Key Financial Metrics:**
@@ -1216,7 +1224,7 @@
 **Investment Opportunity Summary:**
 - **Market:** $1T+ urban air mobility opportunity
 - **First-Mover:** America's first integrated VTOL-AV hub
-- **Returns:** 22.3% IRR with multiple exit strategies
+- **Returns:** 20–25% target IRR (illustrative moderate-case ~22% with 10-year + terminal assumptions) and multiple exit strategies
 - **Funding:** $20M Series A for Phase 1 execution
 
 **Leadership Team Contacts:**
@@ -1279,7 +1287,7 @@
 **Investment Highlights Recap:**
 - **Massive Market:** $1T+ urban air mobility opportunity
 - **Unique Position:** First integrated VTOL-AV hub in major metro
-- **Strong Returns:** 22.3% IRR with 4.2-year payback
+- **Strong Returns:** 20–25% target IRR (illustrative moderate-case ~22%) with 4.2-year payback target
 - **Experienced Team:** Proven leadership with relevant experience
 - **Clear Path:** Regulatory pathway and technology partnerships established
 
@@ -1314,7 +1322,7 @@ This presentation contains confidential and proprietary information. Distributio
 ### Key Messages to Emphasize
 - **First-Mover Advantage:** Only integrated VTOL-AV hub in development
 - **Massive Market:** $1T+ TAM with strong local market opportunity
-- **Strong Returns:** 22.3% IRR with conservative assumptions and multiple exit paths
+- **Strong Returns:** 20–25% target IRR (illustrative moderate-case ~22%) with conservative assumptions and multiple exit paths
 - **Experienced Team:** Proven leadership with relevant industry experience
 - **Clear Execution:** Regulatory pathway, technology partnerships, phased approach
 
