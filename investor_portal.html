@@ -11,14 +11,14 @@
 <style>
 :root{--bg:#f4f7fb;--surface:#fff;--surface2:#eef3f9;--accent:#0a6fff;--navy:#0f172a;--muted:#64748b;--border:rgba(15,23,42,.12)}
 body{font-family:Inter,sans-serif;background:radial-gradient(circle at 10% 10%,#dbeafe 0,#f4f7fb 35%,#f8fafc 100%);color:var(--navy)}
-h1,h2,h3{font-family:Manrope,sans-serif}.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 12px 35px rgba(15,23,42,.06);transition:.2s}.card:hover{transform:translateY(-2px);border-color:rgba(10,111,255,.35)}.metric{background:#0f2444;color:#fff;border-radius:12px;padding:18px}.metric .v{font-size:1.8rem;font-weight:800;color:#6ee7ff}.label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}.btn{background:var(--accent);color:#fff;border-radius:8px;padding:12px 18px;font-weight:800;display:inline-block}.ghost{border:1px solid var(--border);color:var(--accent);border-radius:8px;padding:12px 18px;font-weight:800;display:inline-block;background:#fff}
+h1,h2,h3{font-family:Manrope,sans-serif}.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 12px 35px rgba(15,23,42,.06);transition:.2s}.card:hover{transform:translateY(-2px);border-color:rgba(10,111,255,.35)}.metric{background:#0f2444;color:#fff;border-radius:12px;padding:18px}.metric .v{font-size:1.8rem;font-weight:800;color:#6ee7ff}.label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}.btn{background:var(--accent);color:#fff;border-radius:8px;padding:12px 18px;font-weight:800;display:inline-block}.ghost{border:1px solid var(--border);color:var(--accent);border-radius:8px;padding:12px 18px;font-weight:800;display:inline-block;background:#fff}.table th{background:#0f2444;color:#fff;font-size:.72rem;padding:.65rem;text-align:left}.table td{font-size:.82rem;padding:.65rem;border-bottom:1px solid #e5eef4}.pill{border:1px solid var(--border);background:#fff;border-radius:999px;padding:.45rem .75rem;font-size:.78rem;font-weight:800;color:var(--accent)}
 </style>
 </head>
 <body>
 <header class="sticky top-0 z-20" style="background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)">
   <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
     <a href="index.html" class="font-extrabold tracking-widest text-sm" style="color:var(--accent)">TRINITY AIR LINK</a>
-    <div class="flex gap-3 text-sm font-bold"><a href="pricing_calculator.html" style="color:var(--accent)">Calculator</a><a href="print/investor_kill_sheet.html" style="color:var(--accent)">Kill Sheet</a></div>
+    <div class="flex gap-3 text-sm font-bold"><a href="#unit-economics" style="color:var(--accent)">Unit Economics</a><a href="#calculator" style="color:var(--accent)">Calculator</a><a href="print/investor_kill_sheet.html" style="color:var(--accent)">Kill Sheet</a></div>
   </div>
 </header>
 <main class="max-w-7xl mx-auto px-4 py-12">
@@ -27,7 +27,7 @@ h1,h2,h3{font-family:Manrope,sans-serif}.card{background:var(--surface);border:1
       <p class="label mb-3">Investor portal · calculated model</p>
       <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-5">Infrastructure economics, not flying-car capex.</h1>
       <p class="text-xl leading-relaxed" style="color:#334155">The preferred Trinity Air Link case is a capital-light operator access model. Certified eVTOL and qualified AV operators carry vehicle capex while Trinity Air Link monetizes vertiport access, AV bays, charging, dispatch, passenger processing, data, and service standards.</p>
-      <div class="mt-8 flex flex-wrap gap-3"><a href="pricing_calculator.html" class="btn">Open Live Pricing Calculator</a><a href="print/unit_economics.html" class="ghost">View Unit Economics</a></div>
+      <div class="mt-8 flex flex-wrap gap-3"><a href="#calculator" class="btn">Use Embedded Calculator</a><a href="pricing_calculator.html" class="ghost">Open Full Calculator</a><a href="print/unit_economics.html" class="ghost">Print Unit Economics</a></div>
     </div>
     <div class="grid grid-cols-2 gap-3">
       <div class="metric"><div class="v">24.8%</div><div class="text-xs uppercase tracking-wider text-slate-300">Calculated IRR before terminal</div></div>
@@ -36,10 +36,44 @@ h1,h2,h3{font-family:Manrope,sans-serif}.card{background:var(--surface);border:1
       <div class="metric"><div class="v">$293.2M</div><div class="text-xs uppercase tracking-wider text-slate-300">NPV with terminal value</div></div>
     </div>
   </section>
+
   <section class="card p-6 mb-10">
     <h2 class="text-2xl font-extrabold mb-3">Investor-facing model discipline</h2>
     <p style="color:#334155">The base case return is calculated from the 10-year project cash-flow series before terminal value. Terminal value is presented separately as exit/refinance upside and is not counted as Year 5 operating cash flow.</p>
   </section>
+
+  <section id="unit-economics" class="mb-10">
+    <p class="label mb-4">Unit economics summary</p>
+    <div class="grid lg:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <h2 class="text-2xl font-extrabold mb-4">Air mobility platform fee stack</h2>
+        <table class="table w-full"><thead><tr><th>Component</th><th>Illustrative Basis</th><th>Payer</th></tr></thead><tbody><tr><td>Pad / stand access</td><td>$150–$350 per aircraft movement</td><td>Operator</td></tr><tr><td>Passenger facility charge</td><td>$8–$18 per passenger</td><td>Passenger / operator</td></tr><tr><td>Charging / energy markup</td><td>15–30% spread over power cost</td><td>Operator</td></tr><tr><td>Dispatch / scheduling</td><td>$25–$75 per flight or SaaS fee</td><td>Operator</td></tr><tr><td>Revenue share</td><td>5–12% of gross ticket revenue</td><td>Operator agreement</td></tr></tbody></table>
+      </div>
+      <div class="card p-6">
+        <h2 class="text-2xl font-extrabold mb-4">Ground mobility platform fee stack</h2>
+        <table class="table w-full"><thead><tr><th>Component</th><th>Illustrative Basis</th><th>Payer</th></tr></thead><tbody><tr><td>AV bay / curb access</td><td>$1.50–$4.00 per pickup/dropoff</td><td>Operator</td></tr><tr><td>Passenger facility charge</td><td>$1–$3 per passenger</td><td>Passenger / operator</td></tr><tr><td>Charging / energy markup</td><td>15–30% spread over power cost</td><td>Operator</td></tr><tr><td>Dispatch / routing API</td><td>$0.50–$2 per trip or monthly API fee</td><td>Operator</td></tr><tr><td>Revenue share</td><td>3–8% of gross trip revenue</td><td>Operator agreement</td></tr></tbody></table>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-4 gap-4 mt-6"><div class="card p-5"><div class="text-3xl font-extrabold" style="color:var(--accent)">$54.8M</div><div class="label mt-1">Air revenue · moderate</div></div><div class="card p-5"><div class="text-3xl font-extrabold" style="color:var(--accent)">$54.8M</div><div class="label mt-1">Ground revenue · moderate</div></div><div class="card p-5"><div class="text-3xl font-extrabold" style="color:var(--accent)">$88.5M</div><div class="label mt-1">Year 5 OpEx · moderate</div></div><div class="card p-5"><div class="text-3xl font-extrabold" style="color:var(--accent)">$44.9M</div><div class="label mt-1">Year 5 EBITDA · moderate</div></div></div>
+  </section>
+
+  <section id="calculator" class="mb-10">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-4">
+      <div><p class="label mb-2">Embedded calculator</p><h2 class="text-3xl font-extrabold">Live revenue + EBITDA sandbox</h2><p class="mt-2" style="color:#334155">Adjust the full calculator below to test throughput, capture rate, revenue, OpEx, and EBITDA sensitivity without leaving the investor portal.</p></div>
+      <a href="pricing_calculator.html" class="ghost">Open Full Page</a>
+    </div>
+    <div class="card p-2 overflow-hidden"><iframe src="pricing_calculator.html" title="Trinity Air Link Pricing Calculator" style="width:100%;height:1050px;border:none;border-radius:10px;background:#fff;" loading="lazy"></iframe></div>
+  </section>
+
+  <section class="mb-10">
+    <p class="label mb-4">Decision shortcuts</p>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="card p-5"><h3 class="font-extrabold text-lg">Base return is not terminal-value dependent</h3><p class="mt-2 text-sm" style="color:var(--muted)">24.8% IRR and $89.7M NPV are shown before terminal value.</p></div>
+      <div class="card p-5"><h3 class="font-extrabold text-lg">Vehicle capex shifts to operators</h3><p class="mt-2 text-sm" style="color:var(--muted)">The access model avoids turning Trinity Air Link into an airline, taxi company, or fleet lessor.</p></div>
+      <div class="card p-5"><h3 class="font-extrabold text-lg">Unit economics are visible</h3><p class="mt-2 text-sm" style="color:var(--muted)">Access, facility, charging, dispatch, data, and revenue-share levers are explicit.</p></div>
+    </div>
+  </section>
+
   <section>
     <p class="label mb-4">Document library</p>
     <div class="grid md:grid-cols-3 gap-5">
