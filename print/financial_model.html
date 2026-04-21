@@ -9,34 +9,14 @@
   @page { margin: 0.75in 0.85in 0.85in; }
   @page :first { margin: 0; }
   .cover-hero { height: 65vh; }
-  .phase-invest {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.7rem;
-    margin: 1rem 0;
-  }
-  .pi-box {
-    border: 1.5px solid var(--border);
-    border-top: 4px solid var(--cyan);
-    padding: 0.8rem 0.7rem;
-    border-radius: 0 0 4px 4px;
-  }
+  .phase-invest { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin: 1rem 0; }
+  .pi-box { border: 1.5px solid var(--border); border-top: 4px solid var(--cyan); padding: 0.8rem 0.7rem; border-radius: 0 0 4px 4px; }
   .pi-box .pi-phase { font-size: 0.65rem; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; }
   .pi-box .pi-year { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin: 0.2rem 0 0.1rem; }
   .pi-box .pi-amount { font-size: 1.2rem; font-weight: 900; color: var(--blue); }
   .pi-box .pi-desc { font-size: 0.65rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.35; }
-
-  .rev-scenario {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0.7rem;
-    margin: 1rem 0;
-  }
-  .rs-box {
-    border-radius: 6px;
-    padding: 0.9rem;
-    text-align: center;
-  }
+  .rev-scenario { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.7rem; margin: 1rem 0; }
+  .rs-box { border-radius: 6px; padding: 0.9rem; text-align: center; }
   .rs-box.conservative { background: #e8f4f8; border: 1.5px solid #90c4d8; }
   .rs-box.moderate { background: var(--navy); color: #fff; }
   .rs-box.optimistic { background: #0a1a30; color: #fff; }
@@ -45,62 +25,17 @@
   .rs-box .rs-val { font-size: 1.6rem; font-weight: 900; line-height: 1.1; }
   .rs-box.conservative .rs-val { color: var(--navy); }
   .rs-box .rs-irr { font-size: 0.7rem; margin-top: 0.3rem; opacity: 0.8; }
-
-  .capital-structure {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
-    margin: 0.8rem 0;
-  }
-  .cs-item {
-    text-align: center;
-    padding: 0.7rem 0.5rem;
-    background: var(--light);
-    border-radius: 4px;
-    border-bottom: 3px solid var(--cyan);
-  }
+  .capital-structure { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 0.8rem 0; }
+  .cs-item { text-align: center; padding: 0.7rem 0.5rem; background: var(--light); border-radius: 4px; border-bottom: 3px solid var(--cyan); }
   .cs-item .cs-pct { font-size: 1.4rem; font-weight: 900; color: var(--navy); }
   .cs-item .cs-amt { font-size: 0.82rem; font-weight: 700; color: var(--blue); }
   .cs-item .cs-src { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.15rem; }
-
-  .returns-highlight {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-    color: #fff;
-    border-radius: 8px;
-    padding: 1rem 1.4rem;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-    margin: 1rem 0;
-    text-align: center;
-  }
+  .returns-highlight { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color: #fff; border-radius: 8px; padding: 1rem 1.4rem; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin: 1rem 0; text-align: center; }
   .rh-item .rh-val { font-size: 1.3rem; font-weight: 900; color: var(--cyan); display: block; line-height: 1.1; }
   .rh-item .rh-lbl { font-size: 0.62rem; color: #a0c4d8; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.25rem; display: block; }
-
-  .opex-row {
-    display: grid;
-    grid-template-columns: 160px 1fr 1fr 1fr;
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 0.5rem 0;
-    font-size: 0.75rem;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-  }
-  .opex-row > div {
-    padding: 0.4rem 0.6rem;
-    border-right: 1px solid var(--border);
-  }
-  .opex-row > div:last-child { border-right: none; }
-  .opex-row.header > div { background: var(--navy); color: #fff; font-weight: 700; font-size: 0.68rem; }
-  .opex-row.alt > div { background: #f4f8fb; }
-  .opex-row.total-row > div { background: var(--light); font-weight: 700; border-top: 2px solid var(--navy); }
 </style>
 </head>
 <body>
-
-<!-- ═══════════════ COVER PAGE ═══════════════ -->
 <div class="cover-page">
   <img src="../images/roof_crop.png" alt="Trinity Air Link Transportation System" class="cover-hero">
   <div class="cover-body">
@@ -117,19 +52,10 @@
       <div class="cover-stat"><span class="val">$89M</span><span class="lbl">Illustrative NPV @ 10%</span></div>
     </div>
   </div>
-  <div class="cover-footer">
-    <span class="logo">TRINITY AIR LINK · FORT WORTH, TEXAS</span>
-    <span>For authorized recipients only — not for distribution</span>
-  </div>
+  <div class="cover-footer"><span class="logo">TRINITY AIR LINK · FORT WORTH, TEXAS</span><span>For authorized recipients only — not for distribution</span></div>
 </div>
-
-<!-- ═══════════════ PAGE 1 ═══════════════ -->
 <div class="doc-page">
-  <div class="doc-header">
-    <span class="brand">TRINITY AIR LINK</span>
-    <span>Financial Model &amp; Investment Analysis · March 2026</span>
-  </div>
-
+  <div class="doc-header"><span class="brand">TRINITY AIR LINK</span><span>Financial Model &amp; Investment Analysis · March 2026</span></div>
   <span class="section-num">Section 01 · Investment Overview</span>
   <h2>Total Capital Requirements</h2>
 
@@ -247,14 +173,8 @@
     <span>Page 1 of 2</span>
   </div>
 </div>
-
-<!-- ═══════════════ PAGE 2 ═══════════════ -->
 <div class="doc-page page-break">
-  <div class="doc-header">
-    <span class="brand">TRINITY AIR LINK</span>
-    <span>Financial Model &amp; Investment Analysis · March 2026</span>
-  </div>
-
+  <div class="doc-header"><span class="brand">TRINITY AIR LINK</span><span>Financial Model &amp; Investment Analysis · March 2026</span></div>
   <span class="section-num">Section 03 · Operating Expenses</span>
   <h2>Year 5 Operating Cost Structure</h2>
 
@@ -411,6 +331,5 @@
     <span>Page 2 of 2</span>
   </div>
 </div>
-
 </body>
 </html>

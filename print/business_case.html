@@ -9,78 +9,23 @@
   @page { margin: 0.75in 0.85in 0.85in; }
   @page :first { margin: 0; }
   .cover-hero { height: 65vh; }
-  .problem-solution-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 0.8rem 0;
-  }
+  .problem-solution-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1.5px solid var(--border); border-radius: 8px; overflow: hidden; margin: 0.8rem 0; }
   .ps-problem { background: #fef2f2; padding: 0.9rem 1rem; }
   .ps-solution { background: #f0fdf4; padding: 0.9rem 1rem; }
   .ps-problem h4 { color: #991b1b; font-size: 0.8rem; margin: 0 0 0.4rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
   .ps-solution h4 { color: #166534; font-size: 0.8rem; margin: 0 0 0.4rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
   .ps-problem ul, .ps-solution ul { margin: 0; padding-left: 1rem; }
   .ps-problem li, .ps-solution li { font-size: 0.72rem; margin: 0.2rem 0; line-height: 1.4; }
-
-  .value-prop-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.6rem;
-    margin: 0.8rem 0;
-  }
-  .vp-box {
-    background: var(--navy);
-    color: #fff;
-    border-radius: 6px;
-    padding: 0.75rem 0.7rem;
-    text-align: center;
-  }
-  .vp-box .vp-icon { font-size: 1.2rem; display: block; margin-bottom: 0.3rem; }
+  .value-prop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin: 0.8rem 0; }
+  .vp-box { background: var(--navy); color: #fff; border-radius: 6px; padding: 0.75rem 0.7rem; text-align: center; }
   .vp-box .vp-title { font-size: 0.72rem; font-weight: 700; color: var(--cyan); display: block; margin-bottom: 0.2rem; }
   .vp-box .vp-desc { font-size: 0.65rem; color: #a0c4d8; line-height: 1.35; }
-
-  .case-pillar {
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--blue);
-    border-radius: 0 0 6px 6px;
-    padding: 0.7rem 0.85rem;
-    margin: 0.5rem 0;
-  }
-  .case-pillar h4 { color: var(--navy); font-size: 0.82rem; margin: 0 0 0.35rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
-  .case-pillar p { margin: 0; font-size: 0.73rem; line-height: 1.45; color: #333; }
-
-  .stakeholder-value {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.6rem;
-    margin: 0.8rem 0;
-  }
-  .sv-box {
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-  }
-  .sv-box .sv-header {
-    background: var(--blue);
-    color: #fff;
-    padding: 0.4rem 0.7rem;
-    font-size: 0.72rem;
-    font-weight: 700;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-  }
+  .stakeholder-value { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; margin: 0.8rem 0; }
+  .sv-box { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .sv-box .sv-header { background: var(--blue); color: #fff; padding: 0.4rem 0.7rem; font-size: 0.72rem; font-weight: 700; font-family: 'Helvetica Neue', Arial, sans-serif; }
   .sv-box ul { padding: 0.5rem 0.7rem 0.5rem 1.4rem; margin: 0; }
   .sv-box li { font-size: 0.71rem; margin: 0.2rem 0; line-height: 1.4; }
-
-  .why-now-box {
-    background: linear-gradient(135deg, #0f2444 0%, #1a4a7a 100%);
-    color: #fff;
-    border-radius: 8px;
-    padding: 1rem 1.2rem;
-    margin: 0.8rem 0;
-  }
+  .why-now-box { background: linear-gradient(135deg, #0f2444 0%, #1a4a7a 100%); color: #fff; border-radius: 8px; padding: 1rem 1.2rem; margin: 0.8rem 0; }
   .why-now-box h3 { color: var(--cyan); margin: 0 0 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; }
   .why-now-box ul { margin: 0; padding-left: 1.2rem; }
   .why-now-box li { font-size: 0.78rem; margin: 0.3rem 0; line-height: 1.4; color: #d0e8f4; }
@@ -88,8 +33,6 @@
 </style>
 </head>
 <body>
-
-<!-- ═══════════════ COVER PAGE ═══════════════ -->
 <div class="cover-page">
   <img src="../images/interior_cleanshuttledock.png" alt="T&P Warehouse Fort Worth" class="cover-hero">
   <div class="cover-body">
@@ -109,9 +52,8 @@
     <span class="logo">TRINITY AIR LINK · FORT WORTH, TEXAS</span>
     <span>Confidential Business Case — March 2026</span>
   </div>
+  <div class="cover-footer"><span class="logo">TRINITY AIR LINK · FORT WORTH, TEXAS</span><span>Confidential Business Case — March 2026</span></div>
 </div>
-
-<!-- ═══════════════ PAGE 1 ═══════════════ -->
 <div class="doc-page">
   <div class="doc-header">
     <span class="brand">TRINITY AIR LINK</span>
@@ -211,8 +153,6 @@
     <span>Page 1 of 2</span>
   </div>
 </div>
-
-<!-- ═══════════════ PAGE 2 ═══════════════ -->
 <div class="doc-page page-break">
   <div class="doc-header">
     <span class="brand">TRINITY AIR LINK</span>
@@ -304,45 +244,10 @@
   </div>
 
   <h3>Key Success Factors</h3>
-  <div class="two-col">
-    <div>
-      <ul class="checklist">
-        <li>Phase 1 funding secured ($20M) by Q4 2026</li>
-        <li>FAA eIPP enrollment and participation confirmed</li>
-        <li>T&amp;P Warehouse lease or purchase agreement executed</li>
-        <li>Archer and/or Joby MOU for aircraft supply signed</li>
-        <li>Fort Worth City Council partnership resolution passed</li>
-      </ul>
-    </div>
-    <div>
-      <ul class="checklist">
-        <li>Historic Tax Credit certification application filed</li>
-        <li>TxDOT integration agreement established</li>
-        <li>Level 4 AV partner (Waymo/May Mobility) engaged</li>
-        <li>Innovation center anchor tenant LOI executed</li>
-        <li>Community engagement plan launched with public meetings</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="callout">
-    <strong>The Ask:</strong> We are seeking $20M in Phase 1 funding by Q4 2026 to complete regulatory approvals, execute the T&amp;P Warehouse lease, finalize architectural design, assemble the leadership team, and sign technology partner MOUs. This phase validates the opportunity before the $50M Phase 2 infrastructure commitment. The eIPP announcement makes 2026 the critical activation window.
-  </div>
-
-  <div class="contact-block">
-    <h4>Next Steps</h4>
-    <p>Trinity Air Link Transportation System · Fort Worth, Texas<br>
-    <strong>Investors:</strong> Request the detailed financial model, data room access, and management team meeting.<br>
-    <strong>Government partners:</strong> Schedule a partnership discussion with the City of Fort Worth team.<br>
-    <strong>Technology partners:</strong> Begin the technology assessment and integration planning process.<br>
-    <em>This document is intended for authorized recipients. All financial projections involve forward-looking statements subject to material risks and uncertainties.</em></p>
-  </div>
-
-  <div class="doc-footer-bar">
-    <span>CONFIDENTIAL — Trinity Air Link Transportation System · Business Case · March 2026</span>
-    <span>Page 2 of 2</span>
-  </div>
+  <div class="two-col"><div><ul class="checklist"><li>Phase 1 funding secured ($20M) by Q4 2026</li><li>FAA eIPP enrollment and participation confirmed</li><li>T&amp;P Warehouse lease or purchase agreement executed</li><li>Certified eVTOL operator access agreements or MOUs signed</li><li>Fort Worth City Council partnership resolution passed</li></ul></div><div><ul class="checklist"><li>Historic Tax Credit certification application filed</li><li>TxDOT integration agreement established</li><li>Level 4 AV operator access agreement or MOU executed</li><li>Innovation center anchor tenant LOI executed</li><li>Community engagement plan launched with public meetings</li></ul></div></div>
+  <div class="callout"><strong>The Ask:</strong> We are seeking $20M in Phase 1 funding by Q4 2026 to complete regulatory approvals, execute the T&amp;P Warehouse lease, finalize architectural design, assemble the leadership team, and sign operator and technology partner MOUs. This phase validates the opportunity before the $50M Phase 2 infrastructure commitment. The eIPP announcement makes 2026 the critical activation window.</div>
+  <div class="contact-block"><h4>Next Steps</h4><p>Trinity Air Link Transportation System · Fort Worth, Texas<br><strong>Investors:</strong> Request the detailed financial model, data room access, and management team meeting.<br><strong>Government partners:</strong> Schedule a partnership discussion with the City of Fort Worth team.<br><strong>Technology partners:</strong> Begin the technology assessment and integration planning process.<br><em>This document is intended for authorized recipients. All financial projections involve forward-looking statements subject to material risks and uncertainties.</em></p></div>
+  <div class="doc-footer-bar"><span>CONFIDENTIAL — Trinity Air Link Transportation System · Business Case · March 2026</span><span>Page 2 of 2</span></div>
 </div>
-
 </body>
 </html>
