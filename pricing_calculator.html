@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Pricing Calculator</title><script src="https://cdn.tailwindcss.com"></script></head><body class="p-6 font-sans">
+<h1 class="text-2xl font-bold mb-4">Trinity Air Link — Pricing Calculator (Lite)</h1>
+<p class="mb-4">Simple placeholder calculator. Replace with full model later.</p>
+<div class="grid grid-cols-2 gap-4 max-w-xl">
+<label>Daily Movements<input id="movements" class="border p-2 w-full" value="500"></label>
+<label>Avg Fee ($)<input id="fee" class="border p-2 w-full" value="120"></label>
+<label>Days/Year<input id="days" class="border p-2 w-full" value="365"></label>
+<label>OpEx ($)<input id="opex" class="border p-2 w-full" value="20000000"></label>
+</div>
+<button onclick="calc()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">Calculate</button>
+<div class="mt-6 text-lg" id="out"></div>
+<script>
+function calc(){
+ const m=+document.getElementById('movements').value;
+ const f=+document.getElementById('fee').value;
+ const d=+document.getElementById('days').value;
+ const o=+document.getElementById('opex').value;
+ const revenue=m*f*d;
+ const ebitda=revenue-o;
+ document.getElementById('out').innerHTML=`Revenue: $${revenue.toLocaleString()}<br>EBITDA: $${ebitda.toLocaleString()}`;
+}
+</script>
+</body></html>
