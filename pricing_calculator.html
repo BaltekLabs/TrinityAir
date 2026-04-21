@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinity Air Link — Live Pricing Calculator</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7fb;--surface:#fff;--surface2:#eef3f9;--accent:#0a6fff;--navy:#0f172a;--muted:#64748b;--border:rgba(15,23,42,.12)}
+body{font-family:Inter,sans-serif;background:radial-gradient(circle at 10% 10%,#dbeafe 0,#f4f7fb 35%,#f8fafc 100%);color:var(--navy)}
+h1,h2,h3{font-family:Manrope,sans-serif}.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 12px 35px rgba(15,23,42,.06)}.metric{background:#0f2444;color:#fff;border-radius:12px;padding:18px}.metric .v{font-size:1.8rem;font-weight:800;color:#6ee7ff}.label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}.input{width:100%;border:1px solid var(--border);border-radius:8px;padding:10px 12px;background:#fff}.btn{background:var(--accent);color:#fff;border-radius:8px;padding:12px 18px;font-weight:800}.small{font-size:.82rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="sticky top-0 z-20" style="background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+    <a href="index.html" class="font-extrabold tracking-widest text-sm" style="color:var(--accent)">TRINITY AIR LINK</a>
+    <a href="print/unit_economics.html" target="_blank" class="text-sm font-bold" style="color:var(--accent)">Open Unit Economics Print Doc →</a>
+  </div>
+</header>
+<main class="max-w-7xl mx-auto px-4 py-10">
+  <section class="grid lg:grid-cols-2 gap-8 items-center mb-8">
+    <div>
+      <p class="label mb-3">Live operator pricing model</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Stress-test the access model without buying the fleet.</h1>
+      <p class="text-lg" style="color:#334155">Adjust throughput, access fees, passenger charges, charging margin, and revenue share to see how Trinity Air Link monetizes infrastructure while certified and qualified operators carry vehicle capex.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-3">
+      <div class="metric"><div class="v">24.8%</div><div class="text-xs uppercase tracking-wider text-slate-300">Base IRR before terminal</div></div>
+      <div class="metric"><div class="v">$89.7M</div><div class="text-xs uppercase tracking-wider text-slate-300">NPV @ 10% before terminal</div></div>
+      <div class="metric"><div class="v">$44.9M</div><div class="text-xs uppercase tracking-wider text-slate-300">Year 5 EBITDA base</div></div>
+      <div class="metric"><div class="v">34%</div><div class="text-xs uppercase tracking-wider text-slate-300">Year 5 EBITDA margin</div></div>
+    </div>
+  </section>
+
+  <section class="grid lg:grid-cols-3 gap-6">
+    <div class="card p-6 lg:col-span-1">
+      <h2 class="text-xl font-extrabold mb-4">Air Mobility Inputs</h2>
+      <div class="space-y-4">
+        <label><span class="label">Aircraft equivalent capacity</span><input id="aircraft" class="input" type="number" value="30"></label>
+        <label><span class="label">Flights / aircraft / day</span><input id="flights" class="input" type="number" value="10"></label>
+        <label><span class="label">Passengers / flight</span><input id="airPax" class="input" type="number" value="5"></label>
+        <label><span class="label">Economic fare basis / passenger</span><input id="airFare" class="input" type="number" value="100"></label>
+        <label><span class="label">Trinity capture rate %</span><input id="airCapture" class="input" type="number" value="100"></label>
+      </div>
+      <h2 class="text-xl font-extrabold mt-8 mb-4">Ground Mobility Inputs</h2>
+      <div class="space-y-4">
+        <label><span class="label">Vehicle equivalent capacity</span><input id="vehicles" class="input" type="number" value="75"></label>
+        <label><span class="label">Trips / vehicle / day</span><input id="trips" class="input" type="number" value="20"></label>
+        <label><span class="label">Passengers / trip</span><input id="groundPax" class="input" type="number" value="5"></label>
+        <label><span class="label">Economic fare basis / passenger</span><input id="groundFare" class="input" type="number" value="20"></label>
+        <label><span class="label">Trinity capture rate %</span><input id="groundCapture" class="input" type="number" value="100"></label>
+      </div>
+    </div>
+
+    <div class="card p-6 lg:col-span-1">
+      <h2 class="text-xl font-extrabold mb-4">Other Revenue</h2>
+      <div class="space-y-4">
+        <label><span class="label">Innovation Center / Real Estate</span><input id="realEstate" class="input" type="number" value="3.8"></label>
+        <label><span class="label">Technology Licensing / IP</span><input id="techRev" class="input" type="number" value="10"></label>
+        <label><span class="label">Ancillary Revenue</span><input id="ancillary" class="input" type="number" value="10"></label>
+      </div>
+      <h2 class="text-xl font-extrabold mt-8 mb-4">Operating Costs</h2>
+      <div class="space-y-4">
+        <label><span class="label">Personnel</span><input id="personnel" class="input" type="number" value="32.5"></label>
+        <label><span class="label">Operator Support / Facilities</span><input id="support" class="input" type="number" value="25"></label>
+        <label><span class="label">Facilities / Energy / Utilities</span><input id="facilities" class="input" type="number" value="18"></label>
+        <label><span class="label">Debt / Professional / Admin</span><input id="admin" class="input" type="number" value="13"></label>
+      </div>
+      <button onclick="resetBase()" class="btn w-full mt-6">Reset to Moderate Base Case</button>
+    </div>
+
+    <div class="card p-6 lg:col-span-1">
+      <h2 class="text-xl font-extrabold mb-4">Calculated Output</h2>
+      <div class="space-y-3">
+        <div class="metric"><div id="airRevenue" class="v">$54.8M</div><div class="text-xs uppercase tracking-wider text-slate-300">Air mobility platform revenue</div></div>
+        <div class="metric"><div id="groundRevenue" class="v">$54.8M</div><div class="text-xs uppercase tracking-wider text-slate-300">Ground mobility platform revenue</div></div>
+        <div class="metric"><div id="totalRevenue" class="v">$133.4M</div><div class="text-xs uppercase tracking-wider text-slate-300">Total year 5 revenue</div></div>
+        <div class="metric"><div id="totalOpex" class="v">$88.5M</div><div class="text-xs uppercase tracking-wider text-slate-300">Total OpEx</div></div>
+        <div class="metric"><div id="ebitda" class="v">$44.9M</div><div class="text-xs uppercase tracking-wider text-slate-300">EBITDA</div></div>
+        <div class="metric"><div id="margin" class="v">34%</div><div class="text-xs uppercase tracking-wider text-slate-300">EBITDA margin</div></div>
+      </div>
+      <p class="small mt-4">This calculator is a unit economics sandbox. It does not recalculate full 10-year IRR/NPV. The investor model remains the source of truth for project-level returns.</p>
+    </div>
+  </section>
+</main>
+<script>
+const ids=['aircraft','flights','airPax','airFare','airCapture','vehicles','trips','groundPax','groundFare','groundCapture','realEstate','techRev','ancillary','personnel','support','facilities','admin'];
+function n(id){return parseFloat(document.getElementById(id).value)||0}function money(m){return '$'+m.toFixed(1)+'M'}
+function calc(){const air=n('aircraft')*n('flights')*n('airPax')*n('airFare')*365*n('airCapture')/100/1e6;const ground=n('vehicles')*n('trips')*n('groundPax')*n('groundFare')*365*n('groundCapture')/100/1e6;const total=air+ground+n('realEstate')+n('techRev')+n('ancillary');const opex=n('personnel')+n('support')+n('facilities')+n('admin');const e=total-opex;const margin=total?e/total*100:0;document.getElementById('airRevenue').textContent=money(air);document.getElementById('groundRevenue').textContent=money(ground);document.getElementById('totalRevenue').textContent=money(total);document.getElementById('totalOpex').textContent=money(opex);document.getElementById('ebitda').textContent=money(e);document.getElementById('margin').textContent=margin.toFixed(0)+'%'}
+function resetBase(){const vals={aircraft:30,flights:10,airPax:5,airFare:100,airCapture:100,vehicles:75,trips:20,groundPax:5,groundFare:20,groundCapture:100,realEstate:3.8,techRev:10,ancillary:10,personnel:32.5,support:25,facilities:18,admin:13};Object.entries(vals).forEach(([k,v])=>document.getElementById(k).value=v);calc()}
+ids.forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();
+</script>
+</body>
+</html>
