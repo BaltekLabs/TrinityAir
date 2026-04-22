@@ -269,7 +269,7 @@ select.form-input option { background: #0a1228; }
         <div class="stat-card">
           <div class="stat-label">Next Departure</div>
           <div class="stat-value" style="color:var(--cyan); font-size:1.3rem;" id="countdown">--:--</div>
-          <div class="stat-sub">VEC flight to DFW</div>
+          <div class="stat-sub">TAL flight to DFW</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Miles Flown</div>
@@ -327,7 +327,7 @@ select.form-input option { background: #0a1228; }
         <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
           <div class="fleet-card active-fleet">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <span style="font-family:monospace; font-size:0.8rem; font-weight:600;">VEC-447</span>
+              <span style="font-family:monospace; font-size:0.8rem; font-weight:600;">TAL-447</span>
               <span class="status-dot active"></span>
             </div>
             <div style="font-size:0.72rem; color:var(--muted);">Joby S4</div>
@@ -335,7 +335,7 @@ select.form-input option { background: #0a1228; }
           </div>
           <div class="fleet-card active-fleet">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <span style="font-family:monospace; font-size:0.8rem; font-weight:600;">VEC-312</span>
+              <span style="font-family:monospace; font-size:0.8rem; font-weight:600;">TAL-312</span>
               <span class="status-dot active"></span>
             </div>
             <div style="font-size:0.72rem; color:var(--muted);">Archer Midnight</div>
@@ -351,7 +351,7 @@ select.form-input option { background: #0a1228; }
           </div>
           <div class="fleet-card maintenance-fleet">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <span style="font-family:monospace; font-size:0.8rem; font-weight:600;">VEC-118</span>
+              <span style="font-family:monospace; font-size:0.8rem; font-weight:600;">TAL-118</span>
               <span class="status-dot maintenance"></span>
             </div>
             <div style="font-size:0.72rem; color:var(--muted);">Wisk Aero Gen6</div>
@@ -598,7 +598,7 @@ select.form-input option { background: #0a1228; }
         <p style="color:var(--muted); margin-bottom:24px;">Your trip is confirmed and your vehicle has been assigned.</p>
         <div class="panel" style="max-width:480px; margin:0 auto 24px; text-align:left;">
           <div style="text-align:center; margin-bottom:16px;">
-            <div style="font-family:'Orbitron',monospace; font-size:1.1rem; color:var(--cyan);" id="booking-ref">VEC-20260312-0000</div>
+            <div style="font-family:'Orbitron',monospace; font-size:1.1rem; color:var(--cyan);" id="booking-ref">TAL-20260312-0000</div>
             <div style="font-size:0.75rem; color:var(--muted); margin-top:4px;">Booking Reference</div>
           </div>
           <!-- QR code simulation -->
@@ -728,7 +728,7 @@ select.form-input option { background: #0a1228; }
           </div>
           <div>
             <div style="font-size:0.72rem; color:var(--muted); margin-bottom:4px;">Registration</div>
-            <div style="font-family:monospace; color:var(--cyan);" id="vi-reg">N-VEC447</div>
+            <div style="font-family:monospace; color:var(--cyan);" id="vi-reg">N-TAL447</div>
           </div>
           <div>
             <div style="font-size:0.72rem; color:var(--muted); margin-bottom:4px;">Speed</div>
@@ -882,9 +882,9 @@ const VTOL_ROUTES = [
 
 const AV_ROUTES = [
   { id:'a1', name:'Trinity Air Link → Sundance Square', duration:'8 min', distance:'1.2 mi', price:12, type:'Waymo 5th Gen', co2:'2 kg saved', destX:168, destY:185 },
-  { id:'a2', name:'Trinity Air Link → TCU Campus', duration:'14 min', distance:'3.8 mi', price:16, type:'Cruise Origin', co2:'4 kg saved', destX:140, destY:235 },
+  { id:'a2', name:'Trinity Air Link → TCU Campus', duration:'14 min', distance:'3.8 mi', price:16, type:'Zoox AV', co2:'4 kg saved', destX:140, destY:235 },
   { id:'a3', name:'Trinity Air Link → Near Southside', duration:'11 min', distance:'2.5 mi', price:14, type:'Waymo 5th Gen', co2:'3 kg saved', destX:180, destY:280 },
-  { id:'a4', name:'Trinity Air Link → Stockyards', duration:'18 min', distance:'5.2 mi', price:22, type:'Cruise Origin', co2:'6 kg saved', destX:150, destY:155 },
+  { id:'a4', name:'Trinity Air Link → Stockyards', duration:'18 min', distance:'5.2 mi', price:22, type:'Zoox AV', co2:'6 kg saved', destX:150, destY:155 },
   { id:'a5', name:'Trinity Air Link → Panther Island', duration:'12 min', distance:'3.0 mi', price:15, type:'Waymo 5th Gen', co2:'3 kg saved', destX:200, destY:170 },
 ];
 
@@ -895,34 +895,34 @@ const MULTI_ROUTES = [
 ];
 
 const LIVE_FEED_MSGS = [
-  'VTOL VEC-447 departed Pad 3 → DFW 09:14',
+  'VTOL TAL-447 departed Pad 3 → DFW 09:14',
   'AV Unit 23 charging Bay 5 — 87%',
-  'VEC-312 landed Love Field — 4 pax deplaned',
+  'TAL-312 landed Love Field — 4 pax deplaned',
   'System: Weather clear, all pads nominal',
   'AV Unit 07 en route Sundance Square ETA 3 min',
-  'VEC-118 maintenance complete — returning to service',
+  'TAL-118 maintenance complete — returning to service',
   'New booking: Trinity Air Link → Arlington, 10:30',
   'VTOL Archer-02 pre-flight check in progress',
   'AV Unit 31 picked up 2 passengers at TCU',
-  'VEC-447 charging at Pad 3 — 62%',
+  'TAL-447 charging at Pad 3 — 62%',
   'Airspace coordination: DFW corridor active',
-  'VEC-612 departed Alliance → Trinity Air Link 11:05',
+  'TAL-612 departed Alliance → Trinity Air Link 11:05',
   'AV Unit 15 completing route Stockyards',
   'System: 6 active vehicles, 2 charging, 1 maintenance',
-  'VTOL VEC-312 at cruise altitude 1,500 ft',
+  'VTOL TAL-312 at cruise altitude 1,500 ft',
   'New booking: Multimodal → Frisco, 14:00',
   'AV Unit 23 charge complete — Standby Pad 2',
-  'VEC-447 boarding — Pad 3, 15 min to departure',
+  'TAL-447 boarding — Pad 3, 15 min to departure',
   'Weather update: Wind 8 kts N, VFR conditions',
-  'VTOL VEC-800 taxi to Pad 1 — Frisco route',
+  'VTOL TAL-800 taxi to Pad 1 — Frisco route',
 ];
 
 const PAST_TRIPS = [
-  { date:'Mar 11, 2026', route:'Trinity Air Link → DFW Airport', mode:'eVTOL', duration:'14 min', price:'$65.00', status:'Completed', rating:5, ref:'VEC-20260311-4821' },
-  { date:'Mar 10, 2026', route:'Trinity Air Link → Sundance Square', mode:'AV Ride', duration:'8 min', price:'$12.00', status:'Completed', rating:5, ref:'VEC-20260310-3194' },
-  { date:'Mar 9, 2026', route:'Trinity Air Link → Arlington', mode:'eVTOL', duration:'10 min', price:'$45.00', status:'Completed', rating:4, ref:'VEC-20260309-7733' },
-  { date:'Mar 7, 2026', route:'Trinity Air Link → Frisco (Full Service)', mode:'Multimodal', duration:'48 min', price:'$130.00', status:'Completed', rating:5, ref:'VEC-20260307-2256' },
-  { date:'Mar 5, 2026', route:'Trinity Air Link → TCU Campus', mode:'AV Ride', duration:'14 min', price:'$16.00', status:'Completed', rating:4, ref:'VEC-20260305-9901' },
+  { date:'Mar 11, 2026', route:'Trinity Air Link → DFW Airport', mode:'eVTOL', duration:'14 min', price:'$65.00', status:'Completed', rating:5, ref:'TAL-20260311-4821' },
+  { date:'Mar 10, 2026', route:'Trinity Air Link → Sundance Square', mode:'AV Ride', duration:'8 min', price:'$12.00', status:'Completed', rating:5, ref:'AV-20260310-3194' },
+  { date:'Mar 9, 2026', route:'Trinity Air Link → Arlington', mode:'eVTOL', duration:'10 min', price:'$45.00', status:'Completed', rating:4, ref:'TAL-20260309-7733' },
+  { date:'Mar 7, 2026', route:'Trinity Air Link → Frisco (Full Service)', mode:'Multimodal', duration:'48 min', price:'$130.00', status:'Completed', rating:5, ref:'TAL-20260307-2256' },
+  { date:'Mar 5, 2026', route:'Trinity Air Link → TCU Campus', mode:'AV Ride', duration:'14 min', price:'$16.00', status:'Completed', rating:4, ref:'AV-20260305-9901' },
 ];
 
 // ============================================================
@@ -1191,7 +1191,7 @@ function processPayment() {
 function showConfirmation() {
   showStep(5);
   const now = new Date();
-  const ref = 'VEC-' + now.toISOString().replace(/-|T.*/g,'') + '-' + Math.floor(1000 + Math.random()*9000);
+  const ref = 'TAL-' + now.toISOString().replace(/-|T.*/g,'') + '-' + Math.floor(1000 + Math.random()*9000);
   document.getElementById('booking-ref').textContent = ref;
   if (state.selectedRoute) {
     document.getElementById('conf-route').textContent = state.selectedRoute.name;
@@ -1200,7 +1200,7 @@ function showConfirmation() {
   }
   const pads = ['Pad 1', 'Pad 2', 'Pad 3', 'Pad 4', 'Bay A', 'Bay B'];
   document.getElementById('conf-pad').textContent = pads[Math.floor(Math.random()*pads.length)];
-  const vehicles = ['VEC-447','VEC-312','AV-023','VEC-800','AV-031'];
+  const vehicles = ['TAL-447','TAL-312','AV-023','TAL-800','AV-031'];
   document.getElementById('conf-vehicle').textContent = vehicles[Math.floor(Math.random()*vehicles.length)];
   const total = getTotal();
   const tax = total * 0.0825;
@@ -1337,7 +1337,7 @@ function renderTimeline(status) {
   const depTime = new Date(now.getTime() - 2*60000);
   const items = [
     { label:'Booking Confirmed', sub:'Reference assigned', state:'done' },
-    { label:'Vehicle Assigned', sub:'VEC-447 — Pad 3', state:'done' },
+    { label:'Vehicle Assigned', sub:'TAL-447 — Pad 3', state:'done' },
     { label:`Departed ${depTime.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}`, sub:'Airborne, climbing to 1,500 ft', state:'done' },
     { label:'En Route', sub:'ETA counting down', state: status === 'done' ? 'done' : 'active' },
     { label:'Arrived at Destination', sub:'', state: status === 'done' ? 'done' : 'pending' },
