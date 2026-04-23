@@ -45,9 +45,21 @@
   .badge-low { background: #d4edda; color: #155724; }
   .partner-logos { display: flex; gap: 1rem; flex-wrap: wrap; margin: 0.6rem 0; }
   .partner-tag { background: var(--light); border: 1px solid var(--border); border-radius: 4px; padding: 0.3rem 0.7rem; font-size: 0.72rem; font-weight: 600; color: var(--navy); }
+  @media screen and (max-width: 768px) {
+    .kpi-row { grid-template-columns: 1fr 1fr !important; }
+    .kpi-box .kpi-val { font-size: 1.2rem; }
+    .kpi-box .kpi-label { font-size: 0.68rem; }
+    .moat-grid { grid-template-columns: 1fr !important; }
+    .irr-highlight { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+    .irr-highlight .irr-num { font-size: 2.2rem; }
+    .exit-grid { grid-template-columns: 1fr !important; }
+    .risk-row { grid-template-columns: 1fr auto !important; }
+    .risk-row .r-mit { display: none; }
+  }
 </style>
 </head>
 <body>
+<div class="mobile-back-nav"><a href="../index.html">&larr; Trinity Air Link</a><span class="doc-name"></span></div>
 <div class="cover-page">
   <img src="../images/infrastructure5.png" class="cover-hero" alt="Trinity Air Link">
   <div class="cover-body">

@@ -91,9 +91,18 @@
   .bc-item .bc-icon { font-size: 1.3rem; display: block; }
   .bc-item .bc-title { font-size: 0.75rem; font-weight: 700; color: var(--cyan); display: block; margin: 0.2rem 0 0.15rem; }
   .bc-item .bc-desc { font-size: 0.65rem; color: #a0c4d8; line-height: 1.4; }
+  @media screen and (max-width: 768px) {
+    .partner-grid { grid-template-columns: 1fr !important; }
+    .partner-tier-grid { grid-template-columns: 1fr 1fr !important; }
+    .benefit-grid, .milestone-grid { grid-template-columns: 1fr 1fr !important; }
+    .bc-grid { grid-template-columns: 1fr 1fr !important; }
+    .bc-item .bc-title { font-size: 0.82rem; }
+    .bc-item .bc-desc { font-size: 0.72rem; }
+  }
 </style>
 </head>
 <body>
+<div class="mobile-back-nav"><a href="../index.html">&larr; Trinity Air Link</a><span class="doc-name"></span></div>
 
 <!-- ═══════════════ COVER PAGE ═══════════════ -->
 <div class="cover-page">

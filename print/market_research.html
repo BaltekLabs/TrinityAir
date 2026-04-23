@@ -78,9 +78,19 @@
   .tr-item h5 { margin: 0 0 0.25rem; color: var(--blue); font-size: 0.78rem; font-family: 'Helvetica Neue', Arial, sans-serif; }
   .tr-item p { margin: 0; font-size: 0.72rem; color: #444; line-height: 1.4; }
   .tr-item .trl { font-size: 0.62rem; color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.2rem; display: block; }
+  @media screen and (max-width: 768px) {
+    .market-grid { grid-template-columns: 1fr 1fr !important; }
+    .market-item .m-val { font-size: 1.1rem; }
+    .market-item .m-label { font-size: 0.68rem; }
+    .tech-readiness-grid, .congestion-grid { grid-template-columns: 1fr 1fr !important; }
+    .congestion-row { grid-template-columns: 1fr auto 80px !important; }
+    .tr-item h5 { font-size: 0.85rem; }
+    .tr-item p { font-size: 0.78rem; }
+  }
 </style>
 </head>
 <body>
+<div class="mobile-back-nav"><a href="../index.html">&larr; Trinity Air Link</a><span class="doc-name"></span></div>
 
 <!-- ═══════════════ COVER PAGE ═══════════════ -->
 <div class="cover-page">

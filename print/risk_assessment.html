@@ -92,9 +92,18 @@
   .ors-med  { background: #fefce8; } .ors-med  .ors-count { color: #ca8a04; }
   .ors-high { background: #fff7ed; } .ors-high .ors-count { color: #ea580c; }
   .ors-crit { background: #fef2f2; } .ors-crit .ors-count { color: #dc2626; }
+  @media screen and (max-width: 768px) {
+    .risk-matrix-legend { grid-template-columns: 1fr 1fr !important; }
+    .overall-risk-summary { grid-template-columns: 1fr 1fr !important; }
+    .risk-body { grid-template-columns: 1fr !important; }
+    .risk-body .rb-section:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+    .risk-header { grid-template-columns: 1fr !important; gap: 0.4rem; }
+    .risk-score-badge { align-self: flex-start; }
+  }
 </style>
 </head>
 <body>
+<div class="mobile-back-nav"><a href="../index.html">&larr; Trinity Air Link</a><span class="doc-name"></span></div>
 
 <!-- ═══════════════ COVER PAGE ═══════════════ -->
 <div class="cover-page">
