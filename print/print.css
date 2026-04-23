@@ -502,7 +502,7 @@ ul.bullets li { color: var(--text); }
   .no-break { page-break-inside: avoid; break-inside: avoid; }
 }
 
-/* ---- Screen preview ---- */
+/* ---- Screen preview (desktop) ---- */
 @media screen {
   body { max-width: 8.5in; margin: 0 auto; padding: 0; background: #d0d8e0; }
   .cover-page { min-height: 11in; }
@@ -513,4 +513,164 @@ ul.bullets li { color: var(--text); }
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     min-height: 11in;
   }
+}
+
+/* ---- Mobile Back-to-Site Navigation ---- */
+.mobile-back-nav {
+  display: none;
+}
+
+/* ---- Mobile Responsive (screen only, never applied to print) ---- */
+@media screen and (max-width: 768px) {
+
+  /* Show back-to-site nav bar */
+  .mobile-back-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--navy);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .mobile-back-nav a {
+    color: var(--cyan);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .mobile-back-nav .doc-name {
+    color: #a0c4d8;
+    font-size: 11px;
+    text-align: right;
+    max-width: 55%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Reset desktop preview constraints */
+  body {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    font-size: 14px;
+  }
+
+  .doc-page {
+    padding: 1rem !important;
+    min-height: unset !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+
+  /* ---- Cover Page ---- */
+  .cover-page {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .cover-hero {
+    height: 200px !important;
+    width: 100%;
+  }
+  .cover-body {
+    padding: 1.2rem 1rem 1rem !important;
+  }
+  .cover-footer {
+    padding: 0.75rem 1rem !important;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .cover-footer > span:not(.logo) {
+    white-space: normal;
+    font-size: 10px;
+  }
+  .cover-stat-bar {
+    flex-wrap: wrap !important;
+    gap: 0.5rem;
+    margin: 0.75rem 0 0;
+  }
+  .cover-stat {
+    min-width: 44%;
+    flex: 1 1 44%;
+  }
+  .cover-stat .val { font-size: 18px; }
+  .cover-stat .lbl { font-size: 9px; white-space: normal; text-align: center; }
+  .cover-title { font-size: 22px !important; }
+  .cover-subtitle { font-size: 13px !important; }
+  .cover-divider { margin-bottom: 0.6rem; }
+  .cover-desc { font-size: 13px; }
+
+  /* ---- Typography ---- */
+  h1 { font-size: 20px !important; }
+  h2 { font-size: 16px !important; margin: 1.2rem 0 0.6rem; }
+  h3 { font-size: 14px !important; margin: 1rem 0 0.4rem; }
+  h4 { font-size: 13px !important; }
+  p  { font-size: 13px; }
+  li { font-size: 13px; }
+
+  /* ---- Shared Grid Layouts → single column ---- */
+  .stat-grid,
+  .stat-grid.cols-3,
+  .stat-grid.cols-2,
+  .phase-row,
+  .two-col,
+  .two-col.wide-left,
+  .two-col.wide-right {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem;
+  }
+
+  /* Stat box font scaling */
+  .stat-box .val { font-size: 20px; }
+  .stat-box .lbl { font-size: 10px; }
+
+  /* Phase box readable */
+  .phase-box .ph-num  { font-size: 10px; }
+  .phase-box .ph-name { font-size: 12px; }
+  .phase-box .ph-detail { font-size: 11px; }
+
+  /* ---- Tables: horizontal scroll ---- */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 12px;
+    white-space: nowrap;
+    min-width: unset;
+  }
+  thead, tbody, tr { display: table; width: 100%; }
+  th { font-size: 11px; padding: 0.4rem 0.5rem; }
+  td { font-size: 11px; padding: 0.35rem 0.5rem; }
+
+  /* ---- Callout & Pull Quote ---- */
+  .callout { padding: 0.75rem 1rem; font-size: 13px; }
+  .pull-quote { margin: 1rem 0; padding: 0.6rem 0.8rem; font-size: 13px; }
+
+  /* ---- Images ---- */
+  .doc-image,
+  .doc-image.tall,
+  .doc-image.short {
+    height: auto !important;
+    max-height: 220px;
+  }
+
+  /* ---- Confidential banner ---- */
+  .confidential-banner { font-size: 10px; padding: 0.3rem; }
+
+  /* ---- Running header/footer (print artifacts) ---- */
+  .doc-header  { display: none; }
+  .doc-footer-bar { display: none; }
+
+  /* ---- Contact block ---- */
+  .contact-block { padding: 1rem; }
+  .contact-block h4 { font-size: 13px; }
+
+  /* ---- Scenario bar ---- */
+  .scenario-bar { height: auto; flex-wrap: wrap; }
 }
