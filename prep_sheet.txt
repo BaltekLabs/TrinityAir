@@ -1,0 +1,188 @@
+Let me pull the key financial, market, and risk data from the documents to make this accurate before writing anything.
+
+Good — I have everything I need. Here's your prep sheet:
+
+---
+
+# Trinity Air Link — Meeting & Pitch Prep Sheet
+
+---
+
+## The Core Pitch
+
+**One-liner (10 seconds):**
+> "The deal is not 'buy flying cars.' It is own the node."
+
+**Elevator pitch (30 seconds):**
+> Trinity Air Link converts Fort Worth's historic Texas & Pacific Warehouse into the infrastructure layer every certified eVTOL and autonomous vehicle operator needs to use — vertiport access, AV bays, charging, dispatch, passenger processing, data, and service standards. We don't buy aircraft. We build and operate the platform. Operators pay us for access.
+
+**Frame it as infrastructure, not aviation.** Every time you catch yourself sounding like an airline, redirect to: airports, toll roads, data centers, cell towers.
+
+---
+
+## Numbers to Know Cold
+
+| Metric | Number |
+|--------|--------|
+| Phase 1 ask (current raise) | **$20M** |
+| Total capital — preferred case | **$107M–$113M** (capital-light) |
+| Total capital — owned-fleet case | $129M (stress/upside case only) |
+| Phase timeline | $20M / $50M / $10M–$32M / $22M |
+| Calculated IRR — before terminal | **24.8%** |
+| Calculated IRR — with terminal | **36.8%** |
+| NPV @ 10% — before terminal | **$89.7M** |
+| NPV @ 10% — with terminal | **$293.2M** |
+| Terminal value (moderate, 8.0x) | **$480M** |
+| Year 5 revenue (moderate) | **$133.4M** |
+| Year 5 EBITDA (moderate) | **$44.9M** (34% margin) |
+| Year 5 breakeven target | **2030** |
+| Year 10 cash flow (before terminal) | $70M/year |
+| Property | 221 W. Lancaster Ave, Fort Worth TX |
+| Building | 8-story, 600 ft × 100 ft = **480,000 sq ft** |
+| Jobs created | **3,300+** |
+| Year 5 annual tax revenue | **$25M+** |
+| Economic multiplier (10 yr) | **$500M+** |
+| Municipal investment required | **$0** |
+
+**Conservative case:** 5.0% IRR before terminal / 18.3% with terminal — model explicitly stress-tests downside.
+
+**Owned-fleet stress case:** (17.2%) IRR — the worst case if you own the fleet AND demand is low. This is why you don't lead with fleet ownership.
+
+---
+
+## The Financial Story — How to Walk It
+
+**Step 1 — Why the returns are what they are:**
+The 24.8% IRR comes from 10-year project cash flows, capital-light model, moderate demand assumptions. Terminal value (36.8% / $293.2M NPV) is shown *separately* — it's exit/refinance upside, not baked into the base return. Always separate these two.
+
+**Step 2 — The investment schedule:**
+- 2026: ($25M net) — planning, regulatory, team, early burn on $20M raise
+- 2027: ($55M net) — infrastructure, renovation, rooftop vertiport, AV terminal
+- 2028: ($17M net) — capital-light tech stack, charging, dispatch, operator access
+- 2029: ($2M net) — launch year, revenue ramping fast
+- 2030: +$40M — first positive year; grows to $70M by 2035
+
+**Step 3 — Where the money comes from (Year 5 moderate):**
+- Air mobility platform (pad access, PFC, charging, dispatch): $54.8M
+- Ground mobility platform (AV bays, curb, charging, routing API): $54.8M
+- Innovation Center (120K SF, 80–95% occupancy): $3.8M
+- Technology licensing & IP: $10.0M
+- Ancillary (retail, parking, dining, cargo): $10.0M
+
+**Step 4 — How we make money per movement:**
+- Per eVTOL movement: $150–$350 pad access + $8–18 PFC + charging markup + $25–75 dispatch + 5–12% revenue share
+- Per AV trip: $1.50–$4.00 bay access + $1–3 PFC + charging markup + $0.50–2 dispatch + 3–8% revenue share
+- Operators carry: aircraft, pilots/autonomy, maintenance, insurance, fleet financing
+
+**Step 5 — What kills returns:**
+- Owned-fleet scenario + low demand = (17.2%) IRR. This is why the capital-light model is non-negotiable as a starting position.
+
+---
+
+## Why Right Now — The Market Timing
+
+- March 9, 2026: U.S. Transportation Secretary Sean Duffy announced **Texas DOT + Archer Aviation** as 1 of 8 national eIPP selections.
+- Named Texas routes: **Dallas**, Austin, San Antonio, Houston. **Fort Worth is not on the map yet.**
+- Archer Midnight commercial operations begin in Texas **this summer (2026)**.
+- Joby is at Stage 4/5 FAA certification. Archer holds Part 135 commercial air carrier certificate.
+- Waymo is **already commercial in Austin**, expanding toward Dallas.
+- The DFW air taxi network is forming *now*. Fort Worth needs the western anchor before routes harden.
+
+---
+
+## Stakeholder-Specific Prep
+
+### Investors
+**They care about:** returns, downside protection, exit, moat, why you vs. someone else.
+- Lead with capital-light model — operators carry vehicle risk, you capture platform economics.
+- Frame as infrastructure: toll road / airport / cell tower, not an airline.
+- Point to the 3-scenario model: conservative is stress-tested (5% IRR), moderate is the base (24.8%), optimistic is upside (55.7%).
+- Exit paths: strategic acquisition (airline/auto/tech platform), infrastructure recapitalization, REIT-like asset monetization, municipal buyout + management contract, franchise/licensing expansion.
+- Phase 1 is $20M — proof-of-concept capital before $50M infrastructure commitment.
+
+### City of Fort Worth / Municipal Officials
+**They care about:** jobs, tax revenue, no public money at risk, community benefit, national recognition.
+- **Zero municipal investment required.** 100% private capital.
+- $25M+ annual tax revenue by Year 5 (property $8–12M, sales $6–10M, payroll $4–6M, hotel/tourism $2–3M).
+- 3,300+ jobs. 800+ permanent with local hiring priority.
+- Fort Worth gets on the national eIPP route map — the city left off so far is an opportunity for the city to act.
+- Ask: MOU designating T&P as official eVTOL/AV hub + letter of support for FAA eIPP enrollment + expedited historic preservation pathway.
+
+### eVTOL / AV Technology Partners (Joby, Archer, Waymo, Zoox)
+**They care about:** guaranteed vertiport/terminal access, infrastructure readiness, operational standards, economics of access fees.
+- Operator-neutral platform — no operator gets exclusivity, but preferred operator agreements are available to early movers.
+- Infrastructure flexible: designed to support multiple aircraft types and ground vehicle fleets.
+- You handle the hard parts: FAA airspace coordination, ground ops, charging, dispatch, passenger processing, safety protocols.
+- Ask: vertiport capacity MOU for Texas eIPP operations.
+
+### Community / Public Stakeholders
+**They care about:** noise, safety, displacement, who benefits locally, what the building becomes.
+- The T&P Warehouse has sat underutilized. This is a preservation-first rehabilitation.
+- Historic tax credits are part of the financing structure — the building's character is protected.
+- Jobs are local. STEM programs are part of the community engagement plan.
+- Public showcase component: the hub is designed for public access, not a private airport.
+- Safety: Waymo has 88% fewer property damage claims than human drivers. eVTOL quieter than helicopters.
+
+---
+
+## Tough Questions — And How to Answer Them
+
+**"What if eVTOL certification takes longer than expected?"**
+> "We planned for it. The capital-light model means we lead with AV services and the Innovation Center — both proven technologies generating revenue while eVTOL certification progresses. Phase 3 capital is held until certification is confirmed. Our two primary partners, Joby and Archer, are at Stage 4/5 and Part 135 certified respectively. This is the lowest-risk moment in eVTOL history to build the infrastructure."
+
+**"Who are your committed partners/operators?"**
+> "We're in the MOU phase, which is exactly right for Phase 1. Operators don't commit infrastructure agreements before the site is controlled and regulatory pathway is established — that's what Phase 1 capital funds. What we have is structural alignment: Archer is operating in Texas this summer, Waymo is commercial in Austin, and the eIPP program creates urgency for operators to lock western DFW before routes harden."
+
+**"Why Fort Worth and not Dallas?"**
+> "Dallas is named in the eIPP — Fort Worth is not yet. That's the opportunity. Fort Worth is the western DFW anchor, a 1M+ city with the fastest growth in the corridor. The T&P Warehouse is rail-adjacent, downtown, structurally assessed, and historic-tax-credit eligible — a combination that doesn't exist in Dallas at this price point. First mover in Fort Worth is more valuable than second mover in Dallas."
+
+**"What's your moat?"**
+> "Four layers: First, the asset itself — 480,000 SF, 8-story historic warehouse downtown Fort Worth is irreplaceable. You can't build that. Second, regulatory complexity — a vertiport requires FAA airspace integration, zoning, historic preservation, and AV terminal permitting. That's a 3-5 year barrier to entry for anyone who starts today. Third, network effects — operators who train on our dispatch and ground ops standards don't want to retrain at a competitor's hub. Fourth, speed — we're moving while the eIPP network is forming. Whoever locks the western DFW node first has a structural advantage."
+
+**"What if Joby or Waymo just builds their own infrastructure?"**
+> "They don't want to. Joby's model is air taxi operations — they want to focus on aircraft, certification, and routes, not building and operating vertiports in every city. Same with Waymo on AV terminals. The whole thesis is that operators are specialists who don't want real estate and infrastructure exposure. That's exactly why the operator-neutral capital-light model works — we're solving a problem they'd rather not own."
+
+**"How do you actually get to $133M revenue by Year 5?"**
+> "The two largest streams — $54.8M air mobility and $54.8M ground mobility — each require meaningful throughput. Those are planning assumptions that get validated against operator agreement terms and route economics. That's why the three-scenario model matters: the conservative case at $50.7M revenue still maps a path to eventual profitability, and the moderate case is our base. We're not betting on optimistic — we're building for moderate."
+
+**"Your conservative case loses $8.3M EBITDA in Year 5. How do you survive that?"**
+> "Two ways. First, the conservative case is a demand scenario, not a cost surprise — our cost structure is relatively fixed, so we don't spiral. Second, the Innovation Center and real estate revenue provides a floor independent of air and ground mobility demand. $2.4M conservative real estate + ancillary revenue continues regardless of adoption curves. The conservative case loses money in Year 5 and improves; the model doesn't assume we fold."
+
+**"The $129M total sounds like a lot — why not just raise that?"**
+> "That's the owned-fleet case — the scenario where Trinity Air Link also buys the aircraft and vehicles. The preferred capital-light case is $107M–$113M because operators carry vehicle capex. We're raising $20M for Phase 1. The remaining capital is staged across 3 more phases, each contingent on milestone achievement. You're never betting the full $107M at once."
+
+**"What's your take rate?"**
+> "It varies by service: $150–$350 per eVTOL movement plus passenger facility charges plus 5–12% revenue share. For AV: $1.50–$4 per pickup/dropoff plus $1–3 PFC plus 3–8% revenue share. Plus charging markup (15–30% spread over power cost) and dispatch/data fees on top. The bundled infrastructure-plus-platform model is why Year 5 EBITDA margins reach 34% in the moderate case."
+
+**"Have you secured site control?"**
+> [If yes, state it clearly. If no:] "Phase 1 capital funds site control as the first milestone. We've done the structural assessment ($2.15M baseline for repairs), confirmed the historic tax credit eligibility, and validated the address — 221 W. Lancaster Avenue — is the correct T&P Warehouse property. Site control closes with Phase 1 capital, which is why Phase 1 is the ask."
+
+**"What happens if the eIPP program loses funding or gets restructured?"**
+> "eIPP creates urgency but it's not load-bearing for the business case. Fort Worth still needs western DFW mobility infrastructure with or without a federal program. The AV side of the business — Waymo, Zoox, autonomous ground transport — doesn't depend on eIPP at all. And the Innovation Center real estate income is independent of both. eIPP accelerates the timeline; it doesn't create the market."
+
+---
+
+## Things Not to Say
+
+- **Don't say "flying cars"** — it trivializes the infrastructure thesis and invites dismissal.
+- **Don't say "our IRR is 36.8%"** without immediately clarifying that 36.8% includes terminal value — the base calculated return is 24.8% before terminal.
+- **Don't lead with the owned-fleet scenario** — that's the $129M, higher-risk case. Lead with $107M–$113M capital-light.
+- **Don't say "illustrative"** or **"target IRR"** — those were old model frames. The numbers are now **calculated**.
+- **Don't promise operator commitments you don't have** — say "structural alignment" and "MOU phase."
+- **Don't pitch this as an airline, taxi company, or aircraft leasing company.** It's infrastructure.
+
+---
+
+## Key Credibility Anchors
+
+- The eIPP announcement is real and dated: March 9, 2026, Transportation Secretary Sean Duffy.
+- Archer Midnight Texas commercial ops begin **this summer** — not theoretical.
+- Joby Stage 4/5 certification, Archer Part 135 — lowest eVTOL risk in history.
+- T&P Warehouse structural assessment: already done. $2.15M baseline repair cost.
+- Address confirmed: 221 W. Lancaster Avenue, Fort Worth, TX.
+- Federal Historic Tax Credits reduce effective renovation cost by $3–4M.
+- Waymo: 88% fewer property damage claims vs. human drivers (independent data).
+
+---
+
+Want me to turn this into a print-formatted PDF document in the same style as your other investor docs, or keep it as a working reference?
