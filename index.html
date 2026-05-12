@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-<!-->
-ToDo:
-*Move the TAL system section to the first spot and shift 'The Challenge' and 'The Opportunity' down to the second and third sections, respectively. This will immediately immerse visitors in the core of the project and its transformative potential, before diving into the challenges and market advantages.
--fix technical specifications document download link, figure out the document itself and if needed
-- Get rid of 'Explore The Vision' and 'Open Pricing Calculator' buttons from the hero section
-
-
-<-->
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -277,7 +269,7 @@ ToDo:
                         <div class="truncate" style="font-size:0.62rem;color:var(--text-secondary);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Fort Worth's Future of Air Mobility</div>
                     </div>
                 </div>
-                <div class="hidden xl:block">
+                <div class="hidden">
                     <div class="flex items-center space-x-1">
                         <a href="#overview" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Overview</a>
                         <a href="#hub-vision" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Vision</a>
@@ -291,20 +283,22 @@ ToDo:
                         <a href="#demo" class="nav-link px-3 py-2 text-sm font-medium transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;color:var(--accent);border:1px solid var(--border);border-radius:4px;background:var(--accent-dim);">Demo</a>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-3 shrink-0">
+                <div class="hidden">
                     <button onclick="scrollToContact()" class="cta-button text-sm px-4 py-2">Get Involved</button>
                     <button onclick="downloadExecutiveSummary()" class="hidden 2xl:block" style="border:1px solid var(--border);color:var(--accent);padding:8px 16px;border-radius:6px;font-size:0.8rem;font-weight:600;background:transparent;transition:all 0.2s ease;" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='transparent'">Executive Summary</button>
                 </div>
-                <div class="lg:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded" style="color:var(--text-secondary);border:1px solid var(--border-subtle);background:transparent;">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                            <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                <div>
+                    <button id="mobile-menu-button" aria-label="Open navigation menu" class="inline-flex items-center justify-center p-2.5 rounded-lg transition-all duration-200" style="color:var(--accent);border:1px solid var(--border);background:var(--surface);box-shadow:0 6px 18px rgba(37,99,235,0.12);" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='var(--surface)'">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M5 7.5H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M8 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M11 16.5H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </button>
                 </div>
             </div>
         </nav>
-        <div id="mobile-menu" class="lg:hidden hidden" style="background:rgba(255,255,255,0.98);border-top:1px solid var(--border);">
+        <div id="mobile-menu" class="hidden" style="background:rgba(255,255,255,0.98);border-top:1px solid var(--border);">
             <div class="px-4 pt-4 pb-6 space-y-2">
                 <a href="#overview" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Overview</a>
                 <a href="#hub-vision" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Vision</a>
@@ -347,14 +341,9 @@ ToDo:
                         </span>
                     </h1>
     
-                <p class="mt-8 max-w-4xl mx-auto text-xl sm:text-2xl leading-relaxed" style="color:var(--surface-2); text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Transform the historic Texas &amp; Pacific Warehouse into America's first integrated VTOL-autonomous vehicle transportation hub. Revolutionary multi-modal mobility serving 8.5 million DFW residents through cutting-edge technology, historic preservation, and sustainable innovation. <span style="color:#fbbf24;font-weight:600;"><br>Texas selected for the federal eIPP program — network deployment planning is active, with operations subject to FAA certification milestones.</span></p>
+                <p class="mt-8 max-w-4xl mx-auto text-xl sm:text-2xl leading-relaxed" style="color:var(--surface-2); text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Transform the historic Texas &amp; Pacific Warehouse into a capital-light, integrated air-and-ground mobility hub for the DFW region. Trinity Air Link combines infrastructure, operations enablement, and adaptive reuse of a landmark site to improve regional connectivity while preserving long-term strategic flexibility. <span style="color:#fbbf24;font-weight:600;"><br>Texas selected for the federal eIPP program — network deployment planning is active, with operations subject to FAA certification milestones.</span></p>
                 <!--p class="mt-4 max-w-4xl mx-auto text-base sm:text-lg" style="color:#cbd5e1; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Trinity Air Link (formerly The Hub/Nexus Hub).</p-->
     
-                    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <!--button onclick="scrollToVision()" class="cta-button text-lg px-8 py-4">Explore The Vision</button>
-                        <a href="/pricing_calculator.html" class="cta-button text-lg px-8 py-4" style="display:inline-flex;align-items:center;justify-content:center;">Open Pricing Calculator</a>
-                        <button onclick="downloadInvestorPackage()" style="border:1px solid rgba(255,255,255,0.3);color:var(--surface);padding:16px 32px;border-radius:6px;font-size:1.125rem;font-weight:600;background:rgba(255,255,255,0.1);transition:all 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">Investor Package</button-->
-                    </div>
                 </div>
             </div>
             <div class="py-16 sm:py-20" style="background:var(--surface);">
@@ -391,7 +380,7 @@ ToDo:
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <div class="inline-flex items-center px-6 py-3 mb-8" style="border-radius:999px;border:1px solid var(--border);background:var(--accent-dim);">
                     <span class="w-3 h-3 rounded-full mr-3" style="background:var(--accent);"></span>
-                    <span style="font-size:0.7rem;font-weight:600;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;">Transportation Revolution + Innovation Center</span>
+                    <span style="font-size:0.7rem;font-weight:600;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;">First-Touch System Overview</span>
                 </div>
 
                 <h2 class="text-5xl font-bold sm:text-6xl lg:text-7xl mb-8" style="color:var(--text-primary);">
@@ -399,7 +388,7 @@ ToDo:
                     <span class="block mt-2 stat-number">Integrated Mobility Network</span>
                 </h2>
 
-                <p class="max-w-4xl mx-auto text-xl sm:text-2xl leading-relaxed mb-12" style="color:var(--text-secondary);">The Texas &amp; Pacific Warehouse serves as the central node in a revolutionary transportation network combining VTOL aircraft, autonomous electric vehicles, and existing infrastructure. Beyond transportation, the hub includes cutting-edge research facilities, technology innovation spaces, and high-performance computing infrastructure - establishing DFW as the global leader in next-generation mobility.</p>
+                <p class="max-w-4xl mx-auto text-xl sm:text-2xl leading-relaxed mb-12" style="color:var(--text-secondary);">The TAL system is designed around one strategic node: the Texas &amp; Pacific Warehouse in Fort Worth. It combines air mobility, ground mobility, and innovation-center tenancy in a capital-light operating model that prioritizes phased execution, partner access, and regional connectivity.</p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
                     <button onclick="scrollToImplementation()" class="cta-button text-lg px-8 py-4">View Implementation</button>
@@ -411,73 +400,25 @@ ToDo:
                             <img src="images/rooftop.png" alt="Rooftop vertiport pad supporting VTOL arrivals and departures" onerror="this.onerror=null;this.src='images/hubImagery.jpeg';" class="rounded-md">
                             <div class="image-overlay">VTOL Operations</div>
                         </div>
-                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">VTOL Air Mobility Hub</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Rooftop VTOL operations with multiple landing pads, advanced air traffic management, and passenger terminals - providing rapid transportation across the DFW metroplex while bypassing ground traffic congestion.</p>
+                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Air Mobility</h3>
+                        <p class="mt-2" style="color:var(--text-secondary);">Rooftop vertiport infrastructure is planned to support certified operator service between key DFW nodes as market readiness and certification milestones are met.</p>
                     </div>
                     <div class="futuristic-card p-6">
                         <div class="image-container h-48 mb-4">
                             <img src="images/streetLevelPavedPickup_resize.png" alt="Autonomous electric shuttle docking lanes inside the Trinity Air Link hub" onerror="this.onerror=null;this.src='images/hubImagery2.jpeg';" class="rounded-md">
                             <div class="image-overlay">Autonomous EV Networks</div>
                         </div>
-                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Autonomous EV Terminal</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Ground-level autonomous electric vehicle operations with smart charging stations, seamless modal transfers, and direct integration with existing rail infrastructure - solving the "last-mile" connectivity challenge.</p>
+                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Ground Mobility</h3>
+                        <p class="mt-2" style="color:var(--text-secondary);">Ground mobility operations are structured to connect riders from regional transit and neighborhood origin points into a unified first/last-mile network.</p>
                     </div>
                     <div class="futuristic-card p-6">
                         <div class="image-container h-48 mb-4">
-                            <img src="images/innovationcenter.png" alt="Technology Innovation Center workspace with collaborative research areas" onerror="this.onerror=null;this.src='images/smallInterior.jpeg';" class="rounded-md">
+                            <img src="images/innovationcenter.png" alt="Innovation Center workspace with collaborative research areas" onerror="this.onerror=null;this.src='images/smallInterior.jpeg';" class="rounded-md">
                             <div class="image-overlay">Technology Innovation</div>
                         </div>
-                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Technology Innovation Center</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Multi-floor research facilities (floors 3-7) housing advanced robotics labs, AI research centers, battery technology development, and prototype manufacturing spaces - creating a living laboratory for transportation innovation.</p>
+                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Innovation Center</h3>
+                        <p class="mt-2" style="color:var(--text-secondary);">The innovation center adds durable non-ticket revenue through leasable space for mobility, logistics, and advanced-technology tenants aligned with the transportation mission.</p>
                     </div>
-                    <div class="futuristic-card p-6">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/showcaseOpen.png" alt="Public showcase area demonstrating eVTOL and autonomous vehicle technology" onerror="this.onerror=null;this.src='images/smallInterior.jpeg';" class="rounded-md">
-                            <div class="image-overlay">Public Tech Showcase</div>
-                        </div>
-                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Public Technology Showcase</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Ground floor interactive exhibitions, VR experience centers, educational programs, and public demonstrations - engaging the community while showcasing emerging transportation technologies and fostering STEM education.</p>
-                    </div>
-                    <div class="futuristic-card p-6">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/interiorEVCenterWalkways.png" alt="Smart infrastructure interior with EV charging walkways and monitoring systems" onerror="this.onerror=null;this.src='images/smallInterior.jpeg';" class="rounded-md">
-                            <div class="image-overlay">Smart Infrastructure</div>
-                        </div>
-                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Smart Infrastructure Hub</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Top floor and basement computing centers with high-performance infrastructure, network operations, AI-powered traffic management systems, and advanced telecommunications - the digital brain of the transportation network.</p>
-                    </div>
-                    <div class="futuristic-card p-6">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/community_impact.png" alt="Community gathering space at the Trinity Air Link mobility hub" onerror="this.onerror=null;this.src='images/smallInterior.jpeg';" class="rounded-md">
-                            <div class="image-overlay">Community Impact</div>
-                        </div>
-                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Economic &amp; Community Impact</h3>
-                        <ul class="mt-2 space-y-4" style="color:var(--text-secondary);">
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">High-Tech Job Creation:</span> Thousands of jobs across construction, operations, and research</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Global Innovation Leader:</span> DFW positioned as a world-class transportation innovation hub</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Historic Preservation:</span> Texas &amp; Pacific Warehouse adaptive reuse and revitalization</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Emissions Reduction:</span> Measurable decline in traffic congestion and carbon output</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">$500M+ Economic Catalyst:</span> Major driver of regional investment and development</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Academic Partnerships:</span> Technology startups and university research collaborations</div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -720,8 +661,8 @@ ToDo:
 
         <section id="hub-system-details" class="py-16 sm:py-24" style="background:var(--surface-2);">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">The TAL System: Core Elements &amp; Technology</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:var(--text-secondary);">The Trinity Air Link system reimagines urban mobility through a seamlessly integrated network of air and ground transportation, with the Texas &amp; Pacific Warehouse as its central node.</p>
+                <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">How the TAL System Works</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:var(--text-secondary);">At first touch, the model is straightforward: one strategic hub, multiple operators, and phased launch discipline.</p>
                 <div class="mt-12 max-w-4xl mx-auto space-y-4 text-left">
                     <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
                         <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="hub-elements">
@@ -730,41 +671,22 @@ ToDo:
                         </button>
                         <div id="hub-elements" class="accordion-content hidden p-6 text-left" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
                             <ul class="list-disc list-inside space-y-2">
-                                <li><strong style="color:var(--text-primary);">Strategic Hub Location:</strong> Texas &amp; Pacific Warehouse as the central node — positioned at the convergence of downtown Fort Worth, Panther Island development, and TEXRail commuter rail.</li>
-                                <li><strong>eVTOL Air Mobility (Archer Midnight):</strong> 4-passenger electric aircraft; 150 mph cruise; 10-20 min DFW metro trips at ~$3-11/mile. Texas eIPP participation supports network planning and deployment readiness, subject to FAA certification milestones.</li>
-                                <li><strong>Autonomous Ground Fleet (Waymo-class):</strong> Self-driving EV last-mile service. Waymo already operating 450K+ rides/week commercially in Texas; precedent established for DFW expansion.</li>
-                                <li><strong>Central Command System:</strong> AI-powered traffic management platform integrating air and ground routing, real-time scheduling, and predictive maintenance.</li>
-                                <li><strong>User Interface:</strong> Single app for seamless VTOL + AV booking, real-time tracking, and payment across all transport modes.</li>
+                                <li><strong style="color:var(--text-primary);">Air mobility:</strong> Vertiport and passenger infrastructure for certified operator service.</li>
+                                <li><strong style="color:var(--text-primary);">Ground mobility:</strong> Terminal and transfer layer connecting regional origins and destinations.</li>
+                                <li><strong style="color:var(--text-primary);">Innovation center:</strong> Recurring tenancy and ecosystem development aligned with mobility operations.</li>
                             </ul>
                         </div>
                     </div>
-
                     <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
                         <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="technical-architecture">
-                            Technical Architecture
+                            Why This Is Credible
                             <span class="arrow" style="color:var(--accent);">&#9658;</span>
                         </button>
                         <div id="technical-architecture" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
                             <ul class="list-disc list-inside space-y-2">
-                                <li><strong style="color:var(--text-primary);">Autonomous VTOL Technology:</strong> Electric/hybrid-electric propulsion, advanced navigation, collision avoidance, vertical takeoff/landing, intra-metropolitan range.</li>
-                                <li><strong style="color:var(--text-primary);">Autonomous Electric Vehicles:</strong> Self-driving, electric powertrains, integration with VTOL scheduling, fast-charging infrastructure.</li>
-                                <li><strong style="color:var(--text-primary);">AI and IoT Integration:</strong> Real-time traffic management, weather monitoring, route optimization, predictive maintenance, passenger flow management.</li>
-                                <li><strong style="color:var(--text-primary);">User-Facing Technology:</strong> Mobile application for bookings/updates, seamless payment, real-time vehicle tracking, interface with other transport modes.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="tphub-transformation">
-                            Texas &amp; Pacific Warehouse as Central Hub Transformation
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="tphub-transformation" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-                            <ul class="list-disc list-inside space-y-2">
-                                <li><strong style="color:var(--text-primary);">Rooftop:</strong> VTOL landing pads and operations.</li>
-                                <li><strong style="color:var(--text-primary);">Ground floor:</strong> Autonomous vehicle terminal and charging stations.</li>
-                                <li><strong style="color:var(--text-primary);">Mid-levels:</strong> Technology innovation spaces, research facilities, and offices.</li>
-                                <li><strong style="color:var(--text-primary);">Integration:</strong> Seamless connection with surrounding development and existing rail infrastructure.</li>
+                                <li>Located at the historic Texas &amp; Pacific Warehouse with existing multimodal adjacency.</li>
+                                <li>Phased delivery reduces execution risk and aligns capital with readiness milestones.</li>
+                                <li>Texas eIPP relevance supports integration planning while FAA certification remains the gate for passenger operations.</li>
                             </ul>
                         </div>
                     </div>
@@ -1285,8 +1207,8 @@ ToDo:
                         <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">The Financial Picture</h2>
                         <p class="mt-4 text-lg" style="color:var(--text-secondary);">Investor model update: 24.8% calculated IRR (10-year, before terminal value), $89.7M NPV @ 10% before terminal value, and 36.8% IRR with $293.2M NPV including illustrative terminal value. Terminal value is presented separately as exit/refinance upside and is not counted as operating cash flow.</p>
                         <div class="mt-6 flex flex-wrap gap-3">
-                            <a href="/pricing_calculator.html" class="cta-button">Live Pricing Calculator</a>
-                            <a href="print/financial_model.html" class="px-5 py-3 rounded font-semibold" style="border:1px solid var(--border);color:var(--accent);background:transparent;">Open Financial Model</a>
+                            <a href="print/financial_model.html" class="cta-button">Open Financial Model</a>
+                            <a href="/pricing_calculator.html" class="px-5 py-3 rounded font-semibold" style="border:1px solid var(--border);color:var(--accent);background:transparent;">Open Pricing Calculator</a>
                         </div>
                         <div class="mt-8 chart-container p-4 rounded" style="background:var(--surface-2);border:1px solid var(--border);">
                             <canvas id="valueChart"></canvas>
