@@ -288,9 +288,11 @@
                     <button onclick="downloadExecutiveSummary()" class="hidden 2xl:block" style="border:1px solid var(--border);color:var(--accent);padding:8px 16px;border-radius:6px;font-size:0.8rem;font-weight:600;background:transparent;transition:all 0.2s ease;" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='transparent'">Executive Summary</button>
                 </div>
                 <div>
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded" style="color:var(--text-secondary);border:1px solid var(--border-subtle);background:transparent;">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                            <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <button id="mobile-menu-button" aria-label="Open navigation menu" class="inline-flex items-center justify-center p-2.5 rounded-lg transition-all duration-200" style="color:var(--accent);border:1px solid var(--border);background:var(--surface);box-shadow:0 6px 18px rgba(37,99,235,0.12);" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='var(--surface)'">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M5 7.5H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M8 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M11 16.5H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </button>
                 </div>
