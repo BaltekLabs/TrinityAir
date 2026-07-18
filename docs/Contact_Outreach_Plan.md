@@ -1,7 +1,8 @@
 # Trinity Air Link — Comprehensive Contact & Outreach Plan
 
-**Updated:** March 2026
-**Hook for all outreach:** Texas DOT + Archer Aviation selected as one of 8 national eIPP sites. Texas network deployment planning is underway, with operations timing dependent on FAA certification milestones. Fort Worth is not on the initial route map. That is the urgency and the opening for every contact.
+**Updated:** July 8, 2026
+**Hook for all outreach:** Texas DOT + Archer Aviation were selected as one of 8 national eIPP sites in March 2026. Texas network deployment planning is underway, with operations timing dependent on FAA certification milestones. Fort Worth is not on the initial route map. That is the urgency and the opening for every contact.
+**Readiness file:** `TrinityAir_Rollout_Strategy.md` is the current execution checklist and `TrinityAir_Rollout_Ready.csv` is the CRM import/contact tracker.
 
 ---
 
@@ -14,10 +15,10 @@
 | **IB** | `investor_brief.html` | Investors — IRR, financials, exit strategy |
 | **WP** | `white_paper.html` | Technical/policy deep-dive audiences |
 | **TP** | `Quick_Reference_Technology_Partners.md` | eVTOL & AV companies |
-| **VIS** | `hubVision.html` | Vision/community/preservation audiences |
-| **PROP** | `hub_property.html` | Building-focused conversations |
-| **DEMO** | `hub_booking_app.html` | Follow-up meetings, shows operational concept |
-| **3D** | `hub_3d_fixed.html` | Infrastructure/technical audiences |
+| **VIS** | `vision.html` | Vision/community/preservation audiences |
+| **PROP** | `property.html` | Building-focused conversations |
+| **DEMO** | `booking_app.html` | Follow-up meetings, shows operational concept |
+| **3D** | `3d_fixed.html` | Infrastructure/technical audiences |
 
 ---
 
@@ -37,7 +38,7 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 
 ---
 
-## TIER A1 — CRITICAL (Contact This Week)
+## TIER A1 — CRITICAL (First 10 Business Days)
 
 ---
 
@@ -52,23 +53,23 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 **Tone:** Warm, personal, brief. Use existing relationship. Do not over-pitch.
 
 **Message:**
-> Hi Mattie, hope all is well. I know you're tracking this morning's news — Texas just got selected as one of 8 national sites for the White House eVTOL program. Electric air taxis are coming to DFW this summer. Fort Worth isn't on the initial route map yet. I think that needs to change, and fast. I've been working on the Trinity Air Link — an eVTOL and autonomous vehicle hub at the T&P Warehouse downtown. Today's announcement is exactly the validation I've been waiting for, and I think the City needs to move on this quickly before Dallas gets all the attention. Can we find 20 minutes this week? I'd love to brief you before this story gets much bigger.
+> Hi Mattie, hope all is well. I wanted to reconnect and say I am looking forward to Westside starting back up in the fall. I also wanted to share a Fort Worth opportunity that has become more urgent since Texas was selected as one of the national eIPP sites. Fort Worth is not on the initial route map, and I think the city should move quickly before the DFW advanced-air-mobility conversation becomes Dallas-led by default. I have been working on Trinity Air Link: an eVTOL-ready and autonomous/electric ground-mobility hub at the T&P Warehouse downtown. It is designed to combine economic development, historic reuse, and regional transportation leadership in one project. Can we find 20 minutes in the next two weeks? I would like to brief you before the next round of Texas network decisions gets further along.
 
 **Documents to attach:**
 - **ES** (executive_summary.html) — attach as PDF or link
 
 **Follow-up if no response in 3 days:** LinkedIn DM referencing the email
-**Ask:** 20-minute briefing this week
+**Ask:** 20-minute briefing in the next 10 business days
 
 ---
 
-### 2. David Cooke — City Manager, City of Fort Worth
-**Email:** david.cooke@fortworthtexas.gov
+### 2. Jay Chapa — City Manager, City of Fort Worth
+**Email:** jay.chapa@fortworthtexas.gov
 **Phone:** (817) 392-7808
 **Relationship:** Cold outreach
 **Method:** Email
 
-**Subject:** Today's federal eVTOL announcement — Fort Worth needs a response
+**Subject:** Briefing request: Fort Worth mobility hub at T&P Warehouse
 
 **Tone:** Professional, direct, policy-focused. Lead with the eIPP news.
 
@@ -78,12 +79,12 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 - **ES** — project overview
 - **GB** — government brief with jobs/tax/economic numbers
 
-**Follow-up:** 3 days if no response. CC Robert Sturns on follow-up.
-**Ask:** 20-minute briefing this week
+**Follow-up:** 3 business days if no response. CC Economic Development on follow-up.
+**Ask:** 20-minute briefing in the next 10 business days
 
 ---
 
-### 3. Robert Sturns — Asst. City Manager, Economic Development, Fort Worth
+### 3. Robert Sturns — Economic Development Director, Fort Worth
 **Email:** robert.sturns@fortworthtexas.gov
 **Relationship:** Cold outreach
 **Method:** Email
@@ -99,7 +100,7 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 - **ES** — supporting overview
 
 **Follow-up:** 3 days. Sturns is often the implementation path even when Parker is the relationship.
-**Ask:** Brief this week, offer to present to economic development team
+**Ask:** Brief in the next 10 business days, offer to present to economic development team
 
 ---
 
@@ -114,7 +115,7 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 **Tone:** Formal, technical, collaborative. Position as a partner to the eIPP program, not a petitioner.
 
 **Message:**
-> Dear Mr. Williams, Congratulations on today's selection as one of 8 national eIPP sites. I'm leading the Trinity Air Link — a planned eVTOL and autonomous vehicle hub at the historic Texas & Pacific Warehouse in downtown Fort Worth. As Archer Aviation stands up Texas operations in H2 2026, Trinity Air Link offers a purpose-built Fort Worth vertiport at one of the most centrally located and iconic buildings in the DFW corridor. Fort Worth is the western anchor of the metroplex and the natural complement to any Dallas-centric routes. I'd like to understand how the Texas eIPP program is approaching vertiport partnerships, and how Trinity Air Link can contribute to your network from day one. Would someone on your team be available for a call this week?
+> Dear Mr. Williams, Congratulations on Texas DOT's selection as one of 8 national eIPP sites. I am leading Trinity Air Link, a planned eVTOL-ready and autonomous/electric ground-mobility hub at the historic Texas & Pacific Warehouse in downtown Fort Worth. As Texas network planning advances, Trinity Air Link offers a purpose-built Fort Worth vertiport and ground-operations anchor at one of the most centrally located buildings in the DFW corridor. Fort Worth is the western anchor of the metroplex and the natural complement to Dallas-centric routes. I would like to understand how the Texas eIPP program is approaching vertiport partnerships and how Trinity Air Link can contribute to the network from day one. Would someone on your team be available for a call in the next two weeks?
 
 **Documents to attach:**
 - **ES** — overview
@@ -122,7 +123,7 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 - **WP** — offer as follow-up: "I'm happy to share our full technical white paper with your team"
 
 **Follow-up:** 5 days. Also reach James Bass (Deputy ED) simultaneously.
-**Ask:** Brief call this week with eIPP program team
+**Ask:** Brief call in the next two weeks with eIPP program team
 
 ---
 
@@ -163,8 +164,8 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 - **TP** — partnership framework
 - **3D** — facility and rooftop infrastructure
 
-**Follow-up:** 3 days. This is time-sensitive — they are actively building their TX network now.
-**Ask:** Call this week on vertiport and ground ops partnership
+**Follow-up:** 3 business days. This is time-sensitive because Texas network planning is active.
+**Ask:** Call in the next 10 business days on vertiport and ground ops partnership
 
 ---
 
@@ -257,7 +258,7 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 
 ---
 
-### 12. Glen Whitley — County Judge, Tarrant County
+### 12. Tim O'Hare — County Judge, Tarrant County
 **Email:** Research needed
 **Phone:** (817) 884-1441
 **Method:** Email
@@ -330,9 +331,9 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 
 ---
 
-### 20. Kyle Vogt — Co-founder & CEO, Cruise (GM)
+### 20. GM autonomous mobility / Cruise transition contact
 **Email:** Research needed
-**Method:** LinkedIn + email
+**Method:** Research current GM autonomous mobility leadership before outreach
 **Documents:** **TP**, **ES**
 **Message focus:** AV fleet integration, urban deployment, DFW as expansion market
 **Ask:** AV partnership discussion
@@ -348,12 +349,12 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 
 ---
 
-### 22. Daniel Wiegand — Co-founder & CEO, Lilium
+### 22. Backup eVTOL operator pipeline — do not lead with Lilium
 **Email:** Research needed
-**Method:** LinkedIn + email
+**Method:** Maintain as market-risk reference; prioritize active U.S. operators and certified/near-certified partners
 **Documents:** **TP**, **ES**
-**Message focus:** U.S. market entry, Fort Worth as first Texas vertiport, eIPP network
-**Ask:** Partnership exploration
+**Message focus:** Platform-agnostic infrastructure; avoid dependence on any single aircraft OEM
+**Ask:** Research replacement candidates before direct outreach
 
 ---
 
@@ -390,7 +391,7 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 **Method:** Warm introduction
 **Same note as Blackstone above**
 
-### 27. Robin Hayes — CEO, JetBlue Airways
+### 27. Robin Hayes — Former airline CEO / aviation strategic advisor
 **Documents:** **IB**, **ES**, **TP**
 **Method:** LinkedIn + email
 **Message focus:** Aviation ecosystem evolution, strategic investment, eVTOL integration
@@ -412,7 +413,7 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 **Documents:** **GB**, **ES**
 **Message focus:** Transportation innovation, district economic development
 
-### 32. FAA — Michael Whitaker (Administrator)
+### 32. FAA — Bryan Bedford (Administrator)
 **Phone:** (202) 267-3111
 **Method:** Formal letter + email; approach through aviation industry connections
 **Documents:** **WP**, **ES**, **GB**
@@ -429,9 +430,9 @@ Do **not** lead with the white paper for mayors, city managers, or generalist in
 ## OUTREACH SEQUENCE & TIMING
 
 ```
-WEEK 1 (NOW)
+WEEK 1
 ├── Mattie Parker — personal email + LinkedIn DM
-├── David Cooke — email
+├── Jay Chapa — email
 ├── Robert Sturns — email
 ├── Archer Aviation — email (time-sensitive, they're building TX ops now)
 └── Reilly Brennan — email
@@ -451,9 +452,9 @@ WEEK 3–4
 └── Michael Morris (NCTCOG)
 
 MONTH 2
-├── A2 government contacts (Whitley, Shelley, Bass Jr.)
+├── A2 government contacts (O'Hare, Shelley, Bass Jr.)
 ├── A2 investors (Sid Bass, Ross Perot Jr., Oscar Munoz)
-├── A2 tech partners (Cruise, Lilium, Nvidia)
+├── A2 tech partners (GM autonomous mobility, Nvidia, replacement eVTOL candidates)
 └── Downtown Fort Worth, Inc.
 
 MONTH 3
