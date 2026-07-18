@@ -4,9 +4,10 @@
 
 This comprehensive contact database organizes key stakeholders across four primary categories for systematic engagement. Each contact includes priority level, engagement strategy, and tracking information for CRM implementation.
 
-**Total Contacts:** 65+ high-priority targets
-**Categories:** Government (20), Investors (25), Technology Partners (15), Community/Strategic (5)
-**Engagement Timeline:** Immediate (10), 30-day (25), 60-day (20), 90-day (10)
+**Total Contacts:** 33 validated named targets plus research queues
+**Categories:** Government, Investors, Technology Partners, Community/Strategic
+**Engagement Timeline:** First 10 business days, 30-day, 60-day, research queue
+**Execution Tracker:** `../TrinityAir_Rollout_Ready.csv`
 
 ---
 
@@ -33,7 +34,7 @@ This comprehensive contact database organizes key stakeholders across four prima
 ### Federal Level
 
 #### **FAA - Federal Aviation Administration**
-**Contact: Michael Whitaker**
+**Contact: Bryan Bedford**
 - **Title:** Administrator
 - **Organization:** Federal Aviation Administration
 - **Priority:** A1 (Critical)
@@ -55,7 +56,7 @@ This comprehensive contact database organizes key stakeholders across four prima
 - **Key Interests:** Aircraft certification, operational safety standards
 
 #### **USDOT - Department of Transportation**
-**Contact: Pete Buttigieg**
+**Contact: Sean Duffy**
 - **Title:** Secretary of Transportation
 - **Organization:** U.S. Department of Transportation
 - **Priority:** A2 (High)
@@ -111,17 +112,18 @@ This comprehensive contact database organizes key stakeholders across four prima
 - **Approach Strategy:** Formal presentation request, economic development focus
 - **Notes:** Critical for project approval and municipal partnership
 
-**Contact: David Cooke**
+**Contact: Jay Chapa**
 - **Title:** City Manager
 - **Organization:** City of Fort Worth
 - **Priority:** A1 (Critical)
-- **Email:** david.cooke@fortworthtexas.gov
+- **Email:** jay.chapa@fortworthtexas.gov
 - **Phone:** (817) 392-7808
 - **Engagement Type:** GM - Implementation planning and permitting
 - **Key Interests:** Municipal operations, public-private partnerships
 
 **Contact: Robert Sturns**
-- **Title:** Assistant City Manager - Economic Development
+- **Title:** Economic Development Director
+- **Status note:** Verify exact current reporting title before sending. City materials continue to identify Sturns with Economic Development leadership.
 - **Organization:** City of Fort Worth
 - **Priority:** A1 (Critical)
 - **Email:** robert.sturns@fortworthtexas.gov
@@ -145,7 +147,7 @@ This comprehensive contact database organizes key stakeholders across four prima
 - **Engagement Type:** GM - Transportation and development
 
 #### **Tarrant County**
-**Contact: Glen Whitley**
+**Contact: Tim O'Hare**
 - **Title:** County Judge
 - **Organization:** Tarrant County
 - **Priority:** A2 (High)
@@ -317,16 +319,12 @@ This comprehensive contact database organizes key stakeholders across four prima
 - **Partnership Type:** Technical integration and operations
 - **Key Interests:** Product development, customer operations
 
-#### **Lilium**
-**Contact: Daniel Wiegand**
-- **Title:** Co-founder & CEO
-- **Organization:** Lilium
-- **Priority:** A2 (High)
-- **Location:** Munich, Germany / Orlando, FL
-- **Email:** [Research needed]
+#### **Backup eVTOL Operator Research Queue**
+**Contact:** [Research current active operators before outreach]
+- **Priority:** Research Queue
 - **Partnership Type:** VTOL aircraft and operations
 - **Key Interests:** U.S. market entry, commercial partnerships
-- **Notes:** NASDAQ: LILM, jet-powered eVTOL
+- **Notes:** Do not lead with Lilium; current diligence materials treat its insolvency as a single-OEM risk example.
 
 #### **EHang**
 **Contact: Huazhi Hu**
@@ -360,11 +358,11 @@ This comprehensive contact database organizes key stakeholders across four prima
 - **Partnership Type:** Business development and partnerships
 - **Key Interests:** Commercial expansion, partnerships
 
-#### **Cruise**
-**Contact: Kyle Vogt**
-- **Title:** Co-founder & CEO
-- **Organization:** Cruise (General Motors)
-- **Priority:** A2 (High)
+#### **GM Autonomous Mobility / Cruise Transition**
+**Contact:** [Research current GM autonomous mobility leadership]
+- **Title:** Current leadership to verify
+- **Organization:** General Motors / Cruise transition
+- **Priority:** Research Queue
 - **Location:** San Francisco, CA
 - **Email:** [Research needed]
 - **Partnership Type:** AV technology and fleet services
@@ -451,9 +449,9 @@ This comprehensive contact database organizes key stakeholders across four prima
 
 1. **Government Foundation**
    - Mayor Mattie Parker (Fort Worth)
-   - City Manager David Cooke
+   - City Manager Jay Chapa
    - Assistant City Manager Robert Sturns
-   - FAA Administrator Michael Whitaker
+   - FAA Administrator Bryan Bedford
 
 2. **Technology Partnerships**
    - JoeBen Bevirt (Joby Aviation)

@@ -18,7 +18,7 @@ This file lists all email addresses currently found in project docs and webpages
 ## 2) External stakeholder/partner inboxes referenced in docs/pages
 - `brad@foundrygroup.com` — sources: `docs/Contact_Outreach_Plan.md, docs/hub_docs/Stakeholder_Contact_Database.md, outreach.md`
 - `carlos.flores@fortworthtexas.gov` — sources: `docs/Contact_Outreach_Plan.md, docs/hub_docs/Stakeholder_Contact_Database.md, docs/hub_docs/Stakeholder_Email_Drafts.md, outreach.md`
-- `david.cooke@fortworthtexas.gov` — sources: `docs/Contact_Outreach_Plan.md, docs/hub_docs/Stakeholder_Contact_Database.md, docs/hub_docs/Stakeholder_Email_Drafts.md, outreach.md`
+- `jay.chapa@fortworthtexas.gov` — sources: `docs/Contact_Outreach_Plan.md, docs/hub_docs/Stakeholder_Contact_Database.md, docs/hub_docs/Stakeholder_Email_Drafts.md, docs/TrinityAir_Rollout_Ready.csv`
 - `jared.williams@fortworthtexas.gov` — sources: `docs/hub_docs/Stakeholder_Contact_Database.md, docs/hub_docs/Stakeholder_Email_Drafts.md`
 - `jlevine@bvp.com` — sources: `docs/Contact_Outreach_Plan.md, docs/hub_docs/Stakeholder_Contact_Database.md, outreach.md`
 - `mattie.parker@fortworthtexas.gov` — sources: `docs/Contact_Outreach_Plan.md, docs/hub_docs/Mattie_Parker_Outreach.txt, docs/hub_docs/Stakeholder_Contact_Database.md, docs/hub_docs/Stakeholder_Email_Drafts.md, outreach.md`

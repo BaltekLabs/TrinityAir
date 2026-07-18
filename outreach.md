@@ -51,28 +51,28 @@ Method: Personal email first, LinkedIn DM same day as follow-up
 Subject: Catching up — and something urgent for Fort Worth
 Tone: Warm, personal, brief. Use existing relationship. Do not over-pitch.
 Message:
-Hi Mattie, hope all is well. I know you're tracking this morning's news — Texas just got selected as one of 8 national sites for the White House eVTOL program. Electric air taxis are coming to DFW this summer. Fort Worth isn't on the initial route map yet. I think that needs to change, and fast. I've been working on the Trinity Air Link — an eVTOL and autonomous vehicle hub at the T&P Warehouse downtown. Today's announcement is exactly the validation I've been waiting for, and I think the City needs to move on this quickly before Dallas gets all the attention. Can we find 20 minutes this week? I'd love to brief you before this story gets much bigger.
+Hi Mattie, hope all is well. I wanted to reconnect and say I am looking forward to Westside starting back up in the fall. I also wanted to share a Fort Worth opportunity that has become more urgent since Texas was selected as one of the national eIPP sites. Fort Worth is not on the initial route map, and I think the city should move quickly before the DFW advanced-air-mobility conversation becomes Dallas-led by default. I have been working on Trinity Air Link: an eVTOL-ready and autonomous/electric ground-mobility hub at the T&P Warehouse downtown. It is designed to combine economic development, historic reuse, and regional transportation leadership in one project. Can we find 20 minutes in the next two weeks? I would like to brief you before the next round of Texas network decisions gets further along.
 Documents to attach: ES (executive_summary.html)
 Follow-up if no response in 3 days: LinkedIn DM referencing the email
-Ask: 20-minute briefing this week
-2. David Cooke — City Manager, City of Fort Worth
-Email: david.cooke@fortworthtexas.gov
+Ask: 20-minute briefing in the next 10 business days
+2. Jay Chapa — City Manager, City of Fort Worth
+Email: jay.chapa@fortworthtexas.gov
 Phone: (817) 392-7808
 Relationship: Cold outreach / Method: Email
-Subject: Today's federal eVTOL announcement — Fort Worth needs a response
+Subject: Briefing request: Fort Worth mobility hub at T&P Warehouse
 Tone: Professional, direct, policy-focused. Lead with the eIPP news.
 Message: (full draft in A1_Contacts_Outreach.txt)
 Documents: ES + GB
-Follow-up: 3 days. CC Robert Sturns on follow-up.
-Ask: 20-minute briefing this week
-3. Robert Sturns — Asst. City Manager, Economic Development, Fort Worth
+Follow-up: 3 business days. CC Economic Development on follow-up.
+Ask: 20-minute briefing in the next 10 business days
+3. Robert Sturns — Economic Development Director, Fort Worth
 Email: robert.sturns@fortworthtexas.gov / Method: Email
 Subject: Texas selected for White House air taxi program — Fort Worth opportunity
 Tone: Economic development framing. Lead with jobs, investment, competitive position vs. Dallas.
 Message: (full draft in A1_Contacts_Outreach.txt)
 Documents: GB (primary) + ES
 Follow-up: 3 days. Sturns is often the implementation path even when Parker is the relationship.
-Ask: Brief this week, offer to present to economic development team
+Ask: Brief in the next 10 business days, offer to present to economic development team
 4. Marc Williams — Executive Director, TxDOT
 Phone: (512) 416-2001 / Method: Email + certified letter to Austin office
 Subject: Fort Worth vertiport partnership — Trinity Air Link
@@ -144,7 +144,7 @@ GB + ES + WP (offer)
 Regional planning, DFW multi-modal integration, eIPP network map
 Meeting with planning team
 12
-Glen Whitley, County Judge, Tarrant County
+Tim O'Hare, County Judge, Tarrant County
 Research needed
 Email
 GB + ES
@@ -200,9 +200,9 @@ TP + 3D + ES
 Operational integration, FW as launch market
 Technical partnership discussion
 20
-Kyle Vogt, Co-founder & CEO, Cruise (GM)
+GM autonomous mobility / Cruise transition contact
 Research needed
-LinkedIn + email
+Research current GM autonomous mobility leadership before outreach
 TP + ES
 AV fleet integration, urban deployment, DFW expansion
 AV partnership discussion
@@ -214,12 +214,12 @@ IB + ES
 Aviation transformation, strategic advisory, investor upside
 Advisory conversation
 22
-Daniel Wiegand, Co-founder & CEO, Lilium
+Backup eVTOL operator pipeline — do not lead with Lilium
 Research needed
-LinkedIn + email
+Research active U.S. operators and certified/near-certified partners before outreach
 TP + ES
-U.S. market entry, Fort Worth as first TX vertiport
-Partnership exploration
+Platform-agnostic infrastructure; avoid dependence on any single aircraft OEM
+Research replacement candidates before direct outreach
 23
 Danny Shapiro, Sr. Director Automotive, Nvidia
 Research needed
@@ -268,7 +268,7 @@ Jared Williams, District 9 Councilman, Fort Worth
 GB + ES
 Transportation innovation, district economic development
 32
-Michael Whitaker, FAA Administrator
+Bryan Bedford, FAA Administrator
 WP + ES + GB
 Approach after TxDOT relationship established — use them as introduction. Formal letter + email.
 33
@@ -276,9 +276,9 @@ Natasha Santha, FAA Associate Administrator for Aviation Safety
 WP (regulatory sections)
 Through aviation industry or TxDOT introduction. VTOL certification focus.
 OUTREACH SEQUENCE & TIMING
-WEEK 1 (NOW)
+WEEK 1
 ├── Mattie Parker — personal email + LinkedIn DM
-├── David Cooke — email
+├── Jay Chapa — email
 ├── Robert Sturns — email
 ├── Archer Aviation — email (time-sensitive, they're building TX ops now)
 └── Reilly Brennan — email

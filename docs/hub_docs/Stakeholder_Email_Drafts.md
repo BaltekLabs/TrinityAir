@@ -40,9 +40,9 @@ Use one sentence like:
 **To:** `mattie.parker@fortworthtexas.gov`  
 **Subject:** Catching up — and a Fort Worth opportunity we should move on
 
-Hi Mayor Parker,
+Hi Mattie,
 
-I hope you’re doing well. I wanted to reconnect and share an opportunity that feels especially timely for Fort Worth.
+I hope you’re doing well. I’m looking forward to Westside starting back up in the fall, and I wanted to reconnect on something that feels especially timely for Fort Worth.
 
 I’m leading the **Trinity Air Link**, a transportation project centered on the T&P Warehouse that combines eVTOL operations with electric/autonomous ground transfers. The goal is to make Fort Worth a primary node in next-generation regional mobility—not a secondary stop.
 
@@ -58,11 +58,11 @@ Best,
 
 ---
 
-## 2) David Cooke — City Manager, City of Fort Worth
-**To:** `david.cooke@fortworthtexas.gov`  
+## 2) Jay Chapa — City Manager, City of Fort Worth
+**To:** `jay.chapa@fortworthtexas.gov`  
 **Subject:** Briefing request: Fort Worth mobility hub at T&P Warehouse
 
-Hi Mr. Cooke,
+Hi Mr. Chapa,
 
 I’m reaching out to request a brief meeting regarding the **Trinity Air Link**, a proposed transportation initiative at the T&P Warehouse in downtown Fort Worth.
 
