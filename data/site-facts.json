@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "last_verified": "2026-09-17",
+  "project": {
+    "name": "Trinity Air Link",
+    "phase": "Phase 0 - validation and site control",
+    "public_capital_raise": false,
+    "site_control_confirmed": false,
+    "operator_commitment_confirmed": false,
+    "faa_operating_authority_confirmed": false
+  },
+  "preferred_site": {
+    "name": "Texas & Pacific Warehouse",
+    "address": "401 W Lancaster Avenue, Fort Worth, Texas",
+    "approximate_area_square_feet": 580000,
+    "area_status": "Subject to survey and architect verification",
+    "source": "https://www.fortworthtexas.gov/files/assets/public/v/1/development-services/documents/all-preservation-and-design/historic/agenda-annotated-agendas/annotated-agendas/2023/8.-8-14-23-hclc-meeting-minutes.pdf"
+  },
+  "market": {
+    "dfw_population_approximate": 8500000,
+    "dfw_population_source": "https://www.census.gov/library/stories/2026/05/major-city-outer-edge-growth.html",
+    "dfw_2024_delay_person_hours": 231316000,
+    "dfw_congestion_source": "https://static.tti.tamu.edu/tti.tamu.edu/documents/mobility-report-2025.pdf",
+    "texas_eipp_selected": true,
+    "trinity_air_named_eipp_participant": false,
+    "eipp_source": "https://www.faa.gov/newsroom/future-aviation-here-trumps-transportation-secretary-sean-duffy-and-faa-unveil-eight",
+    "joby_fort_worth_area_presence": true,
+    "joby_source": "https://ir.jobyaviation.com/news-events/press-releases/detail/188/joby-aviation-establishes-hub-at-perot-field-fort-worth",
+    "waymo_dallas_public_service": true,
+    "waymo_source": "https://waymo.com/blog/shorts/dallas-open-to-all/"
+  },
+  "publication_rules": {
+    "financial_returns_public": false,
+    "diligence_materials_public": false,
+    "relationship_claim_requires_written_evidence": true,
+    "all_design_images_are_conceptual": true
+  }
+}

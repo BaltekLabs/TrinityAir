@@ -1,1998 +1,397 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trinity Air Link — Fort Worth's Future of Air Mobility</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Trinity Air Link — Fort Worth's Future of Air Mobility -->
-    <style>
-        :root {
-            --bg: #f4f7fb;
-            --surface: #ffffff;
-            --surface-2: #eef3f9;
-            --accent: #0a6fff;
-            --accent-dim: rgba(10, 111, 255, 0.1);
-            --text-primary: #0f172a;
-            --text-secondary: #334155;
-            --text-muted: #64748b;
-            --border: rgba(15, 23, 42, 0.12);
-            --border-subtle: rgba(15, 23, 42, 0.08);
-        }
-
-        * {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at 10% 10%, #dbeafe 0, #f4f7fb 35%, #f8fafc 100%);
-            color: var(--text-primary);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-        }
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-            border-radius: 8px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-        }
-
-        @media (max-width: 640px) {
-            .chart-container { height: 300px; max-height: 350px; }
-        }
-
-        .tab-active {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: var(--accent-dim);
-            transform: translateY(-1px);
-        }
-
-        .tab-inactive {
-            border-color: transparent;
-            color: var(--text-muted);
-            transition: all 0.3s ease;
-        }
-
-        .tab-inactive:hover {
-            color: var(--accent);
-            border-color: var(--border);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
-            background: var(--accent);
-            border: 2px solid #f8fafc;
-            border-radius: 50%;
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover::before {
-            transform: translateY(-50%) scale(1.2);
-            box-shadow: 0 0 8px rgba(10, 111, 255, 0.25);
-        }
-
-        .nav-active {
-            color: var(--accent);
-        }
-
-        .accordion-header span.arrow {
-            transition: all 0.3s ease-in-out;
-            color: var(--accent);
-        }
-
-        .accordion-header.expanded span.arrow {
-            transform: rotate(90deg);
-            color: var(--accent);
-        }
-
-        .case-study-card {
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-subtle);
-            background: var(--surface);
-        }
-
-        .case-study-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border);
-        }
-
-        .flag-icon {
-            width: 28px;
-            height: 28px;
-            margin-right: 10px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            color: white;
-            border: 1px solid var(--border);
-        }
-
-        .image-container {
-            width: 100%;
-            height: 256px;
-            max-height: 384px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 8px;
-            position: relative;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .image-container:hover {
-            border-color: var(--accent);
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .image-container:hover img {
-            transform: scale(1.03);
-        }
-
-        .image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 8, 20, 0.92) 0%, rgba(0, 8, 20, 0.6) 50%, transparent 100%);
-            padding: 0.75rem 1rem 0.875rem;
-            color: #e8f4ff;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            text-shadow: 0 0 12px rgba(0, 180, 255, 0.6), 0 1px 3px rgba(0, 0, 0, 0.9);
-        }
-
-        @media (min-width: 1024px) {
-            .image-container {
-                height: 384px;
-            }
-        }
-
-        /* Core UI Components */
-        .futuristic-card {
-            background: var(--surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .futuristic-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--border);
-        }
-
-        .stat-number {
-            color: var(--accent);
-            text-shadow: none;
-        }
-
-        .section-divider {
-            display: none;
-        }
-
-        .glow-text {
-            color: var(--text-primary);
-        }
-
-        .cta-button {
-            background: var(--accent);
-            border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            color: #f8fafc;
-            font-weight: 700;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.05em;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(0, 212, 255, 0.2);
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .futuristic-card {
-                margin: 1rem 0;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .cta-button {
-                width: 100%;
-                margin: 0.5rem 0;
-            }
-        }
-    </style>
-</head>
-<body class="text-white" style="background:radial-gradient(circle at 10% 10%, #dbeafe 0, #f4f7fb 35%, #f8fafc 100%);">
-
-    <header id="nav-header" class="fixed top-0 w-full z-50 transition-all duration-300" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); box-shadow:0 8px 32px rgba(15,23,42,0.08);">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20 gap-4">
-                <div class="flex items-center space-x-3 min-w-0">
-                    <div class="w-10 h-10 rounded-full border border-[var(--border)] flex items-center justify-center" style="background:var(--surface);">
-                        <span style="color:var(--accent);font-family:'Orbitron',sans-serif;font-weight:700;font-size:0.75rem;">TAL</span>
-                    </div>
-                    <div class="min-w-0">
-                        <span class="block truncate" style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:0.95rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">TRINITY AIR LINK</span>
-                        <div class="truncate" style="font-size:0.62rem;color:var(--text-secondary);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Fort Worth's Future of Air Mobility</div>
-                    </div>
-                </div>
-                <div class="hidden">
-                    <div class="flex items-center space-x-1">
-                        <a href="#overview" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Overview</a>
-                        <a href="#hub-vision" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Vision</a>
-                        <a href="#opportunity" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Opportunity</a>
-                        <a href="#case-studies" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Case Studies</a>
-                        <a href="#phases" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Implementation</a>
-                        <a href="#financials" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Financials</a>
-                        <a href="/pricing_calculator.html" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Calculator</a>
-                        <a href="#documents" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Documents</a>
-                        <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;">Contact</a>
-                        <a href="#demo" class="nav-link px-3 py-2 text-sm font-medium transition-colors duration-200 tracking-wide uppercase" style="font-size:0.7rem;letter-spacing:0.1em;color:var(--accent);border:1px solid var(--border);border-radius:4px;background:var(--accent-dim);">Demo</a>
-                    </div>
-                </div>
-                <div class="hidden">
-                    <button onclick="scrollToContact()" class="cta-button text-sm px-4 py-2">Get Involved</button>
-                    <button onclick="downloadExecutiveSummary()" class="hidden 2xl:block" style="border:1px solid var(--border);color:var(--accent);padding:8px 16px;border-radius:6px;font-size:0.8rem;font-weight:600;background:transparent;transition:all 0.2s ease;" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='transparent'">Executive Summary</button>
-                </div>
-                <div>
-                    <button id="mobile-menu-button" aria-label="Open navigation menu" class="inline-flex items-center justify-center p-2.5 rounded-lg transition-all duration-200" style="color:var(--accent);border:1px solid var(--border);background:var(--surface);box-shadow:0 6px 18px rgba(37,99,235,0.12);" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='var(--surface)'">
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M5 7.5H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M8 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M11 16.5H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="hidden" style="background:rgba(255,255,255,0.98);border-top:1px solid var(--border);">
-            <div class="px-4 pt-4 pb-6 space-y-2">
-                <a href="#overview" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Overview</a>
-                <a href="#hub-vision" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Vision</a>
-                <a href="#opportunity" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Opportunity</a>
-                <a href="#case-studies" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Case Studies</a>
-                <a href="#phases" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Implementation</a>
-                <a href="#financials" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Financials</a>
-                <a href="/pricing_calculator.html" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Calculator</a>
-                <a href="#documents" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Documents</a>
-                <a href="#contact" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Contact</a>
-                <a href="#demo" class="nav-link block px-4 py-3 text-base font-medium transition-colors duration-200" style="color:var(--accent);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">Book a Flight Demo</a>
-                <div class="pt-4 mt-4" style="border-top:1px solid var(--border-subtle);">
-                    <button onclick="scrollToContact()" class="cta-button w-full mb-3">Get Involved</button>
-                    <button onclick="downloadExecutiveSummary()" style="width:100%;border:1px solid var(--border);color:var(--accent);padding:12px 16px;border-radius:6px;font-weight:600;background:transparent;transition:all 0.2s ease;">Executive Summary</button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section id="overview" class="relative" style="margin-top: 80px;">
-            <div class="relative py-24 sm:py-32">
-                <img src="images/buildingcorner.png" alt="Trinity Air Link mobility hub exterior with integrated urban access" onerror="this.onerror=null;this.src='images/old/cityView.jpeg';" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-slate-800/70"></div>
-                
-                <div class="absolute top-0 left-0 right-0 pt-8 z-10 text-center px-4">
-                    <span style="font-size:0.75rem;font-weight:600;color:#ffffff;letter-spacing:0.15em;text-transform:uppercase;">Texas &amp; Pacific Warehouse • Fort Worth, TX • DFW Metroplex</span>
-                </div>
-
-                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div class="inline-flex items-center px-5 py-2 mb-8 ml-3" style="border:1px solid rgba(251,191,36,0.4);border-radius:999px;background:rgba(251,191,36,0.07);">
-                        <span class="w-2 h-2 rounded-full mr-3 animate-pulse" style="background:#fbbf24;"></span>
-                        <span style="font-size:0.7rem;font-weight:700;color:#fcd34d;letter-spacing:0.1em;text-transform:uppercase;">Breaking: Texas Selected for Federal eIPP — Deployment Planning Active (Certification-Dependent)</span>
-                    </div>
-    
-                    <h1 class="mt-4 text-5xl font-bold sm:text-6xl lg:text-7xl" style="color:var(--surface);">
-                        <span class="block">Fort Worth's Future of</span>
-                        <span class="block mt-2">
-                            <span class="stat-number">Air Mobility</span>
-                        </span>
-                    </h1>
-    
-                <p class="mt-8 max-w-4xl mx-auto text-xl sm:text-2xl leading-relaxed" style="color:var(--surface-2); text-shadow: 0 2px 4px rgba(0,0,0,0.6);">Transform the historic Texas &amp; Pacific Warehouse into a capital-light, integrated air-and-ground mobility hub for the DFW region. Trinity Air Link combines infrastructure, operations enablement, and adaptive reuse of a landmark site to improve regional connectivity while preserving long-term strategic flexibility. <span style="color:#fbbf24;font-weight:600;"><br>Texas selected for the federal eIPP program — network deployment planning is active, with operations subject to FAA certification milestones.</span></p>
-                <!--p class="mt-4 max-w-4xl mx-auto text-base sm:text-lg" style="color:#cbd5e1; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">Trinity Air Link (formerly The Hub/Nexus Hub).</p-->
-    
-                </div>
-            </div>
-            <div class="py-16 sm:py-20" style="background:var(--surface);">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    <div class="futuristic-card p-8 text-center group">
-                        <p class="text-6xl font-bold stat-number font-orbitron mb-2">8.5M</p>
-                        <p class="text-lg font-semibold transition-colors" style="color:var(--text-secondary);">DFW Population</p>
-                        <div class="mt-2 text-sm" style="color:var(--text-muted);">Fastest-Growing US Metroplex</div>
-                    </div>
-                    <div class="futuristic-card p-8 text-center group">
-                        <p class="text-6xl font-bold stat-number font-orbitron mb-2">24.8%</p>
-                        <p class="text-lg font-semibold transition-colors" style="color:var(--text-secondary);">Calculated IRR (Before Terminal)</p>
-                        <div class="mt-2 text-sm" style="color:var(--text-muted);">10-year, capital-light moderate case</div>
-                    </div>
-                    <div class="futuristic-card p-8 text-center group">
-                        <p class="text-6xl font-bold stat-number font-orbitron mb-2">$89.7M</p>
-                        <p class="text-lg font-semibold transition-colors" style="color:var(--text-secondary);">NPV @ 10%</p>
-                        <div class="mt-2 text-sm" style="color:var(--text-muted);">Before terminal value</div>
-                    </div>
-                    <div class="futuristic-card p-8 text-center group">
-                        <p class="text-6xl font-bold stat-number font-orbitron mb-2">$107M–$113M</p>
-                        <p class="text-lg font-semibold transition-colors" style="color:var(--text-secondary);">Capital-Light Case</p>
-                        <div class="mt-2 text-sm" style="color:var(--text-muted);">Preferred operator-access model</div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-        
-        <section id="hub-vision" class="py-24 sm:py-32 relative overflow-hidden" style="background:var(--surface);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <div class="inline-flex items-center px-6 py-3 mb-8" style="border-radius:999px;border:1px solid var(--border);background:var(--accent-dim);">
-                    <span class="w-3 h-3 rounded-full mr-3" style="background:var(--accent);"></span>
-                    <span style="font-size:0.7rem;font-weight:600;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;">First-Touch System Overview</span>
-                </div>
-
-                <h2 class="text-5xl font-bold sm:text-6xl lg:text-7xl mb-8" style="color:var(--text-primary);">
-                    <span class="block">The TAL System:</span>
-                    <span class="block mt-2 stat-number">Integrated Mobility Network</span>
-                </h2>
-
-                <p class="max-w-4xl mx-auto text-xl sm:text-2xl leading-relaxed mb-12" style="color:var(--text-secondary);">The TAL system is designed around one strategic node: the Texas &amp; Pacific Warehouse in Fort Worth. It combines air mobility, ground mobility, and innovation-center tenancy in a capital-light operating model that prioritizes phased execution, partner access, and regional connectivity.</p>
-
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                    <button onclick="scrollToImplementation()" class="cta-button text-lg px-8 py-4">View Implementation</button>
-                    <!--button onclick="downloadTechnicalSpecs()" style="border:1px solid var(--border);color:var(--accent);padding:16px 32px;border-radius:6px;font-size:1.125rem;font-weight:600;background:transparent;transition:all 0.2s ease;" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='transparent'">Technical Specs</button-->
-                </div>
-                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left">
-                    <div class="futuristic-card p-6">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/rooftop.png" alt="Rooftop vertiport pad supporting VTOL arrivals and departures" onerror="this.onerror=null;this.src='images/hubImagery.jpeg';" class="rounded-md">
-                            <div class="image-overlay">VTOL Operations</div>
-                        </div>
-                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Air Mobility</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Rooftop vertiport infrastructure is planned to support certified operator service between key DFW nodes as market readiness and certification milestones are met.</p>
-                    </div>
-                    <div class="futuristic-card p-6">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/streetLevelPavedPickup_resize.png" alt="Autonomous electric shuttle docking lanes inside the Trinity Air Link hub" onerror="this.onerror=null;this.src='images/old/hubImagery2.jpeg';" class="rounded-md">
-                            <div class="image-overlay">Autonomous EV Networks</div>
-                        </div>
-                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Ground Mobility</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Ground mobility operations are structured to connect riders from regional transit and neighborhood origin points into a unified first/last-mile network.</p>
-                    </div>
-                    <div class="futuristic-card p-6">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/innovationcenter.png" alt="Innovation Center workspace with collaborative research areas" onerror="this.onerror=null;this.src='images/old/smallInterior.jpeg';" class="rounded-md">
-                            <div class="image-overlay">Technology Innovation</div>
-                        </div>
-                        <h3 class="font-semibold text-xl" style="color:var(--text-primary);">Innovation Center</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">The innovation center adds durable non-ticket revenue through leasable space for mobility, logistics, and advanced-technology tenants aligned with the transportation mission.</p>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-        
-        <section id="challenge" class="py-20 sm:py-28 relative overflow-hidden" style="background:var(--surface-2);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center">
-                    <div class="inline-flex items-center px-4 py-2 mb-6" style="border-radius:999px;border:1px solid rgba(248,113,113,0.3);background:rgba(248,113,113,0.05);">
-                        <span class="w-2 h-2 rounded-full mr-3" style="background:#f87171;"></span>
-                        <span style="font-size:0.7rem;font-weight:600;color:#f87171;letter-spacing:0.12em;text-transform:uppercase;">Due Diligence</span>
-                    </div>
-                    <h2 class="text-4xl font-bold sm:text-5xl" style="color:var(--text-primary);">The Challenge: <span style="color:#f87171;">Calculated Risks</span></h2>
-                    <p class="mt-6 max-w-3xl mx-auto text-xl" style="color:var(--text-secondary);">Transparent assessment of current challenges creates the foundation for strategic transformation and stakeholder confidence.</p>
-                </div>
-
-                <div class="mt-16 max-w-5xl mx-auto futuristic-card">
-                    <div class="mb-4" style="border-bottom:1px solid var(--border-subtle);">
-                        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="challenge-tabs">
-                            <li class="mr-2"><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-active" style="color:var(--accent);" data-tab="vacancy">Stalled Projects</button></li>
-                            <li class="mr-2"><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-inactive" style="color:var(--text-muted);" data-tab="parking">Infrastructure Gaps</button></li>
-                            <li><button class="challenge-tab inline-block p-4 border-b-2 rounded-t-lg tab-inactive" style="color:var(--text-muted);" data-tab="compliance">Code Violations</button></li>
-                        </ul>
-                    </div>
-                    <div id="challenge-content">
-                        <div id="vacancy-content" class="p-4 rounded-b-lg" style="background:var(--surface-2);color:var(--text-secondary);">
-                            <h3 class="text-xl font-semibold" style="color:var(--text-primary);">Decades of Inaction</h3>
-                            <p class="mt-2" style="color:var(--text-secondary);">The Texas &amp; Pacific Warehouse has remained vacant since its acquisition in 1998. The property has a documented history of "years of announcements, false starts, multiple extended deadlines," and terminated city incentives. The current owner attributes delays to outside influences, but the city terminated an $11M+ TIF agreement in 2016 due to an "inability to provide a funding plan."</p>
-                        </div>
-                        <div id="parking-content" class="hidden p-4 rounded-b-lg" style="background:var(--surface-2);color:var(--text-secondary);">
-                            <h3 class="text-xl font-semibold" style="color:var(--text-primary);">Critical Parking Deficit</h3>
-                            <p class="mt-2" style="color:var(--text-secondary);">A primary development hurdle is the complete lack of adjacent parking. Any redevelopment plan must include the costly construction of new parking structures to serve all potential users, especially for retail or hotel components. This has been a consistent barrier for previous development attempts and represents a major capital expenditure for any new project.</p>
-                        </div>
-                        <div id="compliance-content" class="hidden p-4 rounded-b-lg" style="background:var(--surface-2);color:var(--text-secondary);">
-                            <h3 class="text-xl font-semibold" style="color:var(--text-primary);">Severe Compliance &amp; Condition Issues</h3>
-                            <p class="mt-2" style="color:var(--text-secondary);">The building suffers from "years of code compliance violations" and has been described by city officials as a "case of demolition by neglect." Issues include standing water in the basement for over a decade, creating a public health hazard. The city has performed mandatory temporary work and conducted a structural inspection in 2023, signaling the urgent need for stabilization and remediation.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="opportunity" class="py-20 sm:py-28 relative overflow-hidden" style="background:var(--surface);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center">
-                    <div class="inline-flex items-center px-4 py-2 mb-6" style="border-radius:999px;border:1px solid rgba(74,222,128,0.3);background:rgba(74,222,128,0.05);">
-                        <span class="w-2 h-2 rounded-full mr-3" style="background:#4ade80;"></span>
-                        <span style="font-size:0.7rem;font-weight:600;color:#4ade80;letter-spacing:0.12em;text-transform:uppercase;">Market Advantage</span>
-                    </div>
-                    <h2 class="text-4xl font-bold sm:text-5xl" style="color:var(--text-primary);">The Opportunity: <span style="color:#4ade80;">Perfect Timing</span></h2>
-                    <p class="mt-6 max-w-3xl mx-auto text-xl" style="color:var(--text-secondary);">External market forces and unprecedented public investment create an ideal environment for transformative development.</p>
-                </div>
-                <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="futuristic-card p-8 group">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 rounded flex items-center justify-center mr-4" style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);">
-                                <svg class="w-5 h-5" style="color:#4ade80;" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold" style="color:var(--text-primary);">$1B+ Development Pipeline</h3>
-                        </div>
-                        <p style="color:var(--text-secondary);" class="leading-relaxed">Strategic location at the epicenter of massive regional growth including Texas A&amp;M expansion (<span class="font-bold" style="color:#4ade80;">$320M</span>), convention center modernization, and Omni hotel tower (<span class="font-bold" style="color:#4ade80;">$217M</span>).</p>
-                    </div>
-                    <div class="futuristic-card p-8 group">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 rounded flex items-center justify-center mr-4" style="background:var(--accent-dim);border:1px solid var(--border);">
-                                <svg class="w-5 h-5" style="color:var(--accent);" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm2 6a2 2 0 114 0 2 2 0 01-4 0zm6 0a2 2 0 114 0 2 2 0 01-4 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold" style="color:var(--text-primary);">$182M Public Infrastructure</h3>
-                        </div>
-                        <p style="color:var(--text-secondary);" class="leading-relaxed">Complete reconstruction of East Lancaster Avenue with smart city infrastructure, transit improvements, and pedestrian enhancements - de-risking private investment.</p>
-                    </div>
-                    <div class="futuristic-card p-8 group">
-                        <div class="flex items-center mb-4">
-                            <div class="w-10 h-10 rounded flex items-center justify-center mr-4" style="background:rgba(0,212,255,0.08);border:1px solid var(--border);">
-                                <svg class="w-5 h-5" style="color:var(--accent);" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-xl font-semibold" style="color:var(--text-primary);">Comprehensive Incentive Package</h3>
-                        </div>
-                        <p style="color:var(--text-secondary);" class="leading-relaxed">Tax abatements, façade grants, catalytic development funding, and targeted surface parking redevelopment incentives through PID 20 partnership.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="market-context" class="py-16 sm:py-24" style="background:var(--surface);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">DFW Market Context: Perfect Storm for Innovation</h2>
-                    <p class="mt-4 max-w-3xl mx-auto text-lg" style="color:var(--text-secondary);">The Dallas-Fort Worth metroplex presents unprecedented market conditions for transportation innovation - combining massive scale, economic strength, and critical infrastructure needs.</p>
-                </div>
-
-                <!-- Market Statistics Grid -->
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-16">
-                    <div class="futuristic-card p-6 text-center">
-                        <p class="text-4xl font-bold stat-number font-orbitron mb-2">8.5M</p>
-                        <p class="text-lg font-semibold" style="color:var(--text-secondary);">Population</p>
-                        <div class="mt-2 text-sm" style="color:var(--text-muted);">4th Largest US Metroplex</div>
-                    </div>
-                    <div class="futuristic-card p-6 text-center">
-                        <p class="text-4xl font-bold stat-number font-orbitron mb-2">$710B+</p>
-                        <p class="text-lg font-semibold" style="color:var(--text-secondary);">Regional Economy</p>
-                        <div class="mt-2 text-sm" style="color:var(--text-muted);">3rd Largest US Metro Economy</div>
-                    </div>
-                    <div class="futuristic-card p-6 text-center">
-                        <p class="text-4xl font-bold stat-number font-orbitron mb-2">3.5%</p>
-                        <p class="text-lg font-semibold" style="color:var(--text-secondary);">Annual Growth</p>
-                        <div class="mt-2 text-sm" style="color:var(--text-muted);">Fastest-Growing Major Metro</div>
-                    </div>
-                    <div class="futuristic-card p-6 text-center">
-                        <p class="text-4xl font-bold stat-number font-orbitron mb-2">45min</p>
-                        <p class="text-lg font-semibold" style="color:var(--text-secondary);">Average Commute</p>
-                        <div class="mt-2 text-sm" style="color:var(--text-muted);">Significant Time Lost to Traffic</div>
-                    </div>
-                </div>
-
-                <div class="grid gap-12 lg:grid-cols-2">
-                    <!-- Transportation Challenges -->
-                    <div class="futuristic-card p-8">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center" style="color:var(--text-primary);">
-                            <span class="w-8 h-8 rounded flex items-center justify-center mr-3" style="background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.2);">
-                                <span style="color:#f87171;font-size:1.1rem;">⚠</span>
-                            </span>
-                            Transportation Challenges
-                        </h3>
-                        <ul class="space-y-4" style="color:var(--text-secondary);">
-                            <li class="flex items-start">
-                                <span style="color:#f87171;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Severe Congestion:</span> Fort Worth ranked 10th worst U.S. commute city — 69 hours lost per commuter annually ($1,618/driver)</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#f87171;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Growing Delay Crisis:</span> 174 million collective DFW delay hours in 2024 — up 8% year-over-year</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#f87171;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Last-Mile Problem:</span> Limited connectivity between transit nodes and final destinations</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#f87171;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">$36.4B Cost by 2050:</span> Projected annual congestion cost to DFW economy without intervention</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#f87171;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Environmental Impact:</span> High emissions from car-dependent sprawl — DFW car ownership rate over 95%</div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Market Opportunities -->
-                    <div class="futuristic-card p-8">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center" style="color:var(--text-primary);">
-                            <span class="w-8 h-8 rounded flex items-center justify-center mr-3" style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);">
-                                <span style="color:#4ade80;font-size:1.1rem;">✓</span>
-                            </span>
-                            Strategic Advantages
-                        </h3>
-                        <ul class="space-y-4" style="color:var(--text-secondary);">
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--accent);">Federal eIPP Selection (March 2026):</span> Texas + Archer Aviation selected for U.S. DOT's eVTOL Integration Pilot Program — with integration planning active for Texas operations while FAA certification requirements remain in force</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Waymo in Texas:</span> Autonomous robotaxi service operating commercially in Austin — 450K+ rides/week; direct precedent for DFW AV deployment</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">$710B+ Economy:</span> 3rd largest U.S. metro economy — Fort Worth crossed 1 million residents; corporate relocations accelerating</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">PPP Framework:</span> Existing public-private partnership infrastructure and Texas innovation-friendly regulatory environment</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#4ade80;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">First-Mover Advantage:</span> Fort Worth not yet on air taxi map — Trinity Air Link positions city as the Texas eVTOL hub before competitors</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Key Market Segments -->
-                <div class="mt-16">
-                    <h3 class="text-2xl font-bold text-center mb-12" style="color:var(--text-primary);">TAL System Market Applications</h3>
-                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        <div class="futuristic-card p-6 text-center">
-                            <div class="w-12 h-12 rounded mx-auto mb-4 flex items-center justify-center" style="background:var(--accent-dim);border:1px solid var(--border);">
-                                <span style="color:var(--accent);" class="text-xl">🏢</span>
-                            </div>
-                            <h4 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Business Travel</h4>
-                            <p class="text-sm" style="color:var(--text-secondary);">Rapid transport for professionals between commercial districts and business centers</p>
-                        </div>
-                        <div class="futuristic-card p-6 text-center">
-                            <div class="w-12 h-12 rounded mx-auto mb-4 flex items-center justify-center" style="background:var(--accent-dim);border:1px solid var(--border);">
-                                <span style="color:var(--accent);" class="text-xl">✈️</span>
-                            </div>
-                            <h4 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Airport Connections</h4>
-                            <p class="text-sm" style="color:var(--text-secondary);">Seamless links between DFW/Love Field airports and urban centers</p>
-                        </div>
-                        <div class="futuristic-card p-6 text-center">
-                            <div class="w-12 h-12 rounded mx-auto mb-4 flex items-center justify-center" style="background:var(--accent-dim);border:1px solid var(--border);">
-                                <span style="color:var(--accent);" class="text-xl">🏘️</span>
-                            </div>
-                            <h4 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Urban-Suburban Links</h4>
-                            <p class="text-sm" style="color:var(--text-secondary);">Efficient connectivity between suburban areas and urban centers</p>
-                        </div>
-                        <div class="futuristic-card p-6 text-center">
-                            <div class="w-12 h-12 rounded mx-auto mb-4 flex items-center justify-center" style="background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.15);">
-                                <span style="color:#f87171;" class="text-xl">🚨</span>
-                            </div>
-                            <h4 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Emergency Services</h4>
-                            <p class="text-sm" style="color:var(--text-secondary);">Rapid medical and emergency transportation capabilities</p>
-                        </div>
-                        <div class="futuristic-card p-6 text-center">
-                            <div class="w-12 h-12 rounded mx-auto mb-4 flex items-center justify-center" style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.15);">
-                                <span style="color:#fbbf24;" class="text-xl">🎯</span>
-                            </div>
-                            <h4 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Event Transportation</h4>
-                            <p class="text-sm" style="color:var(--text-secondary);">Efficient movement to major sporting and cultural events</p>
-                        </div>
-                        <div class="futuristic-card p-6 text-center">
-                            <div class="w-12 h-12 rounded mx-auto mb-4 flex items-center justify-center" style="background:var(--accent-dim);border:1px solid var(--border);">
-                                <span style="color:var(--accent);" class="text-xl">🧪</span>
-                            </div>
-                            <h4 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Innovation Ecosystem</h4>
-                            <p class="text-sm" style="color:var(--text-secondary);">Technology development and testing environment attracting companies</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="hub-system-details" class="py-16 sm:py-24" style="background:var(--surface-2);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">How the TAL System Works</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:var(--text-secondary);">At first touch, the model is straightforward: one strategic hub, multiple operators, and phased launch discipline.</p>
-                <div class="mt-12 max-w-4xl mx-auto space-y-4 text-left">
-                    <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="hub-elements">
-                            Core Elements
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="hub-elements" class="accordion-content hidden p-6 text-left" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-                            <ul class="list-disc list-inside space-y-2">
-                                <li><strong style="color:var(--text-primary);">Air mobility:</strong> Vertiport and passenger infrastructure for certified operator service.</li>
-                                <li><strong style="color:var(--text-primary);">Ground mobility:</strong> Terminal and transfer layer connecting regional origins and destinations.</li>
-                                <li><strong style="color:var(--text-primary);">Innovation center:</strong> Recurring tenancy and ecosystem development aligned with mobility operations.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="technical-architecture">
-                            Why This Is Credible
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="technical-architecture" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-                            <ul class="list-disc list-inside space-y-2">
-                                <li>Located at the historic Texas &amp; Pacific Warehouse with existing multimodal adjacency.</li>
-                                <li>Phased delivery reduces execution risk and aligns capital with readiness milestones.</li>
-                                <li>Texas eIPP relevance supports integration planning while FAA certification remains the gate for passenger operations.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="case-studies" class="py-16 sm:py-24" style="background:var(--surface);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">Global Precedents: Lessons from Leading Cities</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:var(--text-secondary);">Insights from successful urban transportation initiatives worldwide demonstrate the feasibility and best practices for the Trinity Air Link system in DFW.</p>
-                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="case-study-card p-6 rounded-lg">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/singapore.png" alt="Street-level autonomous vehicle pickup zone" onerror="this.onerror=null;this.src='images/rooftop.png';" class="rounded-md">
-                            <div class="image-overlay">Singapore's AV Initiative</div>
-                        </div>
-                        <h3 class="font-semibold text-xl flex items-center" style="color:var(--text-primary);"><span class="flag-icon" style="background:var(--accent-dim);">SG</span> Singapore</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Creating dedicated test zones with strong government support and phased regulatory development is crucial for autonomous vehicle integration. Singapore's approach offers a valuable blueprint for the TAL system.</p>
-                    </div>
-                    <div class="case-study-card p-6 rounded-lg">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/dubai.jpg" alt="Rooftop VTOL landing infrastructure" onerror="this.onerror=null;this.src='images/rooftop.png';" class="rounded-md">
-                            <div class="image-overlay">Dubai's Urban Air Mobility</div>
-                        </div>
-                        <h3 class="font-semibold text-xl flex items-center" style="color:var(--text-primary);"><span class="flag-icon" style="background:var(--accent-dim);">AE</span> Dubai</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Urban air mobility integration is feasible in major metropolitan areas by focusing on vertiport infrastructure and dedicated airspace management systems, offering insights for the VTOL component of the TAL system.</p>
-                    </div>
-                    <div class="case-study-card p-6 rounded-lg">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/seoul.png" alt="Multimodal smart transport grid and control framework" onerror="this.onerror=null;this.src='images/old/cityView.jpeg';" class="rounded-md">
-                            <div class="image-overlay">Seoul's Smart Transport Grid</div>
-                        </div>
-                        <h3 class="font-semibold text-xl flex items-center" style="color:var(--text-primary);"><span class="flag-icon" style="background:var(--accent-dim);">KR</span> Seoul</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Comprehensive data integration and AI-powered traffic management, including digital twins, can significantly reduce congestion and optimize transportation networks, informing the TAL system's management capabilities.</p>
-                    </div>
-                    <div class="case-study-card p-6 rounded-lg">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/kingscrossstation.jpg" alt="Interior shuttle docking — multi-modal hub interior" onerror="this.onerror=null;this.src='images/old/smallInterior.jpeg';" class="rounded-md">
-                            <div class="image-overlay">London's Multi-Modal System</div>
-                        </div>
-                        <h3 class="font-semibold text-xl flex items-center" style="color:var(--text-primary);"><span class="flag-icon" style="background:var(--accent-dim);">UK</span> London</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Successful multi-modal integration and unified payment systems, alongside converting historic transport buildings into modern mobility hubs (like King's Cross), provide a direct template for the Texas &amp; Pacific Warehouse transformation.</p>
-                    </div>
-                    <div class="case-study-card p-6 rounded-lg">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/ev_charging.jpg" alt="Electric vehicles docked and charging at mobility hub" onerror="this.onerror=null;this.src='images/old/suburb.jpeg';" class="rounded-md">
-                            <div class="image-overlay">Zurich's Electric Mobility</div>
-                        </div>
-                        <h3 class="font-semibold text-xl flex items-center" style="color:var(--text-primary);"><span class="flag-icon" style="background:var(--accent-dim);">CH</span> Zurich</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Best practices for electric vehicle infrastructure and smart grid integration can be achieved through public-private partnerships, offering a blueprint for the TAL system's EV charging component.</p>
-                    </div>
-                    <div class="case-study-card p-6 rounded-lg">
-                        <div class="image-container h-48 mb-4">
-                            <img src="images/losangeles.jpg" alt="Historic warehouse building exterior — future mobility hub" onerror="this.onerror=null;this.src='images/old/mainFrontCity.jpeg';" class="rounded-md">
-                            <div class="image-overlay">LA Union Station Hub</div>
-                        </div>
-                        <h3 class="font-semibold text-xl flex items-center" style="color:var(--text-primary);"><span class="flag-icon" style="background:var(--accent-dim);">US</span> Los Angeles</h3>
-                        <p class="mt-2" style="color:var(--text-secondary);">Transforming historic railway stations into multi-modal mobility hubs with integrated autonomous vehicle testing zones and mixed-use development provides a direct parallel and strong validation for the Texas &amp; Pacific Warehouse concept.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="phases" class="py-16 sm:py-24" style="background:var(--surface);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">Implementation Strategy: 4-Phase Roadmap</h2>
-                    <p class="mt-4 max-w-3xl mx-auto text-lg" style="color:var(--text-secondary);">Strategic phased implementation minimizes risk, validates technology, and ensures stakeholder confidence while building toward full-scale operations across the DFW metroplex.</p>
-                </div>
-
-                <!-- Timeline Overview -->
-                <div class="grid gap-4 md:grid-cols-4 mb-16">
-                    <div class="futuristic-card p-6 text-center">
-                        <div class="w-12 h-12 rounded mx-auto mb-4 flex items-center justify-center" style="background:var(--accent-dim);border:1px solid var(--border);">
-                            <span style="color:var(--accent);font-size:1.2rem;font-weight:700;">1</span>
-                        </div>
-                        <h4 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Foundation</h4>
-                        <p class="text-sm" style="color:var(--text-secondary);">0-12 Months</p>
-                        <p class="text-xs mt-1" style="color:var(--text-muted);">$20M Investment</p>
-                    </div>
-                    <div class="futuristic-card p-6 text-center">
-                        <div class="w-12 h-12 rounded mx-auto mb-4 flex items-center justify-center" style="background:var(--accent-dim);border:1px solid var(--border);">
-                            <span style="color:var(--accent);font-size:1.2rem;font-weight:700;">2</span>
-                        </div>
-                        <h4 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Infrastructure</h4>
-                        <p class="text-sm" style="color:var(--text-secondary);">13-24 Months</p>
-                        <p class="text-xs mt-1" style="color:var(--text-muted);">$50M Investment</p>
-                    </div>
-                    <div class="futuristic-card p-6 text-center">
-                        <div class="w-12 h-12 rounded mx-auto mb-4 flex items-center justify-center" style="background:var(--accent-dim);border:1px solid var(--border);">
-                            <span style="color:var(--accent);font-size:1.2rem;font-weight:700;">3</span>
-                        </div>
-                        <h4 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Pilot Operations</h4>
-                        <p class="text-sm" style="color:var(--text-secondary);">25-36 Months</p>
-                        <p class="text-xs mt-1" style="color:var(--text-muted);">$10M–$32M Investment</p>
-                    </div>
-                    <div class="futuristic-card p-6 text-center">
-                        <div class="w-12 h-12 rounded mx-auto mb-4 flex items-center justify-center" style="background:var(--accent-dim);border:1px solid var(--border);">
-                            <span style="color:var(--accent);font-size:1.2rem;font-weight:700;">4</span>
-                        </div>
-                        <h4 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Full Operations</h4>
-                        <p class="text-sm" style="color:var(--text-secondary);">37+ Months</p>
-                        <p class="text-xs mt-1" style="color:var(--text-muted);">$22M Investment</p>
-                    </div>
-                </div>
-
-                <!-- Implementation Visual Gallery -->
-                <div class="grid gap-4 md:grid-cols-3 mb-16 max-w-5xl mx-auto">
-                    <div class="image-container h-52">
-                        <img src="images/buildingfront.png" alt="Texas and Pacific Warehouse exterior — Phase 1 rehabilitation target" onerror="this.onerror=null;this.src='images/old/mainFrontCity.jpeg';">
-                        <div class="image-overlay">Phase 1: Building Rehabilitation</div>
-                    </div>
-                    <div class="image-container h-52">
-                        <img src="images/interior_cleanshuttledock.png" alt="Interior shuttle docking infrastructure — Phase 2 build-out" onerror="this.onerror=null;this.src='images/old/smallInterior.jpeg';">
-                        <div class="image-overlay">Phase 2: Infrastructure Build-Out</div>
-                    </div>
-                    <div class="image-container h-52">
-                        <img src="images/rooftop_green.png" alt="Rooftop vertiport with green landscaping — Phase 3 pilot operations" onerror="this.onerror=null;this.src='images/rooftop.png';">
-                        <div class="image-overlay">Phase 3: Pilot Operations</div>
-                    </div>
-                </div>
-
-                <div class="max-w-5xl mx-auto space-y-6">
-                    <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="phase1">
-                            Phase 1: Foundation (2026 — Underway Now)
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="phase1" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-                            <div class="grid gap-6 md:grid-cols-2">
-                                <div>
-                                    <h4 class="text-lg font-semibold mb-3" style="color:var(--text-primary);">Property &amp; Infrastructure</h4>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li>Secure Texas &amp; Pacific Warehouse property through strategic acquisition</li>
-                                        <li>Complete detailed structural assessment and condition evaluation</li>
-                                        <li>Begin essential repairs ($2.15M structural rehabilitation)</li>
-                                        <li>Initiate permitting and zoning processes</li>
-                                        <li>Develop detailed architectural and engineering plans</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold mb-3" style="color:var(--text-primary);">Partnerships &amp; Planning</h4>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li>Engage Texas DOT eIPP program team and Archer Aviation Texas operations team</li>
-                                        <li>Brief Fort Worth city leadership on eIPP opportunity and Trinity Air Link positioning</li>
-                                        <li>Begin regulatory and permitting discussions with FAA and TxDOT</li>
-                                        <li>Launch community engagement process and stakeholder outreach</li>
-                                        <li>Secure initial funding and investment partnerships</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-4 p-4 rounded" style="background:var(--surface-2);">
-                                <p class="text-sm"><span class="font-semibold" style="color:var(--text-primary);">Key Milestone:</span> Property secured, core team assembled, initial funding confirmed, regulatory pathway established</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="phase2">
-                            Phase 2: Infrastructure Development (2027)
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="phase2" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-                            <div class="grid gap-6 md:grid-cols-2">
-                                <div>
-                                    <h4 class="text-lg font-semibold mb-3" style="color:var(--text-primary);">Building Transformation</h4>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li>Complete Texas &amp; Pacific Warehouse rehabilitation and historic preservation</li>
-                                        <li>Install VTOL infrastructure on rooftop with landing pads and operations center</li>
-                                        <li>Develop ground transportation facilities and autonomous vehicle terminals</li>
-                                        <li>Establish computing and telecommunications infrastructure</li>
-                                        <li>Begin renovation of research and development spaces (floors 3-7)</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold mb-3" style="color:var(--text-primary);">Technology Systems</h4>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li>Install initial charging and support systems for electric vehicles</li>
-                                        <li>Begin integration of traffic management systems and AI infrastructure</li>
-                                        <li>Establish technology innovation spaces and research facilities</li>
-                                        <li>Install safety systems and operations monitoring centers</li>
-                                        <li>Develop initial technology partnerships and testing protocols</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-4 p-4 rounded" style="background:var(--surface-2);">
-                                <p class="text-sm"><span class="font-semibold" style="color:var(--text-primary);">Key Milestone:</span> Building fully renovated, VTOL infrastructure operational, technology systems integrated and tested</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="phase3">
-                            Phase 3: Pilot Operations (2028)
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="phase3" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-                            <div class="grid gap-6 md:grid-cols-2">
-                                <div>
-                                    <h4 class="text-lg font-semibold mb-3" style="color:var(--text-primary);">Pilot Operations Launch</h4>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li>Launch initial autonomous vehicle operations with limited fleet</li>
-                                        <li>Begin VTOL test flights and certification process</li>
-                                        <li>Open first research and development facilities to partners</li>
-                                        <li>Activate computing centers and AI traffic management systems</li>
-                                        <li>Initialize public showcase areas and community programs</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold mb-3" style="color:var(--text-primary);">Testing &amp; Validation</h4>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li>Test technical systems and operational protocols comprehensively</li>
-                                        <li>Gather user feedback and operational performance data</li>
-                                        <li>Refine service offerings based on pilot results and community input</li>
-                                        <li>Expand partnerships with technology companies and research institutions</li>
-                                        <li>Begin development of secondary hubs based on demand analysis</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-4 p-4 rounded" style="background:var(--surface-2);">
-                                <p class="text-sm"><span class="font-semibold" style="color:var(--text-primary);">Key Milestone:</span> Pilot operations successful, safety certification achieved, user validation confirmed, expansion planning completed</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overflow-hidden" style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="phase4">
-                            Phase 4: Full Operations &amp; Expansion (2029+)
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="phase4" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-                            <div class="grid gap-6 md:grid-cols-2">
-                                <div>
-                                    <h4 class="text-lg font-semibold mb-3" style="color:var(--text-primary);">Full System Launch</h4>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li>Begin full VTOL operations with commercial passenger service</li>
-                                        <li>Launch complete autonomous vehicle network across DFW</li>
-                                        <li>Open all research facilities and innovation center spaces</li>
-                                        <li>Activate public spaces, exhibitions, and educational programs</li>
-                                        <li>Initiate technology incubator and startup programs</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold mb-3" style="color:var(--text-primary);">Network Expansion</h4>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li>Scale VTOL and EV fleets based on validated demand patterns</li>
-                                        <li>Expand to additional hub locations across key DFW areas</li>
-                                        <li>Increase route coverage and service frequency optimization</li>
-                                        <li>Enhance service offerings with cargo, delivery, and emergency services</li>
-                                        <li>Develop additional technology capabilities and partnerships</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-4 p-4 rounded" style="background:var(--surface-2);">
-                                <p class="text-sm"><span class="font-semibold" style="color:var(--text-primary);">Key Milestone:</span> Full commercial operations active, network expansion underway, DFW established as transportation innovation leader</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Risk Management & Success Metrics -->
-                <div class="mt-16 grid gap-8 lg:grid-cols-2">
-                    <div class="futuristic-card p-8">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center" style="color:var(--text-primary);">
-                            <span class="w-8 h-8 rounded flex items-center justify-center mr-3" style="background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.2);">
-                                <span style="color:#fb923c;font-size:1.1rem;">⚡</span>
-                            </span>
-                            Risk Mitigation Strategy
-                        </h3>
-                        <ul class="space-y-4" style="color:var(--text-secondary);">
-                            <li class="flex items-start">
-                                <span style="color:#fb923c;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Phased Implementation:</span> Validates technology and market demand before major investment</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#fb923c;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Technology Partnerships:</span> Established companies with proven VTOL and autonomous vehicle track records</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#fb923c;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Regulatory Engagement:</span> Early collaboration with FAA, TxDOT, and local authorities</div>
-                            </li>
-                            <li class="flex items-start">
-                                <span style="color:#fb923c;" class="mr-3 mt-1">•</span>
-                                <div><span class="font-semibold" style="color:var(--text-primary);">Diversified Funding:</span> Multiple revenue streams and investment sources reducing single-point failure</div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="futuristic-card p-8">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center" style="color:var(--text-primary);">
-                            <span class="w-8 h-8 rounded flex items-center justify-center mr-3" style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);">
-                                <span style="color:#4ade80;font-size:1.1rem;">📊</span>
-                            </span>
-                            Success Metrics
-                        </h3>
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color:var(--text-primary);">Phase 1 Targets</h4>
-                                <ul class="text-sm space-y-1" style="color:var(--text-secondary);">
-                                    <li>• Property secured and initial repairs completed</li>
-                                    <li>• $15-25M funding raised</li>
-                                    <li>• Core team assembled and partnerships established</li>
-                                </ul>
-                            </div>
-                            <div>
-                                    <h4 class="font-semibold mb-2" style="color:var(--text-primary);">Phase 2 Targets</h4>
-                                    <ul class="text-sm space-y-1" style="color:var(--text-secondary);">
-                                        <li>• Building rehabilitation completed</li>
-                                        <li>• VTOL and AV infrastructure operational</li>
-                                        <li>• Technology systems integrated and tested</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                <h4 class="font-semibold mb-2" style="color:var(--text-primary);">Phase 3 Targets</h4>
-                                <ul class="text-sm space-y-1" style="color:var(--text-secondary);">
-                                    <li>• 1,000+ pilot program participants</li>
-                                    <li>• 95%+ safety rating achieved</li>
-                                    <li>• Break-even operational model validated</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color:var(--text-primary);">Phase 4 Targets</h4>
-                                <ul class="text-sm space-y-1" style="color:var(--text-secondary);">
-                                    <li>• 10,000+ daily passengers across network</li>
-                                    <li>• 5+ secondary hubs operational</li>
-                                    <li>• Technology licensing revenue active</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="stakeholders" class="py-16 sm:py-24" style="background:var(--surface-2);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">Stakeholder Benefits: Value for Everyone</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg" style="color:var(--text-secondary);">The Trinity Air Link system creates compelling value propositions across all stakeholder groups, aligning interests through shared benefits in economic growth, innovation leadership, and community development.</p>
-                <div class="mt-12 max-w-4xl mx-auto space-y-4 text-left">
-                    <div class="overflow-hidden" style="background:var(--surface-2);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="gov-reg-stakeholders">
-                            Government &amp; Public Sector Benefits
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="gov-reg-stakeholders" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <p class="font-semibold mb-3" style="color:var(--text-primary);">Economic Development Impact</p>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li><span class="font-medium" style="color:var(--text-primary);">$500M+ economic multiplier</span> from hub operations and surrounding development</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">2,500+ jobs created</span> during construction and 800+ permanent positions</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">$25M annual tax revenue</span> from property, sales, and income taxes</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Regional competitiveness</span> positioning DFW as global transportation innovation leader</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="font-semibold mb-3" style="color:var(--text-primary);">Public Infrastructure Benefits</p>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Traffic congestion reduction</span> of 15-25% on major corridors</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Emergency response enhancement</span> with VTOL rapid deployment capabilities</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Historic preservation</span> saving iconic Texas &amp; Pacific Warehouse from demolition</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Technology leadership</span> establishing regulatory framework models</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-4 p-4 rounded" style="background:var(--surface);">
-                                <p class="font-semibold mb-2" style="color:var(--text-primary);">Strategic Positioning</p>
-                                <p class="text-sm">Positions Fort Worth and Texas as early adopters and regulatory leaders in urban air mobility, attracting additional investment and establishing valuable precedents for future transportation innovation.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overflow-hidden" style="background:var(--surface-2);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="finance-investment-stakeholders">
-                            Investor &amp; Financial Benefits
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="finance-investment-stakeholders" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <p class="font-semibold mb-3" style="color:var(--text-primary);">Financial Returns</p>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li><span class="font-medium" style="color:var(--text-primary);">24.8% calculated 10-year project IRR</span> before terminal value</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">$89.7M NPV @ 10%</span> before terminal value</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">36.8% IRR and $293.2M NPV</span> including illustrative $480M terminal value</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Capital-light base case</span> shifts vehicle capex, maintenance, depreciation, and much of the operating risk to certified/qualified operators</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Multiple revenue streams</span>: air mobility access, ground mobility access, real estate, technology/data, ancillary</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Multiple exit strategies</span>: infrastructure recap, strategic acquisition, REIT-like asset sale, or franchise/licensing path</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="font-semibold mb-3" style="color:var(--text-primary);">Investment Advantages</p>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li><span class="font-medium" style="color:var(--text-primary);">First-mover advantage</span> in $23-29B UAM market by 2030 (Morgan Stanley: $1T by 2040)</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Scalability potential</span> across 50+ similar metropolitan markets</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Government incentives</span> including tax credits and development grants</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Asset appreciation</span> of historic building and surrounding properties</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-4 p-4 rounded" style="background:var(--surface);">
-                                <p class="font-semibold mb-2" style="color:var(--text-primary);">Risk Mitigation</p>
-                                <p class="text-sm">Terminal value is presented separately as exit/refinance upside and is not counted as operating cash flow. Phased investment approach aligns capital deployment to milestones while the capital-light operator access model keeps certified eVTOL and qualified AV operators responsible for most vehicle capex risk.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overflow-hidden" style="background:var(--surface-2);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="tech-industry-stakeholders">
-                            Technology Partner Benefits
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="tech-industry-stakeholders" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <p class="font-semibold mb-3" style="color:var(--text-primary);">Market Validation &amp; Growth</p>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Real-world testing platform</span> for technology validation and optimization</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Reference customer status</span> for global sales and marketing efforts</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Market access</span> to 8.5M DFW population and $710B+ economy (3rd largest U.S. metro)</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Revenue opportunity</span> through equipment sales and ongoing service contracts</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="font-semibold mb-3" style="color:var(--text-primary);">Innovation &amp; Collaboration</p>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Joint R&amp;D programs</span> advancing technology development and IP creation</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Integration expertise</span> solving complex multi-modal transportation challenges</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Standards development</span> influencing industry protocols and specifications</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Talent access</span> to skilled workforce and academic partnerships</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-4 p-4 rounded" style="background:var(--surface);">
-                                <p class="font-semibold mb-2" style="color:var(--text-primary);">Strategic Partnership Value</p>
-                                <p class="text-sm">First-mover positioning in integrated urban mobility, demonstrating technology capabilities in real operational environment while building foundational relationships for market expansion nationwide.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overflow-hidden" style="background:var(--surface-2);border:1px solid var(--border-subtle);border-radius:8px;">
-                        <button class="accordion-header w-full p-6 text-left flex justify-between items-center text-xl font-semibold transition-colors" style="color:var(--text-primary);" data-target="community-public-stakeholders">
-                            Community &amp; Public Benefits
-                            <span class="arrow" style="color:var(--accent);">&#9658;</span>
-                        </button>
-                        <div id="community-public-stakeholders" class="accordion-content hidden p-6" style="border-top:1px solid var(--border-subtle);color:var(--text-secondary);">
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <p class="font-semibold mb-3" style="color:var(--text-primary);">Quality of Life Improvements</p>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Faster, more convenient travel</span> reducing daily commute times by 40-60%</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Cleaner environment</span> with 30% reduction in local traffic emissions</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Affordable transportation</span> competitive with current driving costs</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Historic preservation</span> saving iconic Texas &amp; Pacific Warehouse for future generations</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="font-semibold mb-3" style="color:var(--text-primary);">Economic &amp; Social Benefits</p>
-                                    <ul class="list-disc list-inside space-y-2 text-sm">
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Local job creation</span> with 800+ permanent positions and training programs</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Property value increases</span> in surrounding neighborhoods</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Educational opportunities</span> through STEM programs and innovation center</li>
-                                        <li><span class="font-medium" style="color:var(--text-primary);">Community pride</span> in Fort Worth's transportation innovation leadership</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="mt-4 p-4 rounded" style="background:var(--surface);">
-                                <p class="font-semibold mb-2" style="color:var(--text-primary);">Community-Centered Approach</p>
-                                <p class="text-sm">Comprehensive community engagement ensures local voices shape development decisions, with ongoing programs for education, workforce development, and neighborhood enhancement throughout project lifecycle.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="timeline" class="py-16 sm:py-24" style="background:var(--surface-2);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <div class="inline-flex items-center px-4 py-2 mb-6" style="border-radius:999px;border:1px solid var(--border);background:var(--surface);">
-                        <span class="w-2 h-2 rounded-full mr-3" style="background:var(--accent);"></span>
-                        <span style="font-size:0.7rem;font-weight:600;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;">Building History</span>
-                    </div>
-                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">A Storied History</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:var(--text-secondary);">From an icon of industry to a symbol of neglect, the warehouse's timeline reveals a complex past. Click any event to learn more.</p>
-                </div>
-                <div class="max-w-3xl mx-auto futuristic-card p-8">
-                    <div class="relative" style="border-left:2px solid var(--border);">
-                        <div id="timeline-container"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div id="timeline-modal" class="hidden fixed inset-0 overflow-y-auto h-full w-full z-50" style="background:rgba(0,0,0,0.85);">
-            <div class="relative top-20 mx-auto p-5 w-11/12 max-w-2xl rounded-md" style="background:var(--surface);border:1px solid var(--border);">
-                <div class="mt-3 text-center">
-                    <h3 id="modal-title" class="text-2xl leading-6 font-bold" style="color:var(--text-primary);font-family:'Inter',sans-serif;"></h3>
-                    <div class="mt-4 px-7 py-3">
-                        <p id="modal-description" class="text-md" style="color:var(--text-secondary);"></p>
-                    </div>
-                    <div class="items-center px-4 py-3">
-                        <button id="close-modal-button" class="cta-button w-full">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <section id="financials" class="py-16 sm:py-24" style="background:var(--surface);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">The Financial Picture</h2>
-                        <p class="mt-4 text-lg" style="color:var(--text-secondary);">Investor model update: 24.8% calculated IRR (10-year, before terminal value), $89.7M NPV @ 10% before terminal value, and 36.8% IRR with $293.2M NPV including illustrative terminal value. Terminal value is presented separately as exit/refinance upside and is not counted as operating cash flow.</p>
-                        <div class="mt-6 flex flex-wrap gap-3">
-                            <a href="print/financial_model.html" class="cta-button">Open Financial Model</a>
-                            <a href="/pricing_calculator.html" class="px-5 py-3 rounded font-semibold" style="border:1px solid var(--border);color:var(--accent);background:transparent;">Open Pricing Calculator</a>
-                        </div>
-                        <div class="mt-8 chart-container p-4 rounded" style="background:var(--surface-2);border:1px solid var(--border);">
-                            <canvas id="valueChart"></canvas>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold" style="color:var(--text-primary);">Available Redevelopment Incentives</h3>
-                        <p class="mt-2 text-lg" style="color:var(--text-secondary);">The city and PID 20 offer numerous programs to support a viable project. Click each card for details.</p>
-                        <div id="incentives-container" class="mt-6 space-y-4"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="get-involved" class="py-16 sm:py-24" style="background:var(--surface-2);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="inline-flex items-center px-4 py-2 mb-6" style="border-radius:999px;border:1px solid rgba(251,191,36,0.3);background:rgba(251,191,36,0.05);">
-                    <span class="w-2 h-2 rounded-full mr-3 animate-pulse" style="background:#fbbf24;"></span>
-                    <span style="font-size:0.7rem;font-weight:600;color:#fcd34d;letter-spacing:0.12em;text-transform:uppercase;">The Window Is Open — Act Now</span>
-                </div>
-                <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">How to Get Involved</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg" style="color:var(--text-secondary);">Texas is on the federal eIPP map. Archer Aviation and public-sector partners are planning Texas network deployment, with operations subject to FAA certification requirements. Trinity Air Link is positioned to be Fort Worth's anchor in this network — and we're actively building the coalition to make it happen.</p>
-                <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto text-left">
-                    <div class="futuristic-card p-6 group">
-                        <div class="w-12 h-12 rounded flex items-center justify-center mb-4" style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);">
-                            <svg class="w-5 h-5" style="color:#4ade80;" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm2 6a2 2 0 114 0 2 2 0 01-4 0zm6 0a2 2 0 114 0 2 2 0 01-4 0z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3" style="color:var(--text-primary);">Invest in the Infrastructure Layer</h3>
-                        <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Join the Phase 1 financing for regulatory pathway, site control, partner agreements, design, and public-sector alignment. The base case model produces a calculated 24.8% IRR (10-year, before terminal value), with terminal value presented separately as exit/refinance upside.</p>
-                        <button onclick="initiatePartnership()" class="mt-4 text-sm font-semibold transition-colors" style="color:#4ade80;">Investor Inquiries &rarr;</button>
-                    </div>
-                    <div class="futuristic-card p-6 group">
-                        <div class="w-12 h-12 rounded flex items-center justify-center mb-4" style="background:var(--accent-dim);border:1px solid var(--border);">
-                            <svg class="w-5 h-5" style="color:var(--accent);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3" style="color:var(--text-primary);">Technology Partnership</h3>
-                        <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Capital-light operator access model: certified eVTOL and qualified AV operators carry vehicle capex while Trinity Air Link monetizes vertiport access, AV bays, charging, dispatch, passenger processing, data, and service standards. Technology partners can deploy into a real-world DFW network environment.</p>
-                        <button onclick="initiatePartnership()" class="mt-4 text-sm font-semibold transition-colors" style="color:var(--accent);">Partner With Us &rarr;</button>
-                    </div>
-                    <div class="futuristic-card p-6 group">
-                        <div class="w-12 h-12 rounded flex items-center justify-center mb-4" style="background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.15);">
-                            <svg class="w-5 h-5" style="color:#60a5fa;" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zm0 16a2 2 0 002-2H8a2 2 0 002 2z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3" style="color:var(--text-primary);">Government &amp; Regulatory</h3>
-                        <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">City officials, TxDOT, FAA, and federal program offices — we're seeking municipal endorsements, public-private partnership structures, and early regulatory coordination to fast-track vertiport designation.</p>
-                        <button onclick="initiatePartnership()" class="mt-4 text-sm font-semibold transition-colors" style="color:#60a5fa;">Government Liaison &rarr;</button>
-                    </div>
-                    <div class="futuristic-card p-6 group">
-                        <div class="w-12 h-12 rounded flex items-center justify-center mb-4" style="background:var(--accent-dim);border:1px solid var(--border);">
-                            <svg class="w-5 h-5" style="color:var(--accent);" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zm5.99 7.176A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3" style="color:var(--text-primary);">Research &amp; Academic</h3>
-                        <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Universities, research institutions, and innovation labs — floors 3-7 of the Texas &amp; Pacific Warehouse are designed as dedicated R&amp;D space. We're seeking founding research partners for transportation, AI, and sustainability programs.</p>
-                        <button onclick="initiatePartnership()" class="mt-4 text-sm font-semibold transition-colors" style="color:var(--accent);">Research Partnership &rarr;</button>
-                    </div>
-                    <div class="futuristic-card p-6 group">
-                        <div class="w-12 h-12 rounded flex items-center justify-center mb-4" style="background:rgba(251,146,60,0.08);border:1px solid rgba(251,146,60,0.15);">
-                            <svg class="w-5 h-5" style="color:#fb923c;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3" style="color:var(--text-primary);">Community &amp; Media</h3>
-                        <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Fort Worth residents, civic organizations, neighborhood associations, and media — Trinity Air Link is built for this community. We welcome public engagement, press inquiries, and community input on how this project serves Fort Worth.</p>
-                        <button onclick="initiatePartnership()" class="mt-4 text-sm font-semibold transition-colors" style="color:#fb923c;">Community Inquiries &rarr;</button>
-                    </div>
-                    <div class="futuristic-card p-6 group" style="border-color:var(--border);">
-                        <div class="w-12 h-12 rounded flex items-center justify-center mb-4" style="background:var(--accent-dim);border:1px solid var(--border);">
-                            <svg class="w-5 h-5" style="color:var(--accent);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3" style="color:var(--text-primary);">Schedule a Briefing</h3>
-                        <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">Ready to learn more? We offer tailored briefings for investors, government officials, and technology partners. Receive a full project overview, financial model walkthrough, and Q&amp;A with the founding team.</p>
-                        <button onclick="initiatePartnership()" class="mt-4 text-sm font-semibold transition-colors" style="color:var(--accent);">Request a Briefing &rarr;</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="documents" class="py-16 sm:py-24" style="background:var(--surface);">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold sm:text-4xl" style="color:var(--text-primary);">Investor Document Library</h2>
-                    <p class="mt-4 max-w-3xl mx-auto text-lg" style="color:var(--text-secondary);">Investor-facing material aligned to the capital-light operator access model and the calculated 10-year return framework.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                    <a href="print/business_case.html" class="futuristic-card p-6 block"><h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Business Case</h3><p class="text-sm" style="color:var(--text-secondary);">Commercial viability + stakeholder value</p></a>
-                    <a href="print/white_paper.html" class="futuristic-card p-6 block"><h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">White Paper</h3><p class="text-sm" style="color:var(--text-secondary);">Full technical + financial framework</p></a>
-                    <a href="print/investor_kill_sheet.html" class="futuristic-card p-6 block"><h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Investor Kill Sheet</h3><p class="text-sm" style="color:var(--text-secondary);">1-page decision document</p></a>
-                    <a href="print/ic_memo.html" class="futuristic-card p-6 block"><h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">IC Memo</h3><p class="text-sm" style="color:var(--text-secondary);">Institutional investment summary</p></a>
-                    <a href="print/unit_economics.html" class="futuristic-card p-6 block"><h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Unit Economics</h3><p class="text-sm" style="color:var(--text-secondary);">Pricing + revenue model</p></a>
-                    <a href="/pricing_calculator.html" class="futuristic-card p-6 block"><h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Live Pricing Calculator</h3><p class="text-sm" style="color:var(--text-secondary);">Interactive revenue + EBITDA sensitivity model</p></a>
-                    <a href="print/financial_model.html" class="futuristic-card p-6 block"><h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Financial Model</h3><p class="text-sm" style="color:var(--text-secondary);">Scenario-based projections</p></a>
-                    <a href="print/investor_brief.html" class="futuristic-card p-6 block"><h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Investor Brief</h3><p class="text-sm" style="color:var(--text-secondary);">Capital-light investment overview</p></a>
-                    <a href="print/executive_summary.html" class="futuristic-card p-6 block"><h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Executive Summary</h3><p class="text-sm" style="color:var(--text-secondary);">High-level project summary</p></a>
-                </div>
-                <div class="p-6 text-center" style="border:1px solid var(--border);border-radius:8px;background:var(--surface-2);">
-                    <h4 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Need Additional Diligence Materials?</h4>
-                    <p class="mb-5 max-w-2xl mx-auto" style="color:var(--text-secondary);">Additional diligence files are available by request for qualified investor, government, and technology partners.</p>
-                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                        <button onclick="requestAccess()" class="cta-button">Request Access Form</button>
-                        <a href="mailto:partnerships@trinityairlink.com?subject=Trinity%20Air%20Link%20Document%20Request" class="px-5 py-3 rounded font-semibold" style="border:1px solid var(--border);color:var(--accent);background:transparent;">Email Document Request</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-        <!-- Stakeholder Contact Section -->
-        <section id="contact" class="py-20 sm:py-28 relative overflow-hidden" style="background:var(--surface);">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <div class="inline-flex items-center px-6 py-3 mb-8" style="border-radius:999px;border:1px solid var(--border);background:var(--accent-dim);">
-                    <span class="w-3 h-3 rounded-full mr-3" style="background:var(--accent);"></span>
-                    <span style="font-size:0.7rem;font-weight:600;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;">Ready to Build the Future?</span>
-                </div>
-
-                <h2 class="text-4xl font-bold sm:text-5xl mb-6" style="color:var(--text-primary);">
-                    <span class="stat-number">Partner</span> with Us
-                </h2>
-
-                <p class="max-w-3xl mx-auto text-xl leading-relaxed mb-12" style="color:var(--text-secondary);">
-                    Join us in creating Fort Worth's first fully integrated air mobility hub. Whether you're an investor, technology partner, or stakeholder, we're ready to build the future together.
-                </p>
-
-                <div class="grid gap-6 md:grid-cols-3 max-w-4xl mx-auto mb-12">
-                    <div class="futuristic-card p-6 text-center">
-                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);">
-                            <svg class="w-7 h-7" style="color:#4ade80;" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm2 6a2 2 0 114 0 2 2 0 01-4 0zm6 0a2 2 0 114 0 2 2 0 01-4 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Investment Partners</h3>
-                        <p class="text-sm" style="color:var(--text-secondary);">Unique opportunity to lead the mobility revolution</p>
-                    </div>
-
-                    <div class="futuristic-card p-6 text-center">
-                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:var(--accent-dim);border:1px solid var(--border);">
-                            <svg class="w-7 h-7" style="color:var(--accent);" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Technology Partners</h3>
-                        <p class="text-sm" style="color:var(--text-secondary);">Collaborate on cutting-edge VTOL and AV integration</p>
-                    </div>
-
-                    <div class="futuristic-card p-6 text-center">
-                        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);">
-                            <svg class="w-7 h-7" style="color:#60a5fa;" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold mb-2" style="color:var(--text-primary);">Government Partners</h3>
-                        <p class="text-sm" style="color:var(--text-secondary);">Shape policy for next-generation transportation</p>
-                    </div>
-                </div>
-
-                <div class="max-w-5xl mx-auto mb-10 text-left">
-                    <div class="futuristic-card p-6 sm:p-8">
-                        <h3 class="text-2xl font-semibold mb-3" style="color:var(--text-primary);">Stakeholder Intake Routes</h3>
-                        <p class="mb-6" style="color:var(--text-secondary);">Use the route that matches your organization type. All inboxes are monitored by the TAL Program Management Office.</p>
-                        <div class="grid gap-4 md:grid-cols-2">
-                            <div class="p-4 rounded" style="background:var(--surface-2);border:1px solid var(--border-subtle);">
-                                <p class="text-sm font-semibold uppercase tracking-wide mb-2" style="color:var(--accent);">Investor Route</p>
-                                <p class="text-sm" style="color:var(--text-secondary);"><span class="font-medium" style="color:var(--text-primary);">Owner:</span> Capital Formation Lead — <a href="mailto:investors@trinityairlink.com" style="color:var(--accent);">investors@trinityairlink.com</a></p>
-                            </div>
-                            <div class="p-4 rounded" style="background:var(--surface-2);border:1px solid var(--border-subtle);">
-                                <p class="text-sm font-semibold uppercase tracking-wide mb-2" style="color:var(--accent);">Government Route</p>
-                                <p class="text-sm" style="color:var(--text-secondary);"><span class="font-medium" style="color:var(--text-primary);">Owner:</span> Government Affairs Lead — <a href="mailto:government@trinityairlink.com" style="color:var(--accent);">government@trinityairlink.com</a></p>
-                            </div>
-                            <div class="p-4 rounded" style="background:var(--surface-2);border:1px solid var(--border-subtle);">
-                                <p class="text-sm font-semibold uppercase tracking-wide mb-2" style="color:var(--accent);">Technology Route</p>
-                                <p class="text-sm" style="color:var(--text-secondary);"><span class="font-medium" style="color:var(--text-primary);">Owner:</span> Integration Partnerships Lead — <a href="mailto:technology@trinityairlink.com" style="color:var(--accent);">technology@trinityairlink.com</a></p>
-                            </div>
-                            <div class="p-4 rounded" style="background:var(--surface-2);border:1px solid var(--border-subtle);">
-                                <p class="text-sm font-semibold uppercase tracking-wide mb-2" style="color:var(--accent);">Community Route</p>
-                                <p class="text-sm" style="color:var(--text-secondary);"><span class="font-medium" style="color:var(--text-primary);">Owner:</span> Community Relations Lead — <a href="mailto:community@trinityairlink.com" style="color:var(--accent);">community@trinityairlink.com</a></p>
-                            </div>
-                        </div>
-                        <p class="mt-4 text-sm" style="color:var(--text-secondary);">SLA: stakeholder inboxes are monitored Monday-Friday with an initial response target of <span class="font-medium" style="color:var(--text-primary);">2 business days</span>.</p>
-                    </div>
-                </div>
-
-                <div class="max-w-5xl mx-auto mb-12 text-left">
-                    <div class="p-6 rounded" style="background:var(--surface-2);border:1px solid var(--border);">
-                        <p class="text-xs uppercase tracking-wide mb-2" style="color:var(--accent);">Next Milestone Meeting</p>
-                        <h3 class="text-xl font-semibold mb-2" style="color:var(--text-primary);">Phase 1 Stakeholder Engagement Review</h3>
-                        <p class="text-sm" style="color:var(--text-secondary);"><span class="font-medium" style="color:var(--text-primary);">Date:</span> Q2 2026 — Active stakeholder engagement underway</p>
-                        <p class="text-sm" style="color:var(--text-secondary);"><span class="font-medium" style="color:var(--text-primary);">Status:</span> Phase 1 — Active Development &amp; Stakeholder Engagement</p>
-                    </div>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <button onclick="initiatePartnership()" class="cta-button text-lg px-8 py-4">Start Partnership Discussion</button>
-                    <button onclick="schedulePresentation()" style="border:1px solid var(--border);color:var(--accent);padding:16px 32px;border-radius:6px;font-size:1.125rem;font-weight:600;background:transparent;transition:all 0.2s ease;" onmouseover="this.style.background='var(--accent-dim)'" onmouseout="this.style.background='transparent'">Schedule Presentation</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Booking / Demo App Section -->
-        <section id="demo" class="py-20 sm:py-28 relative overflow-hidden" style="background:#000;">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
-                    <div class="inline-flex items-center px-4 py-2 mb-6" style="border-radius:999px;border:1px solid rgba(0,212,255,0.3);background:rgba(0,212,255,0.08);">
-                        <span class="w-2 h-2 rounded-full mr-3 animate-pulse" style="background:#00D4FF;"></span>
-                        <span style="font-size:0.7rem;font-weight:600;color:#00D4FF;letter-spacing:0.12em;text-transform:uppercase;">Interactive Demo — Book a Flight</span>
-                    </div>
-                    <h2 class="text-4xl font-bold sm:text-5xl" style="color:#ffffff;font-family:'Inter',sans-serif;">Trinity Air Link <span style="color:#00D4FF;">Booking App</span></h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg" style="color:#8892A0;">Explore the full booking experience — routes, schedules, and seat selection — in our interactive demo.</p>
-                    <a href="booking_app.html" target="_blank" class="inline-flex items-center mt-6 px-5 py-2 rounded" style="border:1px solid rgba(0,212,255,0.35);color:#00D4FF;font-size:0.85rem;font-weight:600;background:rgba(0,212,255,0.08);transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,0.16)'" onmouseout="this.style.background='rgba(0,212,255,0.08)'">
-                        Open Full Screen
-                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                </div>
-
-                <!-- Embedded booking app -->
-                <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(0,212,255,0.2);box-shadow:0 0 60px rgba(0,212,255,0.08);">
-                    <iframe src="booking_app.html" title="Trinity Air Link Booking App" style="width:100%;height:800px;border:none;display:block;" loading="lazy"></iframe>
-                </div>
-            </div>
-        </section>
-
-    <footer class="py-12 relative" style="background:var(--surface); border-top: 1px solid var(--border);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 rounded-full border flex items-center justify-center" style="border-color:var(--border);background:var(--surface);">
-                            <span style="color:var(--accent);font-family:'Orbitron',sans-serif;font-weight:700;font-size:0.7rem;">TAL</span>
-                        </div>
-                        <span style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:1rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;">TRINITY AIR LINK</span>
-                    </div>
-                    <p class="text-sm" style="color:var(--text-secondary);">Pioneering the future of urban air mobility through innovative VTOL-AV integration at the historic Texas &amp; Pacific Warehouse in Fort Worth.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-semibold mb-4" style="color:var(--text-primary);">Quick Access</h4>
-                    <div class="space-y-2">
-                        <a href="#hub-vision" class="block text-sm transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Vision Overview</a>
-                        <a href="#opportunity" class="block text-sm transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Investment Opportunity</a>
-                        <a href="#phases" class="block text-sm transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Implementation Plan</a>
-                        <a href="#financials" class="block text-sm transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Financial Overview</a>
-                        <a href="/pricing_calculator.html" class="block text-sm transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Live Pricing Calculator</a>
-                        <a href="#demo" class="block text-sm transition-colors font-semibold" style="color:var(--accent);" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Book Early Access ↗</a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="font-semibold mb-4" style="color:var(--text-primary);">Resources</h4>
-                    <div class="space-y-2">
-                        <a href="print/executive_summary.html" class="block text-sm text-left transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Executive Summary</a>
-                        <a href="print/financial_model.html" class="block text-sm text-left transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Financial Model</a>
-                        <a href="/pricing_calculator.html" class="block text-sm text-left transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Open Pricing Calculator</a>
-                        <button onclick="downloadInvestorPackage()" class="block text-sm text-left transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Investor Package</button>
-                        <button onclick="downloadTechnicalSpecs()" class="block text-sm text-left transition-colors" style="color:var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Technical Specifications</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-8 p-4 rounded text-left" style="background:rgba(0,212,255,0.08);border:1px solid var(--border);">
-                <p class="text-sm" style="color:var(--text-primary);"><span class="font-semibold">Last updated:</span> April 23, 2026</p>
-                <p class="text-sm" style="color:var(--text-secondary);"><span class="font-semibold">Evidence layer version:</span> v1.1 (assumptions-register aligned)</p>
-                <p class="text-sm" style="color:var(--text-secondary);"><span class="font-semibold">Disclosure:</span> Financial and timeline statements are scenario-based planning estimates; execution remains subject to certification, market adoption, partner agreements, and financing terms.</p>
-            </div>
-
-            <div class="pt-8 text-center" style="border-top:1px solid var(--border-subtle);">
-                <p class="text-sm" style="color:var(--text-muted);">&copy; 2026 Trinity Air Link. Fort Worth's Future of Air Mobility. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-<script>
-// Stakeholder Engagement Functions
-function scrollToContact() {
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-}
-
-function scrollToVision() {
-    document.getElementById('hub-vision').scrollIntoView({ behavior: 'smooth' });
-}
-
-function scrollToImplementation() {
-    document.getElementById('phases').scrollIntoView({ behavior: 'smooth' });
-}
-
-function triggerDownload(url, filename) {
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-function downloadExecutiveSummary() {
-    triggerDownload('stakeholder_pdfs/01_Executive_Summary.pdf', 'Trinity_Air_Link_Executive_Summary.pdf');
-}
-
-function downloadWhitePaper() {
-    triggerDownload('stakeholder_pdfs/06_White_Paper.pdf', 'Trinity_Air_Link_White_Paper.pdf');
-}
-
-function downloadInvestorPackage() {
-    triggerDownload('docs/hub_docs/Investor Presentation Deck.docx', 'TAL_Investor_Package.docx');
-}
-
-function downloadTechnicalSpecs() {
-    triggerDownload('docs/hub_docs/HUB_Infrastructure_Whitepaper.docx', 'TAL_Technical_Specifications.docx');
-}
-
-function initiatePartnership() {
-    // Placeholder for partnership initiation
-    const email = 'partnerships@trinityairlink.com';
-    const subject = 'Trinity Air Link Partnership Inquiry';
-    const body = 'I am interested in learning more about partnership opportunities with the Trinity Air Link project. Please provide additional information about investment, technology collaboration, or strategic partnership options.';
-
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-function schedulePresentation() {
-    const email = 'partnerships@trinityairlink.com';
-    const subject = 'Trinity Air Link — Presentation Request';
-    const body = 'I would like to schedule a presentation/briefing on the Trinity Air Link project.\n\nOrganization: \nRole: \nPreferred dates: \nTopics of interest (investment, technology partnership, government, other): ';
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-// Document Download Functions for New Documents Section
-function downloadGovernmentPresentation() {
-    triggerDownload('docs/hub_docs/Government Presentation Deck.docx', 'TAL_Government_Presentation_Deck.docx');
-}
-
-function downloadEconomicImpact() {
-    triggerDownload('docs/hub_docs/Hub Financial Model.docx', 'TAL_Economic_Impact_Financial_Model.docx');
-}
-
-function downloadRegulatoryPathway() {
-    triggerDownload('docs/hub_docs/HUB_Infrastructure_Whitepaper.docx', 'TAL_Regulatory_Pathway.docx');
-}
-
-function downloadCommunityBenefits() {
-    triggerDownload('stakeholder_pdfs/01_Executive_Summary.pdf', 'Trinity_Air_Link_Community_Benefits_Overview.pdf');
-}
-
-function downloadInvestorDeck() {
-    triggerDownload('docs/hub_docs/Investor Presentation Deck.docx', 'TAL_Investor_Presentation_Deck.docx');
-}
-
-function downloadFinancialModel() {
-    triggerDownload('docs/hub_docs/Hub Financial Model.docx', 'TAL_5Year_Financial_Model.docx');
-}
-
-function downloadRiskAssessment() {
-    triggerDownload('docs/hub_docs/Risk Assessment Matrix.docx', 'TAL_Risk_Assessment_Matrix.docx');
-}
-
-function downloadFundingSources() {
-    triggerDownload('docs/hub_docs/Funding Sources Analysis.docx', 'TAL_Funding_Sources_Analysis.docx');
-}
-
-function downloadTechSpecs() {
-    triggerDownload('docs/hub_docs/HUB_Infrastructure_Whitepaper.docx', 'TAL_Technical_Specifications.docx');
-}
-
-function downloadIntegrationReqs() {
-    triggerDownload('docs/hub_docs/HUB_Infrastructure_Deck.pptx', 'TAL_Integration_Requirements.pptx');
-}
-
-function downloadPartnershipFramework() {
-    triggerDownload('docs/hub_docs/Stakeholder Engagement Strategy.docx', 'TAL_Partnership_Framework.docx');
-}
-
-function downloadSafetyProtocols() {
-    triggerDownload('docs/hub_docs/Risk Assessment Matrix.docx', 'TAL_Safety_Compliance_Protocols.docx');
-}
-
-function downloadProjectTracking() {
-    triggerDownload('docs/hub_docs/HUB Project Proposal.docx', 'TAL_Project_Proposal.docx');
-}
-
-function downloadStakeholderDatabase() {
-    triggerDownload('docs/hub_docs/Stakeholder Contact Database.docx', 'TAL_Stakeholder_Contact_Database.docx');
-}
-
-function downloadImageGuide() {
-    triggerDownload('docs/hub_docs/Demo Materials Strategy.docx', 'TAL_Demo_Materials_Strategy.docx');
-}
-
-function downloadVRPlan() {
-    triggerDownload('docs/hub_docs/Demo Materials Strategy.docx', 'TAL_VR_Experience_Plan.docx');
-}
-
-function downloadAllDocuments() {
-    const docs = [
-        ['stakeholder_pdfs/01_Executive_Summary.pdf', 'Trinity_Air_Link_Executive_Summary.pdf'],
-        ['stakeholder_pdfs/06_White_Paper.pdf', 'Trinity_Air_Link_White_Paper.pdf'],
-        ['docs/hub_docs/HUB_Financial_Model.md', 'Trinity_Air_Link_Financial_Model.md'],
-        ['docs/hub_docs/Risk_Assessment_Matrix.md', 'Trinity_Air_Link_Risk_Assessment_Matrix.md'],
-        ['docs/hub_docs/Funding_Sources_Analysis.md', 'Trinity_Air_Link_Funding_Sources_Analysis.md'],
-        ['docs/hub_docs/Stakeholder_Contact_Database.md', 'Trinity_Air_Link_Stakeholder_Contact_Database.md'],
-    ];
-    docs.forEach(([url, filename], i) => {
-        setTimeout(() => triggerDownload(url, filename), i * 300);
-    });
-}
-
-function requestAccess() {
-    // Placeholder for access request functionality
-    const email = 'access@trinityairlink.com';
-    const subject = 'Document Access Request - Trinity Air Link';
-    const body = 'I am requesting access to confidential project materials for the Trinity Air Link project. Please provide access credentials or additional information about the document review process.\n\nOrganization: \nRole: \nSpecific documents needed: \nPurpose: ';
-    
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-// Interactive Enhancement Functions
-function animateCounter(counter) {
-    // Skip if already animated or if text is non-numeric (e.g. "Air Mobility")
-    if (counter.dataset.animated) return;
-    const target = counter.textContent.trim();
-    const numericValue = parseFloat(target.replace(/[^\d.]/g, ''));
-    // Only animate pure numeric-style values (not text labels or ordinals like "1st")
-    const isAnimatable = !isNaN(numericValue) && numericValue > 0 && /^[\$\d]/.test(target);
-    if (!isAnimatable) return;
-    counter.dataset.animated = '1';
-
-    const duration = 2000;
-    const steps = 60;
-    const increment = numericValue / steps;
-    let current = 0;
-
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= numericValue) {
-            counter.textContent = target;
-            clearInterval(timer);
-        } else {
-            if (target.startsWith('$') && target.includes('M')) {
-                counter.textContent = '$' + current.toFixed(0) + 'M+';
-            } else if (target.startsWith('$') && target.includes('B')) {
-                counter.textContent = '$' + current.toFixed(0) + 'B+';
-            } else if (target.includes('M')) {
-                counter.textContent = current.toFixed(1) + 'M';
-            } else if (target.includes('%')) {
-                counter.textContent = current.toFixed(1) + '%';
-            } else if (target.includes('min')) {
-                counter.textContent = Math.round(current) + 'min';
-            } else {
-                counter.textContent = Math.round(current);
-            }
-        }
-    }, duration / steps);
-}
-
-// Intersection Observer for animations
-function initializeScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                entry.target.querySelectorAll('.stat-number').forEach(animateCounter);
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    document.querySelectorAll('.futuristic-card').forEach(el => {
-        observer.observe(el);
-    });
-}
-
-// Progress Bar for Reading
-function initializeProgressBar() {
-    const progressBar = document.createElement('div');
-    progressBar.id = 'reading-progress';
-    progressBar.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: var(--accent);
-        z-index: 1000;
-        transition: width 0.1s ease;
-    `;
-    document.body.appendChild(progressBar);
-
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / scrollHeight) * 100;
-        progressBar.style.width = progress + '%';
-    });
-}
-
-// Enhanced Navigation Active State
-function updateNavigationState() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 100) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('nav-active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('nav-active');
-            }
-        });
-    });
-}
-
-// Smooth hover effects for cards
-function initializeCardEffects() {
-    document.querySelectorAll('.futuristic-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-3px)';
-            this.style.borderColor = 'var(--border)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.borderColor = 'var(--border-subtle)';
-        });
-    });
-}
-
-// Add fade-in animation styles
-function addAnimationStyles() {
-    const style = document.createElement('style');
-    style.textContent = `
-        .animate-in {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .futuristic-card {
-            transition: all 0.3s ease;
-        }
-        
-        .nav-active {
-            color: var(--accent) !important;
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all enhancements
-    addAnimationStyles();
-    initializeScrollAnimations();
-    initializeProgressBar();
-    updateNavigationState();
-    initializeCardEffects();
-    
-    const timelineData = [
-        { year: '1931', title: 'Construction Completed', description: 'The T&P Warehouse is completed in the Art Deco/Zigzag Moderne style, serving as a hub for the Texas and Pacific Railway.' },
-        { year: '1977', title: 'Sold by Railway', description: 'The Texas & Pacific Railway sells the entire complex, marking a major transition in its ownership and use.' },
-        { year: '1998', title: 'Acquired by Current Owner', description: 'Cleopatra Investments Ltd. acquires the warehouse for a reported $6.4 million. The building has remained vacant since this purchase.' },
-        { year: '2007', title: 'TIF Agreement Established', description: 'The Lancaster TIF District commits approximately $11.6 million in reimbursements for a proposed $45 million redevelopment into apartments and retail.' },
-        { year: '2016', title: 'TIF Agreement Terminated', description: 'The City of Fort Worth terminates the TIF agreement, citing the owner\'s inability to provide a viable funding plan for the project.' },
-        { year: '2017', title: 'Mandatory Compliance Work', description: 'The city requires the owner to perform temporary work, including sealing windows and pumping water from the basement, to protect the building from further decay.' },
-        { year: '2023', title: 'City-Led Structural Inspection', description: 'Prompted by safety concerns, the city hires a contractor to perform a full structural inspection, signaling increasing pressure on the owner to address the building\'s dilapidated state.' },
-        { year: '2026', title: 'Area Redevelopment Begins (Forecast)', description: 'Construction is forecast to begin on the $182 million reconstruction of East Lancaster Avenue, a major public investment set to transform the surrounding corridor, further paving the way for the Trinity Air Link vision.' }
-    ];
-
-    const incentivesData = [
-        { title: 'Neighborhood Empowerment Zones (NEZ)', description: 'Provides tax abatements and waivers for development and impact fees for eligible mixed-use and residential projects.' },
-        { title: 'Chapter 380: Catalytic Development Grant', description: 'Grants available for significant mixed-use projects along East Lancaster that address community needs or create substantial job opportunities.' },
-        { title: 'Chapter 380: Surface Parking Redevelopment', description: 'Highly relevant grant targeting the redevelopment of surface parking lots, directly addressing a key challenge for the T&P Warehouse.' },
-        { title: 'Façade Improvement Program', description: 'Offers reimbursement for exterior improvements, enhancing curb appeal and preserving historic character.' },
-        { title: 'Historic Preservation Tax Credits', description: 'Federal and State tax credits available for certified historic structures, providing a significant source of equity for rehabilitation projects.' }
-    ];
-
-    const timelineContainer = document.getElementById('timeline-container');
-    timelineData.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'timeline-item relative pl-8 pr-4 py-5 cursor-pointer rounded transition-all';
-        div.style.cssText = 'margin-left:1px;';
-        div.innerHTML = `
-            <p class="text-xs font-bold uppercase tracking-widest mb-1" style="color:var(--accent);font-family:'Inter',sans-serif;">${item.year}</p>
-            <h3 class="text-base font-semibold" style="color:var(--text-primary);font-family:'Inter',sans-serif;">${item.title}</h3>
-            <p class="text-sm mt-1" style="color:var(--text-muted);">Click to read more →</p>
-        `;
-        div.addEventListener('mouseenter', () => { div.style.background = 'var(--accent-dim)'; div.style.borderRadius = '8px'; });
-        div.addEventListener('mouseleave', () => { div.style.background = ''; });
-        div.addEventListener('click', () => openModal(item.title, item.description));
-        timelineContainer.appendChild(div);
-    });
-
-    const incentivesContainer = document.getElementById('incentives-container');
-    incentivesData.forEach(item => {
-        const div = document.createElement('div');
-        div.style.cssText = 'background:var(--surface);border:1px solid var(--border-subtle);border-radius:8px;cursor:pointer;';
-        div.innerHTML = `
-            <div class="incentive-header p-4 flex justify-between items-center">
-                <h4 class="font-semibold" style="color:var(--text-primary);">${item.title}</h4>
-                <span class="transform transition-transform" style="color:var(--accent);">&#9662;</span>
-            </div>
-            <div class="incentive-body hidden p-4" style="border-top:1px solid var(--border-subtle);">
-                <p style="color:var(--text-secondary);">${item.description}</p>
-            </div>
-        `;
-        incentivesContainer.appendChild(div);
-    });
-    
-    incentivesContainer.addEventListener('click', function(e) {
-        const header = e.target.closest('.incentive-header');
-        if (header) {
-            const body = header.nextElementSibling;
-            const arrow = header.querySelector('span');
-            body.classList.toggle('hidden');
-            arrow.classList.toggle('rotate-180');
-        }
-    });
-
-    const modal = document.getElementById('timeline-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDescription = document.getElementById('modal-description');
-    const closeModalButton = document.getElementById('close-modal-button');
-    function openModal(title, description) {
-        modalTitle.textContent = title;
-        modalDescription.textContent = description;
-        modal.classList.remove('hidden');
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trinity Air Link | Proposed Downtown Fort Worth Mobility Node</title>
+  <meta name="description" content="Trinity Air Link is evaluating a proposed downtown Fort Worth mobility node connecting regional air mobility, rail, autonomous ground transport, and adaptive reuse.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://trinityair.link/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Trinity Air Link | Proposed Downtown Fort Worth Mobility Node">
+  <meta property="og:description" content="A Phase 0 proposal for a downtown node in North Texas's emerging advanced-mobility network.">
+  <meta property="og:url" content="https://trinityair.link/">
+  <meta property="og:image" content="https://trinityair.link/images/old/mainFrontCity.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#07111f">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Trinity Air Link",
+    "url": "https://trinityair.link/",
+    "description": "A proposed downtown Fort Worth mobility node currently in Phase 0 validation."
+  }
+  </script>
+  <style>
+    :root {
+      --ink: #eaf2ff;
+      --muted: #9eb0c7;
+      --bg: #06101d;
+      --panel: #0a192a;
+      --panel-2: #0e2238;
+      --line: rgba(149, 181, 218, .18);
+      --blue: #4aa8ff;
+      --cyan: #53e1d2;
+      --amber: #f2bd62;
+      --green: #68db9b;
+      --max: 1180px;
+      --shadow: 0 22px 70px rgba(0, 0, 0, .28);
     }
-    closeModalButton.addEventListener('click', () => modal.classList.add('hidden'));
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.add('hidden');
-        }
-    });
 
-    const ctx = document.getElementById('valueChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['1998 Purchase Price', '2023 Appraised Value'],
-            datasets: [{
-                label: 'Value in Millions ($)',
-                data: [6.4, 1.2],
-                backgroundColor: ['rgba(10, 10, 15, 0.9)', 'rgba(0, 212, 255, 0.6)'],
-                borderColor: ['rgba(255,255,255,0.1)', '#00D4FF'],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) { return '$' + value + 'M'; },
-                        color: '#8892A0'
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.05)'
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#8892A0'
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.05)'
-                    }
-                }
-            },
-            plugins: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: 'Value Comparison: Acquisition vs. Current',
-                    color: '#ffffff',
-                    font: { size: 16, family: 'Inter' }
-                },
-                tooltip: {
-                    backgroundColor: 'rgba(10, 10, 15, 0.95)',
-                    titleColor: '#00D4FF',
-                    bodyColor: '#ffffff',
-                    borderColor: '#00D4FF',
-                    borderWidth: 1
-                }
-            }
-        }
-    });
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 76% 8%, rgba(55, 142, 229, .16), transparent 28rem),
+        linear-gradient(180deg, #07111f 0%, #06101d 58%, #081522 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
 
-    const challengeTabs = document.querySelectorAll('.challenge-tab');
-    const challengeContents = {
-        vacancy: document.getElementById('vacancy-content'),
-        parking: document.getElementById('parking-content'),
-        compliance: document.getElementById('compliance-content'),
-    };
-    challengeTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            challengeTabs.forEach(t => {
-                t.classList.remove('tab-active');
-                t.classList.add('tab-inactive');
-            });
-            tab.classList.add('tab-active');
-            tab.classList.remove('tab-inactive');
-            Object.values(challengeContents).forEach(content => content.classList.add('hidden'));
-            challengeContents[tab.dataset.tab].classList.remove('hidden');
-        });
-    });
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--amber); outline-offset: 4px; }
 
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
+    .skip-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 100;
+      padding: .7rem 1rem;
+      color: #06101d;
+      background: #fff;
+      border-radius: .35rem;
+      transform: translateY(-180%);
+    }
+    .skip-link:focus { transform: translateY(0); }
 
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('main section');
-    const navHeader = document.getElementById('nav-header');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-             if (mobileMenu.classList.contains('hidden') === false) {
-                 mobileMenu.classList.add('hidden');
-             }
-        });
-    });
+    .wrap { width: min(calc(100% - 2rem), var(--max)); margin-inline: auto; }
+    .section { padding: 6rem 0; }
+    .section.compact { padding: 3.25rem 0; }
 
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            const targetId = this.dataset.target;
-            const targetContent = document.getElementById(targetId);
-            const arrow = this.querySelector('.arrow');
-            
-            // Close all other open accordions
-            accordionHeaders.forEach(otherHeader => {
-                if (otherHeader !== this) {
-                    const otherTargetId = otherHeader.dataset.target;
-                    const otherTargetContent = document.getElementById(otherTargetId);
-                    const otherArrow = otherHeader.querySelector('.arrow');
-                    if (!otherTargetContent.classList.contains('hidden')) {
-                        otherTargetContent.classList.add('hidden');
-                        otherHeader.classList.remove('expanded');
-                        otherArrow.classList.remove('rotate-180');
-                    }
-                }
-            });
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(6, 16, 29, .9);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; font-weight: 800; letter-spacing: .08em; }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      color: #07111f;
+      background: linear-gradient(145deg, var(--cyan), var(--blue));
+      border-radius: 9px;
+      font-weight: 900;
+      letter-spacing: -.08em;
+    }
+    nav { display: flex; align-items: center; gap: 1.4rem; }
+    nav a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 650; }
+    nav a:hover { color: var(--ink); }
 
-            // Toggle the clicked accordion
-            targetContent.classList.toggle('hidden');
-            this.classList.toggle('expanded');
-            arrow.classList.toggle('rotate-180');
-        });
-    });
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: .75rem 1.15rem;
+      border: 1px solid transparent;
+      border-radius: .55rem;
+      text-decoration: none;
+      font-weight: 750;
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { color: #06101d; background: linear-gradient(135deg, var(--cyan), #79bfff); }
+    .button.secondary { color: var(--ink); border-color: var(--line); background: rgba(255, 255, 255, .035); }
+    .button.small { min-height: 40px; padding: .55rem .9rem; font-size: .9rem; }
 
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      color: #bbd8f6;
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--cyan); }
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - navHeader.offsetHeight - 20) {
-                current = section.getAttribute('id');
-            }
-        });
+    .hero { padding: 5.5rem 0 4.5rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.06fr .94fr; gap: 4rem; align-items: center; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin: 1rem 0 1.25rem; max-width: 13ch; font-size: clamp(2.75rem, 6vw, 5.6rem); line-height: .98; letter-spacing: -.052em; }
+    h1 span { color: var(--cyan); }
+    .lede { max-width: 61ch; color: #bfd0e4; font-size: clamp(1.06rem, 2vw, 1.3rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+    .status-line { display: flex; flex-wrap: wrap; gap: .75rem 1.4rem; margin-top: 2rem; color: var(--muted); font-size: .88rem; }
+    .status-line strong { color: var(--ink); }
 
-        navLinks.forEach(link => {
-            link.classList.remove('nav-active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('nav-active');
-            }
-        });
-    });
-});
-</script>
+    .hero-media { position: relative; }
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: -1.2rem 1.8rem 1.2rem -1.2rem;
+      border: 1px solid rgba(83, 225, 210, .28);
+      border-radius: 1rem;
+    }
+    .hero-media img { position: relative; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: .9rem; box-shadow: var(--shadow); filter: saturate(.82) contrast(1.03); }
+    .image-note { position: absolute; right: -1rem; bottom: -1.2rem; width: min(320px, 88%); padding: 1rem 1.1rem; background: rgba(9, 24, 41, .96); border: 1px solid var(--line); border-radius: .6rem; box-shadow: var(--shadow); font-size: .83rem; color: var(--muted); }
+    .image-note strong { display: block; margin-bottom: .2rem; color: var(--amber); }
 
+    .truth-strip { border-block: 1px solid var(--line); background: rgba(255, 255, 255, .018); }
+    .truth-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .truth-item { padding: 1.4rem 1.25rem; border-right: 1px solid var(--line); }
+    .truth-item:last-child { border-right: 0; }
+    .truth-item b { display: block; margin-bottom: .15rem; color: var(--ink); }
+    .truth-item span { color: var(--muted); font-size: .85rem; }
+
+    .section-head { max-width: 760px; margin-bottom: 2.3rem; }
+    h2 { margin: .75rem 0 1rem; font-size: clamp(2rem, 4.5vw, 3.35rem); line-height: 1.08; letter-spacing: -.038em; }
+    .section-head p { color: var(--muted); font-size: 1.08rem; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .card { padding: 1.55rem; background: linear-gradient(150deg, rgba(14, 34, 56, .94), rgba(9, 24, 41, .9)); border: 1px solid var(--line); border-radius: .75rem; }
+    .card .number { color: var(--cyan); font-weight: 850; letter-spacing: .08em; font-size: .78rem; }
+    .card h3 { margin: .65rem 0 .6rem; font-size: 1.22rem; }
+    .card p { margin-bottom: 0; color: var(--muted); }
+
+    .reality { background: rgba(9, 24, 41, .62); border-block: 1px solid var(--line); }
+    .fact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .fact { display: grid; grid-template-columns: 74px 1fr; gap: 1rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: .7rem; background: rgba(255, 255, 255, .025); }
+    .fact-icon { width: 58px; height: 58px; display: grid; place-items: center; border: 1px solid rgba(74, 168, 255, .32); border-radius: .6rem; color: var(--blue); font-weight: 850; }
+    .fact h3 { margin-bottom: .35rem; font-size: 1.05rem; }
+    .fact p { margin-bottom: .45rem; color: var(--muted); font-size: .91rem; }
+    .source { color: #8bc8ff; font-size: .8rem; font-weight: 700; text-underline-offset: 3px; }
+
+    .site-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3.25rem; align-items: center; }
+    .site-photo { position: relative; border: 1px solid var(--line); border-radius: .8rem; overflow: hidden; box-shadow: var(--shadow); }
+    .site-photo img { width: 100%; aspect-ratio: 16 / 11; object-fit: cover; }
+    .site-photo figcaption { padding: .85rem 1rem; color: var(--muted); background: var(--panel); font-size: .78rem; }
+    .check-list { display: grid; gap: .7rem; margin-top: 1.35rem; }
+    .check { display: grid; grid-template-columns: 20px 1fr; gap: .75rem; color: #c7d6e7; }
+    .check::before { content: "○"; color: var(--amber); font-weight: 900; }
+    .warning { margin-top: 1.5rem; padding: 1rem 1.1rem; color: #ead8b8; background: rgba(242, 189, 98, .08); border: 1px solid rgba(242, 189, 98, .25); border-radius: .55rem; font-size: .9rem; }
+
+    .gates { display: grid; gap: .85rem; counter-reset: gate; }
+    .gate { counter-increment: gate; display: grid; grid-template-columns: 64px 1fr auto; gap: 1rem; align-items: center; padding: 1.15rem 1.25rem; border: 1px solid var(--line); border-radius: .65rem; background: rgba(255,255,255,.022); }
+    .gate::before { content: "0" counter(gate); color: var(--cyan); font-weight: 900; font-size: 1.15rem; }
+    .gate h3 { margin: 0 0 .25rem; font-size: 1.08rem; }
+    .gate p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .pill { padding: .35rem .65rem; color: #f5c97f; background: rgba(242,189,98,.08); border: 1px solid rgba(242,189,98,.25); border-radius: 999px; font-size: .72rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+
+    .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .roadmap article { position: relative; padding: 1.55rem; border-top: 3px solid var(--blue); background: var(--panel); border-radius: 0 0 .7rem .7rem; }
+    .roadmap article:first-child { border-color: var(--amber); }
+    .roadmap article:last-child { border-color: var(--green); }
+    .roadmap .time { color: var(--muted); font-size: .74rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .roadmap h3 { margin: .55rem 0 .5rem; }
+    .roadmap p { color: var(--muted); margin-bottom: 0; font-size: .92rem; }
+
+    .contact { padding: 2.25rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; background: linear-gradient(120deg, rgba(34, 109, 175, .2), rgba(28, 150, 137, .13)); border: 1px solid rgba(83, 225, 210, .24); border-radius: .9rem; }
+    .contact h2 { margin-top: 0; font-size: clamp(1.8rem, 4vw, 2.7rem); }
+    .contact p { max-width: 69ch; margin-bottom: 0; color: #c1d2e4; }
+
+    footer { padding: 2.5rem 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    .footer-grid { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .footer-grid a { color: #a9c7e6; text-underline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      nav a:not(.button) { display: none; }
+      .hero-grid, .site-grid { grid-template-columns: 1fr; }
+      .hero-media { max-width: 720px; }
+      .truth-grid, .grid-3, .roadmap { grid-template-columns: repeat(2, 1fr); }
+      .truth-item:nth-child(2) { border-right: 0; }
+      .truth-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .grid-3 .card:last-child, .roadmap article:last-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 620px) {
+      .section { padding: 4.25rem 0; }
+      .hero { padding-top: 3.6rem; }
+      .hero-grid { gap: 3.25rem; }
+      h1 { font-size: clamp(2.55rem, 14vw, 4rem); }
+      .truth-grid, .grid-3, .fact-grid, .roadmap { grid-template-columns: 1fr; }
+      .truth-item, .truth-item:nth-child(2) { border-right: 0; border-bottom: 1px solid var(--line); }
+      .truth-item:last-child { border-bottom: 0; }
+      .grid-3 .card:last-child, .roadmap article:last-child { grid-column: auto; }
+      .fact { grid-template-columns: 1fr; }
+      .gate { grid-template-columns: 44px 1fr; }
+      .gate .pill { grid-column: 2; justify-self: start; }
+      .contact { grid-template-columns: 1fr; padding: 1.5rem; }
+      .image-note { right: -.3rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Trinity Air Link home">
+        <span class="brand-mark" aria-hidden="true">TA</span>
+        <span>TRINITY AIR LINK</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#thesis">Thesis</a>
+        <a href="#market">Market</a>
+        <a href="#site">Site</a>
+        <a href="#gates">Validation gates</a>
+        <a class="button primary small" href="mailto:partnerships@trinityairlink.com?subject=Trinity%20Air%20Link%20inquiry">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Phase 0 · Validation</div>
+          <h1>A proposed <span>downtown node</span> for North Texas mobility.</h1>
+          <p class="lede">Trinity Air Link is evaluating a capital-light hub concept connecting regional air mobility, rail, autonomous ground transport, charging, parking, and adaptive reuse in downtown Fort Worth.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#gates">See the validation plan</a>
+            <a class="button secondary" href="mailto:partnerships@trinityairlink.com?subject=Trinity%20Air%20Link%20working%20session">Request a working session</a>
+          </div>
+          <div class="status-line" aria-label="Project status summary">
+            <span><strong>Status:</strong> predevelopment</span>
+            <span><strong>Site:</strong> proposed, not controlled</span>
+            <span><strong>Capital:</strong> no public offering</span>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="images/old/mainFrontCity.jpeg" width="900" height="675" alt="Concept rendering of an adaptive-reuse mobility hub in downtown Fort Worth">
+          <div class="image-note"><strong>Conceptual imagery</strong>For discussion only. It is not an approved design, construction plan, operator commitment, or government endorsement.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="truth-strip" aria-label="Project disclosures">
+      <div class="wrap truth-grid">
+        <div class="truth-item"><b>401 W Lancaster</b><span>Preferred warehouse site under evaluation</span></div>
+        <div class="truth-item"><b>≈580,000 sq ft</b><span>Subject to survey and architect verification</span></div>
+        <div class="truth-item"><b>Operator-neutral</b><span>Infrastructure and access—not fleet ownership</span></div>
+        <div class="truth-item"><b>Last verified</b><span>September 17, 2026</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="thesis">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">The revised thesis</div>
+          <h2>Build the missing downtown endpoint—not another airline.</h2>
+          <p>Texas's advanced-mobility ecosystem is becoming real. Trinity Air Link's potential advantage is the downtown interface: a place where qualified operators can connect passengers and freight to rail, autonomous ground vehicles, parking, hospitality, and the Fort Worth core.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><span class="number">01</span><h3>Operator access</h3><p>Shared pads, charging, passenger processing, dispatch support, data services, and contracted access fees for qualified third-party operators.</p></article>
+          <article class="card"><span class="number">02</span><h3>Ground integration</h3><p>A managed interchange for rail, autonomous ride-hail, shuttles, parking, curb operations, and first/last-mile connections.</p></article>
+          <article class="card"><span class="number">03</span><h3>Adaptive reuse</h3><p>A phased commercial program intended to preserve a landmark while putting only financeable, technically feasible space into service.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reality" id="market">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Market reality</div>
+          <h2>The category is validated. Trinity Air's role is not.</h2>
+          <p>These are external market facts—not Trinity Air partnerships, approvals, or operating commitments.</p>
+        </div>
+        <div class="fact-grid">
+          <article class="fact"><div class="fact-icon" aria-hidden="true">FAA</div><div><h3>Texas is in the federal eIPP program</h3><p>The selected Texas project supports phased regional operations. Trinity Air and the T&amp;P site are not named participants.</p><a class="source" href="https://www.faa.gov/newsroom/future-aviation-here-trumps-transportation-secretary-sean-duffy-and-faa-unveil-eight" target="_blank" rel="noopener">FAA source ↗</a></div></article>
+          <article class="fact"><div class="fact-icon" aria-hidden="true">JBY</div><div><h3>Joby has a Fort Worth-area base</h3><p>Joby's Perot Field presence creates a credible upstream ecosystem and removes any uncontested market-lead claim.</p><a class="source" href="https://ir.jobyaviation.com/news-events/press-releases/detail/188/joby-aviation-establishes-hub-at-perot-field-fort-worth" target="_blank" rel="noopener">Joby source ↗</a></div></article>
+          <article class="fact"><div class="fact-icon" aria-hidden="true">AV</div><div><h3>Autonomous ride-hail is live in Dallas</h3><p>Waymo opened Dallas service to the public. A Fort Worth or Trinity Air integration remains unproven.</p><a class="source" href="https://waymo.com/blog/shorts/dallas-open-to-all/" target="_blank" rel="noopener">Waymo source ↗</a></div></article>
+          <article class="fact"><div class="fact-icon" aria-hidden="true">DFW</div><div><h3>Regional demand is substantial</h3><p>DFW has roughly 8.5 million residents and recorded about 231.3 million person-hours of road delay in 2024.</p><a class="source" href="https://static.tti.tamu.edu/tti.tamu.edu/documents/mobility-report-2025.pdf" target="_blank" rel="noopener">TTI source ↗</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="site">
+      <div class="wrap site-grid">
+        <figure class="site-photo">
+          <img src="images/roof_crop_resize.png" width="900" height="619" loading="lazy" alt="Conceptual aerial rendering of the preferred adaptive-reuse site">
+          <figcaption>Concept only. Rooftop aviation use has not been established as structurally, operationally, or regulatorily feasible.</figcaption>
+        </figure>
+        <div>
+          <div class="eyebrow">Preferred site</div>
+          <h2>The T&amp;P Warehouse is a hypothesis to test.</h2>
+          <p>The preferred property is the warehouse at 401 W Lancaster Avenue, adjacent to downtown rail access. It is strategically distinctive, but Trinity Air does not currently represent that it controls the property.</p>
+          <div class="check-list">
+            <div class="check">Secure an option, lease framework, or other enforceable diligence right.</div>
+            <div class="check">Confirm parcel boundaries, title, access, building area, condition, and historic constraints.</div>
+            <div class="check">Test structure, fire/life safety, utilities, charging, airspace, noise, emergency response, and vertiport geometry.</div>
+            <div class="check">Maintain a ground-level or alternate downtown-site configuration if rooftop operations fail.</div>
+          </div>
+          <div class="warning"><strong>Current disclosure:</strong> site control, operator commitments, construction budget, incentives, and FAA operating authority have not been established in public project evidence.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reality" id="gates">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Decision discipline</div>
+          <h2>Five gates before a full project raise.</h2>
+          <p>The next work product is evidence. Headline returns and launch dates stay withdrawn until the operating and capital model is linked to verified inputs.</p>
+        </div>
+        <div class="gates">
+          <article class="gate"><div><h3>Site control</h3><p>Executed instrument with adequate diligence and development rights.</p></div><span class="pill">Open</span></article>
+          <article class="gate"><div><h3>Technical feasibility</h3><p>No fatal structural, utility, airspace, fire, historic, or permitting constraint.</p></div><span class="pill">Open</span></article>
+          <article class="gate"><div><h3>Operator and customer traction</h3><p>Written requirements and at least one credible commercial-development signal.</p></div><span class="pill">Open</span></article>
+          <article class="gate"><div><h3>Financeability</h3><p>Linked net-revenue model, scoped capital costs, downside liquidity, and capital plan.</p></div><span class="pill">Open</span></article>
+          <article class="gate"><div><h3>Public and regulatory alignment</h3><p>Named agency pathways and no implied endorsement or automatic operating authority.</p></div><span class="pill">Open</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Near-term roadmap</div>
+          <h2>A 90-day evidence sprint.</h2>
+        </div>
+        <div class="roadmap">
+          <article><span class="time">Now · Days 0–30</span><h3>Control and scope</h3><p>Resolve property interest, commission capped diligence scopes, establish the claims register, and open working-level conversations with the city, TxDOT, operators, and regional planners.</p></article>
+          <article><span class="time">Next · Days 31–60</span><h3>Test and price</h3><p>Complete preliminary site, structure, utility, airspace, fire, and operating studies. Rebuild unit economics from operator-access fees rather than gross transportation fares.</p></article>
+          <article><span class="time">Then · Days 61–90</span><h3>Decide</h3><p>Proceed only if site control, a viable minimum configuration, commercial traction, financeability, and a named public/regulatory path are all present. Otherwise pivot or pause.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="wrap contact">
+        <div><div class="eyebrow">Working-level engagement</div><h2>Help test the project.</h2><p>Trinity Air Link is seeking serious conversations with property, aviation, infrastructure, transit, autonomous-mobility, preservation, finance, and public-sector professionals. Detailed diligence materials are not published on this website.</p></div>
+        <a class="button primary" href="mailto:partnerships@trinityairlink.com?subject=Trinity%20Air%20Link%20working%20session">Contact the project</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <span>© 2026 Trinity Air Link · A Baltek Systems Services LLC project</span>
+      <span><a href="mailto:partnerships@trinityairlink.com">partnerships@trinityairlink.com</a> · Information is preliminary and subject to change.</span>
+    </div>
+  </footer>
 </body>
 </html>
