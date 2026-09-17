@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /docs/
+Disallow: /print/
+Disallow: /stakeholder_pdfs/
+Disallow: /access.html
+Disallow: /investor_portal.html
+
+Sitemap: https://trinityair.link/sitemap.xml

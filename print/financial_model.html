@@ -1,95 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="../js/gate.js"></script>
-<title>Trinity Air Link — Financial Model</title>
-<link rel="stylesheet" href="print.css">
-<style>
-  @page { margin: 0.75in 0.85in 0.85in; }
-  @page :first { margin: 0; }
-  .cover-hero { height: 65vh; }
-  .phase-invest { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin: 1rem 0; }
-  .pi-box { border: 1.5px solid var(--border); border-top: 4px solid var(--cyan); padding: 0.8rem 0.7rem; border-radius: 0 0 4px 4px; }
-  .pi-box .pi-phase { font-size: 0.65rem; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; }
-  .pi-box .pi-year { font-size: 0.78rem; font-weight: 700; color: var(--navy); margin: 0.2rem 0 0.1rem; }
-  .pi-box .pi-amount { font-size: 1.2rem; font-weight: 900; color: var(--blue); }
-  .pi-box .pi-desc { font-size: 0.65rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.35; }
-  .returns-highlight { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color: #fff; border-radius: 8px; padding: 1rem 1.4rem; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin: 1rem 0; text-align: center; }
-  .rh-item .rh-val { font-size: 1.25rem; font-weight: 900; color: var(--cyan); display: block; line-height: 1.1; }
-  .rh-item .rh-lbl { font-size: 0.6rem; color: #a0c4d8; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.25rem; display: block; }
-  @media screen and (max-width: 768px) {
-    .phase-invest { grid-template-columns: 1fr 1fr !important; }
-    .pi-box .pi-amount { font-size: 1rem; }
-    .pi-box .pi-desc { font-size: 0.7rem; }
-    .returns-highlight { grid-template-columns: 1fr 1fr !important; gap: 0.6rem; }
-    .rh-item .rh-val { font-size: 1.1rem; }
-    .rh-item .rh-lbl { font-size: 0.65rem; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Material withdrawn | Trinity Air Link</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:1.5rem;color:#eaf2ff;background:#06101d;font:16px/1.6 Inter,system-ui,sans-serif}.box{width:min(640px,100%);padding:2rem;background:#0a192a;border:1px solid rgba(149,181,218,.2);border-radius:.8rem}small{color:#53e1d2;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h1{margin:.65rem 0 1rem;font-size:clamp(2rem,8vw,3.2rem);line-height:1.05}p{color:#aabbd0}a{display:inline-block;margin-top:.7rem;padding:.72rem 1rem;color:#06101d;background:#53e1d2;border-radius:.45rem;text-decoration:none;font-weight:800}
+  </style>
 </head>
 <body>
-<div class="mobile-back-nav"><a href="../index.html">&larr; Trinity Air Link</a><span class="doc-name"></span></div>
-<div class="cover-page">
-  <img src="../images/roof_crop.png" alt="Trinity Air Link Transportation System" class="cover-hero">
-  <div class="cover-body">
-    <div class="cover-eyebrow">Confidential — March 2026</div>
-    <h1 class="cover-title">Financial Model &amp;<br>Investment Analysis</h1>
-    <div class="cover-subtitle">Trinity Air Link Transportation System | T&amp;P Warehouse, Fort Worth, Texas</div>
-    <div class="cover-divider"></div>
-    <p class="cover-desc">Calculated financial projections, capital framing, revenue scenarios, and return analysis for a capital-light multi-operator eVTOL and autonomous vehicle infrastructure platform.</p>
-    <div class="cover-stat-bar">
-      <div class="cover-stat"><span class="val">24.8%</span><span class="lbl">Calculated IRR<br>Before Terminal</span></div>
-      <div class="cover-stat"><span class="val">$89.7M</span><span class="lbl">NPV @ 10%<br>Before Terminal</span></div>
-      <div class="cover-stat"><span class="val">36.8%</span><span class="lbl">IRR With<br>Terminal</span></div>
-      <div class="cover-stat"><span class="val">$293.2M</span><span class="lbl">NPV With<br>Terminal</span></div>
-      <div class="cover-stat"><span class="val">$107M–$113M</span><span class="lbl">Capital-Light<br>Base Case</span></div>
-    </div>
-  </div>
-  <div class="cover-footer"><span class="logo">TRINITY AIR LINK · FORT WORTH, TEXAS</span><span>For authorized recipients only — not for distribution</span></div>
-</div>
-<div class="doc-page">
-  <div class="doc-header"><span class="brand">TRINITY AIR LINK</span><span>Financial Model &amp; Investment Analysis · March 2026</span></div>
-  <span class="section-num">Section 01 · Investment Overview</span>
-  <h2>Total Capital Requirements</h2>
-  <div class="phase-invest">
-    <div class="pi-box"><div class="pi-phase">Phase 1</div><div class="pi-year">2026 — Foundation</div><div class="pi-amount">$15M–$25M</div><div class="pi-desc">Planning, regulatory approvals, design, utility studies, team building, FAA/TXDOT pathway, partner MOUs, early operating burn</div></div>
-    <div class="pi-box"><div class="pi-phase">Phase 2</div><div class="pi-year">2027 — Selective Activation</div><div class="pi-amount">$40M–$60M</div><div class="pi-desc">Historic rehabilitation, selective interior activation, rooftop vertiport package, AV terminal, charging, core building systems</div></div>
-    <div class="pi-box"><div class="pi-phase">Phase 3</div><div class="pi-year">2028 — Systems & Deployment</div><div class="pi-amount">$10M–$32M</div><div class="pi-desc">Operator access infrastructure, charging/energy systems, dispatch software, technology integration, commissioning, optional seed fleet</div></div>
-    <div class="pi-box"><div class="pi-phase">Phase 4</div><div class="pi-year">2029 — Launch</div><div class="pi-amount">$20M–$25M</div><div class="pi-desc">Commercial launch, operator scale-up, marketing, working capital, route expansion, startup contingency</div></div>
-  </div>
-  <div class="callout"><strong>Preferred Base Case:</strong> The capital-light operator access model still targets approximately <strong>$107M–$113M</strong>, but that number is only credible if the early build is framed as a <strong>phased activation strategy</strong>, not a full top-to-bottom repositioning of the entire T&amp;P Warehouse in the first wave.</div>
-  <h3>Construction &amp; Infrastructure Cost Stack Framing</h3>
-  <table><thead><tr><th>Scenario</th><th>Planning Range</th><th>What It Assumes</th></tr></thead><tbody><tr><td><strong>Lean / Phased Activation</strong></td><td><strong>$46M–$78M</strong></td><td>Selective square footage activation, restrained TI load, smaller rooftop package, limited terminal and charging build.</td></tr><tr><td><strong>Flagship Initial Build</strong></td><td><strong>$67M–$122M</strong></td><td>Serious activation of a larger area, stronger rooftop package, credible charging/utilities, public-facing passenger environment, deeper technology integration.</td></tr><tr><td>Heavy Historic / Full-Scope Exposure</td><td>$122M+</td><td>Broader building repositioning, heavier TI scope, larger mobility infrastructure package, larger utility and contingency burden.</td></tr></tbody></table>
-  <div class="callout"><strong>Model implication:</strong> Lower initial capital cases are only defensible if the square footage activation, TI scope, rooftop scope, charging assumptions, and contingency levels are explicitly limited. The cost stack should be used as the sponsor-level capex check behind any investor-facing phase totals.</div>
-  <h3>Phase 3 Deployment Options</h3>
-  <table><thead><tr><th>Model</th><th>Phase 3 Capital Need</th><th>Description</th></tr></thead><tbody><tr><td><strong>Capital-Light Operator Access</strong></td><td><strong>$10M–$16M</strong></td><td>Preferred base case. Independent operators provide aircraft/vehicles and absorb fleet capex. Trinity controls the infrastructure and platform economics.</td></tr><tr><td>Hybrid</td><td>$18M–$24M</td><td>Limited seed/demo vehicle exposure where required to prove route economics while operators carry most fleet capex.</td></tr><tr><td>Owned Fleet</td><td>$32M</td><td>Upside/control case. Trinity purchases or finances the initial fleet, capturing more revenue but assuming more asset, depreciation, maintenance, insurance, and regulatory exposure.</td></tr></tbody></table>
-  <span class="section-num">Section 02 · Revenue Model</span>
-  <h2>Revenue Projections — Year 5 (2030)</h2>
-  <table><thead><tr><th>Revenue Stream</th><th>Conservative</th><th>Moderate</th><th>Optimistic</th><th>Basis / Assumptions</th></tr></thead><tbody><tr><td>Air Mobility Platform Revenue</td><td>$21.9M</td><td>$54.8M</td><td>$131.4M</td><td>Pad/stand access, passenger facility charges, charging markup, dispatch/data fees, revenue share</td></tr><tr><td>Ground Mobility Platform Revenue</td><td>$16.4M</td><td>$54.8M</td><td>$137.3M</td><td>AV bay/curb access, passenger facility charges, energy services, routing API, data fees, revenue share</td></tr><tr><td>Innovation Center / Real Estate</td><td>$2.4M</td><td>$3.8M</td><td>$5.1M</td><td>120K sq ft, $25–45/sq ft, 80–95% occupancy</td></tr><tr><td>Technology Licensing &amp; IP</td><td>$4.0M</td><td>$10.0M</td><td>$16.0M</td><td>Dispatch software, data, consulting, licensing</td></tr><tr><td>Ancillary</td><td>$6.0M</td><td>$10.0M</td><td>$16.0M</td><td>Retail, dining, parking, cargo, services</td></tr><tr class="total-row"><td><strong>Total Revenue</strong></td><td><strong>$50.7M</strong></td><td><strong>$133.4M</strong></td><td><strong>$305.8M</strong></td><td></td></tr></tbody></table>
-  <h3>Capital-Light EBITDA — Year 5</h3>
-  <table><thead><tr><th>Scenario</th><th>Revenue</th><th>Total OpEx</th><th>EBITDA</th><th>EBITDA Margin</th></tr></thead><tbody><tr><td>Conservative</td><td>$50.7M</td><td>$59.0M</td><td class="risk-high">($8.3M)</td><td>-16%</td></tr><tr><td><strong>Moderate / Base</strong></td><td><strong>$133.4M</strong></td><td><strong>$88.5M</strong></td><td><strong>$44.9M</strong></td><td><strong>34%</strong></td></tr><tr><td>Optimistic</td><td>$305.8M</td><td>$138.0M</td><td><strong>$167.8M</strong></td><td><strong>55%</strong></td></tr></tbody></table>
-  <div class="doc-footer-bar"><span>CONFIDENTIAL — Trinity Air Link Transportation System</span><span>Page 1 of 2</span></div>
-</div>
-<div class="doc-page page-break">
-  <div class="doc-header"><span class="brand">TRINITY AIR LINK</span><span>Financial Model &amp; Investment Analysis · March 2026</span></div>
-  <span class="section-num">Section 03 · Investor Returns</span>
-  <h2>Return on Investment Summary</h2>
-  <div class="returns-highlight"><div class="rh-item"><span class="rh-val">24.8%</span><span class="rh-lbl">Calculated Project IRR<br>Before Terminal</span></div><div class="rh-item"><span class="rh-val">$89.7M</span><span class="rh-lbl">NPV @ 10%<br>Before Terminal</span></div><div class="rh-item"><span class="rh-val">$480M</span><span class="rh-lbl">Moderate Year 10<br>Terminal Value</span></div><div class="rh-item"><span class="rh-val">36.8%</span><span class="rh-lbl">IRR Including<br>Terminal Value</span></div><div class="rh-item"><span class="rh-val">$293.2M</span><span class="rh-lbl">NPV @ 10%<br>Including Terminal</span></div></div>
-  <div class="callout"><strong>Return framing:</strong> The preferred capital-light moderate case produces a calculated <strong>24.8% 10-year project IRR before terminal value</strong> and <strong>$89.7M NPV at a 10% discount rate before terminal value</strong>. Terminal value is shown separately as exit/refinance upside and is not counted as Year 5 operating cash flow.</div>
-  <h3>10-Year Capital-Light Project Cash Flow — Moderate Base Case Before Terminal Value</h3>
-  <table><thead><tr><th>Year</th><th>Development Phase</th><th>Net Project Cash Flow</th><th>Notes</th></tr></thead><tbody><tr><td>2026</td><td>Phase 1</td><td>($25M)</td><td>Planning, regulatory, team, early operating burn</td></tr><tr><td>2027</td><td>Phase 2</td><td>($55M)</td><td>Selective activation and infrastructure development</td></tr><tr><td>2028</td><td>Phase 3</td><td>($17M)</td><td>Capital-light technology systems, charging, dispatch, operator access infrastructure</td></tr><tr><td>2029</td><td>Phase 4</td><td>($2M)</td><td>Launch year with major revenue ramp</td></tr><tr><td>2030</td><td>Year 5</td><td>$40M</td><td>Breakeven / positive annual cash-flow target</td></tr><tr><td>2031</td><td>Stabilization</td><td>$50M</td><td>Operator agreements mature</td></tr><tr><td>2032</td><td>Stabilization</td><td>$55M</td><td>Route expansion and higher utilization</td></tr><tr><td>2033</td><td>Stabilization</td><td>$60M</td><td>Platform revenue growth</td></tr><tr><td>2034</td><td>Stabilization</td><td>$65M</td><td>Mature multi-operator network</td></tr><tr><td>2035</td><td>Stabilization / Exit</td><td>$70M</td><td>Final projected annual cash flow before terminal value</td></tr></tbody></table>
-  <h3>Calculated Return Summary</h3>
-  <table><thead><tr><th>Scenario</th><th>IRR Before Terminal</th><th>NPV @ 10% Before Terminal</th><th>Terminal Value</th><th>IRR With Terminal</th><th>NPV With Terminal</th></tr></thead><tbody><tr><td>Capital-Light Conservative</td><td>5.0%</td><td>($23.9M)</td><td>$210M</td><td>18.3%</td><td>$65.2M</td></tr><tr><td><strong>Capital-Light Moderate / Base</strong></td><td><strong>24.8%</strong></td><td><strong>$89.7M</strong></td><td><strong>$480M</strong></td><td><strong>36.8%</strong></td><td><strong>$293.2M</strong></td></tr><tr><td>Capital-Light Optimistic</td><td>55.7%</td><td>$440.3M</td><td>$1.0B</td><td>62.8%</td><td>$864.4M</td></tr><tr><td>Owned-Fleet Low-Demand Stress</td><td>(17.2%)</td><td>($139.6M)</td><td>$175M</td><td>2.3%</td><td>($65.4M)</td></tr></tbody></table>
-  <h3>Terminal Value / Exit Upside</h3>
-  <table><thead><tr><th>Case</th><th>Year 10 EBITDA</th><th>Exit Multiple</th><th>Terminal Value</th></tr></thead><tbody><tr><td>Conservative</td><td>$35M</td><td>6.0x</td><td>$210M</td></tr><tr><td>Moderate</td><td>$60M</td><td>8.0x</td><td>$480M</td></tr><tr><td>Optimistic</td><td>$100M</td><td>10.0x</td><td>$1.0B</td></tr></tbody></table>
-  <span class="section-num">Section 04 · Funding Strategy</span>
-  <h2>Capital Structure and Funding Strategy</h2>
-  <table><thead><tr><th>Case</th><th>Total Capital</th><th>Use</th></tr></thead><tbody><tr><td><strong>Capital-Light Operator Access Case</strong></td><td><strong>$107M–$113M</strong></td><td>Preferred base case; operators carry vehicle capex</td></tr><tr><td>Hybrid Case</td><td>$115M–$121M</td><td>Limited seed/demo fleet exposure</td></tr><tr><td>Owned-Fleet Case</td><td>$129M</td><td>Upside/control case; higher fleet exposure</td></tr><tr><td>Phase 1 Funding Target</td><td>$20M</td><td>Planning, regulatory, design, team, partner MOUs</td></tr></tbody></table>
-  <div class="two-col"><div><h3>Exit Strategies</h3><ul class="bullets"><li>Strategic acquisition by airline, automotive, infrastructure, or technology platform</li><li>Infrastructure recapitalization after stabilized operations</li><li>REIT-like asset monetization for income-generating real estate/platform assets</li><li>Municipal partnership buyout with ongoing management contract</li><li>Franchise/licensing expansion to other metropolitan markets</li></ul></div><div><h3>Government Incentives Available</h3><ul class="bullets"><li>Federal Historic Tax Credits</li><li>Texas Enterprise Fund and local economic development incentives</li><li>USDOT/DOE/FAA competitive grant programs as eligible</li><li>City of Fort Worth public-private partnership tools</li><li>New Markets Tax Credits where eligible</li></ul></div></div>
-  <div class="contact-block"><h4>Investment Inquiries</h4><p>Trinity Air Link Transportation System · Fort Worth, Texas<br><em>All financial outputs are scenario-based planning estimates and depend on certification timelines, adoption rates, partner terms, financing conditions, and the ultimate square footage / infrastructure activation scope.</em></p></div>
-  <div class="doc-footer-bar"><span>CONFIDENTIAL — Trinity Air Link Transportation System · Financial Model · March 2026</span><span>Page 2 of 2</span></div>
-</div>
+  <main class="box">
+    <small>Trinity Air Link</small>
+    <h1>This legacy material has been withdrawn.</h1>
+    <p>Financial, investor, technical, and outreach materials are being revalidated during Phase 0. They are no longer distributed from the public website. Current project status and disclosures are available on the homepage.</p>
+    <a href="/">Return to the current project page</a>
+  </main>
 </body>
 </html>
