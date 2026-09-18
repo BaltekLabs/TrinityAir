@@ -12,13 +12,18 @@ This repository is public. It must contain only material approved for unrestrict
 
 Do not commit:
 
-- financial models, investor memoranda, pricing calculators, or return projections;
+- financial models, investor memoranda, securities-return projections, or investor pricing tools;
 - contact databases, outreach plans, direct personal contact details, or email drafts;
 - property negotiations, lease terms, title material, diligence reports, or legal work product;
 - passwords, hashes used as access gates, API keys, secrets, or private data-room links;
 - claims of partnerships, approvals, funding, site control, or project status without current evidence.
 
 Private diligence belongs in a server-authenticated data room or private repository. Client-side JavaScript is not access control.
+
+The public interactive concept demo is permitted only while it remains unmistakably
+simulated: no live-booking language, no personal or payment data collection, no
+implied operator affiliation, and persistent disclosure that routes, times,
+availability, and cost bands are illustrative.
 
 ## Source of truth
 
@@ -36,7 +41,9 @@ The checker validates local links, required metadata, withdrawn path controls, a
 
 ## Deployment
 
-The site is plain static HTML. `index.html` is the only indexed public content page. Legacy URLs show a withdrawal notice and are marked `noindex`.
+The site is plain static HTML. `index.html` is the only indexed public content
+page. `booking_app.html` is a public, noindex interactive concept experience.
+Legacy URLs show a withdrawal notice and are marked `noindex`.
 
 ## Release checklist
 

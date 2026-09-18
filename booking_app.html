@@ -3,18 +3,389 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,nofollow,noarchive">
-  <title>Material withdrawn | Trinity Air Link</title>
+  <title>Trinity Air Link | Interactive Concept Demo</title>
+  <meta name="description" content="Explore a simulated Trinity Air Link multimodal journey. This is a concept experience, not a live booking service.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#06101d">
   <style>
-    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:1.5rem;color:#eaf2ff;background:#06101d;font:16px/1.6 Inter,system-ui,sans-serif}.box{width:min(640px,100%);padding:2rem;background:#0a192a;border:1px solid rgba(149,181,218,.2);border-radius:.8rem}small{color:#53e1d2;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h1{margin:.65rem 0 1rem;font-size:clamp(2rem,8vw,3.2rem);line-height:1.05}p{color:#aabbd0}a{display:inline-block;margin-top:.7rem;padding:.72rem 1rem;color:#06101d;background:#53e1d2;border-radius:.45rem;text-decoration:none;font-weight:800}
+    :root {
+      --ink: #edf5ff;
+      --muted: #9fb2c9;
+      --bg: #05101c;
+      --panel: #0a192a;
+      --panel-2: #0d2238;
+      --line: rgba(149, 181, 218, .18);
+      --blue: #4aa8ff;
+      --cyan: #53e1d2;
+      --amber: #f2bd62;
+      --green: #68db9b;
+      --shadow: 0 24px 80px rgba(0, 0, 0, .34);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 86% 4%, rgba(74, 168, 255, .16), transparent 30rem),
+        radial-gradient(circle at 7% 74%, rgba(83, 225, 210, .07), transparent 28rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+    .notice {
+      padding: .72rem 1rem;
+      color: #f1dfbd;
+      background: #2a2115;
+      border-bottom: 1px solid rgba(242,189,98,.28);
+      text-align: center;
+      font-size: .8rem;
+    }
+    .notice strong { color: var(--amber); }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(5,16,28,.88);
+      backdrop-filter: blur(16px);
+    }
+    .nav {
+      width: min(calc(100% - 2rem), 1240px);
+      min-height: 72px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand { display: flex; align-items: center; gap: .75rem; color: var(--ink); text-decoration: none; font-weight: 850; letter-spacing: .07em; }
+    .mark { width: 36px; height: 36px; display: grid; place-items: center; color: #04101c; background: linear-gradient(145deg,var(--cyan),var(--blue)); border-radius: 9px; font-weight: 950; letter-spacing: -.08em; }
+    .demo-label { padding: .4rem .65rem; color: var(--cyan); border: 1px solid rgba(83,225,210,.28); border-radius: 999px; font-size: .68rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .back { color: #b8cbe0; text-decoration: none; font-size: .85rem; font-weight: 750; }
+    .back:hover { color: var(--ink); }
+
+    main {
+      width: min(calc(100% - 2rem), 1240px);
+      margin-inline: auto;
+      padding: 3.2rem 0 4.5rem;
+    }
+    .intro { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 2rem; }
+    .eyebrow { color: #bad9f8; font-size: .72rem; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+    h1 { max-width: 14ch; margin: .7rem 0 .65rem; font-size: clamp(2.25rem,5vw,4.25rem); line-height: .98; letter-spacing: -.052em; }
+    h1 span { color: var(--cyan); }
+    .intro p { max-width: 620px; margin: 0; color: var(--muted); }
+    .scenario-tag { max-width: 285px; padding: .9rem 1rem; color: #d9e8f6; background: rgba(74,168,255,.07); border: 1px solid rgba(74,168,255,.22); border-radius: .65rem; font-size: .78rem; }
+    .scenario-tag strong { display: block; margin-bottom: .2rem; color: var(--blue); }
+
+    .app-grid { display: grid; grid-template-columns: minmax(0,1.02fr) minmax(340px,.98fr); gap: 1.2rem; align-items: start; }
+    .panel { background: linear-gradient(155deg,rgba(14,34,56,.96),rgba(8,23,39,.96)); border: 1px solid var(--line); border-radius: .9rem; box-shadow: var(--shadow); }
+    .planner { padding: 1.45rem; }
+    .panel-head { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-bottom: 1.3rem; }
+    .panel-head h2 { margin: 0; font-size: 1.2rem; }
+    .step-count { color: var(--muted); font-size: .75rem; }
+
+    .origin { display: grid; grid-template-columns: 44px 1fr auto; gap: .8rem; align-items: center; padding: .9rem; background: rgba(5,16,28,.65); border: 1px solid var(--line); border-radius: .65rem; }
+    .origin-icon { width: 40px; height: 40px; display: grid; place-items: center; color: var(--cyan); border: 1px solid rgba(83,225,210,.25); border-radius: 50%; font-weight: 900; }
+    .origin strong, .origin span { display: block; }
+    .origin span { color: var(--muted); font-size: .77rem; }
+    .fixed { color: var(--muted); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+
+    fieldset { margin: 1.4rem 0 0; padding: 0; border: 0; }
+    legend { margin-bottom: .7rem; color: #d8e7f7; font-size: .82rem; font-weight: 850; }
+    .destination-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: .65rem; }
+    .destination { position: relative; }
+    .destination input { position: absolute; opacity: 0; pointer-events: none; }
+    .destination label { min-height: 104px; display: block; padding: .9rem; cursor: pointer; background: rgba(255,255,255,.018); border: 1px solid var(--line); border-radius: .62rem; transition: border-color .15s ease, background .15s ease, transform .15s ease; }
+    .destination label:hover { transform: translateY(-2px); border-color: rgba(74,168,255,.38); }
+    .destination input:checked + label { background: rgba(83,225,210,.07); border-color: rgba(83,225,210,.55); box-shadow: inset 0 0 0 1px rgba(83,225,210,.16); }
+    .destination input:focus-visible + label { outline: 3px solid var(--amber); outline-offset: 3px; }
+    .destination b, .destination span { display: block; }
+    .destination b { margin-bottom: .25rem; font-size: .92rem; }
+    .destination span { color: var(--muted); font-size: .76rem; }
+    .destination em { display: block; margin-top: .42rem; color: var(--blue); font-size: .71rem; font-style: normal; font-weight: 800; }
+
+    .controls { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .field label { display: block; margin-bottom: .45rem; color: #d8e7f7; font-size: .8rem; font-weight: 800; }
+    select {
+      width: 100%;
+      height: 46px;
+      padding: 0 .8rem;
+      color: var(--ink);
+      background: #081725;
+      border: 1px solid var(--line);
+      border-radius: .55rem;
+    }
+    .passengers { height: 46px; display: grid; grid-template-columns: 42px 1fr 42px; align-items: center; border: 1px solid var(--line); border-radius: .55rem; background: #081725; overflow: hidden; }
+    .passengers button { height: 100%; color: var(--ink); background: transparent; border: 0; cursor: pointer; font-size: 1.15rem; }
+    .passengers button:hover { background: rgba(74,168,255,.1); }
+    .passengers output { text-align: center; font-weight: 850; }
+
+    .preference-row { display: grid; grid-template-columns: repeat(3,1fr); gap: .55rem; }
+    .preference { position: relative; }
+    .preference input { position: absolute; opacity: 0; pointer-events: none; }
+    .preference label { display: block; padding: .7rem .45rem; color: var(--muted); border: 1px solid var(--line); border-radius: .55rem; text-align: center; cursor: pointer; font-size: .76rem; font-weight: 800; }
+    .preference input:checked + label { color: var(--ink); background: rgba(74,168,255,.11); border-color: rgba(74,168,255,.5); }
+    .preference input:focus-visible + label { outline: 3px solid var(--amber); outline-offset: 3px; }
+
+    .summary { position: sticky; top: 1rem; overflow: hidden; }
+    .summary-visual { position: relative; min-height: 186px; padding: 1.45rem; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(135deg,#123151,#0c253c 58%,#10352f); }
+    .summary-visual::after { content: ""; position: absolute; width: 220px; height: 220px; right: -110px; top: -110px; border: 1px solid rgba(83,225,210,.2); border-radius: 50%; box-shadow: 0 0 0 34px rgba(83,225,210,.03),0 0 0 68px rgba(74,168,255,.02); }
+    .summary-label { position: relative; z-index: 1; color: #b7d1e9; font-size: .7rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .summary-route { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: .8rem; }
+    .summary-route strong, .summary-route span { display: block; }
+    .summary-route strong { font-size: 1.05rem; }
+    .summary-route span { color: #a9c2d8; font-size: .72rem; }
+    .summary-route div:last-child { text-align: right; }
+    .arrow { color: var(--cyan); font-size: 1.4rem; }
+    .summary-body { padding: 1.45rem; }
+    .metric-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .65rem; margin-bottom: 1.25rem; }
+    .metric { padding: .75rem; background: rgba(255,255,255,.022); border: 1px solid var(--line); border-radius: .55rem; }
+    .metric span, .metric strong { display: block; }
+    .metric span { color: var(--muted); font-size: .66rem; text-transform: uppercase; letter-spacing: .08em; }
+    .metric strong { margin-top: .2rem; font-size: .88rem; }
+
+    .timeline { position: relative; display: grid; gap: .15rem; margin: 0 0 1.2rem; }
+    .timeline::before { content: ""; position: absolute; left: 18px; top: 24px; bottom: 24px; width: 1px; background: rgba(83,225,210,.28); }
+    .leg { position: relative; display: grid; grid-template-columns: 38px 1fr auto; gap: .75rem; align-items: center; padding: .65rem 0; }
+    .dot { width: 11px; height: 11px; margin-left: 13px; background: var(--cyan); border: 3px solid #0a192a; border-radius: 50%; box-shadow: 0 0 0 1px rgba(83,225,210,.45); z-index: 1; }
+    .leg strong, .leg span { display: block; }
+    .leg strong { font-size: .84rem; }
+    .leg span { color: var(--muted); font-size: .7rem; }
+    .leg time { color: #c6d8e9; font-size: .72rem; font-weight: 800; }
+
+    .button {
+      width: 100%;
+      min-height: 48px;
+      padding: .75rem 1rem;
+      color: #04101c;
+      background: linear-gradient(135deg,var(--cyan),#79bfff);
+      border: 0;
+      border-radius: .58rem;
+      cursor: pointer;
+      font-weight: 850;
+    }
+    .button:hover { filter: brightness(1.05); }
+    .fine-print { margin: .8rem 0 0; color: var(--muted); font-size: .69rem; text-align: center; }
+    .response { min-height: 22px; margin: .65rem 0 0; color: var(--green); font-size: .77rem; text-align: center; }
+
+    .vision-note { margin-top: 1.2rem; padding: 1.15rem 1.25rem; display: grid; grid-template-columns: auto 1fr; gap: 1rem; color: #c4d5e7; background: rgba(255,255,255,.02); border: 1px solid var(--line); border-radius: .7rem; font-size: .84rem; }
+    .vision-note b { color: var(--cyan); }
+    footer { width: min(calc(100% - 2rem),1240px); margin: 0 auto; padding: 0 0 2.5rem; color: var(--muted); font-size: .72rem; }
+
+    @media (max-width: 900px) {
+      .intro { align-items: start; flex-direction: column; }
+      .app-grid { grid-template-columns: 1fr; }
+      .summary { position: static; }
+    }
+    @media (max-width: 600px) {
+      main { padding-top: 2.2rem; }
+      .brand span:nth-child(2) { display: none; }
+      .destination-grid, .controls { grid-template-columns: 1fr; }
+      .preference-row { grid-template-columns: 1fr; }
+      .metric-grid { grid-template-columns: 1fr 1fr; }
+      .metric:last-child { grid-column: 1 / -1; }
+      .summary-route { grid-template-columns: 1fr; align-items: start; }
+      .summary-route div:last-child { text-align: left; }
+      .arrow { transform: rotate(90deg); }
+      .vision-note { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
   </style>
 </head>
 <body>
-  <main class="box">
-    <small>Trinity Air Link</small>
-    <h1>This legacy material has been withdrawn.</h1>
-    <p>Financial, investor, technical, and outreach materials are being revalidated during Phase 0. They are no longer distributed from the public website. Current project status and disclosures are available on the homepage.</p>
-    <a href="/">Return to the current project page</a>
+  <div class="notice" role="note"><strong>Interactive concept only.</strong> This is not a live booking service. Operators, routes, times, availability, and cost bands are simulated; no affiliation or service commitment is implied.</div>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <span class="mark" aria-hidden="true">TA</span>
+        <span>TRINITY AIR LINK</span>
+        <span class="demo-label">Concept demo</span>
+      </a>
+      <a class="back" href="index.html">← Back to the vision</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="intro">
+      <div>
+        <div class="eyebrow">A future-state product experience</div>
+        <h1>Plan one <span>connected journey.</span></h1>
+        <p>Explore how rail, a downtown mobility hub, regional air service, and an electric final-mile connection could feel like a single trip.</p>
+      </div>
+      <div class="scenario-tag"><strong>Everything on this screen is illustrative.</strong>Selections stay in your browser and do not create a reservation, quote, account, or request.</div>
+    </div>
+
+    <div class="app-grid">
+      <section class="panel planner" aria-labelledby="planner-title">
+        <div class="panel-head">
+          <h2 id="planner-title">Build your concept itinerary</h2>
+          <span class="step-count">Future-state simulation</span>
+        </div>
+
+        <div class="origin">
+          <div class="origin-icon" aria-hidden="true">T</div>
+          <div><strong>Trinity Air Link · Downtown Fort Worth</strong><span>Proposed T&amp;P mobility and innovation node</span></div>
+          <span class="fixed">Origin</span>
+        </div>
+
+        <fieldset>
+          <legend>1 · Choose an illustrative destination</legend>
+          <div class="destination-grid">
+            <div class="destination">
+              <input type="radio" name="destination" id="dest-dfw" value="DFW Airport" checked>
+              <label for="dest-dfw"><b>DFW Airport</b><span>International terminals and airport district</span><em>Illustrative · 24–34 min</em></label>
+            </div>
+            <div class="destination">
+              <input type="radio" name="destination" id="dest-dallas" value="Downtown Dallas">
+              <label for="dest-dallas"><b>Downtown Dallas</b><span>Business, culture, and connecting mobility</span><em>Illustrative · 28–38 min</em></label>
+            </div>
+            <div class="destination">
+              <input type="radio" name="destination" id="dest-alliance" value="Alliance Corridor">
+              <label for="dest-alliance"><b>Alliance Corridor</b><span>Employment, logistics, and aviation district</span><em>Illustrative · 20–30 min</em></label>
+            </div>
+            <div class="destination">
+              <input type="radio" name="destination" id="dest-arlington" value="Arlington District">
+              <label for="dest-arlington"><b>Arlington District</b><span>Entertainment, events, and visitor access</span><em>Illustrative · 22–32 min</em></label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>2 · Set the scenario</legend>
+          <div class="controls">
+            <div class="field">
+              <label for="departure">Departure window</label>
+              <select id="departure">
+                <option value="Morning · 8:30 AM">Morning · 8:30 AM</option>
+                <option value="Midday · 12:15 PM">Midday · 12:15 PM</option>
+                <option value="Afternoon · 4:40 PM">Afternoon · 4:40 PM</option>
+                <option value="Evening · 7:10 PM">Evening · 7:10 PM</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Travelers</label>
+              <div class="passengers">
+                <button type="button" id="minus" aria-label="Remove one traveler">−</button>
+                <output id="passenger-count" aria-live="polite">1</output>
+                <button type="button" id="plus" aria-label="Add one traveler">+</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>3 · Choose a journey preference</legend>
+          <div class="preference-row">
+            <div class="preference"><input type="radio" name="preference" id="fastest" value="Fastest available" checked><label for="fastest">Fastest available</label></div>
+            <div class="preference"><input type="radio" name="preference" id="balanced" value="Balanced"><label for="balanced">Balanced</label></div>
+            <div class="preference"><input type="radio" name="preference" id="ground" value="Ground fallback"><label for="ground">Ground fallback</label></div>
+          </div>
+        </fieldset>
+      </section>
+
+      <aside class="panel summary" aria-labelledby="summary-title">
+        <div class="summary-visual">
+          <span class="summary-label">Illustrative multimodal itinerary</span>
+          <div class="summary-route">
+            <div><strong>Fort Worth</strong><span>Trinity Air Link</span></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div><strong id="summary-destination">DFW Airport</strong><span>Connected final mile</span></div>
+          </div>
+        </div>
+        <div class="summary-body">
+          <div class="metric-grid">
+            <div class="metric"><span>Window</span><strong id="summary-time">8:30 AM</strong></div>
+            <div class="metric"><span>Journey</span><strong id="summary-duration">24–34 min</strong></div>
+            <div class="metric"><span>Concept band</span><strong id="summary-cost">$90–$140</strong></div>
+          </div>
+
+          <h2 id="summary-title" style="font-size:1rem;margin:0 0 .5rem;">Your connected journey</h2>
+          <div class="timeline">
+            <div class="leg"><span class="dot"></span><div><strong>Arrive and check in</strong><span>Rail, walk-up, or managed electric curb</span></div><time>0 min</time></div>
+            <div class="leg"><span class="dot"></span><div><strong>Hub transfer</strong><span>Identity, accessibility, and itinerary handoff</span></div><time>+6 min</time></div>
+            <div class="leg"><span class="dot"></span><div><strong id="air-leg">Illustrative regional flight</strong><span>Qualified third-party operator scenario</span></div><time id="air-time">+18 min</time></div>
+            <div class="leg"><span class="dot"></span><div><strong>Electric final mile</strong><span>Coordinated destination connection</span></div><time>+8 min</time></div>
+          </div>
+
+          <button class="button" type="button" id="preview">Preview this concept journey</button>
+          <p class="response" id="response" aria-live="polite"></p>
+          <p class="fine-print">No payment or personal information is collected. No reservation is created.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="vision-note">
+      <b>What this demo is really testing</b>
+      <span>Could a traveler understand and trust one coordinated journey across multiple modes? The long-term product is not just a seat on an aircraft—it is the orchestration layer, physical hub, and service standard that make a fragmented network feel simple.</span>
+    </div>
   </main>
+
+  <footer>Trinity Air Link is in Phase 0 validation. This concept demo does not represent active routes, real-time availability, contracted operators, published fares, FAA authority, or an offer to provide transportation.</footer>
+
+  <script>
+    const scenarios = {
+      "DFW Airport": { duration: "24–34 min", cost: "$90–$140", air: "+18 min" },
+      "Downtown Dallas": { duration: "28–38 min", cost: "$105–$160", air: "+22 min" },
+      "Alliance Corridor": { duration: "20–30 min", cost: "$75–$120", air: "+14 min" },
+      "Arlington District": { duration: "22–32 min", cost: "$80–$130", air: "+16 min" }
+    };
+
+    const destinationInputs = document.querySelectorAll('input[name="destination"]');
+    const preferenceInputs = document.querySelectorAll('input[name="preference"]');
+    const departure = document.getElementById("departure");
+    const destinationOutput = document.getElementById("summary-destination");
+    const timeOutput = document.getElementById("summary-time");
+    const durationOutput = document.getElementById("summary-duration");
+    const costOutput = document.getElementById("summary-cost");
+    const airTimeOutput = document.getElementById("air-time");
+    const airLegOutput = document.getElementById("air-leg");
+    const passengerOutput = document.getElementById("passenger-count");
+    const response = document.getElementById("response");
+    let passengers = 1;
+
+    function selected(name) {
+      return document.querySelector('input[name="' + name + '"]:checked').value;
+    }
+
+    function updateSummary() {
+      const destination = selected("destination");
+      const preference = selected("preference");
+      const scenario = scenarios[destination];
+      destinationOutput.textContent = destination;
+      timeOutput.textContent = departure.value.split("·")[1].trim();
+      durationOutput.textContent = preference === "Ground fallback" ? "35–75 min" : scenario.duration;
+      costOutput.textContent = preference === "Ground fallback" ? "$25–$70" : scenario.cost;
+      airTimeOutput.textContent = preference === "Ground fallback" ? "Variable" : scenario.air;
+      airLegOutput.textContent = preference === "Ground fallback" ? "Coordinated ground connection" : "Illustrative regional flight";
+      response.textContent = "";
+    }
+
+    destinationInputs.forEach((input) => input.addEventListener("change", updateSummary));
+    preferenceInputs.forEach((input) => input.addEventListener("change", updateSummary));
+    departure.addEventListener("change", updateSummary);
+
+    document.getElementById("minus").addEventListener("click", () => {
+      passengers = Math.max(1, passengers - 1);
+      passengerOutput.textContent = passengers;
+      response.textContent = "";
+    });
+    document.getElementById("plus").addEventListener("click", () => {
+      passengers = Math.min(6, passengers + 1);
+      passengerOutput.textContent = passengers;
+      response.textContent = "";
+    });
+    document.getElementById("preview").addEventListener("click", () => {
+      const destination = selected("destination");
+      const preference = selected("preference");
+      response.textContent = "Concept preview ready: " + passengers + (passengers === 1 ? " traveler" : " travelers") + " to " + destination + " · " + preference + ". Nothing was booked or submitted.";
+    });
+  </script>
 </body>
 </html>
