@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trinity Air Link | Interactive Concept Demo</title>
-  <meta name="description" content="Explore a simulated Trinity Air Link multimodal journey. This is a concept experience, not a live booking service.">
+  <title>Trinity Air Link | Interactive Journey and Checkout Demo</title>
+  <meta name="description" content="Explore a simulated Trinity Air Link journey from route planning through checkout, confirmation, and origin-to-destination tracking.">
   <meta name="robots" content="noindex,follow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#06101d">
@@ -20,10 +20,12 @@
       --cyan: #53e1d2;
       --amber: #f2bd62;
       --green: #68db9b;
+      --red: #ff8e8e;
       --shadow: 0 24px 80px rgba(0, 0, 0, .34);
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       min-height: 100vh;
@@ -36,8 +38,10 @@
       line-height: 1.5;
     }
     button, input, select { font: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
+    button, a, label { -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; }
     :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+    [hidden] { display: none !important; }
 
     .notice {
       padding: .72rem 1rem;
@@ -50,8 +54,11 @@
     .notice strong { color: var(--amber); }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
       border-bottom: 1px solid var(--line);
-      background: rgba(5,16,28,.88);
+      background: rgba(5,16,28,.91);
       backdrop-filter: blur(16px);
     }
     .nav {
@@ -69,48 +76,67 @@
     .back { color: #b8cbe0; text-decoration: none; font-size: .85rem; font-weight: 750; }
     .back:hover { color: var(--ink); }
 
-    main {
-      width: min(calc(100% - 2rem), 1240px);
-      margin-inline: auto;
-      padding: 3.2rem 0 4.5rem;
-    }
-    .intro { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 2rem; }
+    main { width: min(calc(100% - 2rem), 1240px); margin-inline: auto; padding: 2.8rem 0 4.5rem; }
+    .intro { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 1.7rem; }
     .eyebrow { color: #bad9f8; font-size: .72rem; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
-    h1 { max-width: 14ch; margin: .7rem 0 .65rem; font-size: clamp(2.25rem,5vw,4.25rem); line-height: .98; letter-spacing: -.052em; }
+    h1 { max-width: 15ch; margin: .6rem 0 .6rem; font-size: clamp(2.25rem,5vw,4.25rem); line-height: .98; letter-spacing: -.052em; }
     h1 span { color: var(--cyan); }
-    .intro p { max-width: 620px; margin: 0; color: var(--muted); }
-    .scenario-tag { max-width: 285px; padding: .9rem 1rem; color: #d9e8f6; background: rgba(74,168,255,.07); border: 1px solid rgba(74,168,255,.22); border-radius: .65rem; font-size: .78rem; }
+    .intro p { max-width: 660px; margin: 0; color: var(--muted); }
+    .scenario-tag { max-width: 310px; padding: .9rem 1rem; color: #d9e8f6; background: rgba(74,168,255,.07); border: 1px solid rgba(74,168,255,.22); border-radius: .65rem; font-size: .77rem; }
     .scenario-tag strong { display: block; margin-bottom: .2rem; color: var(--blue); }
 
-    .app-grid { display: grid; grid-template-columns: minmax(0,1.02fr) minmax(340px,.98fr); gap: 1.2rem; align-items: start; }
+    .progress {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin: 0 0 1.25rem;
+      padding: 0;
+      list-style: none;
+      border: 1px solid var(--line);
+      border-radius: .72rem;
+      overflow: hidden;
+      background: rgba(255,255,255,.018);
+    }
+    .progress li { position: relative; padding: .8rem .75rem; color: var(--muted); border-right: 1px solid var(--line); font-size: .71rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .progress li:last-child { border-right: 0; }
+    .progress li::before { content: attr(data-index); display: inline-grid; place-items: center; width: 24px; height: 24px; margin-right: .45rem; color: var(--muted); border: 1px solid var(--line); border-radius: 50%; }
+    .progress li.active { color: var(--ink); background: rgba(74,168,255,.08); }
+    .progress li.active::before { color: #04101c; background: var(--cyan); border-color: var(--cyan); }
+    .progress li.done { color: #bfe8d0; }
+    .progress li.done::before { content: "✓"; color: #04101c; background: var(--green); border-color: var(--green); }
+
     .panel { background: linear-gradient(155deg,rgba(14,34,56,.96),rgba(8,23,39,.96)); border: 1px solid var(--line); border-radius: .9rem; box-shadow: var(--shadow); }
-    .planner { padding: 1.45rem; }
-    .panel-head { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-bottom: 1.3rem; }
+    .panel-inner { padding: 1.45rem; }
+    .panel-head { display: flex; justify-content: space-between; gap: 1rem; align-items: center; margin-bottom: 1.25rem; }
     .panel-head h2 { margin: 0; font-size: 1.2rem; }
-    .step-count { color: var(--muted); font-size: .75rem; }
+    .step-count { color: var(--muted); font-size: .74rem; }
+    .screen-grid { display: grid; grid-template-columns: minmax(0,1.04fr) minmax(350px,.96fr); gap: 1.2rem; align-items: start; }
+    .summary { position: sticky; top: 92px; overflow: hidden; }
+
+    fieldset { margin: 1.35rem 0 0; padding: 0; border: 0; }
+    legend { margin-bottom: .7rem; color: #d8e7f7; font-size: .81rem; font-weight: 850; }
+    .mode-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .6rem; }
+    .choice { position: relative; }
+    .choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .choice label { height: 100%; display: block; padding: .85rem; cursor: pointer; background: rgba(255,255,255,.018); border: 1px solid var(--line); border-radius: .62rem; transition: border-color .15s ease, background .15s ease, transform .15s ease; }
+    .choice label:hover { transform: translateY(-2px); border-color: rgba(74,168,255,.38); }
+    .choice input:checked + label { background: rgba(83,225,210,.07); border-color: rgba(83,225,210,.55); box-shadow: inset 0 0 0 1px rgba(83,225,210,.16); }
+    .choice input:focus-visible + label { outline: 3px solid var(--amber); outline-offset: 3px; }
+    .choice b, .choice span { display: block; }
+    .choice b { margin-bottom: .2rem; font-size: .87rem; }
+    .choice span { color: var(--muted); font-size: .71rem; }
+    .choice em { display: block; margin-top: .38rem; color: var(--cyan); font-size: .68rem; font-style: normal; font-weight: 800; }
 
     .origin { display: grid; grid-template-columns: 44px 1fr auto; gap: .8rem; align-items: center; padding: .9rem; background: rgba(5,16,28,.65); border: 1px solid var(--line); border-radius: .65rem; }
     .origin-icon { width: 40px; height: 40px; display: grid; place-items: center; color: var(--cyan); border: 1px solid rgba(83,225,210,.25); border-radius: 50%; font-weight: 900; }
     .origin strong, .origin span { display: block; }
-    .origin span { color: var(--muted); font-size: .77rem; }
-    .fixed { color: var(--muted); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-
-    fieldset { margin: 1.4rem 0 0; padding: 0; border: 0; }
-    legend { margin-bottom: .7rem; color: #d8e7f7; font-size: .82rem; font-weight: 850; }
+    .origin span { color: var(--muted); font-size: .75rem; }
+    .fixed { color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .destination-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: .65rem; }
-    .destination { position: relative; }
-    .destination input { position: absolute; opacity: 0; pointer-events: none; }
-    .destination label { min-height: 104px; display: block; padding: .9rem; cursor: pointer; background: rgba(255,255,255,.018); border: 1px solid var(--line); border-radius: .62rem; transition: border-color .15s ease, background .15s ease, transform .15s ease; }
-    .destination label:hover { transform: translateY(-2px); border-color: rgba(74,168,255,.38); }
-    .destination input:checked + label { background: rgba(83,225,210,.07); border-color: rgba(83,225,210,.55); box-shadow: inset 0 0 0 1px rgba(83,225,210,.16); }
-    .destination input:focus-visible + label { outline: 3px solid var(--amber); outline-offset: 3px; }
-    .destination b, .destination span { display: block; }
-    .destination b { margin-bottom: .25rem; font-size: .92rem; }
-    .destination span { color: var(--muted); font-size: .76rem; }
-    .destination em { display: block; margin-top: .42rem; color: var(--blue); font-size: .71rem; font-style: normal; font-weight: 800; }
+    .destination label { min-height: 103px; }
+    .destination em { color: var(--blue); }
 
     .controls { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
-    .field label { display: block; margin-bottom: .45rem; color: #d8e7f7; font-size: .8rem; font-weight: 800; }
+    .field label { display: block; margin-bottom: .45rem; color: #d8e7f7; font-size: .79rem; font-weight: 800; }
     select {
       width: 100%;
       height: 46px;
@@ -125,77 +151,182 @@
     .passengers button:hover { background: rgba(74,168,255,.1); }
     .passengers output { text-align: center; font-weight: 850; }
 
-    .preference-row { display: grid; grid-template-columns: repeat(3,1fr); gap: .55rem; }
-    .preference { position: relative; }
-    .preference input { position: absolute; opacity: 0; pointer-events: none; }
-    .preference label { display: block; padding: .7rem .45rem; color: var(--muted); border: 1px solid var(--line); border-radius: .55rem; text-align: center; cursor: pointer; font-size: .76rem; font-weight: 800; }
-    .preference input:checked + label { color: var(--ink); background: rgba(74,168,255,.11); border-color: rgba(74,168,255,.5); }
-    .preference input:focus-visible + label { outline: 3px solid var(--amber); outline-offset: 3px; }
+    .map-wrap { position: relative; overflow: hidden; background: #06111f; border-bottom: 1px solid var(--line); }
+    .map-wrap svg { width: 100%; height: auto; display: block; }
+    .map-badge { position: absolute; left: 1rem; top: 1rem; padding: .4rem .58rem; color: #c8ddf0; background: rgba(5,16,28,.86); border: 1px solid var(--line); border-radius: .42rem; font-size: .65rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .map-legend { position: absolute; right: 1rem; bottom: 1rem; padding: .45rem .6rem; color: var(--muted); background: rgba(5,16,28,.86); border: 1px solid var(--line); border-radius: .42rem; font-size: .63rem; }
+    .route-path { stroke-dasharray: 8 6; animation: route-flow 1.1s linear infinite; }
+    @keyframes route-flow { to { stroke-dashoffset: -28; } }
+    .pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: .25; transform: scale(.85); } 50% { opacity: .8; transform: scale(1.22); } }
 
-    .summary { position: sticky; top: 1rem; overflow: hidden; }
-    .summary-visual { position: relative; min-height: 186px; padding: 1.45rem; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(135deg,#123151,#0c253c 58%,#10352f); }
-    .summary-visual::after { content: ""; position: absolute; width: 220px; height: 220px; right: -110px; top: -110px; border: 1px solid rgba(83,225,210,.2); border-radius: 50%; box-shadow: 0 0 0 34px rgba(83,225,210,.03),0 0 0 68px rgba(74,168,255,.02); }
-    .summary-label { position: relative; z-index: 1; color: #b7d1e9; font-size: .7rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
-    .summary-route { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: .8rem; }
-    .summary-route strong, .summary-route span { display: block; }
-    .summary-route strong { font-size: 1.05rem; }
-    .summary-route span { color: #a9c2d8; font-size: .72rem; }
-    .summary-route div:last-child { text-align: right; }
-    .arrow { color: var(--cyan); font-size: 1.4rem; }
-    .summary-body { padding: 1.45rem; }
-    .metric-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .65rem; margin-bottom: 1.25rem; }
-    .metric { padding: .75rem; background: rgba(255,255,255,.022); border: 1px solid var(--line); border-radius: .55rem; }
+    .summary-body { padding: 1.3rem; }
+    .route-title { display: grid; grid-template-columns: 1fr auto 1fr; gap: .75rem; align-items: center; margin-bottom: 1rem; }
+    .route-title strong, .route-title span { display: block; }
+    .route-title strong { font-size: .95rem; }
+    .route-title span { color: var(--muted); font-size: .69rem; }
+    .route-title div:last-child { text-align: right; }
+    .route-arrow { color: var(--cyan); font-size: 1.25rem; }
+    .metric-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .6rem; margin-bottom: 1.1rem; }
+    .metric { padding: .72rem; background: rgba(255,255,255,.022); border: 1px solid var(--line); border-radius: .52rem; }
     .metric span, .metric strong { display: block; }
-    .metric span { color: var(--muted); font-size: .66rem; text-transform: uppercase; letter-spacing: .08em; }
-    .metric strong { margin-top: .2rem; font-size: .88rem; }
+    .metric span { color: var(--muted); font-size: .62rem; text-transform: uppercase; letter-spacing: .08em; }
+    .metric strong { margin-top: .18rem; font-size: .82rem; }
+    .journey-line { display: grid; grid-template-columns: repeat(4,1fr); margin: 1rem 0; }
+    .journey-node { position: relative; padding-top: 1.3rem; color: var(--muted); text-align: center; font-size: .64rem; }
+    .journey-node::before { content: ""; position: absolute; z-index: 2; top: 0; left: calc(50% - 5px); width: 10px; height: 10px; background: var(--cyan); border: 3px solid var(--panel); border-radius: 50%; box-shadow: 0 0 0 1px rgba(83,225,210,.38); }
+    .journey-node::after { content: ""; position: absolute; top: 4px; left: 50%; width: 100%; height: 1px; background: rgba(83,225,210,.28); }
+    .journey-node:last-child::after { display: none; }
+    .fare-line { display: flex; justify-content: space-between; gap: 1rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+    .fare-line span { color: var(--muted); font-size: .72rem; }
+    .fare-line strong { color: var(--cyan); font-size: 1.15rem; }
 
-    .timeline { position: relative; display: grid; gap: .15rem; margin: 0 0 1.2rem; }
-    .timeline::before { content: ""; position: absolute; left: 18px; top: 24px; bottom: 24px; width: 1px; background: rgba(83,225,210,.28); }
-    .leg { position: relative; display: grid; grid-template-columns: 38px 1fr auto; gap: .75rem; align-items: center; padding: .65rem 0; }
-    .dot { width: 11px; height: 11px; margin-left: 13px; background: var(--cyan); border: 3px solid #0a192a; border-radius: 50%; box-shadow: 0 0 0 1px rgba(83,225,210,.45); z-index: 1; }
-    .leg strong, .leg span { display: block; }
-    .leg strong { font-size: .84rem; }
-    .leg span { color: var(--muted); font-size: .7rem; }
-    .leg time { color: #c6d8e9; font-size: .72rem; font-weight: 800; }
-
+    .actions { display: flex; justify-content: space-between; gap: .75rem; margin-top: 1.3rem; }
     .button {
-      width: 100%;
       min-height: 48px;
-      padding: .75rem 1rem;
-      color: #04101c;
-      background: linear-gradient(135deg,var(--cyan),#79bfff);
-      border: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .75rem 1.05rem;
+      border: 1px solid transparent;
       border-radius: .58rem;
       cursor: pointer;
       font-weight: 850;
+      text-decoration: none;
     }
-    .button:hover { filter: brightness(1.05); }
-    .fine-print { margin: .8rem 0 0; color: var(--muted); font-size: .69rem; text-align: center; }
-    .response { min-height: 22px; margin: .65rem 0 0; color: var(--green); font-size: .77rem; text-align: center; }
+    .button.primary { color: #04101c; background: linear-gradient(135deg,var(--cyan),#79bfff); }
+    .button.primary:hover { filter: brightness(1.05); }
+    .button.secondary { color: var(--ink); background: rgba(255,255,255,.025); border-color: var(--line); }
+    .button.secondary:hover { border-color: rgba(74,168,255,.45); }
+    .button.wide { width: 100%; }
+    .button:disabled { opacity: .55; cursor: wait; }
 
-    .vision-note { margin-top: 1.2rem; padding: 1.15rem 1.25rem; display: grid; grid-template-columns: auto 1fr; gap: 1rem; color: #c4d5e7; background: rgba(255,255,255,.02); border: 1px solid var(--line); border-radius: .7rem; font-size: .84rem; }
+    .traveler-stack, .addon-stack, .review-stack { display: grid; gap: .7rem; }
+    .traveler-card, .addon, .review-card { padding: 1rem; background: rgba(255,255,255,.022); border: 1px solid var(--line); border-radius: .62rem; }
+    .traveler-card { display: grid; grid-template-columns: 42px 1fr auto; gap: .8rem; align-items: center; }
+    .avatar { width: 42px; height: 42px; display: grid; place-items: center; color: #05101c; background: linear-gradient(145deg,var(--cyan),var(--blue)); border-radius: 50%; font-weight: 900; }
+    .traveler-card strong, .traveler-card span { display: block; }
+    .traveler-card span { color: var(--muted); font-size: .74rem; }
+    .demo-chip { padding: .3rem .5rem; color: var(--amber); background: rgba(242,189,98,.07); border: 1px solid rgba(242,189,98,.22); border-radius: 999px; font-size: .62rem; font-weight: 850; text-transform: uppercase; }
+    .addon { position: relative; }
+    .addon input { position: absolute; opacity: 0; pointer-events: none; }
+    .addon label { display: grid; grid-template-columns: 1fr auto; gap: 1rem; cursor: pointer; }
+    .addon strong, .addon span { display: block; }
+    .addon span { color: var(--muted); font-size: .72rem; }
+    .addon b { color: var(--blue); font-size: .8rem; }
+    .addon input:checked + label::after { content: "✓"; position: absolute; right: .8rem; bottom: .7rem; width: 20px; height: 20px; display: grid; place-items: center; color: #04101c; background: var(--green); border-radius: 50%; font-size: .7rem; font-weight: 900; }
+    .addon input:focus-visible + label { outline: 3px solid var(--amber); outline-offset: 4px; }
+    .addon:has(input:checked) { border-color: rgba(104,219,155,.4); background: rgba(104,219,155,.05); }
+    .info-note { margin-top: 1rem; padding: .9rem 1rem; color: #c9d9e9; background: rgba(74,168,255,.06); border: 1px solid rgba(74,168,255,.2); border-radius: .58rem; font-size: .76rem; }
+
+    .review-card h3 { margin: 0 0 .7rem; font-size: .96rem; }
+    .review-row { display: flex; justify-content: space-between; gap: 1rem; padding: .48rem 0; border-bottom: 1px solid var(--line); font-size: .79rem; }
+    .review-row:last-child { border-bottom: 0; }
+    .review-row span:first-child { color: var(--muted); }
+    .review-row span:last-child { text-align: right; font-weight: 700; }
+    .price-total { margin-top: .5rem; padding-top: .8rem; border-top: 1px solid rgba(83,225,210,.28); }
+    .price-total span:last-child { color: var(--cyan); font-size: 1.1rem; }
+
+    .payment-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .7rem; }
+    .payment-method label { min-height: 130px; }
+    .payment-icon { width: 40px; height: 40px; display: grid; place-items: center; margin-bottom: .65rem; color: var(--cyan); background: rgba(83,225,210,.07); border: 1px solid rgba(83,225,210,.2); border-radius: .52rem; font-weight: 900; }
+    .demo-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 210px;
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(135deg,#183a5c,#10263f 58%,#16483e);
+      border: 1px solid rgba(83,225,210,.24);
+      border-radius: .82rem;
+      box-shadow: var(--shadow);
+    }
+    .demo-card::after { content: ""; position: absolute; width: 220px; height: 220px; right: -115px; top: -115px; border: 1px solid rgba(83,225,210,.2); border-radius: 50%; box-shadow: 0 0 0 36px rgba(83,225,210,.03),0 0 0 72px rgba(74,168,255,.02); }
+    .demo-card-top, .demo-card-number, .demo-card-bottom { position: relative; z-index: 1; }
+    .demo-card-top { display: flex; justify-content: space-between; color: #cfe0ef; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .demo-card-number { font-size: clamp(1.15rem,3vw,1.6rem); letter-spacing: .14em; }
+    .demo-card-bottom { display: flex; justify-content: space-between; color: #b8ccde; font-size: .72rem; }
+    .safety-lock { margin-top: .9rem; display: grid; grid-template-columns: 28px 1fr; gap: .7rem; color: var(--muted); font-size: .72rem; }
+    .safety-lock b { color: var(--green); }
+
+    .confirmation { max-width: 920px; margin-inline: auto; }
+    .success-head { padding: 2rem; text-align: center; background: linear-gradient(140deg,rgba(83,225,210,.1),rgba(74,168,255,.08)); border-bottom: 1px solid var(--line); }
+    .success-mark { width: 68px; height: 68px; display: grid; place-items: center; margin: 0 auto 1rem; color: #04101c; background: var(--green); border-radius: 50%; font-size: 2rem; font-weight: 950; box-shadow: 0 0 0 9px rgba(104,219,155,.08); }
+    .success-head h2 { margin: 0 0 .5rem; font-size: clamp(1.7rem,4vw,2.8rem); }
+    .success-head p { margin: 0; color: var(--muted); }
+    .confirmation-body { padding: 1.5rem; display: grid; grid-template-columns: 160px 1fr; gap: 1.5rem; }
+    .pass-box { padding: 1rem; background: #eef8ff; border-radius: .65rem; color: #07111f; text-align: center; }
+    .qr { width: 112px; height: 112px; margin: 0 auto .7rem; padding: 6px; display: grid; grid-template-columns: repeat(13,1fr); grid-template-rows: repeat(13,1fr); gap: 1px; background: #fff; border: 4px solid #07111f; }
+    .qr span { background: transparent; }
+    .qr span.dark { background: #07111f; }
+    .pass-box small { display: block; font-weight: 850; letter-spacing: .05em; }
+    .confirmation-details h3 { margin: 0 0 .7rem; }
+    .reference { margin-bottom: .9rem; color: var(--cyan); font-family: ui-monospace,SFMono-Regular,Menlo,monospace; font-size: .9rem; }
+    .confirmation-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1rem; }
+    .confirmation-actions .button { flex: 1; }
+
+    .tracking-grid { display: grid; grid-template-columns: minmax(0,1.25fr) minmax(300px,.75fr); gap: 1.2rem; align-items: start; }
+    .tracking-map { overflow: hidden; }
+    .tracking-map .map-wrap { border: 0; }
+    .tracker-bar { padding: 1rem 1.2rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; border-top: 1px solid var(--line); }
+    .tracker-status strong, .tracker-status span { display: block; }
+    .tracker-status span { color: var(--muted); font-size: .73rem; }
+    .eta { text-align: right; }
+    .eta span, .eta strong { display: block; }
+    .eta span { color: var(--muted); font-size: .65rem; text-transform: uppercase; letter-spacing: .08em; }
+    .eta strong { color: var(--cyan); font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+    .track-side { padding: 1.25rem; }
+    .track-side h2 { margin: 0 0 .9rem; font-size: 1.1rem; }
+    .track-list { position: relative; display: grid; gap: .2rem; }
+    .track-list::before { content: ""; position: absolute; left: 14px; top: 18px; bottom: 18px; width: 1px; background: var(--line); }
+    .track-item { position: relative; display: grid; grid-template-columns: 30px 1fr; gap: .75rem; padding: .55rem 0; }
+    .track-dot { width: 11px; height: 11px; margin: .32rem 0 0 9px; background: #405269; border: 3px solid var(--panel); border-radius: 50%; box-shadow: 0 0 0 1px var(--line); z-index: 2; }
+    .track-item.done .track-dot { background: var(--green); box-shadow: 0 0 0 1px rgba(104,219,155,.4); }
+    .track-item.active .track-dot { background: var(--cyan); box-shadow: 0 0 0 4px rgba(83,225,210,.09); animation: pulse 1.3s ease-in-out infinite; }
+    .track-item strong, .track-item span { display: block; }
+    .track-item strong { font-size: .8rem; }
+    .track-item span { color: var(--muted); font-size: .68rem; }
+    .track-item.pending { opacity: .55; }
+    .vehicle-card { margin-top: 1rem; padding: .85rem; background: rgba(255,255,255,.022); border: 1px solid var(--line); border-radius: .58rem; }
+    .vehicle-card span, .vehicle-card strong { display: block; }
+    .vehicle-card span { color: var(--muted); font-size: .66rem; text-transform: uppercase; letter-spacing: .08em; }
+    .vehicle-card strong { margin-top: .25rem; font-size: .82rem; }
+
+    .fine-print { margin: .8rem 0 0; color: var(--muted); font-size: .69rem; text-align: center; }
+    .vision-note { margin-top: 1.2rem; padding: 1.15rem 1.25rem; display: grid; grid-template-columns: auto 1fr; gap: 1rem; color: #c4d5e7; background: rgba(255,255,255,.02); border: 1px solid var(--line); border-radius: .7rem; font-size: .82rem; }
     .vision-note b { color: var(--cyan); }
     footer { width: min(calc(100% - 2rem),1240px); margin: 0 auto; padding: 0 0 2.5rem; color: var(--muted); font-size: .72rem; }
 
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .intro { align-items: start; flex-direction: column; }
-      .app-grid { grid-template-columns: 1fr; }
+      .screen-grid, .tracking-grid { grid-template-columns: 1fr; }
       .summary { position: static; }
+      .progress li { text-align: center; font-size: 0; }
+      .progress li::before { margin: 0; font-size: .7rem; }
+      .confirmation-body { grid-template-columns: 1fr; }
+      .pass-box { max-width: 260px; margin-inline: auto; }
     }
-    @media (max-width: 600px) {
-      main { padding-top: 2.2rem; }
+    @media (max-width: 650px) {
+      main { padding-top: 2rem; }
       .brand span:nth-child(2) { display: none; }
-      .destination-grid, .controls { grid-template-columns: 1fr; }
-      .preference-row { grid-template-columns: 1fr; }
+      .mode-grid, .destination-grid, .controls, .payment-grid { grid-template-columns: 1fr; }
       .metric-grid { grid-template-columns: 1fr 1fr; }
       .metric:last-child { grid-column: 1 / -1; }
-      .summary-route { grid-template-columns: 1fr; align-items: start; }
-      .summary-route div:last-child { text-align: left; }
-      .arrow { transform: rotate(90deg); }
+      .route-title { grid-template-columns: 1fr; align-items: start; }
+      .route-title div:last-child { text-align: left; }
+      .route-arrow { transform: rotate(90deg); }
+      .actions { flex-direction: column-reverse; }
+      .actions .button { width: 100%; }
+      .traveler-card { grid-template-columns: 42px 1fr; }
+      .traveler-card .demo-chip { grid-column: 2; justify-self: start; }
+      .confirmation-actions { flex-direction: column; }
       .vision-note { grid-template-columns: 1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { transition: none !important; }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition: none !important; }
     }
   </style>
 </head>
@@ -206,7 +337,7 @@
       <a class="brand" href="index.html">
         <span class="mark" aria-hidden="true">TA</span>
         <span>TRINITY AIR LINK</span>
-        <span class="demo-label">Concept demo</span>
+        <span class="demo-label">Journey demo</span>
       </a>
       <a class="back" href="index.html">← Back to the vision</a>
     </div>
@@ -215,177 +346,731 @@
   <main>
     <div class="intro">
       <div>
-        <div class="eyebrow">A future-state product experience</div>
-        <h1>Plan one <span>connected journey.</span></h1>
-        <p>Explore how rail, a downtown mobility hub, regional air service, and an electric final-mile connection could feel like a single trip.</p>
+        <div class="eyebrow">Plan · Purchase · Travel</div>
+        <h1>Experience the <span>whole journey.</span></h1>
+        <p>Build a multimodal itinerary, walk through a safe simulated purchase, receive a digital pass, and watch the trip move from downtown Fort Worth to its destination.</p>
       </div>
-      <div class="scenario-tag"><strong>Everything on this screen is illustrative.</strong>Selections stay in your browser and do not create a reservation, quote, account, or request.</div>
+      <div class="scenario-tag"><strong>Nothing here creates a real transaction.</strong>The demo uses fictional availability, generic operators, sample pricing, and a non-functional payment method. No personal or payment data is collected.</div>
     </div>
 
-    <div class="app-grid">
-      <section class="panel planner" aria-labelledby="planner-title">
-        <div class="panel-head">
-          <h2 id="planner-title">Build your concept itinerary</h2>
-          <span class="step-count">Future-state simulation</span>
-        </div>
+    <ol class="progress" id="progress" aria-label="Concept purchase progress">
+      <li class="active" data-step="1" data-index="1">Journey</li>
+      <li data-step="2" data-index="2">Travelers</li>
+      <li data-step="3" data-index="3">Review</li>
+      <li data-step="4" data-index="4">Payment</li>
+      <li data-step="5" data-index="5">Demo pass</li>
+    </ol>
 
-        <div class="origin">
-          <div class="origin-icon" aria-hidden="true">T</div>
-          <div><strong>Trinity Air Link · Downtown Fort Worth</strong><span>Proposed T&amp;P mobility and innovation node</span></div>
-          <span class="fixed">Origin</span>
-        </div>
-
-        <fieldset>
-          <legend>1 · Choose an illustrative destination</legend>
-          <div class="destination-grid">
-            <div class="destination">
-              <input type="radio" name="destination" id="dest-dfw" value="DFW Airport" checked>
-              <label for="dest-dfw"><b>DFW Airport</b><span>International terminals and airport district</span><em>Illustrative · 24–34 min</em></label>
-            </div>
-            <div class="destination">
-              <input type="radio" name="destination" id="dest-dallas" value="Downtown Dallas">
-              <label for="dest-dallas"><b>Downtown Dallas</b><span>Business, culture, and connecting mobility</span><em>Illustrative · 28–38 min</em></label>
-            </div>
-            <div class="destination">
-              <input type="radio" name="destination" id="dest-alliance" value="Alliance Corridor">
-              <label for="dest-alliance"><b>Alliance Corridor</b><span>Employment, logistics, and aviation district</span><em>Illustrative · 20–30 min</em></label>
-            </div>
-            <div class="destination">
-              <input type="radio" name="destination" id="dest-arlington" value="Arlington District">
-              <label for="dest-arlington"><b>Arlington District</b><span>Entertainment, events, and visitor access</span><em>Illustrative · 22–32 min</em></label>
-            </div>
+    <section id="screen-plan" class="screen" data-demo-step="journey" aria-labelledby="plan-title">
+      <div class="screen-grid">
+        <div class="panel panel-inner">
+          <div class="panel-head">
+            <h2 id="plan-title">Build your route</h2>
+            <span class="step-count">Step 1 of 5</span>
           </div>
-        </fieldset>
 
-        <fieldset>
-          <legend>2 · Set the scenario</legend>
-          <div class="controls">
-            <div class="field">
-              <label for="departure">Departure window</label>
-              <select id="departure">
-                <option value="Morning · 8:30 AM">Morning · 8:30 AM</option>
-                <option value="Midday · 12:15 PM">Midday · 12:15 PM</option>
-                <option value="Afternoon · 4:40 PM">Afternoon · 4:40 PM</option>
-                <option value="Evening · 7:10 PM">Evening · 7:10 PM</option>
-              </select>
-            </div>
-            <div class="field">
-              <label>Travelers</label>
-              <div class="passengers">
-                <button type="button" id="minus" aria-label="Remove one traveler">−</button>
-                <output id="passenger-count" aria-live="polite">1</output>
-                <button type="button" id="plus" aria-label="Add one traveler">+</button>
+          <fieldset>
+            <legend>Choose the journey type</legend>
+            <div class="mode-grid">
+              <div class="choice">
+                <input type="radio" name="mode" id="mode-multi" value="multimodal" checked>
+                <label for="mode-multi"><b>Multimodal</b><span>Hub transfer + regional segment + final mile</span><em>Recommended concept</em></label>
+              </div>
+              <div class="choice">
+                <input type="radio" name="mode" id="mode-air" value="air">
+                <label for="mode-air"><b>Regional air</b><span>Direct qualified-operator scenario from the hub</span><em>Fastest scenario</em></label>
+              </div>
+              <div class="choice">
+                <input type="radio" name="mode" id="mode-ground" value="ground">
+                <label for="mode-ground"><b>Electric ground</b><span>Coordinated ground fallback when flight is unavailable</span><em>Lower-cost scenario</em></label>
               </div>
             </div>
-          </div>
-        </fieldset>
+          </fieldset>
 
-        <fieldset>
-          <legend>3 · Choose a journey preference</legend>
-          <div class="preference-row">
-            <div class="preference"><input type="radio" name="preference" id="fastest" value="Fastest available" checked><label for="fastest">Fastest available</label></div>
-            <div class="preference"><input type="radio" name="preference" id="balanced" value="Balanced"><label for="balanced">Balanced</label></div>
-            <div class="preference"><input type="radio" name="preference" id="ground" value="Ground fallback"><label for="ground">Ground fallback</label></div>
-          </div>
-        </fieldset>
-      </section>
+          <fieldset>
+            <legend>Origin</legend>
+            <div class="origin">
+              <div class="origin-icon" aria-hidden="true">T</div>
+              <div><strong>Trinity Air Link · Downtown Fort Worth</strong><span>Proposed Texas &amp; Pacific mobility and innovation node</span></div>
+              <span class="fixed">Fixed hub</span>
+            </div>
+          </fieldset>
 
-      <aside class="panel summary" aria-labelledby="summary-title">
-        <div class="summary-visual">
-          <span class="summary-label">Illustrative multimodal itinerary</span>
-          <div class="summary-route">
-            <div><strong>Fort Worth</strong><span>Trinity Air Link</span></div>
-            <div class="arrow" aria-hidden="true">→</div>
-            <div><strong id="summary-destination">DFW Airport</strong><span>Connected final mile</span></div>
+          <fieldset>
+            <legend>Destination</legend>
+            <div class="destination-grid">
+              <div class="choice destination">
+                <input type="radio" name="destination" id="dest-dfw" value="dfw" checked>
+                <label for="dest-dfw"><b>DFW Airport</b><span>International terminals and airport district</span><em>Illustrative · 26 miles</em></label>
+              </div>
+              <div class="choice destination">
+                <input type="radio" name="destination" id="dest-dallas" value="dallas">
+                <label for="dest-dallas"><b>Downtown Dallas</b><span>Business, culture, and connecting mobility</span><em>Illustrative · 34 miles</em></label>
+              </div>
+              <div class="choice destination">
+                <input type="radio" name="destination" id="dest-alliance" value="alliance">
+                <label for="dest-alliance"><b>Alliance Corridor</b><span>Employment, logistics, and aviation district</span><em>Illustrative · 18 miles</em></label>
+              </div>
+              <div class="choice destination">
+                <input type="radio" name="destination" id="dest-arlington" value="arlington">
+                <label for="dest-arlington"><b>Arlington District</b><span>Entertainment, events, and visitor access</span><em>Illustrative · 17 miles</em></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Departure and party</legend>
+            <div class="controls">
+              <div class="field">
+                <label for="departure">Departure window</label>
+                <select id="departure">
+                  <option value="Morning · 8:30 AM">Morning · 8:30 AM</option>
+                  <option value="Midday · 12:15 PM">Midday · 12:15 PM</option>
+                  <option value="Afternoon · 4:40 PM">Afternoon · 4:40 PM</option>
+                  <option value="Evening · 7:10 PM">Evening · 7:10 PM</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Travelers</label>
+                <div class="passengers">
+                  <button type="button" id="minus" aria-label="Remove one traveler">−</button>
+                  <output id="passenger-count" aria-live="polite">1</output>
+                  <button type="button" id="plus" aria-label="Add one traveler">+</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <span></span>
+            <button class="button primary" type="button" id="continue-travelers">Continue to travelers →</button>
           </div>
         </div>
-        <div class="summary-body">
-          <div class="metric-grid">
-            <div class="metric"><span>Window</span><strong id="summary-time">8:30 AM</strong></div>
-            <div class="metric"><span>Journey</span><strong id="summary-duration">24–34 min</strong></div>
-            <div class="metric"><span>Concept band</span><strong id="summary-cost">$90–$140</strong></div>
-          </div>
 
-          <h2 id="summary-title" style="font-size:1rem;margin:0 0 .5rem;">Your connected journey</h2>
-          <div class="timeline">
-            <div class="leg"><span class="dot"></span><div><strong>Arrive and check in</strong><span>Rail, walk-up, or managed electric curb</span></div><time>0 min</time></div>
-            <div class="leg"><span class="dot"></span><div><strong>Hub transfer</strong><span>Identity, accessibility, and itinerary handoff</span></div><time>+6 min</time></div>
-            <div class="leg"><span class="dot"></span><div><strong id="air-leg">Illustrative regional flight</strong><span>Qualified third-party operator scenario</span></div><time id="air-time">+18 min</time></div>
-            <div class="leg"><span class="dot"></span><div><strong>Electric final mile</strong><span>Coordinated destination connection</span></div><time>+8 min</time></div>
-          </div>
+        <aside class="panel summary" aria-label="Selected route visualization and summary">
+          <div class="map-wrap">
+            <span class="map-badge">Origin-to-destination preview</span>
+            <svg viewBox="0 0 620 410" role="img" aria-labelledby="preview-map-title preview-map-desc">
+              <title id="preview-map-title">Selected Trinity Air Link route</title>
+              <desc id="preview-map-desc">A conceptual schematic showing the trip from the downtown Fort Worth hub to the selected North Texas destination.</desc>
+              <defs>
+                <pattern id="preview-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <path d="M32 0H0V32" fill="none" stroke="rgba(149,181,218,.06)" stroke-width="1"/>
+                </pattern>
+                <filter id="preview-glow" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <rect width="620" height="410" fill="#06111f"/>
+              <rect width="620" height="410" fill="url(#preview-grid)"/>
+              <path d="M50 300C125 210 190 225 255 260S395 325 575 230" fill="none" stroke="rgba(149,181,218,.07)" stroke-width="22"/>
+              <path d="M70 105C180 150 270 110 345 150S475 195 565 125" fill="none" stroke="rgba(149,181,218,.06)" stroke-width="14"/>
+              <path d="M135 270L195 80M135 270L320 325M135 270L385 190M135 270L515 235" stroke="rgba(149,181,218,.09)" stroke-width="2"/>
+              <text x="80" y="365" fill="rgba(237,245,255,.12)" font-size="20" font-weight="800">FORT WORTH</text>
+              <text x="470" y="355" fill="rgba(237,245,255,.10)" font-size="20" font-weight="800">DALLAS</text>
 
-          <button class="button" type="button" id="preview">Preview this concept journey</button>
-          <p class="response" id="response" aria-live="polite"></p>
-          <p class="fine-print">No payment or personal information is collected. No reservation is created.</p>
+              <circle cx="135" cy="270" r="9" fill="#53e1d2" filter="url(#preview-glow)"/>
+              <circle cx="135" cy="270" r="18" fill="none" stroke="rgba(83,225,210,.38)" stroke-width="2"/>
+              <text x="135" y="300" text-anchor="middle" fill="#9feee6" font-size="11" font-weight="800">T&amp;P HUB</text>
+
+              <circle cx="385" cy="190" r="6" fill="rgba(74,168,255,.35)"/>
+              <text x="385" y="177" text-anchor="middle" fill="#7dbdff" font-size="9">DFW</text>
+              <circle cx="515" cy="235" r="6" fill="rgba(74,168,255,.28)"/>
+              <text x="515" y="222" text-anchor="middle" fill="#7dbdff" font-size="9">DALLAS</text>
+              <circle cx="195" cy="80" r="6" fill="rgba(242,189,98,.35)"/>
+              <text x="195" y="67" text-anchor="middle" fill="#f2bd62" font-size="9">ALLIANCE</text>
+              <circle cx="320" cy="325" r="6" fill="rgba(104,219,155,.3)"/>
+              <text x="320" y="345" text-anchor="middle" fill="#68db9b" font-size="9">ARLINGTON</text>
+
+              <path id="preview-route-path" class="route-path" d="M135 270Q240 170 385 190" fill="none" stroke="#53e1d2" stroke-width="4"/>
+              <circle id="preview-dest-pulse" class="pulse" cx="385" cy="190" r="17" fill="none" stroke="#f2bd62" stroke-width="2"/>
+              <circle id="preview-dest-node" cx="385" cy="190" r="8" fill="#f2bd62"/>
+              <text id="preview-dest-label" x="385" y="215" text-anchor="middle" fill="#f5d697" font-size="11" font-weight="800">DFW AIRPORT</text>
+            </svg>
+            <span class="map-legend">Conceptual geography · not navigation</span>
+          </div>
+          <div class="summary-body">
+            <div class="route-title">
+              <div><strong>Downtown Fort Worth</strong><span>T&amp;P hub</span></div>
+              <div class="route-arrow" aria-hidden="true">→</div>
+              <div><strong id="summary-destination">DFW Airport</strong><span>Connected arrival</span></div>
+            </div>
+            <div class="metric-grid">
+              <div class="metric"><span>Departure</span><strong id="summary-time">8:30 AM</strong></div>
+              <div class="metric"><span>Journey</span><strong id="summary-duration">31 min</strong></div>
+              <div class="metric"><span>Mode</span><strong id="summary-mode">Multimodal</strong></div>
+            </div>
+            <div class="journey-line" aria-label="Conceptual journey stages">
+              <div class="journey-node">Arrive</div>
+              <div class="journey-node">Hub</div>
+              <div class="journey-node" id="segment-label">Regional</div>
+              <div class="journey-node">Final mile</div>
+            </div>
+            <div class="fare-line"><span>Illustrative fare from</span><strong id="summary-fare">$95.00</strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="screen-travelers" class="screen" data-demo-step="travelers" aria-labelledby="travelers-title" hidden>
+      <div class="screen-grid">
+        <div class="panel panel-inner">
+          <div class="panel-head">
+            <h2 id="travelers-title">Traveler experience</h2>
+            <span class="step-count">Step 2 of 5</span>
+          </div>
+          <div class="traveler-stack" id="traveler-stack"></div>
+
+          <fieldset>
+            <legend>Preferences</legend>
+            <div class="controls">
+              <div class="field">
+                <label for="seat-preference">Seat preference</label>
+                <select id="seat-preference">
+                  <option>Window</option>
+                  <option>Aisle</option>
+                  <option>No preference</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="baggage">Baggage scenario</label>
+                <select id="baggage">
+                  <option>Personal item</option>
+                  <option>Personal item + carry-on</option>
+                  <option>No baggage</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Optional experience add-ons</legend>
+            <div class="addon-stack">
+              <div class="addon">
+                <input type="checkbox" id="addon-priority" checked>
+                <label for="addon-priority"><span><strong>Priority hub transfer</strong><span>Expedited handoff through the multimodal node</span></span><b>+$8 / traveler</b></label>
+              </div>
+              <div class="addon">
+                <input type="checkbox" id="addon-flex">
+                <label for="addon-flex"><span><strong>Flexible demo itinerary</strong><span>Illustrative same-day change option</span></span><b>+$12</b></label>
+              </div>
+              <div class="addon">
+                <input type="checkbox" id="addon-greet">
+                <label for="addon-greet"><span><strong>Destination meet-and-greet</strong><span>Coordinated handoff at the final destination</span></span><b>+$15</b></label>
+              </div>
+            </div>
+          </fieldset>
+          <div class="info-note"><strong>Demo privacy:</strong> traveler profiles are fictional placeholders. This page has no account system, backend, analytics form, or personal-data submission.</div>
+          <div class="actions">
+            <button class="button secondary" type="button" data-back="1">← Back</button>
+            <button class="button primary" type="button" id="continue-review">Review itinerary →</button>
+          </div>
         </div>
-      </aside>
-    </div>
+        <aside class="panel summary" id="traveler-summary"></aside>
+      </div>
+    </section>
+
+    <section id="screen-review" class="screen" data-demo-step="review" aria-labelledby="review-title" hidden>
+      <div class="screen-grid">
+        <div class="panel panel-inner">
+          <div class="panel-head">
+            <h2 id="review-title">Review your concept journey</h2>
+            <span class="step-count">Step 3 of 5</span>
+          </div>
+          <div class="review-stack">
+            <article class="review-card">
+              <h3>Itinerary</h3>
+              <div class="review-row"><span>Route</span><span id="review-route">Downtown Fort Worth → DFW Airport</span></div>
+              <div class="review-row"><span>Departure</span><span id="review-departure">Morning · 8:30 AM</span></div>
+              <div class="review-row"><span>Journey type</span><span id="review-mode">Multimodal</span></div>
+              <div class="review-row"><span>Illustrative duration</span><span id="review-duration">31 min</span></div>
+            </article>
+            <article class="review-card">
+              <h3>Travelers and preferences</h3>
+              <div class="review-row"><span>Travelers</span><span id="review-travelers">1 fictional demo traveler</span></div>
+              <div class="review-row"><span>Seat</span><span id="review-seat">Window</span></div>
+              <div class="review-row"><span>Baggage</span><span id="review-baggage">Personal item</span></div>
+              <div class="review-row"><span>Add-ons</span><span id="review-addons">Priority hub transfer</span></div>
+            </article>
+            <article class="review-card">
+              <h3>Concept terms</h3>
+              <p style="margin:0;color:var(--muted);font-size:.79rem;">This demonstration models a possible customer experience only. It does not create a contract, reservation, transportation obligation, refund right, operator relationship, or fare quote.</p>
+            </article>
+          </div>
+          <div class="actions">
+            <button class="button secondary" type="button" data-back="2">← Back</button>
+            <button class="button primary" type="button" id="continue-payment">Continue to simulated payment →</button>
+          </div>
+        </div>
+        <aside class="panel summary panel-inner" aria-label="Illustrative purchase total">
+          <div class="panel-head"><h2>Price summary</h2><span class="demo-chip">Simulated</span></div>
+          <div id="review-price-lines"></div>
+          <p class="fine-print">Illustrative pricing only. No published fare or offer of transportation.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="screen-payment" class="screen" data-demo-step="payment" aria-labelledby="payment-title" hidden>
+      <div class="screen-grid">
+        <div class="panel panel-inner">
+          <div class="panel-head">
+            <h2 id="payment-title">Simulated payment</h2>
+            <span class="step-count">Step 4 of 5</span>
+          </div>
+          <fieldset style="margin-top:0">
+            <legend>Choose a fictional payment method</legend>
+            <div class="payment-grid">
+              <div class="choice payment-method">
+                <input type="radio" name="payment" id="payment-card" value="Demo card" checked>
+                <label for="payment-card"><span class="payment-icon">••</span><b>Demo card</b><span>Token ending 4242</span><em>No card data entry</em></label>
+              </div>
+              <div class="choice payment-method">
+                <input type="radio" name="payment" id="payment-wallet" value="Demo wallet">
+                <label for="payment-wallet"><span class="payment-icon">W</span><b>Demo wallet</b><span>Fictional one-tap approval</span><em>Local simulation</em></label>
+              </div>
+              <div class="choice payment-method">
+                <input type="radio" name="payment" id="payment-credits" value="TAL demo credits">
+                <label for="payment-credits"><span class="payment-icon">T</span><b>Demo credits</b><span>Illustrative network balance</span><em>4,000 credits shown</em></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="demo-card" aria-label="Fictional demo payment card">
+            <div class="demo-card-top"><span>Trinity demo wallet</span><span>Simulation</span></div>
+            <div class="demo-card-number">•••• •••• •••• 4242</div>
+            <div class="demo-card-bottom"><span>DEMO TRAVELER</span><span>NO EXPIRY</span></div>
+          </div>
+          <div class="safety-lock"><b>◎</b><span><strong>No charge will be made.</strong> The button below runs a local animation only. The page has no payment processor, form submission, network request, or stored credential.</span></div>
+          <div class="actions">
+            <button class="button secondary" type="button" data-back="3">← Back</button>
+            <button class="button primary" type="button" id="complete-purchase">Complete simulated purchase</button>
+          </div>
+          <p class="fine-print" id="payment-status" aria-live="polite">No payment or personal information is collected.</p>
+        </div>
+        <aside class="panel summary panel-inner" aria-label="Payment total">
+          <div class="panel-head"><h2>Due in this demo</h2><span class="demo-chip">Not real</span></div>
+          <div id="payment-price-lines"></div>
+          <p class="fine-print">No charge will be made. All values are fictional.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="screen-confirmation" class="screen" data-demo-step="confirmation" aria-labelledby="confirmation-title" hidden>
+      <div class="panel confirmation">
+        <div class="success-head">
+          <div class="success-mark" aria-hidden="true">✓</div>
+          <h2 id="confirmation-title">Demo purchase complete</h2>
+          <p>Your fictional itinerary and digital travel pass are ready.</p>
+        </div>
+        <div class="confirmation-body">
+          <div class="pass-box">
+            <div class="qr" id="qr" aria-label="Decorative demo pass code"></div>
+            <small>DEMO PASS · NOT VALID</small>
+          </div>
+          <div class="confirmation-details">
+            <h3 id="confirmation-route">Fort Worth → DFW Airport</h3>
+            <div class="reference" id="confirmation-reference">TAL-DEMO-0000</div>
+            <div class="review-row"><span>Departure</span><span id="confirmation-departure">8:30 AM</span></div>
+            <div class="review-row"><span>Travelers</span><span id="confirmation-travelers">1</span></div>
+            <div class="review-row"><span>Journey type</span><span id="confirmation-mode">Multimodal</span></div>
+            <div class="review-row"><span>Vehicle</span><span>Illustrative network vehicle · TAL-DMO-7</span></div>
+            <div class="review-row price-total"><span>Total simulated</span><span id="confirmation-total">$109.00</span></div>
+            <div class="info-note"><strong>This is not a ticket.</strong> The reference and pass were generated in your browser for the demo and have no commercial or operational validity.</div>
+            <div class="confirmation-actions">
+              <button class="button primary" type="button" id="track-trip">Visualize this trip →</button>
+              <button class="button secondary" type="button" id="new-trip">Plan another route</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-track" class="screen" data-demo-step="tracking" aria-labelledby="tracking-title" hidden>
+      <div class="panel-head" style="margin-bottom:1rem">
+        <div><div class="eyebrow">Origin-to-destination visualization</div><h2 id="tracking-title" style="margin:.4rem 0 0;font-size:1.8rem;">Watch the journey connect.</h2></div>
+        <button class="button secondary" type="button" id="replay-trip">Replay simulation</button>
+      </div>
+      <div class="tracking-grid">
+        <div class="panel tracking-map">
+          <div class="map-wrap">
+            <span class="map-badge">Live concept visualization</span>
+            <svg id="tracking-map" viewBox="0 0 620 410" role="img" aria-labelledby="track-map-title track-map-desc">
+              <title id="track-map-title">Animated origin-to-destination journey</title>
+              <desc id="track-map-desc">A simulated vehicle moves from the proposed downtown Fort Worth hub toward the selected destination.</desc>
+              <defs>
+                <pattern id="track-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <path d="M32 0H0V32" fill="none" stroke="rgba(149,181,218,.06)" stroke-width="1"/>
+                </pattern>
+                <filter id="track-glow" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <rect width="620" height="410" fill="#06111f"/>
+              <rect width="620" height="410" fill="url(#track-grid)"/>
+              <path d="M50 300C125 210 190 225 255 260S395 325 575 230" fill="none" stroke="rgba(149,181,218,.07)" stroke-width="22"/>
+              <path d="M70 105C180 150 270 110 345 150S475 195 565 125" fill="none" stroke="rgba(149,181,218,.06)" stroke-width="14"/>
+              <path d="M135 270L195 80M135 270L320 325M135 270L385 190M135 270L515 235" stroke="rgba(149,181,218,.09)" stroke-width="2"/>
+              <text x="80" y="365" fill="rgba(237,245,255,.12)" font-size="20" font-weight="800">FORT WORTH</text>
+              <text x="470" y="355" fill="rgba(237,245,255,.10)" font-size="20" font-weight="800">DALLAS</text>
+              <circle cx="135" cy="270" r="9" fill="#53e1d2" filter="url(#track-glow)"/>
+              <circle cx="135" cy="270" r="18" fill="none" stroke="rgba(83,225,210,.38)" stroke-width="2"/>
+              <text x="135" y="300" text-anchor="middle" fill="#9feee6" font-size="11" font-weight="800">T&amp;P HUB</text>
+              <path id="tracking-route-path" class="route-path" d="M135 270Q240 170 385 190" fill="none" stroke="#53e1d2" stroke-width="4"/>
+              <circle id="tracking-dest-pulse" class="pulse" cx="385" cy="190" r="18" fill="none" stroke="#f2bd62" stroke-width="2"/>
+              <circle id="tracking-dest-node" cx="385" cy="190" r="8" fill="#f2bd62"/>
+              <text id="tracking-dest-label" x="385" y="215" text-anchor="middle" fill="#f5d697" font-size="11" font-weight="800">DFW AIRPORT</text>
+              <g id="vehicle-marker" transform="translate(135 270)" filter="url(#track-glow)">
+                <circle r="10" fill="#53e1d2"/>
+                <circle r="18" fill="none" stroke="rgba(83,225,210,.35)" stroke-width="2"/>
+                <path d="M-5 0L4-4L8 0L4 4Z" fill="#04101c"/>
+              </g>
+            </svg>
+            <span class="map-legend">Accelerated 12-second simulation</span>
+          </div>
+          <div class="tracker-bar">
+            <div class="tracker-status" aria-live="polite"><strong id="tracker-status">Preparing departure</strong><span id="tracker-detail">Connecting itinerary, hub, and vehicle state</span></div>
+            <div class="eta"><span>Demo ETA</span><strong id="eta">00:12</strong></div>
+          </div>
+        </div>
+        <aside class="panel track-side">
+          <h2>Journey status</h2>
+          <div class="track-list" id="track-list">
+            <div class="track-item active" data-track="0"><span class="track-dot"></span><div><strong>Pass validated</strong><span>Fictional demo credential accepted</span></div></div>
+            <div class="track-item pending" data-track="1"><span class="track-dot"></span><div><strong>Hub transfer complete</strong><span>Traveler and baggage handoff</span></div></div>
+            <div class="track-item pending" data-track="2"><span class="track-dot"></span><div><strong id="track-segment-name">Regional segment</strong><span>Illustrative operator journey</span></div></div>
+            <div class="track-item pending" data-track="3"><span class="track-dot"></span><div><strong>Destination arrival</strong><span id="track-destination-name">DFW Airport</span></div></div>
+            <div class="track-item pending" data-track="4"><span class="track-dot"></span><div><strong>Final-mile handoff</strong><span>Coordinated onward connection</span></div></div>
+          </div>
+          <div class="vehicle-card"><span>Illustrative vehicle</span><strong>TAL-DMO-7 · Generic qualified operator scenario</strong></div>
+          <div class="vehicle-card"><span>Selected route</span><strong id="tracking-route-summary">Downtown Fort Worth → DFW Airport</strong></div>
+          <button class="button secondary wide" type="button" id="back-to-pass" style="margin-top:1rem">← Return to demo pass</button>
+        </aside>
+      </div>
+    </section>
 
     <div class="vision-note">
-      <b>What this demo is really testing</b>
-      <span>Could a traveler understand and trust one coordinated journey across multiple modes? The long-term product is not just a seat on an aircraft—it is the orchestration layer, physical hub, and service standard that make a fragmented network feel simple.</span>
+      <b>What this product demonstrates</b>
+      <span>The Trinity Air Link thesis is bigger than one aircraft seat. The product is the complete transaction and orchestration layer—plan, price, purchase, transfer, track, and complete a journey across multiple modes through one trusted interface.</span>
     </div>
   </main>
 
   <footer>Trinity Air Link is in Phase 0 validation. This concept demo does not represent active routes, real-time availability, contracted operators, published fares, FAA authority, or an offer to provide transportation.</footer>
 
   <script>
-    const scenarios = {
-      "DFW Airport": { duration: "24–34 min", cost: "$90–$140", air: "+18 min" },
-      "Downtown Dallas": { duration: "28–38 min", cost: "$105–$160", air: "+22 min" },
-      "Alliance Corridor": { duration: "20–30 min", cost: "$75–$120", air: "+14 min" },
-      "Arlington District": { duration: "22–32 min", cost: "$80–$130", air: "+16 min" }
+    const routes = {
+      dfw: { name: "DFW Airport", label: "DFW AIRPORT", x: 385, y: 190, miles: 26, base: 95, durations: { multimodal: 31, air: 25, ground: 52 } },
+      dallas: { name: "Downtown Dallas", label: "DOWNTOWN DALLAS", x: 515, y: 235, miles: 34, base: 125, durations: { multimodal: 38, air: 31, ground: 64 } },
+      alliance: { name: "Alliance Corridor", label: "ALLIANCE", x: 195, y: 80, miles: 18, base: 85, durations: { multimodal: 27, air: 21, ground: 39 } },
+      arlington: { name: "Arlington District", label: "ARLINGTON", x: 320, y: 325, miles: 17, base: 75, durations: { multimodal: 25, air: 20, ground: 36 } }
     };
 
-    const destinationInputs = document.querySelectorAll('input[name="destination"]');
-    const preferenceInputs = document.querySelectorAll('input[name="preference"]');
-    const departure = document.getElementById("departure");
-    const destinationOutput = document.getElementById("summary-destination");
-    const timeOutput = document.getElementById("summary-time");
-    const durationOutput = document.getElementById("summary-duration");
-    const costOutput = document.getElementById("summary-cost");
-    const airTimeOutput = document.getElementById("air-time");
-    const airLegOutput = document.getElementById("air-leg");
-    const passengerOutput = document.getElementById("passenger-count");
-    const response = document.getElementById("response");
-    let passengers = 1;
+    const modes = {
+      multimodal: { name: "Multimodal", factor: 1, segment: "Regional", tracking: "Regional air segment" },
+      air: { name: "Regional air", factor: .9, segment: "Air", tracking: "Direct regional flight" },
+      ground: { name: "Electric ground", factor: .38, segment: "Ground", tracking: "Electric ground connection" }
+    };
 
-    function selected(name) {
-      return document.querySelector('input[name="' + name + '"]:checked').value;
+    const state = {
+      step: 1,
+      destination: "dfw",
+      mode: "multimodal",
+      departure: "Morning · 8:30 AM",
+      passengers: 1,
+      addOns: { priority: true, flex: false, greet: false },
+      payment: "Demo card",
+      reference: "",
+      trackingFrame: null
+    };
+
+    const screens = {
+      1: document.getElementById("screen-plan"),
+      2: document.getElementById("screen-travelers"),
+      3: document.getElementById("screen-review"),
+      4: document.getElementById("screen-payment"),
+      5: document.getElementById("screen-confirmation"),
+      track: document.getElementById("screen-track")
+    };
+
+    const money = (value) => "$" + value.toFixed(2);
+    const checkedValue = (name) => document.querySelector('input[name="' + name + '"]:checked').value;
+
+    function pathFor(route) {
+      const startX = 135;
+      const startY = 270;
+      const bendX = (startX + route.x) / 2;
+      const bendY = Math.min(startY, route.y) - (state.mode === "ground" ? 15 : 70);
+      return "M" + startX + " " + startY + " Q" + bendX + " " + bendY + " " + route.x + " " + route.y;
     }
 
-    function updateSummary() {
-      const destination = selected("destination");
-      const preference = selected("preference");
-      const scenario = scenarios[destination];
-      destinationOutput.textContent = destination;
-      timeOutput.textContent = departure.value.split("·")[1].trim();
-      durationOutput.textContent = preference === "Ground fallback" ? "35–75 min" : scenario.duration;
-      costOutput.textContent = preference === "Ground fallback" ? "$25–$70" : scenario.cost;
-      airTimeOutput.textContent = preference === "Ground fallback" ? "Variable" : scenario.air;
-      airLegOutput.textContent = preference === "Ground fallback" ? "Coordinated ground connection" : "Illustrative regional flight";
-      response.textContent = "";
+    function fareBreakdown() {
+      const route = routes[state.destination];
+      const mode = modes[state.mode];
+      const basePerTraveler = Math.round(route.base * mode.factor);
+      const base = basePerTraveler * state.passengers;
+      const priority = state.addOns.priority ? 8 * state.passengers : 0;
+      const flex = state.addOns.flex ? 12 : 0;
+      const greet = state.addOns.greet ? 15 : 0;
+      const network = 6;
+      const total = base + priority + flex + greet + network;
+      return { basePerTraveler, base, priority, flex, greet, network, total };
     }
 
-    destinationInputs.forEach((input) => input.addEventListener("change", updateSummary));
-    preferenceInputs.forEach((input) => input.addEventListener("change", updateSummary));
-    departure.addEventListener("change", updateSummary);
+    function updateMap(prefix) {
+      const route = routes[state.destination];
+      const path = document.getElementById(prefix + "-route-path");
+      const pulse = document.getElementById(prefix + "-dest-pulse");
+      const node = document.getElementById(prefix + "-dest-node");
+      const label = document.getElementById(prefix + "-dest-label");
+      path.setAttribute("d", pathFor(route));
+      [pulse, node].forEach((element) => {
+        element.setAttribute("cx", route.x);
+        element.setAttribute("cy", route.y);
+      });
+      label.setAttribute("x", route.x);
+      label.setAttribute("y", route.y + (route.y > 300 ? -18 : 25));
+      label.textContent = route.label;
+    }
 
+    function priceLinesMarkup() {
+      const fare = fareBreakdown();
+      const route = routes[state.destination];
+      const lines = [
+        '<div class="review-row"><span>' + modes[state.mode].name + ' fare · ' + route.name + ' × ' + state.passengers + '</span><span>' + money(fare.base) + '</span></div>'
+      ];
+      if (fare.priority) lines.push('<div class="review-row"><span>Priority hub transfer</span><span>' + money(fare.priority) + '</span></div>');
+      if (fare.flex) lines.push('<div class="review-row"><span>Flexible demo itinerary</span><span>' + money(fare.flex) + '</span></div>');
+      if (fare.greet) lines.push('<div class="review-row"><span>Destination meet-and-greet</span><span>' + money(fare.greet) + '</span></div>');
+      lines.push('<div class="review-row"><span>Demo network fee</span><span>' + money(fare.network) + '</span></div>');
+      lines.push('<div class="review-row price-total"><span>Total simulated</span><span>' + money(fare.total) + '</span></div>');
+      return lines.join("");
+    }
+
+    function summaryMarkup() {
+      const route = routes[state.destination];
+      const mode = modes[state.mode];
+      const fare = fareBreakdown();
+      return '<div class="map-wrap">' +
+        '<span class="map-badge">Selected journey</span>' +
+        '<svg viewBox="0 0 620 260" role="img" aria-label="Schematic route from Fort Worth to ' + route.name + '">' +
+          '<defs><pattern id="mini-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="rgba(149,181,218,.06)" stroke-width="1"/></pattern></defs>' +
+          '<rect width="620" height="260" fill="#06111f"/><rect width="620" height="260" fill="url(#mini-grid)"/>' +
+          '<path d="M85 195Q300 45 ' + Math.min(555,route.x + 30) + ' ' + Math.max(55,route.y - 40) + '" fill="none" stroke="#53e1d2" stroke-width="4" stroke-dasharray="8 6"/>' +
+          '<circle cx="85" cy="195" r="10" fill="#53e1d2"/><text x="85" y="222" text-anchor="middle" fill="#9feee6" font-size="11" font-weight="800">T&amp;P HUB</text>' +
+          '<circle cx="' + Math.min(555,route.x + 30) + '" cy="' + Math.max(55,route.y - 40) + '" r="10" fill="#f2bd62"/>' +
+          '<text x="' + Math.min(555,route.x + 30) + '" y="' + (Math.max(55,route.y - 40) + 25) + '" text-anchor="middle" fill="#f5d697" font-size="11" font-weight="800">' + route.label + '</text>' +
+        '</svg><span class="map-legend">Conceptual, not navigation</span></div>' +
+        '<div class="summary-body">' +
+          '<div class="route-title"><div><strong>Downtown Fort Worth</strong><span>T&amp;P hub</span></div><div class="route-arrow">→</div><div><strong>' + route.name + '</strong><span>Connected arrival</span></div></div>' +
+          '<div class="metric-grid"><div class="metric"><span>Departure</span><strong>' + state.departure.split("·")[1].trim() + '</strong></div><div class="metric"><span>Journey</span><strong>' + route.durations[state.mode] + ' min</strong></div><div class="metric"><span>Travelers</span><strong>' + state.passengers + '</strong></div></div>' +
+          '<div class="fare-line"><span>Current simulated total</span><strong>' + money(fare.total) + '</strong></div>' +
+        '</div>';
+    }
+
+    function renderTravelers() {
+      const stack = document.getElementById("traveler-stack");
+      stack.innerHTML = Array.from({ length: state.passengers }, (_, index) =>
+        '<div class="traveler-card"><span class="avatar">' + (index + 1) + '</span><span><strong>Demo traveler ' + (index + 1) + '</strong><span>Fictional profile · no personal data</span></span><span class="demo-chip">Placeholder</span></div>'
+      ).join("");
+    }
+
+    function updateReview() {
+      const route = routes[state.destination];
+      const selectedAddOns = [];
+      if (state.addOns.priority) selectedAddOns.push("Priority hub transfer");
+      if (state.addOns.flex) selectedAddOns.push("Flexible itinerary");
+      if (state.addOns.greet) selectedAddOns.push("Meet-and-greet");
+      document.getElementById("review-route").textContent = "Downtown Fort Worth → " + route.name;
+      document.getElementById("review-departure").textContent = state.departure;
+      document.getElementById("review-mode").textContent = modes[state.mode].name;
+      document.getElementById("review-duration").textContent = route.durations[state.mode] + " min";
+      document.getElementById("review-travelers").textContent = state.passengers + (state.passengers === 1 ? " fictional demo traveler" : " fictional demo travelers");
+      document.getElementById("review-seat").textContent = document.getElementById("seat-preference").value;
+      document.getElementById("review-baggage").textContent = document.getElementById("baggage").value;
+      document.getElementById("review-addons").textContent = selectedAddOns.length ? selectedAddOns.join(", ") : "None";
+      document.getElementById("review-price-lines").innerHTML = priceLinesMarkup();
+      document.getElementById("payment-price-lines").innerHTML = priceLinesMarkup();
+      document.getElementById("complete-purchase").textContent = "Complete simulated purchase · " + money(fareBreakdown().total);
+    }
+
+    function updatePlan() {
+      state.destination = checkedValue("destination");
+      state.mode = checkedValue("mode");
+      state.departure = document.getElementById("departure").value;
+      const route = routes[state.destination];
+      const mode = modes[state.mode];
+      document.getElementById("summary-destination").textContent = route.name;
+      document.getElementById("summary-time").textContent = state.departure.split("·")[1].trim();
+      document.getElementById("summary-duration").textContent = route.durations[state.mode] + " min";
+      document.getElementById("summary-mode").textContent = mode.name;
+      document.getElementById("segment-label").textContent = mode.segment;
+      document.getElementById("summary-fare").textContent = money(fareBreakdown().basePerTraveler);
+      updateMap("preview");
+      renderTravelers();
+      document.getElementById("traveler-summary").innerHTML = summaryMarkup();
+      updateReview();
+    }
+
+    function readOptions() {
+      state.addOns.priority = document.getElementById("addon-priority").checked;
+      state.addOns.flex = document.getElementById("addon-flex").checked;
+      state.addOns.greet = document.getElementById("addon-greet").checked;
+      updateReview();
+      document.getElementById("traveler-summary").innerHTML = summaryMarkup();
+    }
+
+    function setStep(step) {
+      state.step = step;
+      Object.values(screens).forEach((screen) => { screen.hidden = true; });
+      screens[step].hidden = false;
+      document.getElementById("progress").hidden = step === "track";
+      document.querySelectorAll("#progress li").forEach((item) => {
+        const itemStep = Number(item.dataset.step);
+        item.classList.toggle("active", itemStep === step);
+        item.classList.toggle("done", typeof step === "number" && itemStep < step);
+      });
+      if (step === 2) {
+        renderTravelers();
+        document.getElementById("traveler-summary").innerHTML = summaryMarkup();
+      }
+      if (step === 3 || step === 4) updateReview();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function buildReference() {
+      const suffix = Math.floor(1000 + Math.random() * 9000);
+      return "TAL-DEMO-" + suffix;
+    }
+
+    function buildQr(reference) {
+      const qr = document.getElementById("qr");
+      qr.innerHTML = "";
+      let seed = Array.from(reference).reduce((sum, char) => sum + char.charCodeAt(0), 0);
+      for (let i = 0; i < 169; i += 1) {
+        seed = (seed * 9301 + 49297) % 233280;
+        const cell = document.createElement("span");
+        const row = Math.floor(i / 13);
+        const col = i % 13;
+        const finder = (row < 4 && col < 4) || (row < 4 && col > 8) || (row > 8 && col < 4);
+        if (finder || seed / 233280 > .53) cell.className = "dark";
+        qr.appendChild(cell);
+      }
+    }
+
+    function showConfirmation() {
+      const route = routes[state.destination];
+      const fare = fareBreakdown();
+      state.reference = buildReference();
+      buildQr(state.reference);
+      document.getElementById("confirmation-route").textContent = "Downtown Fort Worth → " + route.name;
+      document.getElementById("confirmation-reference").textContent = state.reference;
+      document.getElementById("confirmation-departure").textContent = state.departure.split("·")[1].trim();
+      document.getElementById("confirmation-travelers").textContent = state.passengers;
+      document.getElementById("confirmation-mode").textContent = modes[state.mode].name;
+      document.getElementById("confirmation-total").textContent = money(fare.total);
+      setStep(5);
+    }
+
+    function updateTrackingMap() {
+      const route = routes[state.destination];
+      updateMap("tracking");
+      document.getElementById("tracking-route-summary").textContent = "Downtown Fort Worth → " + route.name;
+      document.getElementById("track-destination-name").textContent = route.name;
+      document.getElementById("track-segment-name").textContent = modes[state.mode].tracking;
+      document.getElementById("vehicle-marker").setAttribute("transform", "translate(135 270)");
+    }
+
+    function setTrackStage(stage) {
+      document.querySelectorAll(".track-item").forEach((item, index) => {
+        item.classList.toggle("done", index < stage);
+        item.classList.toggle("active", index === stage);
+        item.classList.toggle("pending", index > stage);
+      });
+      const statuses = [
+        ["Pass validated", "Fictional credential accepted at the downtown hub"],
+        ["Hub transfer complete", "Traveler, baggage, and itinerary state handed off"],
+        [modes[state.mode].tracking, "Moving across the selected conceptual corridor"],
+        ["Arriving at " + routes[state.destination].name, "Destination node and final connection prepared"],
+        ["Journey complete", "Final-mile handoff confirmed in the simulation"]
+      ];
+      document.getElementById("tracker-status").textContent = statuses[stage][0];
+      document.getElementById("tracker-detail").textContent = statuses[stage][1];
+    }
+
+    function startTracking() {
+      if (state.trackingFrame) cancelAnimationFrame(state.trackingFrame);
+      updateTrackingMap();
+      const path = document.getElementById("tracking-route-path");
+      const marker = document.getElementById("vehicle-marker");
+      const eta = document.getElementById("eta");
+      const duration = 12000;
+      const length = path.getTotalLength();
+      const started = performance.now();
+
+      function frame(now) {
+        const progress = Math.min((now - started) / duration, 1);
+        const point = path.getPointAtLength(length * progress);
+        marker.setAttribute("transform", "translate(" + point.x + " " + point.y + ")");
+        const remaining = Math.max(0, Math.ceil((duration - (now - started)) / 1000));
+        eta.textContent = "00:" + String(remaining).padStart(2, "0");
+        const stage = progress < .12 ? 0 : progress < .27 ? 1 : progress < .78 ? 2 : progress < .94 ? 3 : 4;
+        setTrackStage(stage);
+        if (progress < 1) state.trackingFrame = requestAnimationFrame(frame);
+        else {
+          eta.textContent = "ARRIVED";
+          state.trackingFrame = null;
+        }
+      }
+      state.trackingFrame = requestAnimationFrame(frame);
+    }
+
+    document.querySelectorAll('input[name="destination"], input[name="mode"]').forEach((input) => input.addEventListener("change", updatePlan));
+    document.getElementById("departure").addEventListener("change", updatePlan);
     document.getElementById("minus").addEventListener("click", () => {
-      passengers = Math.max(1, passengers - 1);
-      passengerOutput.textContent = passengers;
-      response.textContent = "";
+      state.passengers = Math.max(1, state.passengers - 1);
+      document.getElementById("passenger-count").textContent = state.passengers;
+      updatePlan();
     });
     document.getElementById("plus").addEventListener("click", () => {
-      passengers = Math.min(6, passengers + 1);
-      passengerOutput.textContent = passengers;
-      response.textContent = "";
+      state.passengers = Math.min(6, state.passengers + 1);
+      document.getElementById("passenger-count").textContent = state.passengers;
+      updatePlan();
     });
-    document.getElementById("preview").addEventListener("click", () => {
-      const destination = selected("destination");
-      const preference = selected("preference");
-      response.textContent = "Concept preview ready: " + passengers + (passengers === 1 ? " traveler" : " travelers") + " to " + destination + " · " + preference + ". Nothing was booked or submitted.";
+    document.querySelectorAll(".addon input").forEach((input) => input.addEventListener("change", readOptions));
+    document.querySelectorAll("#seat-preference, #baggage").forEach((input) => input.addEventListener("change", updateReview));
+    document.querySelectorAll('input[name="payment"]').forEach((input) => input.addEventListener("change", () => { state.payment = checkedValue("payment"); }));
+    document.querySelectorAll("[data-back]").forEach((button) => button.addEventListener("click", () => setStep(Number(button.dataset.back))));
+
+    document.getElementById("continue-travelers").addEventListener("click", () => setStep(2));
+    document.getElementById("continue-review").addEventListener("click", () => { readOptions(); setStep(3); });
+    document.getElementById("continue-payment").addEventListener("click", () => setStep(4));
+    document.getElementById("complete-purchase").addEventListener("click", () => {
+      const button = document.getElementById("complete-purchase");
+      const status = document.getElementById("payment-status");
+      button.disabled = true;
+      button.textContent = "Processing demo payment…";
+      status.textContent = "Running a local simulation. No network request or charge is being made.";
+      setTimeout(() => {
+        button.disabled = false;
+        button.textContent = "Complete simulated purchase · " + money(fareBreakdown().total);
+        status.textContent = "No payment or personal information is collected.";
+        showConfirmation();
+      }, 900);
     });
+    document.getElementById("track-trip").addEventListener("click", () => {
+      setStep("track");
+      startTracking();
+    });
+    document.getElementById("replay-trip").addEventListener("click", startTracking);
+    document.getElementById("back-to-pass").addEventListener("click", () => {
+      if (state.trackingFrame) cancelAnimationFrame(state.trackingFrame);
+      state.trackingFrame = null;
+      setStep(5);
+    });
+    document.getElementById("new-trip").addEventListener("click", () => setStep(1));
+
+    updatePlan();
   </script>
 </body>
 </html>

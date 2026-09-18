@@ -21,9 +21,11 @@ Do not commit:
 Private diligence belongs in a server-authenticated data room or private repository. Client-side JavaScript is not access control.
 
 The public interactive concept demo is permitted only while it remains unmistakably
-simulated: no live-booking language, no personal or payment data collection, no
-implied operator affiliation, and persistent disclosure that routes, times,
-availability, and cost bands are illustrative.
+simulated. It may demonstrate the full customer funnel—route planning, traveler
+options, checkout, pass confirmation, and trip tracking—but it must contain no
+live-booking language, real form submission, personal or payment-data collection,
+networked checkout, or implied operator affiliation. Routes, times, availability,
+vehicles, and prices must remain persistently labeled as illustrative.
 
 ## Source of truth
 
