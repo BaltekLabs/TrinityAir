@@ -3,41 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trinity Air Link | Proposed Downtown Fort Worth Mobility Node</title>
-  <meta name="description" content="Trinity Air Link is evaluating a proposed downtown Fort Worth mobility node connecting regional air mobility, rail, autonomous ground transport, and adaptive reuse.">
+  <title>Trinity Air Link | A Downtown Gateway for North Texas</title>
+  <meta name="description" content="Trinity Air Link imagines Fort Worth's historic T&P Warehouse as a connected downtown gateway for regional air mobility, rail, electric ground transport, innovation, and public life.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://trinityair.link/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Trinity Air Link | Proposed Downtown Fort Worth Mobility Node">
-  <meta property="og:description" content="A Phase 0 proposal for a downtown node in North Texas's emerging advanced-mobility network.">
+  <meta property="og:title" content="Trinity Air Link | A Downtown Gateway for North Texas">
+  <meta property="og:description" content="One historic station. One connected platform. A new way to move across North Texas.">
   <meta property="og:url" content="https://trinityair.link/">
   <meta property="og:image" content="https://trinityair.link/images/old/mainFrontCity.jpeg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#07111f">
+  <meta name="theme-color" content="#06101d">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Trinity Air Link",
     "url": "https://trinityair.link/",
-    "description": "A proposed downtown Fort Worth mobility node currently in Phase 0 validation."
+    "description": "A proposed downtown Fort Worth mobility and innovation hub currently in Phase 0 validation."
   }
   </script>
   <style>
     :root {
-      --ink: #eaf2ff;
-      --muted: #9eb0c7;
-      --bg: #06101d;
+      --ink: #edf5ff;
+      --muted: #9fb2c9;
+      --bg: #05101c;
       --panel: #0a192a;
-      --panel-2: #0e2238;
+      --panel-2: #0d2238;
       --line: rgba(149, 181, 218, .18);
       --blue: #4aa8ff;
       --cyan: #53e1d2;
       --amber: #f2bd62;
       --green: #68db9b;
       --max: 1180px;
-      --shadow: 0 22px 70px rgba(0, 0, 0, .28);
+      --shadow: 0 24px 80px rgba(0, 0, 0, .34);
     }
 
     * { box-sizing: border-box; }
@@ -46,8 +46,9 @@
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(circle at 76% 8%, rgba(55, 142, 229, .16), transparent 28rem),
-        linear-gradient(180deg, #07111f 0%, #06101d 58%, #081522 100%);
+        radial-gradient(circle at 78% 7%, rgba(55, 142, 229, .18), transparent 29rem),
+        radial-gradient(circle at 4% 42%, rgba(83, 225, 210, .07), transparent 25rem),
+        linear-gradient(180deg, #07111f 0%, #05101c 58%, #081522 100%);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
     }
@@ -71,8 +72,8 @@
     .skip-link:focus { transform: translateY(0); }
 
     .wrap { width: min(calc(100% - 2rem), var(--max)); margin-inline: auto; }
-    .section { padding: 6rem 0; }
-    .section.compact { padding: 3.25rem 0; }
+    .section { padding: 6.5rem 0; }
+    .section.compact { padding: 3.5rem 0; }
 
     header {
       position: sticky;
@@ -89,7 +90,7 @@
       justify-content: space-between;
       gap: 1.5rem;
     }
-    .brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; font-weight: 800; letter-spacing: .08em; }
+    .brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; font-weight: 850; letter-spacing: .08em; }
     .brand-mark {
       width: 36px;
       height: 36px;
@@ -98,50 +99,63 @@
       color: #07111f;
       background: linear-gradient(145deg, var(--cyan), var(--blue));
       border-radius: 9px;
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: -.08em;
     }
-    nav { display: flex; align-items: center; gap: 1.4rem; }
-    nav a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 650; }
+    nav { display: flex; align-items: center; gap: 1.25rem; }
+    nav a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 700; }
     nav a:hover { color: var(--ink); }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: .75rem 1.15rem;
+      min-height: 48px;
+      padding: .75rem 1.2rem;
       border: 1px solid transparent;
-      border-radius: .55rem;
+      border-radius: .58rem;
       text-decoration: none;
-      font-weight: 750;
+      font-weight: 800;
       transition: transform .16s ease, border-color .16s ease, background .16s ease;
     }
     .button:hover { transform: translateY(-2px); }
-    .button.primary { color: #06101d; background: linear-gradient(135deg, var(--cyan), #79bfff); }
+    .button.primary { color: #04101c; background: linear-gradient(135deg, var(--cyan), #79bfff); box-shadow: 0 12px 34px rgba(74, 168, 255, .16); }
     .button.secondary { color: var(--ink); border-color: var(--line); background: rgba(255, 255, 255, .035); }
-    .button.small { min-height: 40px; padding: .55rem .9rem; font-size: .9rem; }
+    .button.small { min-height: 40px; padding: .55rem .9rem; font-size: .88rem; }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: .55rem;
-      color: #bbd8f6;
-      font-size: .74rem;
-      font-weight: 800;
+      color: #bddaf7;
+      font-size: .73rem;
+      font-weight: 850;
       letter-spacing: .16em;
       text-transform: uppercase;
     }
     .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--cyan); }
 
-    .hero { padding: 5.5rem 0 4.5rem; }
-    .hero-grid { display: grid; grid-template-columns: 1.06fr .94fr; gap: 4rem; align-items: center; }
+    .hero { position: relative; overflow: hidden; padding: 6.2rem 0 5.3rem; }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      right: -250px;
+      top: -260px;
+      border: 1px solid rgba(83, 225, 210, .11);
+      border-radius: 50%;
+      box-shadow: 0 0 0 90px rgba(74, 168, 255, .025), 0 0 0 180px rgba(83, 225, 210, .018);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 4rem; align-items: center; }
     h1, h2, h3, p { margin-top: 0; }
-    h1 { margin: 1rem 0 1.25rem; max-width: 13ch; font-size: clamp(2.75rem, 6vw, 5.6rem); line-height: .98; letter-spacing: -.052em; }
+    h1 { margin: 1rem 0 1.35rem; max-width: 12ch; font-size: clamp(3rem, 6.35vw, 6rem); line-height: .96; letter-spacing: -.058em; }
     h1 span { color: var(--cyan); }
-    .lede { max-width: 61ch; color: #bfd0e4; font-size: clamp(1.06rem, 2vw, 1.3rem); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
-    .status-line { display: flex; flex-wrap: wrap; gap: .75rem 1.4rem; margin-top: 2rem; color: var(--muted); font-size: .88rem; }
+    .lede { max-width: 60ch; color: #c2d3e6; font-size: clamp(1.08rem, 2vw, 1.32rem); }
+    .hero-kicker { max-width: 62ch; color: var(--muted); font-size: .94rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin: 2rem 0 1.35rem; }
+    .status-line { display: flex; flex-wrap: wrap; gap: .75rem 1.35rem; color: var(--muted); font-size: .84rem; }
     .status-line strong { color: var(--ink); }
 
     .hero-media { position: relative; }
@@ -152,91 +166,137 @@
       border: 1px solid rgba(83, 225, 210, .28);
       border-radius: 1rem;
     }
-    .hero-media img { position: relative; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: .9rem; box-shadow: var(--shadow); filter: saturate(.82) contrast(1.03); }
-    .image-note { position: absolute; right: -1rem; bottom: -1.2rem; width: min(320px, 88%); padding: 1rem 1.1rem; background: rgba(9, 24, 41, .96); border: 1px solid var(--line); border-radius: .6rem; box-shadow: var(--shadow); font-size: .83rem; color: var(--muted); }
-    .image-note strong { display: block; margin-bottom: .2rem; color: var(--amber); }
+    .hero-media img { position: relative; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: .9rem; box-shadow: var(--shadow); filter: saturate(.88) contrast(1.03); }
+    .image-note { position: absolute; right: -1rem; bottom: -1.2rem; width: min(330px, 90%); padding: 1rem 1.1rem; background: rgba(9, 24, 41, .97); border: 1px solid var(--line); border-radius: .6rem; box-shadow: var(--shadow); font-size: .81rem; color: var(--muted); }
+    .image-note strong { display: block; margin-bottom: .18rem; color: var(--amber); }
 
-    .truth-strip { border-block: 1px solid var(--line); background: rgba(255, 255, 255, .018); }
-    .truth-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .truth-item { padding: 1.4rem 1.25rem; border-right: 1px solid var(--line); }
-    .truth-item:last-child { border-right: 0; }
-    .truth-item b { display: block; margin-bottom: .15rem; color: var(--ink); }
-    .truth-item span { color: var(--muted); font-size: .85rem; }
+    .proof-strip { border-block: 1px solid var(--line); background: rgba(255, 255, 255, .018); }
+    .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .proof-item { padding: 1.55rem 1.25rem; border-right: 1px solid var(--line); }
+    .proof-item:last-child { border-right: 0; }
+    .proof-item b { display: block; color: var(--ink); font-size: 1.35rem; letter-spacing: -.025em; }
+    .proof-item span { color: var(--muted); font-size: .82rem; }
 
-    .section-head { max-width: 760px; margin-bottom: 2.3rem; }
-    h2 { margin: .75rem 0 1rem; font-size: clamp(2rem, 4.5vw, 3.35rem); line-height: 1.08; letter-spacing: -.038em; }
-    .section-head p { color: var(--muted); font-size: 1.08rem; }
+    .section-head { max-width: 790px; margin-bottom: 2.5rem; }
+    h2 { margin: .75rem 0 1rem; font-size: clamp(2.15rem, 4.65vw, 3.65rem); line-height: 1.06; letter-spacing: -.043em; }
+    .section-head p { color: var(--muted); font-size: 1.1rem; }
 
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .card { padding: 1.55rem; background: linear-gradient(150deg, rgba(14, 34, 56, .94), rgba(9, 24, 41, .9)); border: 1px solid var(--line); border-radius: .75rem; }
-    .card .number { color: var(--cyan); font-weight: 850; letter-spacing: .08em; font-size: .78rem; }
-    .card h3 { margin: .65rem 0 .6rem; font-size: 1.22rem; }
-    .card p { margin-bottom: 0; color: var(--muted); }
+    .vision-intro { display: grid; grid-template-columns: .82fr 1.18fr; gap: 3.2rem; align-items: start; margin-bottom: 2.3rem; }
+    .vision-statement { padding: 2rem; color: #d8e9f9; background: linear-gradient(145deg, rgba(74,168,255,.12), rgba(83,225,210,.06)); border: 1px solid rgba(83,225,210,.22); border-radius: .85rem; font-size: clamp(1.28rem, 2.4vw, 1.8rem); line-height: 1.35; letter-spacing: -.018em; }
+    .vision-statement span { display: block; margin-top: 1rem; color: var(--muted); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .vision-copy p { color: #bdcee1; font-size: 1.05rem; }
 
-    .reality { background: rgba(9, 24, 41, .62); border-block: 1px solid var(--line); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .card { padding: 1.6rem; background: linear-gradient(150deg, rgba(14, 34, 56, .94), rgba(9, 24, 41, .9)); border: 1px solid var(--line); border-radius: .76rem; }
+    .card .number { color: var(--cyan); font-weight: 900; letter-spacing: .09em; font-size: .76rem; }
+    .card h3 { margin: .65rem 0 .6rem; font-size: 1.2rem; }
+    .card p { margin-bottom: 0; color: var(--muted); font-size: .93rem; }
+
+    .experience { background: rgba(9, 24, 41, .58); border-block: 1px solid var(--line); }
+    .experience-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 3rem; align-items: center; }
+    .journey { display: grid; gap: .75rem; }
+    .journey-step { display: grid; grid-template-columns: 48px 1fr; gap: 1rem; padding: 1.05rem 1.15rem; border: 1px solid var(--line); border-radius: .7rem; background: rgba(255,255,255,.022); }
+    .journey-step b { width: 42px; height: 42px; display: grid; place-items: center; color: var(--cyan); border: 1px solid rgba(83,225,210,.25); border-radius: 50%; font-size: .8rem; }
+    .journey-step h3 { margin: .05rem 0 .25rem; font-size: 1.05rem; }
+    .journey-step p { margin: 0; color: var(--muted); font-size: .88rem; }
+
+    .demo-shell { position: relative; padding: 1.1rem; background: #07121f; border: 1px solid rgba(74,168,255,.28); border-radius: 1rem; box-shadow: var(--shadow); }
+    .demo-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .35rem .35rem 1rem; color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; }
+    .demo-live { color: var(--amber); }
+    .demo-route { padding: 1.25rem; background: linear-gradient(150deg, #0d2339, #0a192a); border: 1px solid var(--line); border-radius: .75rem; }
+    .route-points { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center; }
+    .route-points strong { display: block; font-size: 1.05rem; }
+    .route-points span { color: var(--muted); font-size: .78rem; }
+    .route-arrow { color: var(--cyan); font-size: 1.4rem; }
+    .itinerary { display: grid; gap: .65rem; margin: 1.1rem 0; }
+    .itinerary-row { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: .6rem; border-bottom: 1px solid var(--line); color: #c7d8e9; font-size: .84rem; }
+    .itinerary-row:last-child { border: 0; padding-bottom: 0; }
+    .itinerary-row span:last-child { color: var(--muted); text-align: right; }
+    .demo-shell .button { width: 100%; }
+    .demo-caption { margin: .85rem .25rem .1rem; color: var(--muted); font-size: .75rem; }
+
+    .layers-grid { display: grid; grid-template-columns: .94fr 1.06fr; gap: 3.2rem; align-items: center; }
+    .building-layers { padding: 1rem; display: grid; gap: .6rem; border: 1px solid var(--line); border-radius: .85rem; background: linear-gradient(160deg, rgba(74,168,255,.08), rgba(9,24,41,.85)); }
+    .layer { display: grid; grid-template-columns: 90px 1fr; gap: 1rem; padding: 1.15rem; border: 1px solid var(--line); border-radius: .62rem; background: rgba(5,16,28,.7); }
+    .layer b { color: var(--cyan); font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; }
+    .layer strong { display: block; margin-bottom: .15rem; }
+    .layer span { color: var(--muted); font-size: .84rem; }
+    .possibilities { display: grid; grid-template-columns: repeat(2, 1fr); gap: .85rem; margin-top: 1.5rem; }
+    .possibility { padding: 1rem; border-left: 2px solid var(--blue); background: rgba(255,255,255,.022); }
+    .possibility strong { display: block; margin-bottom: .25rem; }
+    .possibility span { color: var(--muted); font-size: .85rem; }
+
+    .market { background: rgba(9, 24, 41, .62); border-block: 1px solid var(--line); }
     .fact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .fact { display: grid; grid-template-columns: 74px 1fr; gap: 1rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: .7rem; background: rgba(255, 255, 255, .025); }
-    .fact-icon { width: 58px; height: 58px; display: grid; place-items: center; border: 1px solid rgba(74, 168, 255, .32); border-radius: .6rem; color: var(--blue); font-weight: 850; }
-    .fact h3 { margin-bottom: .35rem; font-size: 1.05rem; }
-    .fact p { margin-bottom: .45rem; color: var(--muted); font-size: .91rem; }
-    .source { color: #8bc8ff; font-size: .8rem; font-weight: 700; text-underline-offset: 3px; }
+    .fact { display: grid; grid-template-columns: 70px 1fr; gap: 1rem; padding: 1.3rem; border: 1px solid var(--line); border-radius: .7rem; background: rgba(255, 255, 255, .025); }
+    .fact-icon { width: 56px; height: 56px; display: grid; place-items: center; border: 1px solid rgba(74, 168, 255, .32); border-radius: .6rem; color: var(--blue); font-weight: 900; font-size: .8rem; }
+    .fact h3 { margin-bottom: .35rem; font-size: 1.04rem; }
+    .fact p { margin-bottom: .45rem; color: var(--muted); font-size: .9rem; }
+    .source { color: #8bc8ff; font-size: .79rem; font-weight: 750; text-underline-offset: 3px; }
 
-    .site-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3.25rem; align-items: center; }
-    .site-photo { position: relative; border: 1px solid var(--line); border-radius: .8rem; overflow: hidden; box-shadow: var(--shadow); }
+    .site-grid { display: grid; grid-template-columns: .94fr 1.06fr; gap: 3.4rem; align-items: center; }
+    .site-photo { position: relative; margin: 0; border: 1px solid var(--line); border-radius: .85rem; overflow: hidden; box-shadow: var(--shadow); }
     .site-photo img { width: 100%; aspect-ratio: 16 / 11; object-fit: cover; }
-    .site-photo figcaption { padding: .85rem 1rem; color: var(--muted); background: var(--panel); font-size: .78rem; }
-    .check-list { display: grid; gap: .7rem; margin-top: 1.35rem; }
-    .check { display: grid; grid-template-columns: 20px 1fr; gap: .75rem; color: #c7d6e7; }
+    .site-photo figcaption { padding: .88rem 1rem; color: var(--muted); background: var(--panel); font-size: .77rem; }
+    .check-list { display: grid; gap: .68rem; margin-top: 1.3rem; }
+    .check { display: grid; grid-template-columns: 20px 1fr; gap: .72rem; color: #c7d6e7; }
     .check::before { content: "○"; color: var(--amber); font-weight: 900; }
-    .warning { margin-top: 1.5rem; padding: 1rem 1.1rem; color: #ead8b8; background: rgba(242, 189, 98, .08); border: 1px solid rgba(242, 189, 98, .25); border-radius: .55rem; font-size: .9rem; }
+    .warning { margin-top: 1.5rem; padding: 1rem 1.1rem; color: #ead8b8; background: rgba(242, 189, 98, .08); border: 1px solid rgba(242, 189, 98, .25); border-radius: .55rem; font-size: .88rem; }
 
-    .gates { display: grid; gap: .85rem; counter-reset: gate; }
-    .gate { counter-increment: gate; display: grid; grid-template-columns: 64px 1fr auto; gap: 1rem; align-items: center; padding: 1.15rem 1.25rem; border: 1px solid var(--line); border-radius: .65rem; background: rgba(255,255,255,.022); }
-    .gate::before { content: "0" counter(gate); color: var(--cyan); font-weight: 900; font-size: 1.15rem; }
-    .gate h3 { margin: 0 0 .25rem; font-size: 1.08rem; }
-    .gate p { margin: 0; color: var(--muted); font-size: .9rem; }
-    .pill { padding: .35rem .65rem; color: #f5c97f; background: rgba(242,189,98,.08); border: 1px solid rgba(242,189,98,.25); border-radius: 999px; font-size: .72rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .gates { display: grid; gap: .8rem; counter-reset: gate; }
+    .gate { counter-increment: gate; display: grid; grid-template-columns: 58px 1fr auto; gap: 1rem; align-items: center; padding: 1.15rem 1.25rem; border: 1px solid var(--line); border-radius: .65rem; background: rgba(255,255,255,.022); }
+    .gate::before { content: "0" counter(gate); color: var(--cyan); font-weight: 900; font-size: 1.1rem; }
+    .gate h3 { margin: 0 0 .22rem; font-size: 1.05rem; }
+    .gate p { margin: 0; color: var(--muted); font-size: .88rem; }
+    .pill { padding: .34rem .64rem; color: #f5c97f; background: rgba(242,189,98,.08); border: 1px solid rgba(242,189,98,.25); border-radius: 999px; font-size: .7rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
 
-    .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .roadmap article { position: relative; padding: 1.55rem; border-top: 3px solid var(--blue); background: var(--panel); border-radius: 0 0 .7rem .7rem; }
+    .roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
+    .roadmap article { position: relative; padding: 1.5rem; border-top: 3px solid var(--blue); background: var(--panel); border-radius: 0 0 .7rem .7rem; }
     .roadmap article:first-child { border-color: var(--amber); }
     .roadmap article:last-child { border-color: var(--green); }
-    .roadmap .time { color: var(--muted); font-size: .74rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
-    .roadmap h3 { margin: .55rem 0 .5rem; }
-    .roadmap p { color: var(--muted); margin-bottom: 0; font-size: .92rem; }
+    .roadmap .time { color: var(--muted); font-size: .72rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .roadmap h3 { margin: .55rem 0 .45rem; }
+    .roadmap p { color: var(--muted); margin-bottom: 0; font-size: .89rem; }
 
-    .contact { padding: 2.25rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; background: linear-gradient(120deg, rgba(34, 109, 175, .2), rgba(28, 150, 137, .13)); border: 1px solid rgba(83, 225, 210, .24); border-radius: .9rem; }
-    .contact h2 { margin-top: 0; font-size: clamp(1.8rem, 4vw, 2.7rem); }
-    .contact p { max-width: 69ch; margin-bottom: 0; color: #c1d2e4; }
+    .closing-line { max-width: 950px; margin: 0 auto 3rem; text-align: center; }
+    .closing-line h2 { font-size: clamp(2.4rem, 5.5vw, 4.8rem); }
+    .closing-line h2 span { color: var(--cyan); }
+    .closing-line p { max-width: 700px; margin-inline: auto; color: var(--muted); font-size: 1.08rem; }
+    .contact { padding: 2.35rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; background: linear-gradient(120deg, rgba(34, 109, 175, .22), rgba(28, 150, 137, .14)); border: 1px solid rgba(83, 225, 210, .24); border-radius: .9rem; }
+    .contact h3 { margin: .4rem 0 .6rem; font-size: clamp(1.55rem, 3vw, 2.3rem); }
+    .contact p { max-width: 70ch; margin-bottom: 0; color: #c1d2e4; }
 
-    footer { padding: 2.5rem 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    footer { padding: 2.6rem 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
     .footer-grid { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
     .footer-grid a { color: #a9c7e6; text-underline-offset: 3px; }
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       nav a:not(.button) { display: none; }
-      .hero-grid, .site-grid { grid-template-columns: 1fr; }
-      .hero-media { max-width: 720px; }
-      .truth-grid, .grid-3, .roadmap { grid-template-columns: repeat(2, 1fr); }
-      .truth-item:nth-child(2) { border-right: 0; }
-      .truth-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-      .grid-3 .card:last-child, .roadmap article:last-child { grid-column: 1 / -1; }
+      .hero-grid, .vision-intro, .experience-grid, .layers-grid, .site-grid { grid-template-columns: 1fr; }
+      .hero-media { max-width: 740px; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .proof-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-item:nth-child(2) { border-right: 0; }
+      .proof-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
     }
 
-    @media (max-width: 620px) {
-      .section { padding: 4.25rem 0; }
-      .hero { padding-top: 3.6rem; }
-      .hero-grid { gap: 3.25rem; }
-      h1 { font-size: clamp(2.55rem, 14vw, 4rem); }
-      .truth-grid, .grid-3, .fact-grid, .roadmap { grid-template-columns: 1fr; }
-      .truth-item, .truth-item:nth-child(2) { border-right: 0; border-bottom: 1px solid var(--line); }
-      .truth-item:last-child { border-bottom: 0; }
-      .grid-3 .card:last-child, .roadmap article:last-child { grid-column: auto; }
+    @media (max-width: 680px) {
+      .section { padding: 4.5rem 0; }
+      .hero { padding: 4rem 0 4.5rem; }
+      .hero-grid { gap: 3.3rem; }
+      h1 { font-size: clamp(2.75rem, 14vw, 4.3rem); }
+      .proof-grid, .grid-4, .fact-grid, .roadmap, .possibilities { grid-template-columns: 1fr; }
+      .proof-item, .proof-item:nth-child(2) { border-right: 0; border-bottom: 1px solid var(--line); }
+      .proof-item:last-child { border-bottom: 0; }
       .fact { grid-template-columns: 1fr; }
-      .gate { grid-template-columns: 44px 1fr; }
+      .layer { grid-template-columns: 1fr; gap: .35rem; }
+      .gate { grid-template-columns: 42px 1fr; }
       .gate .pill { grid-column: 2; justify-self: start; }
+      .route-points { grid-template-columns: 1fr; }
+      .route-arrow { transform: rotate(90deg); }
       .contact { grid-template-columns: 1fr; padding: 1.5rem; }
-      .image-note { right: -.3rem; }
+      .image-note { right: -.25rem; }
+      .brand span:last-child { font-size: .82rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -254,11 +314,11 @@
         <span>TRINITY AIR LINK</span>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#thesis">Thesis</a>
-        <a href="#market">Market</a>
-        <a href="#site">Site</a>
-        <a href="#gates">Validation gates</a>
-        <a class="button primary small" href="mailto:partnerships@trinityairlink.com?subject=Trinity%20Air%20Link%20inquiry">Contact</a>
+        <a href="#vision">Vision</a>
+        <a href="#experience">Experience</a>
+        <a href="#site">Place</a>
+        <a href="#proof">Proof plan</a>
+        <a class="button primary small" href="booking_app.html">Launch demo</a>
       </nav>
     </div>
   </header>
@@ -267,62 +327,129 @@
     <section class="hero" id="top">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">Phase 0 · Validation</div>
-          <h1>A proposed <span>downtown node</span> for North Texas mobility.</h1>
-          <p class="lede">Trinity Air Link is evaluating a capital-light hub concept connecting regional air mobility, rail, autonomous ground transport, charging, parking, and adaptive reuse in downtown Fort Worth.</p>
+          <div class="eyebrow">Phase 0 · Big vision, disciplined proof</div>
+          <h1>Where Fort Worth meets its <span>next horizon.</span></h1>
+          <p class="lede">Trinity Air Link imagines the historic Texas &amp; Pacific Warehouse reborn as a downtown gateway—connecting regional flight, rail, electric ground mobility, innovation, and public life in one memorable place.</p>
+          <p class="hero-kicker">One historic station. One connected platform. A new way to move across North Texas.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#gates">See the validation plan</a>
-            <a class="button secondary" href="mailto:partnerships@trinityairlink.com?subject=Trinity%20Air%20Link%20working%20session">Request a working session</a>
+            <a class="button primary" href="#experience">Experience the vision</a>
+            <a class="button secondary" href="booking_app.html">Try the concept demo</a>
           </div>
           <div class="status-line" aria-label="Project status summary">
-            <span><strong>Status:</strong> predevelopment</span>
-            <span><strong>Site:</strong> proposed, not controlled</span>
-            <span><strong>Capital:</strong> no public offering</span>
+            <span><strong>Today:</strong> predevelopment</span>
+            <span><strong>Approach:</strong> operator-neutral</span>
+            <span><strong>Standard:</strong> prove every gate</span>
           </div>
         </div>
         <div class="hero-media">
           <img src="images/old/mainFrontCity.jpeg" width="900" height="675" alt="Concept rendering of an adaptive-reuse mobility hub in downtown Fort Worth">
-          <div class="image-note"><strong>Conceptual imagery</strong>For discussion only. It is not an approved design, construction plan, operator commitment, or government endorsement.</div>
+          <div class="image-note"><strong>A future-state concept</strong>This image expresses an ambition, not an approved design, operator commitment, construction plan, or government endorsement.</div>
         </div>
       </div>
     </section>
 
-    <section class="truth-strip" aria-label="Project disclosures">
-      <div class="wrap truth-grid">
-        <div class="truth-item"><b>401 W Lancaster</b><span>Preferred warehouse site under evaluation</span></div>
-        <div class="truth-item"><b>≈580,000 sq ft</b><span>Subject to survey and architect verification</span></div>
-        <div class="truth-item"><b>Operator-neutral</b><span>Infrastructure and access—not fleet ownership</span></div>
-        <div class="truth-item"><b>Last verified</b><span>September 17, 2026</span></div>
+    <section class="proof-strip" aria-label="Regional and site context">
+      <div class="wrap proof-grid">
+        <div class="proof-item"><b>≈8.5M</b><span>People in the DFW region</span></div>
+        <div class="proof-item"><b>231.3M</b><span>Person-hours of road delay in 2024</span></div>
+        <div class="proof-item"><b>401 W Lancaster</b><span>Preferred downtown site under evaluation</span></div>
+        <div class="proof-item"><b>≈580,000 sq ft</b><span>Building area, subject to verification</span></div>
       </div>
     </section>
 
-    <section class="section" id="thesis">
+    <section class="section" id="vision">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">The revised thesis</div>
-          <h2>Build the missing downtown endpoint—not another airline.</h2>
-          <p>Texas's advanced-mobility ecosystem is becoming real. Trinity Air Link's potential advantage is the downtown interface: a place where qualified operators can connect passengers and freight to rail, autonomous ground vehicles, parking, hospitality, and the Fort Worth core.</p>
+          <div class="eyebrow">The full vision</div>
+          <h2>Not simply a vertiport. A new civic gateway.</h2>
+          <p>The opportunity is larger than a rooftop pad or a single vehicle type. Trinity Air Link is a platform for a future in which every mode works together—and a long-vacant Fort Worth landmark becomes useful, public-facing, and alive again.</p>
         </div>
-        <div class="grid-3">
-          <article class="card"><span class="number">01</span><h3>Operator access</h3><p>Shared pads, charging, passenger processing, dispatch support, data services, and contracted access fees for qualified third-party operators.</p></article>
-          <article class="card"><span class="number">02</span><h3>Ground integration</h3><p>A managed interchange for rail, autonomous ride-hail, shuttles, parking, curb operations, and first/last-mile connections.</p></article>
-          <article class="card"><span class="number">03</span><h3>Adaptive reuse</h3><p>A phased commercial program intended to preserve a landmark while putting only financeable, technically feasible space into service.</p></article>
+        <div class="vision-intro">
+          <div class="vision-statement">“Turn the place that once connected Texas by rail into the place that connects the next era of movement.”<span>Trinity Air Link north star</span></div>
+          <div class="vision-copy">
+            <p>At its fullest expression, the T&amp;P building could become a front door to North Texas: travelers arriving by regional rail, transferring through a managed electric curb, and continuing on qualified regional air services—all through one digital journey.</p>
+            <p>Inside, flexible space could support mobility research, robotics, artificial intelligence, charging and energy systems, operator teams, education, hospitality, and public experiences. The hub would not need to own the vehicles. Its job would be to make the network feel connected.</p>
+          </div>
+        </div>
+        <div class="grid-4">
+          <article class="card"><span class="number">01 · SKY</span><h3>Regional air access</h3><p>Shared infrastructure for qualified third-party operators, designed around safe access, charging, passenger flow, dispatch, and scalable operations.</p></article>
+          <article class="card"><span class="number">02 · GROUND</span><h3>Seamless transfers</h3><p>Rail, autonomous and human-driven vehicles, shuttles, parking, bikes, and pedestrian access orchestrated as one journey.</p></article>
+          <article class="card"><span class="number">03 · LAB</span><h3>Innovation in public</h3><p>A real-world environment for mobility, robotics, energy, and data teams to test, demonstrate, teach, and build.</p></article>
+          <article class="card"><span class="number">04 · PLACE</span><h3>A destination downtown</h3><p>Adaptive reuse that can mix work, hospitality, exhibits, events, and public space around an extraordinary historic structure.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section reality" id="market">
+    <section class="section experience" id="experience">
+      <div class="wrap experience-grid">
+        <div>
+          <div class="section-head">
+            <div class="eyebrow">Imagine the journey</div>
+            <h2>One trip. Every mode working together.</h2>
+            <p>This is the product dream: remove the seams between arrival, transfer, regional movement, and the last mile. The scenario below is illustrative—not a service schedule or launch forecast.</p>
+          </div>
+          <div class="journey">
+            <article class="journey-step"><b>01</b><div><h3>Arrive in the heart of Fort Worth</h3><p>Step off regional rail, walk from downtown, or arrive at a managed electric curb.</p></div></article>
+            <article class="journey-step"><b>02</b><div><h3>Move through one connected interface</h3><p>Identity, accessibility needs, itinerary, baggage, and transfer status travel with you.</p></div></article>
+            <article class="journey-step"><b>03</b><div><h3>Continue across the region</h3><p>Board an eligible third-party air service—or take the best ground option when conditions demand it.</p></div></article>
+            <article class="journey-step"><b>04</b><div><h3>Finish the last mile</h3><p>A coordinated electric connection completes the trip without rebuilding the itinerary from scratch.</p></div></article>
+          </div>
+        </div>
+        <aside class="demo-shell" aria-label="Interactive demo preview">
+          <div class="demo-top"><span>Trinity journey preview</span><span class="demo-live">Simulated experience</span></div>
+          <div class="demo-route">
+            <div class="route-points">
+              <div><strong>Downtown Fort Worth</strong><span>T&amp;P mobility node</span></div>
+              <div class="route-arrow" aria-hidden="true">→</div>
+              <div><strong>Regional destination</strong><span>Connected final mile</span></div>
+            </div>
+            <div class="itinerary">
+              <div class="itinerary-row"><span>08:10 · Rail arrival</span><span>Platform connection</span></div>
+              <div class="itinerary-row"><span>08:16 · Hub transfer</span><span>Electric ground link</span></div>
+              <div class="itinerary-row"><span>08:30 · Regional departure</span><span>Illustrative operator</span></div>
+              <div class="itinerary-row"><span>09:02 · Final connection</span><span>Coordinated arrival</span></div>
+            </div>
+          </div>
+          <p class="demo-caption">Explore a simulated product experience. Routes, operators, timing, availability, and cost bands are fictional and do not represent active service.</p>
+          <a class="button primary" href="booking_app.html">Launch the interactive concept</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="platform">
+      <div class="wrap layers-grid">
+        <div class="building-layers" aria-label="Conceptual hub layers">
+          <div class="layer"><b>Roof</b><div><strong>Air interface</strong><span>Only if structural, safety, airspace, noise, and operating studies support it.</span></div></div>
+          <div class="layer"><b>Ground</b><div><strong>Mobility interchange</strong><span>Managed curb, charging, fleet staging, passenger processing, and rail connections.</span></div></div>
+          <div class="layer"><b>Interior</b><div><strong>Innovation campus</strong><span>Flexible labs, operator space, demonstrations, education, work, hospitality, and events.</span></div></div>
+          <div class="layer"><b>District</b><div><strong>Downtown network</strong><span>A walkable link among rail, the convention district, downtown, and regional destinations.</span></div></div>
+        </div>
+        <div>
+          <div class="eyebrow">One building, many futures</div>
+          <h2>A platform that can grow with the technology.</h2>
+          <p>Aircraft, autonomy, batteries, regulations, and public expectations will change. The durable idea is the node: shared infrastructure that can serve different operators and modes over time instead of betting the entire project on one fleet or one launch date.</p>
+          <div class="possibilities">
+            <div class="possibility"><strong>Business and airport access</strong><span>Faster, more predictable regional connections when the operating case is proven.</span></div>
+            <div class="possibility"><strong>Medical and urgent logistics</strong><span>Potential infrastructure for time-sensitive missions by qualified operators.</span></div>
+            <div class="possibility"><strong>Events and visitor movement</strong><span>A memorable downtown arrival connected to the wider North Texas network.</span></div>
+            <div class="possibility"><strong>Research and workforce</strong><span>A visible home for mobility testing, technical training, and public learning.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section market" id="market">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">Market reality</div>
-          <h2>The category is validated. Trinity Air's role is not.</h2>
-          <p>These are external market facts—not Trinity Air partnerships, approvals, or operating commitments.</p>
+          <div class="eyebrow">Why this moment matters</div>
+          <h2>The future is arriving around Fort Worth.</h2>
+          <p>Federal programs, operator investment, autonomous ride-hail, and regional growth make the category credible. They do not automatically validate Trinity Air Link; they make the downtown-node question worth answering.</p>
         </div>
         <div class="fact-grid">
           <article class="fact"><div class="fact-icon" aria-hidden="true">FAA</div><div><h3>Texas is in the federal eIPP program</h3><p>The selected Texas project supports phased regional operations. Trinity Air and the T&amp;P site are not named participants.</p><a class="source" href="https://www.faa.gov/newsroom/future-aviation-here-trumps-transportation-secretary-sean-duffy-and-faa-unveil-eight" target="_blank" rel="noopener">FAA source ↗</a></div></article>
-          <article class="fact"><div class="fact-icon" aria-hidden="true">JBY</div><div><h3>Joby has a Fort Worth-area base</h3><p>Joby's Perot Field presence creates a credible upstream ecosystem and removes any uncontested market-lead claim.</p><a class="source" href="https://ir.jobyaviation.com/news-events/press-releases/detail/188/joby-aviation-establishes-hub-at-perot-field-fort-worth" target="_blank" rel="noopener">Joby source ↗</a></div></article>
-          <article class="fact"><div class="fact-icon" aria-hidden="true">AV</div><div><h3>Autonomous ride-hail is live in Dallas</h3><p>Waymo opened Dallas service to the public. A Fort Worth or Trinity Air integration remains unproven.</p><a class="source" href="https://waymo.com/blog/shorts/dallas-open-to-all/" target="_blank" rel="noopener">Waymo source ↗</a></div></article>
-          <article class="fact"><div class="fact-icon" aria-hidden="true">DFW</div><div><h3>Regional demand is substantial</h3><p>DFW has roughly 8.5 million residents and recorded about 231.3 million person-hours of road delay in 2024.</p><a class="source" href="https://static.tti.tamu.edu/tti.tamu.edu/documents/mobility-report-2025.pdf" target="_blank" rel="noopener">TTI source ↗</a></div></article>
+          <article class="fact"><div class="fact-icon" aria-hidden="true">JBY</div><div><h3>Joby has established a Fort Worth-area base</h3><p>Its Perot Field presence signals upstream ecosystem investment. It is not a Trinity Air relationship or commitment.</p><a class="source" href="https://ir.jobyaviation.com/news-events/press-releases/detail/188/joby-aviation-establishes-hub-at-perot-field-fort-worth" target="_blank" rel="noopener">Joby source ↗</a></div></article>
+          <article class="fact"><div class="fact-icon" aria-hidden="true">AV</div><div><h3>Autonomous ride-hail is public in Dallas</h3><p>Waymo's Dallas service demonstrates regional momentum. A Fort Worth or Trinity Air integration has not been established.</p><a class="source" href="https://waymo.com/blog/shorts/dallas-open-to-all/" target="_blank" rel="noopener">Waymo source ↗</a></div></article>
+          <article class="fact"><div class="fact-icon" aria-hidden="true">DFW</div><div><h3>The mobility need is large</h3><p>DFW has roughly 8.5 million residents and recorded about 231.3 million person-hours of road delay in 2024.</p><a class="source" href="https://static.tti.tamu.edu/tti.tamu.edu/documents/mobility-report-2025.pdf" target="_blank" rel="noopener">TTI source ↗</a></div></article>
         </div>
       </div>
     </section>
@@ -331,58 +458,59 @@
       <div class="wrap site-grid">
         <figure class="site-photo">
           <img src="images/roof_crop.png" width="1200" height="825" loading="lazy" alt="Conceptual aerial rendering of the preferred adaptive-reuse site">
-          <figcaption>Concept only. Rooftop aviation use has not been established as structurally, operationally, or regulatorily feasible.</figcaption>
+          <figcaption>Future-state concept. Rooftop aviation use has not been established as structurally, operationally, or regulatorily feasible.</figcaption>
         </figure>
         <div>
-          <div class="eyebrow">Preferred site</div>
-          <h2>The T&amp;P Warehouse is a hypothesis to test.</h2>
-          <p>The preferred property is the warehouse at 401 W Lancaster Avenue, adjacent to downtown rail access. It is strategically distinctive, but Trinity Air does not currently represent that it controls the property.</p>
+          <div class="eyebrow">The place</div>
+          <h2>An icon can become a gateway again.</h2>
+          <p>The preferred site is the warehouse at 401 W Lancaster Avenue beside downtown rail access. Its scale, history, and location make it uniquely compelling. They also make it a serious adaptive-reuse challenge.</p>
+          <p>The vision honors that tension: preserve what makes the T&amp;P extraordinary, open it to a new generation, and stage only the uses that can survive technical, civic, and financial scrutiny.</p>
           <div class="check-list">
             <div class="check">Secure an option, lease framework, or other enforceable diligence right.</div>
-            <div class="check">Confirm parcel boundaries, title, access, building area, condition, and historic constraints.</div>
+            <div class="check">Confirm parcel, title, access, area, condition, preservation, and parking constraints.</div>
             <div class="check">Test structure, fire/life safety, utilities, charging, airspace, noise, emergency response, and vertiport geometry.</div>
-            <div class="check">Maintain a ground-level or alternate downtown-site configuration if rooftop operations fail.</div>
+            <div class="check">Keep a ground-level or alternate downtown configuration alive if rooftop operations fail.</div>
           </div>
-          <div class="warning"><strong>Current disclosure:</strong> site control, operator commitments, construction budget, incentives, and FAA operating authority have not been established in public project evidence.</div>
+          <div class="warning"><strong>Current status:</strong> Trinity Air Link is in Phase 0—validation and site control. The project does not currently represent that it controls the property, has operator commitments, holds FAA operating authority, or has an approved construction plan.</div>
         </div>
       </div>
     </section>
 
-    <section class="section reality" id="gates">
+    <section class="section market" id="proof">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">Decision discipline</div>
-          <h2>Five gates before a full project raise.</h2>
-          <p>The next work product is evidence. Headline returns and launch dates stay withdrawn until the operating and capital model is linked to verified inputs.</p>
+          <div class="eyebrow">Dream big. Prove every gate.</div>
+          <h2>The pitch is the destination. The work is earning the right to build it.</h2>
+          <p>Five gates separate a compelling picture from a financeable project. The vision stays ambitious; the claims stay tied to evidence.</p>
         </div>
         <div class="gates">
-          <article class="gate"><div><h3>Site control</h3><p>Executed instrument with adequate diligence and development rights.</p></div><span class="pill">Open</span></article>
-          <article class="gate"><div><h3>Technical feasibility</h3><p>No fatal structural, utility, airspace, fire, historic, or permitting constraint.</p></div><span class="pill">Open</span></article>
+          <article class="gate"><div><h3>Site control</h3><p>An executed instrument with adequate diligence and development rights.</p></div><span class="pill">Open</span></article>
+          <article class="gate"><div><h3>Technical feasibility</h3><p>No fatal structural, utility, airspace, fire, historic, noise, or permitting constraint.</p></div><span class="pill">Open</span></article>
           <article class="gate"><div><h3>Operator and customer traction</h3><p>Written requirements and at least one credible commercial-development signal.</p></div><span class="pill">Open</span></article>
-          <article class="gate"><div><h3>Financeability</h3><p>Linked net-revenue model, scoped capital costs, downside liquidity, and capital plan.</p></div><span class="pill">Open</span></article>
-          <article class="gate"><div><h3>Public and regulatory alignment</h3><p>Named agency pathways and no implied endorsement or automatic operating authority.</p></div><span class="pill">Open</span></article>
+          <article class="gate"><div><h3>Financeability</h3><p>Linked net-revenue model, scoped capital costs, downside liquidity, and a credible capital plan.</p></div><span class="pill">Open</span></article>
+          <article class="gate"><div><h3>Public and regulatory alignment</h3><p>Named agency pathways, transparent community engagement, and no implied endorsement.</p></div><span class="pill">Open</span></article>
+        </div>
+        <div class="roadmap" aria-label="90-day evidence plan">
+          <article><span class="time">Now · Days 0–30</span><h3>Control and listen</h3><p>Resolve the property path, cap diligence scopes, build a claims register, and start working-level conversations with civic, property, technical, and operator stakeholders.</p></article>
+          <article><span class="time">Next · Days 31–60</span><h3>Test and design</h3><p>Run preliminary site, structure, utility, airspace, fire, operating, and preservation studies. Define the smallest useful first phase.</p></article>
+          <article><span class="time">Then · Days 61–90</span><h3>Choose and commit</h3><p>Advance only if the site, minimum configuration, commercial signal, capital path, and public process line up. Otherwise adapt the concept or pause.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="roadmap">
+    <section class="section">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Near-term roadmap</div>
-          <h2>A 90-day evidence sprint.</h2>
+        <div class="closing-line">
+          <div class="eyebrow">The invitation</div>
+          <h2>The next chapter of Fort Worth mobility will be built somewhere. <span>Why not begin here?</span></h2>
+          <p>Trinity Air Link is not announcing a finished project. It is assembling the people and proof needed to decide whether this landmark can become North Texas's most connected downtown gateway.</p>
         </div>
-        <div class="roadmap">
-          <article><span class="time">Now · Days 0–30</span><h3>Control and scope</h3><p>Resolve property interest, commission capped diligence scopes, establish the claims register, and open working-level conversations with the city, TxDOT, operators, and regional planners.</p></article>
-          <article><span class="time">Next · Days 31–60</span><h3>Test and price</h3><p>Complete preliminary site, structure, utility, airspace, fire, and operating studies. Rebuild unit economics from operator-access fees rather than gross transportation fares.</p></article>
-          <article><span class="time">Then · Days 61–90</span><h3>Decide</h3><p>Proceed only if site control, a viable minimum configuration, commercial traction, financeability, and a named public/regulatory path are all present. Otherwise pivot or pause.</p></article>
+        <div class="contact">
+          <div><div class="eyebrow">Help build the proof</div><h3>Bring your expertise to the table.</h3><p>We are seeking serious conversations with property, aviation, infrastructure, rail, autonomous-mobility, preservation, energy, technology, finance, education, hospitality, and public-sector professionals.</p></div>
+          <div>
+            <a class="button primary" href="mailto:partnerships@trinityairlink.com?subject=Trinity%20Air%20Link%20working%20session">Start a conversation</a>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section compact">
-      <div class="wrap contact">
-        <div><div class="eyebrow">Working-level engagement</div><h2>Help test the project.</h2><p>Trinity Air Link is seeking serious conversations with property, aviation, infrastructure, transit, autonomous-mobility, preservation, finance, and public-sector professionals. Detailed diligence materials are not published on this website.</p></div>
-        <a class="button primary" href="mailto:partnerships@trinityairlink.com?subject=Trinity%20Air%20Link%20working%20session">Contact the project</a>
       </div>
     </section>
   </main>
@@ -390,7 +518,7 @@
   <footer>
     <div class="wrap footer-grid">
       <span>© 2026 Trinity Air Link · A Baltek Systems Services LLC project</span>
-      <span><a href="mailto:partnerships@trinityairlink.com">partnerships@trinityairlink.com</a> · Information is preliminary and subject to change.</span>
+      <span><a href="booking_app.html">Concept demo</a> · <a href="mailto:partnerships@trinityairlink.com">partnerships@trinityairlink.com</a> · Information is preliminary and subject to change.</span>
     </div>
   </footer>
 </body>

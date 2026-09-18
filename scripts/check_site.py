@@ -11,9 +11,10 @@ from urllib.parse import unquote, urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC_HTML = [ROOT / "index.html", ROOT / "404.html"]
+PUBLIC_HTML = [ROOT / "index.html", ROOT / "booking_app.html", ROOT / "404.html"]
 REQUIRED_FILES = [
     ROOT / "index.html",
+    ROOT / "booking_app.html",
     ROOT / "404.html",
     ROOT / "robots.txt",
     ROOT / "sitemap.xml",
@@ -36,6 +37,9 @@ PROHIBITED_PATTERNS = {
     "wrong-economy-rank": re.compile(r"3(?:rd|d)\s+largest.{0,25}metro\s+economy", re.I),
     "pid20-claim": re.compile(r"PID\s*20", re.I),
     "public-return-claim": re.compile(r"\b(?:IRR|NPV)\b", re.I),
+}
+DEMO_PROHIBITED_PATTERNS = {
+    "live-booking-action": re.compile(r"confirm\s+booking|reserve\s+now|buy\s+(?:a\s+)?ticket", re.I),
 }
 ATTR_RE = re.compile(r"(?:href|src)=[\"']([^\"']+)[\"']", re.I)
 
@@ -84,6 +88,18 @@ def main() -> int:
             for required in ('<meta name="description"', '<link rel="canonical"', 'Phase 0'):
                 if required not in text:
                     errors.append(f"index.html missing required marker: {required}")
+        if path.name == "booking_app.html":
+            for required in (
+                '<meta name="robots" content="noindex,follow">',
+                "Interactive concept only.",
+                "not a live booking service",
+                "no affiliation or service commitment is implied",
+            ):
+                if required not in text:
+                    errors.append(f"booking_app.html missing required demo disclosure: {required}")
+            for label, pattern in DEMO_PROHIBITED_PATTERNS.items():
+                if pattern.search(text):
+                    errors.append(f"booking_app.html contains prohibited {label}")
         for label, pattern in PROHIBITED_PATTERNS.items():
             if pattern.search(text):
                 errors.append(f"{path.name} contains prohibited {label}")
