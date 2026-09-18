@@ -40,6 +40,9 @@ PROHIBITED_PATTERNS = {
 }
 DEMO_PROHIBITED_PATTERNS = {
     "live-booking-action": re.compile(r"confirm\s+booking|reserve\s+now|buy\s+(?:a\s+)?ticket", re.I),
+    "real-payment-field": re.compile(r'type=[\"\'](?:email|password)[\"\']|autocomplete=[\"\']cc-|name=[\"\'][^\"\']*card', re.I),
+    "checkout-network-call": re.compile(r"\bfetch\s*\(|XMLHttpRequest|sendBeacon\s*\(", re.I),
+    "checkout-form-submit": re.compile(r"<form\b|formaction\s*=", re.I),
 }
 ATTR_RE = re.compile(r"(?:href|src)=[\"']([^\"']+)[\"']", re.I)
 
@@ -94,6 +97,10 @@ def main() -> int:
                 "Interactive concept only.",
                 "not a live booking service",
                 "no affiliation or service commitment is implied",
+                'data-demo-step="payment"',
+                'id="tracking-map"',
+                "Complete simulated purchase",
+                "No charge will be made.",
             ):
                 if required not in text:
                     errors.append(f"booking_app.html missing required demo disclosure: {required}")
