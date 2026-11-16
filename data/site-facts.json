@@ -34,5 +34,75 @@
     "diligence_materials_public": false,
     "relationship_claim_requires_written_evidence": true,
     "all_design_images_are_conceptual": true
+  },
+  "mobility_update": {
+    "verified_on": "2026-11-16",
+    "review_owner": "Trinity Air Link",
+    "faa_vertiport_draft": {
+      "status": "draft advisory circular",
+      "document": "AC 150/5390-4",
+      "industry_day_scheduled": "2026-11-10",
+      "comments_due": "2027-01-11",
+      "caution_area_width_ft": 420,
+      "caution_area_length_ft": 780,
+      "aircraft_weight_max_lb": 7000,
+      "sources": [
+        "https://www.faa.gov/documentLibrary/media/Advisory_Circular/draft-ac-150-5390-4-Vertical-Flight-industry.pdf",
+        "https://www.faa.gov/documentLibrary/media/Advisory_Circular/draft-ac-150-5390-4-Vertical-Flight-industry-ltr.pdf",
+        "https://www.faa.gov/airports/new_entrants/aam_infrastructure"
+      ]
+    },
+    "texas_eipp": {
+      "status": "demonstrations",
+      "site": "Perot Field Fort Worth Alliance Airport",
+      "date": "2026-09-10",
+      "meacham_charging_award_usd": 92500,
+      "meacham_award_agency": "Regional Transportation Council",
+      "sources": [
+        "https://www.txdot.gov/about/newsroom/statewide/air-taxi-testing-taking-flight-in-texas.html",
+        "https://www.nctcog.org/trans/about/news/regional-transportation-council-approves-477-500-for-infrastructure-to-boost-evtol-charging-network"
+      ]
+    },
+    "joby": {
+      "disclosed": "2026-11-04",
+      "status": "company target",
+      "milestone": "FAA pilot training and conforming-aircraft company flight testing",
+      "target": "H1 2027",
+      "source": "https://ir.jobyaviation.com/sec-filings/all-sec-filings/content/0001819848-26-000531/joby-8kx20261104xexx99_2.htm"
+    },
+    "archer": {
+      "disclosed": "2026-11-09",
+      "status": "experimental market survey certificate for conventional takeoff and landing",
+      "location": "Los Angeles",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1824502/000182450226000087/archerq326earningspressr.htm",
+        "https://www.ainonline.com/aviation-news/futureflight/2026-11-10/joby-and-archer-push-evtol-passenger-flights-2027"
+      ]
+    },
+    "fort_worth_robotaxi": {
+      "announced": "2026-11-11",
+      "operator": "Tesla",
+      "service_hours": "24/7",
+      "status": "public service in existing coverage area",
+      "t_and_p_pickup_verified": false,
+      "sources": [
+        "https://www.tesla.com/support/robotaxi/cybercab",
+        "https://x.com/robotaxi/status/2120736143566344324",
+        "https://www.notateslaapp.com/news/4991/tesla-robotaxi-now-runs-247-in-every-city",
+        "https://kobypierce.com/geofence-tracker"
+      ]
+    },
+    "dallas_robotaxi": {
+      "public_driverless_operator": "Waymo",
+      "supervised_operator": "Avride via Uber",
+      "avride_driverless_status": "company target",
+      "avride_driverless_target": "H1 2027",
+      "avride_target_disclosed": "2026-11-12",
+      "sources": [
+        "https://waymo.com/blog/shorts/dallas-open-to-all/",
+        "https://www.uber.com/us/en/newsroom/avride-on-uber/",
+        "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-2.htm"
+      ]
+    }
   }
 }
